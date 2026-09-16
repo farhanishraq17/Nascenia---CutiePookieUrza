@@ -1,0 +1,46 @@
+{
+  "run_name": "len20",
+  "model": "csebuetnlp/banglat5",
+  "data_dir": "../data/english_draft_len20",
+  "seed": 11,
+  "params": 247577856,
+  "train_rows": 100883,
+  "epochs": 3.0,
+  "max_steps": 12000,
+  "eval_steps": 250,
+  "early_stopping_patience": 8,
+  "lr": 0.001,
+  "effective_batch": 64,
+  "label_smoothing": 0.0,
+  "optim": "adafactor",
+  "max_source_len": 768,
+  "max_target_len": 512,
+  "grad_checkpointing": false,
+  "precision": "bf16",
+  "gpu": "NVIDIA A800 40GB Active",
+  "n_gpu": 1,
+  "normalizer": true,
+  "decoding": {
+    "num_beams": 4,
+    "min_new_tokens": 80,
+    "max_new_tokens": 320,
+    "length_penalty": 1.0
+  },
+  "dev": {
+    "loss": 0.38541245460510254,
+    "token_f1": 0.8210662362524782,
+    "rouge_l": 0.7923007904198975,
+    "bertscore": 0.9321320399987938,
+    "composite": 0.8708460489591198,
+    "pred_tokens": 100.13,
+    "runtime": 117.9265,
+    "samples_per_second": 2.544,
+    "steps_per_second": 0.322
+  },
+  "eval_subset": 300,
+  "train_minutes": 354.3,
+  "checkpoint_hash": "96b01bfa77596aea",
+  "versions": {
+    "torch": "2.8.0+cu128"
+  }
+}

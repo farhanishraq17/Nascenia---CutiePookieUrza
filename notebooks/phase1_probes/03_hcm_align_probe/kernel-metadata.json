@@ -1,0 +1,19 @@
+{
+  "id": "farhanishraqq/nascenia-hcm-align-probe",
+  "title": "Nascenia HCM Align Probe",
+  "code_file": "nascenia-hcm-align-probe.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "dataset_sources": [
+    "farhanishraqq/nascenia-hcm-bn"
+  ],
+  "competition_sources": [
+    "nascenia-ai-hackathon"
+  ],
+  "kernel_sources": [],
+  "model_sources": []
+}

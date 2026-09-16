@@ -1,0 +1,15 @@
+{
+  "id": "farhanishraqq/nascenia-constant-probe",
+  "title": "Nascenia Constant Probe",
+  "code_file": "05_submit_constant_probe.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": ["nascenia-ai-hackathon"],
+  "kernel_sources": [],
+  "model_sources": []
+}

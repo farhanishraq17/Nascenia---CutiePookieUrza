@@ -1,0 +1,46 @@
+{
+  "run_name": "conv12k",
+  "model": "csebuetnlp/banglat5",
+  "data_dir": "../data/all_inputs",
+  "seed": 11,
+  "params": 247577856,
+  "train_rows": 101737,
+  "epochs": 3.0,
+  "max_steps": 12000,
+  "eval_steps": 250,
+  "early_stopping_patience": 8,
+  "lr": 0.001,
+  "effective_batch": 64,
+  "label_smoothing": 0.0,
+  "optim": "adafactor",
+  "max_source_len": 1024,
+  "max_target_len": 512,
+  "grad_checkpointing": false,
+  "precision": "bf16",
+  "gpu": "NVIDIA RTX PRO 4000 Blackwell",
+  "n_gpu": 1,
+  "normalizer": true,
+  "decoding": {
+    "num_beams": 4,
+    "min_new_tokens": 80,
+    "max_new_tokens": 320,
+    "length_penalty": 1.0
+  },
+  "dev": {
+    "loss": 0.376941442489624,
+    "token_f1": 0.8226613707030924,
+    "rouge_l": 0.7949332469078456,
+    "bertscore": 0.9318744742772886,
+    "composite": 0.8717222977311413,
+    "pred_tokens": 100.59333333333333,
+    "runtime": 216.5886,
+    "samples_per_second": 1.385,
+    "steps_per_second": 0.346
+  },
+  "eval_subset": 300,
+  "train_minutes": 616.9,
+  "checkpoint_hash": "84437e3d11ced7e6",
+  "versions": {
+    "torch": "2.8.0+cu128"
+  }
+}

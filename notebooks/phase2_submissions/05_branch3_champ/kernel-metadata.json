@@ -1,0 +1,17 @@
+{
+  "id": "farhanishraqq/nascenia-branch3-champ",
+  "title": "nascenia-branch3-champ",
+  "code_file": "nascenia-branch3-champ.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_internet": true,
+  "dataset_sources": [
+    "farhanishraqq/nascenia-peak5-checkpoint-average",
+    "farhanishraqq/nascenia-branch3-probe"
+  ],
+  "competition_sources": [],
+  "kernel_sources": []
+}

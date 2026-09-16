@@ -1,0 +1,12 @@
+{
+  "members": [
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E05_train_to_convergence/english_draft/best",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E19_multiseed_ensemble/seed1337/best",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E19_multiseed_ensemble/seed42/best",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E19_multiseed_ensemble/sched777/best",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E19_multiseed_ensemble/seed2024/best",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E19_multiseed_ensemble/seed11/best"
+  ],
+  "dev_token_f1": 0.8286297022166836,
+  "params": 247577856
+}

@@ -1,0 +1,18 @@
+{
+  "members": [
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E05_train_to_convergence/english_draft/ckpt/checkpoint-9500",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E05_train_to_convergence/english_draft/ckpt/checkpoint-10000",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E05_train_to_convergence/english_draft/ckpt/checkpoint-10500",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E05_train_to_convergence/english_draft/ckpt/checkpoint-11000",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E05_train_to_convergence/english_draft/ckpt/checkpoint-11500",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E05_train_to_convergence/english_draft/ckpt/checkpoint-11750",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E05_train_to_convergence/english_draft/ckpt/checkpoint-12000",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E05_train_to_convergence/english_draft/ckpt/checkpoint-12250",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E05_train_to_convergence/english_draft/ckpt/checkpoint-12500",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E05_train_to_convergence/english_draft/ckpt/checkpoint-13000",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E05_train_to_convergence/english_draft/ckpt/checkpoint-13500",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E05_train_to_convergence/english_draft/ckpt/checkpoint-14000"
+  ],
+  "dev_token_f1": 0.8333389907039379,
+  "params": 247577856
+}

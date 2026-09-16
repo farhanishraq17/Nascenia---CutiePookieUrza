@@ -1,0 +1,8 @@
+{
+  "members": [
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E05_train_to_convergence/english_draft/ckpt/checkpoint-11750",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E05_train_to_convergence/english_draft/ckpt/checkpoint-12000"
+  ],
+  "dev_token_f1": 0.8344007153902321,
+  "params": 247577856
+}

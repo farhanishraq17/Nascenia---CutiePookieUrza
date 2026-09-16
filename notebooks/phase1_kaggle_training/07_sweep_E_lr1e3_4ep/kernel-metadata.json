@@ -1,0 +1,18 @@
+{
+  "id": "ishmamahmid/nascenia-sweep-e-lr1e3-4ep",
+  "title": "Nascenia Sweep E-lr1e3-4ep",
+  "code_file": "nascenia-sweep-e-lr1e3-4ep.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [
+    "ishmamahmid/nascenia-code",
+    "ishmamahmid/nascenia-data"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

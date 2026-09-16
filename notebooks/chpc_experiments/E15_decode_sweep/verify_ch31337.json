@@ -1,0 +1,14 @@
+[
+  {
+    "num_beams": 8,
+    "length_penalty": 1.2,
+    "min_new_tokens": 0,
+    "max_new_tokens": 320,
+    "token_f1": 0.8348300516361816,
+    "rouge_l": 0.8062655445020881,
+    "lexical": 0.4117021243912721,
+    "mean_tokens": 99.36,
+    "verify_token_f1": 0.8397015853283589,
+    "verify_rouge_l": 0.8138006678974329
+  }
+]

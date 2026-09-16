@@ -1,0 +1,46 @@
+{
+  "run_name": "conv12k",
+  "model": "csebuetnlp/banglat5",
+  "data_dir": "../data/question_draft",
+  "seed": 11,
+  "params": 247577856,
+  "train_rows": 101737,
+  "epochs": 3.0,
+  "max_steps": 12000,
+  "eval_steps": 250,
+  "early_stopping_patience": 8,
+  "lr": 0.001,
+  "effective_batch": 64,
+  "label_smoothing": 0.0,
+  "optim": "adafactor",
+  "max_source_len": 640,
+  "max_target_len": 512,
+  "grad_checkpointing": false,
+  "precision": "bf16",
+  "gpu": "NVIDIA RTX PRO 4000 Blackwell",
+  "n_gpu": 1,
+  "normalizer": true,
+  "decoding": {
+    "num_beams": 4,
+    "min_new_tokens": 80,
+    "max_new_tokens": 320,
+    "length_penalty": 1.0
+  },
+  "dev": {
+    "loss": 0.5002070069313049,
+    "token_f1": 0.7956768042663056,
+    "rouge_l": 0.7610779115553865,
+    "bertscore": 0.9238331396100803,
+    "composite": 0.8528351933960092,
+    "pred_tokens": 99.53,
+    "runtime": 124.3857,
+    "samples_per_second": 2.412,
+    "steps_per_second": 0.306
+  },
+  "eval_subset": 300,
+  "train_minutes": 422.9,
+  "checkpoint_hash": "b4bacffb770ea0ee",
+  "versions": {
+    "torch": "2.8.0+cu128"
+  }
+}

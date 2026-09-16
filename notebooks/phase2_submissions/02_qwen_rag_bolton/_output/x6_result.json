@@ -1,0 +1,29 @@
+{
+  "arm": "X6",
+  "model": "Qwen/Qwen3.5-2B (X2 checkpoint, no retrain)",
+  "retrieval_corpus_rows": 225066,
+  "retriever": "intfloat/multilingual-e5-base",
+  "retriever_params": 278043648,
+  "sim_ceiling": 0.97,
+  "mean_top1_sim": 0.9141297340393066,
+  "baseline_plain": {
+    "n": 300,
+    "token_f1": 0.2648277202833166,
+    "rouge_l": 0.17819885570133978,
+    "mean_pred_tokens": 113.45,
+    "helo_opener_pct": 78.66666666666667,
+    "truncated_pct": 66.33333333333333,
+    "empty_pct": 0.0
+  },
+  "x6_rag": {
+    "n": 300,
+    "token_f1": 0.18281444436284353,
+    "rouge_l": 0.12202887938674965,
+    "mean_pred_tokens": 129.44333333333333,
+    "helo_opener_pct": 31.666666666666668,
+    "truncated_pct": 74.66666666666667,
+    "empty_pct": 0.0,
+    "copy_overlap_with_reference": 0.2357426266131093,
+    "copy_margin": -0.05292818225026577
+  }
+}

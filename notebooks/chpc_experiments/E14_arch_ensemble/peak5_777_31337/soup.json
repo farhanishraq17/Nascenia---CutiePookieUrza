@@ -1,0 +1,9 @@
+{
+  "members": [
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E15_decode_sweep/ckptavg_peak5",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E19_multiseed_ensemble/sched777/best",
+    "/scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/E19_multiseed_ensemble/sched31337/best"
+  ],
+  "dev_token_f1": 0.8340146099143116,
+  "params": 247577856
+}

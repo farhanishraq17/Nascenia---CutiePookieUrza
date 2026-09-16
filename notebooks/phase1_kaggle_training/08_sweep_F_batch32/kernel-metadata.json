@@ -1,0 +1,18 @@
+{
+  "id": "ishmamahmid/nascenia-sweep-f-batch32",
+  "title": "Nascenia Sweep F-batch32",
+  "code_file": "nascenia-sweep-f-batch32.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [
+    "ishmamahmid/nascenia-code",
+    "ishmamahmid/nascenia-data"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

@@ -1,0 +1,22 @@
+{
+  "id": "didhitinahid/nascenia-submit-xfer-s23",
+  "title": "Nascenia Submit Xfer s23",
+  "code_file": "nascenia-submit-xfer-s23.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [
+    "didhitinahid/nascenia-code",
+    "didhitinahid/nascenia-drafts-devtest",
+    "didhitinahid/nascenia-xfer-ckpt-s23"
+  ],
+  "competition_sources": [
+    "nascenia-ai-hackathon"
+  ],
+  "kernel_sources": [],
+  "model_sources": [],
+  "machine_shape": "NvidiaTeslaT4"
+}

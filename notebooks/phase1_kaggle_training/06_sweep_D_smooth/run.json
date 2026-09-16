@@ -1,0 +1,45 @@
+{
+  "run_name": "banglat5_seed2024",
+  "model": "csebuetnlp/banglat5",
+  "seed": 2024,
+  "params": 247577856,
+  "train_rows": 101740,
+  "epochs": 2.0,
+  "lr": 0.0003,
+  "effective_batch": 64,
+  "label_smoothing": 0.1,
+  "optim": "adafactor",
+  "max_source_len": 384,
+  "max_target_len": 256,
+  "grad_checkpointing": false,
+  "precision": "fp32",
+  "gpu": "Tesla T4",
+  "n_gpu": 1,
+  "normalizer": true,
+  "decoding": {
+    "num_beams": 4,
+    "min_new_tokens": 80,
+    "max_new_tokens": 320,
+    "length_penalty": 1.0
+  },
+  "dev": {
+    "loss": 3.441362142562866,
+    "token_f1": 0.2359869350854864,
+    "rouge_l": 0.1670154771605526,
+    "bertscore": 0.6962934036959543,
+    "composite": 0.4523458778057337,
+    "pred_tokens": 92.22,
+    "runtime": 313.0067,
+    "samples_per_second": 0.958,
+    "steps_per_second": 0.121
+  },
+  "eval_subset": 300,
+  "train_minutes": 411.9,
+  "checkpoint_hash": "9e3126b85e78323a",
+  "versions": {
+    "torch": "2.10.0+cu128"
+  },
+  "_note_dev_loss": "Not comparable to other arms — label_smoothing 0.1 inflates cross-entropy by construction.",
+  "_note_checkpoint_hash": "INVALID — see BUG-01 in LOCAL_EXPERIMENTS.md. Collides with F (seed 555) and the 1337seed run, which are different models.",
+  "_source": "transcribed from the Kaggle run log of tashintahir/nascenia-sweep-d-smooth; full output not yet downloaded"
+}

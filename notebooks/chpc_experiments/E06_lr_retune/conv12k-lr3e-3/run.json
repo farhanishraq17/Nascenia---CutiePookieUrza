@@ -1,0 +1,46 @@
+{
+  "run_name": "conv12k-lr3e-3",
+  "model": "csebuetnlp/banglat5",
+  "data_dir": "../data/english_draft",
+  "seed": 11,
+  "params": 247577856,
+  "train_rows": 101737,
+  "epochs": 3.0,
+  "max_steps": 12000,
+  "eval_steps": 250,
+  "early_stopping_patience": 8,
+  "lr": 0.003,
+  "effective_batch": 64,
+  "label_smoothing": 0.0,
+  "optim": "adafactor",
+  "max_source_len": 768,
+  "max_target_len": 512,
+  "grad_checkpointing": false,
+  "precision": "bf16",
+  "gpu": "NVIDIA H200 NVL",
+  "n_gpu": 1,
+  "normalizer": true,
+  "decoding": {
+    "num_beams": 4,
+    "min_new_tokens": 80,
+    "max_new_tokens": 320,
+    "length_penalty": 1.0
+  },
+  "dev": {
+    "loss": 0.37570834159851074,
+    "token_f1": 0.8190159102757284,
+    "rouge_l": 0.7907650833486932,
+    "bertscore": 0.9315888613178521,
+    "composite": 0.8696522204113835,
+    "pred_tokens": 100.26333333333334,
+    "runtime": 128.1773,
+    "samples_per_second": 2.341,
+    "steps_per_second": 0.585
+  },
+  "eval_subset": 300,
+  "train_minutes": 219.9,
+  "checkpoint_hash": "e052a3ae0ec0acc2",
+  "versions": {
+    "torch": "2.8.0+cu128"
+  }
+}

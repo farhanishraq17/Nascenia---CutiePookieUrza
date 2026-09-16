@@ -1,0 +1,48 @@
+[{"stream_name":"stderr","time":6.346295796,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.346345783,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.215413712,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.215442149,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.215447524,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.21545323,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.822138625,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.822201695,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.822211191,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.82221579,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":13.029254684,"data":"  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":13.181581896,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/44.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m44.0/44.0 kB\u001b[0m \u001b[31m2.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.68819554,"data":"\u001b[?25h\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/185.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m185.0/185.0 kB\u001b[0m \u001b[31m13.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":14.39709389,"data":"\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":14.448262015,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/64.2 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m64.2/64.2 kB\u001b[0m \u001b[31m4.7 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":15.156032044,"data":"\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":15.410213848,"data":"\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/12.0 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━\u001b[0m \u001b[32m7.3/12.0 MB\u001b[0m \u001b[31m226.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m216.3 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m216.3 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m100.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":15.41026598,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/566.4 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m566.4/566.4 kB\u001b[0m \u001b[31m34.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":16.726467223,"data":"\u001b[?25h  Building wheel for normalizer (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":17.890576141,"data":"  Building wheel for emoji (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":19.053305682,"data":"  Building wheel for ftfy (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":41.375489419,"data":"transformers 4.57.3 | normalizer OK: হেলো, নাসেনিয়া ডকে\n"}
+,{"stream_name":"stdout","time":41.710774773,"data":"Tesla T4 sm_75 -\u003e torch.float32\n"}
+,{"stream_name":"stdout","time":41.710815527,"data":"ckpt: /kaggle/input/datasets/farhanishraqq/nascenia-peak5-checkpoint-average/best\n"}
+,{"stream_name":"stdout","time":71.700434694,"data":"parameters: 247,577,856\n"}
+,{"stream_name":"stdout","time":71.700485228,"data":"OK within the 3B cap (headroom 2752M)\n"}
+,{"stream_name":"stdout","time":72.391326828,"data":"logits finite\n"}
+,{"stream_name":"stdout","time":72.424198363,"data":"metric fns ready\n"}
+,{"stream_name":"stdout","time":72.50579216,"data":"24 rows loaded\n"}
+,{"stream_name":"stdout","time":146.736051799,"data":"=== FINAL OUTPUT (after the champion), n=24, paired ===\n"}
+,{"stream_name":"stdout","time":146.736086294,"data":"Token F1  google=0.8374  claude=0.8314  delta=-0.0060  t=-0.77  p=0.4471\n"}
+,{"stream_name":"stdout","time":146.736109255,"data":"ROUGE-L   google=0.8077  claude=0.8056  delta=-0.0021  t=-0.29  p=0.7744\n"}
+,{"stream_name":"stdout","time":146.736114819,"data":"\n"}
+,{"stream_name":"stdout","time":146.736119706,"data":"wins/losses/ties (Token F1): 7 / 17 / 0\n"}
+,{"stream_name":"stdout","time":146.736124716,"data":"\n"}
+,{"stream_name":"stdout","time":146.736128896,"data":"=== for reference, E17's DRAFT-level result on these same rows ===\n"}
+,{"stream_name":"stdout","time":146.736133548,"data":"Token F1  google vs claude draft:  delta=+0.0631  t=5.88  (measured pre-champion)\n"}
+,{"stream_name":"stdout","time":146.736138253,"data":"\n"}
+,{"stream_name":"stdout","time":146.736142467,"data":"implied LB composite delta (0.3098*dF1 + 0.2*dRL, BERTScore term ignored): -0.0023\n"}
+,{"stream_name":"stderr","time":152.612880445,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":152.612933405,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":152.769768818,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":152.769798358,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":153.388203718,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":153.69116541,"data":"[NbConvertApp] Writing 99352 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":156.051216906,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":156.883721751,"data":"[NbConvertApp] Writing 407307 bytes to __results__.html\n"}
+]

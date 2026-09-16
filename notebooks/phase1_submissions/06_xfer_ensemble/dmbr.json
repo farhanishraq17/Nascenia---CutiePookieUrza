@@ -1,0 +1,36 @@
+{
+  "split": "dev",
+  "mode": "mbr",
+  "n_candidates": 16,
+  "utility": "combined",
+  "checkpoints": [
+    "/kaggle/input/datasets/didhitinahid/nascenia-xfer-ckpt",
+    "/kaggle/input/datasets/didhitinahid/nascenia-xfer-ckpt-s23"
+  ],
+  "checkpoint_hashes": [
+    "9e3126b85e78323a",
+    "9e3126b85e78323a"
+  ],
+  "total_params": 495155712,
+  "seed": 42,
+  "decoding": {
+    "num_beams": 4,
+    "temperature": 0.8,
+    "top_p": 0.95,
+    "min_new_tokens": 80,
+    "max_new_tokens": 320,
+    "length_penalty": 1.0,
+    "seed": 42,
+    "max_source_len": 384
+  },
+  "normalizer": true,
+  "rows": 300,
+  "minutes": 8.2,
+  "dev": {
+    "token_f1": 0.7677010657165573,
+    "rouge_l": 0.7268311245294976,
+    "bertscore": null,
+    "composite": 0.37567654462086664,
+    "mean_pred_tokens": 97.68
+  }
+}

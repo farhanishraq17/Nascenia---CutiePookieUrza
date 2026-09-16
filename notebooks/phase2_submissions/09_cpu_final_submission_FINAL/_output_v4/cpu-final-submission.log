@@ -1,0 +1,155 @@
+[{"stream_name":"stderr","time":7.234661162,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.234742034,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":8.248893047,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.248942629,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.248947133,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.248950088,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.972892747,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.972934585,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.972956357,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.972959879,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":10.197028894,"data":"INPUT_PATH = /kaggle/input/competitions/nascenia-ai-hackathon/test.csv\n"}
+,{"stream_name":"stdout","time":10.197128943,"data":"MODE = router   THRESHOLD = 0.4   OUTPUT_PATH = submission.csv\n"}
+,{"stream_name":"stdout","time":10.197135953,"data":"ID_VERIFY_MIN = 0.2 (n=300)\n"}
+,{"stream_name":"stdout","time":14.340322342,"data":"\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/11.6 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.7/11.6 MB\u001b[0m \u001b[31m20.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m5.2/11.6 MB\u001b[0m \u001b[31m74.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━\u001b[0m \u001b[32m11.1/11.6 MB\u001b[0m \u001b[31m148.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m11.6/11.6 MB\u001b[0m \u001b[31m158.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m11.6/11.6 MB\u001b[0m \u001b[31m83.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":14.340405712,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/389.2 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m389.2/389.2 kB\u001b[0m \u001b[31m24.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":14.391331458,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.4 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.4/1.4 MB\u001b[0m \u001b[31m53.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":14.442373326,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/516.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m516.0/516.0 kB\u001b[0m \u001b[31m26.1 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":33.821927793,"data":"\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":34.076206204,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/44.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m44.0/44.0 kB\u001b[0m \u001b[31m1.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":36.674452975,"data":"\u001b[?25h\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/40.5 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m40.5/40.5 kB\u001b[0m \u001b[31m2.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":37.643681743,"data":"\u001b[?25h\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/57.3 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m57.3/57.3 kB\u001b[0m \u001b[31m3.7 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":37.745860868,"data":"\u001b[?25h\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/185.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m185.0/185.0 kB\u001b[0m \u001b[31m7.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":38.612551372,"data":"\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":38.663338653,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/64.2 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m64.2/64.2 kB\u001b[0m \u001b[31m3.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":39.529837493,"data":"\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":39.580803515,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/43.3 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m43.3/43.3 kB\u001b[0m \u001b[31m2.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":40.500118224,"data":"\u001b[?25h\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/45.9 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m45.9/45.9 kB\u001b[0m \u001b[31m2.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.00659059,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/12.0 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m2.6/12.0 MB\u001b[0m \u001b[31m79.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━\u001b[0m \u001b[32m10.1/12.0 MB\u001b[0m \u001b[31m145.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m184.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m184.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m87.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.058701004,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/566.4 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m566.4/566.4 kB\u001b[0m \u001b[31m27.7 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.212541191,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/16.7 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m6.0/16.7 MB\u001b[0m \u001b[31m179.6 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━\u001b[0m \u001b[32m13.6/16.7 MB\u001b[0m \u001b[31m210.7 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m16.7/16.7 MB\u001b[0m \u001b[31m213.7 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m16.7/16.7 MB\u001b[0m \u001b[31m213.7 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m16.7/16.7 MB\u001b[0m \u001b[31m79.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.262930897,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/130.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m130.0/130.0 kB\u001b[0m \u001b[31m7.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.313848318,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/807.9 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m807.9/807.9 kB\u001b[0m \u001b[31m38.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.313889409,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/801.8 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m801.8/801.8 kB\u001b[0m \u001b[31m38.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.416327098,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.3 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.3/3.3 MB\u001b[0m \u001b[31m242.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.3/3.3 MB\u001b[0m \u001b[31m84.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.416371047,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/80.2 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m80.2/80.2 kB\u001b[0m \u001b[31m5.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.467023032,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/99.9 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m99.9/99.9 kB\u001b[0m \u001b[31m6.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.467073007,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/73.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m73.1/73.1 kB\u001b[0m \u001b[31m4.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.518460683,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/137.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m137.0/137.0 kB\u001b[0m \u001b[31m9.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.569471219,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/248.8 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m248.8/248.8 kB\u001b[0m \u001b[31m15.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.569517408,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/206.6 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m206.6/206.6 kB\u001b[0m \u001b[31m14.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.671720035,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/4.5 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m4.5/4.5 MB\u001b[0m \u001b[31m228.6 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m4.5/4.5 MB\u001b[0m \u001b[31m90.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.671775422,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/68.5 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m68.5/68.5 kB\u001b[0m \u001b[31m4.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.723183965,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/45.6 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m45.6/45.6 kB\u001b[0m \u001b[31m2.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.774780115,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/131.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m131.1/131.1 kB\u001b[0m \u001b[31m7.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.774824326,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/323.2 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m323.2/323.2 kB\u001b[0m \u001b[31m17.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":43.406548533,"data":"\u001b[?25h  Building wheel for normalizer (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":44.78258759,"data":"  Building wheel for emoji (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":46.157430474,"data":"  Building wheel for ftfy (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":64.113198697,"data":"\u001b[31mERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\r\n"}
+,{"stream_name":"stdout","time":64.11326237,"data":"bigframes 2.39.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\r\n"}
+,{"stream_name":"stdout","time":64.113270325,"data":"google-adk 1.29.0 requires google-cloud-bigquery-storage\u003e=2.0.0, which is not installed.\r\n"}
+,{"stream_name":"stdout","time":64.11327613,"data":"datasets 5.0.0 requires fsspec[http]\u003c=2026.4.0,\u003e=2023.1.0, but you have fsspec 2026.7.0 which is incompatible.\r\n"}
+,{"stream_name":"stdout","time":64.113281895,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.5.2 which is incompatible.\r\n"}
+,{"stream_name":"stdout","time":64.113294383,"data":"google-colab 1.0.0 requires jupyter-server==2.14.0, but you have jupyter-server 2.12.5 which is incompatible.\r\n"}
+,{"stream_name":"stdout","time":64.113299005,"data":"google-colab 1.0.0 requires pandas==2.2.2, but you have pandas 2.3.3 which is incompatible.\r\n"}
+,{"stream_name":"stdout","time":64.113302721,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\r\n"}
+,{"stream_name":"stdout","time":64.113321465,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\r\n"}
+,{"stream_name":"stdout","time":64.11332508,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\r\n"}
+,{"stream_name":"stdout","time":64.113342844,"data":"numba 0.60.0 requires numpy\u003c2.1,\u003e=1.22, but you have numpy 2.5.2 which is incompatible.\r\n"}
+,{"stream_name":"stdout","time":64.113348283,"data":"gcsfs 2025.3.0 requires fsspec==2025.3.0, but you have fsspec 2026.7.0 which is incompatible.\u001b[0m\u001b[31m\r\n"}
+,{"stream_name":"stdout","time":83.347691002,"data":"\u001b[0mTesla T4 sm_75 | kernel transformers 5.14.1\n"}
+,{"stream_name":"stdout","time":83.548216875,"data":"specialist : 1,881,825,088\n"}
+,{"stream_name":"stdout","time":83.548291883,"data":"champion   : 247,577,856\n"}
+,{"stream_name":"stdout","time":83.548321963,"data":"COMBINED   : 2,129,402,944\n"}
+,{"stream_name":"stdout","time":83.548336115,"data":"✅ within the 3B cap (headroom 871M)\n"}
+,{"stream_name":"stdout","time":83.657612818,"data":"reading: /kaggle/input/competitions/nascenia-ai-hackathon/test.csv\n"}
+,{"stream_name":"stdout","time":83.657684135,"data":"\n"}
+,{"stream_name":"stdout","time":83.657693146,"data":"✅ 1000 rows loaded from /kaggle/input/competitions/nascenia-ai-hackathon/test.csv\n"}
+,{"stream_name":"stdout","time":83.657702625,"data":"   sample question: আমার লাইপেজ লেভেল ১৫৮, যা বেশি। অ্যামাইলেজ লেভেল ৮২, যা স্বাভাবিক। এর কারণ কী হতে পারে? আমার বর্তমান ডাক্তার এবং আগের প্...\n"}
+,{"stream_name":"stdout","time":89.825926317,"data":"branch 1: 1000/1000 ids resolve into the corpus\n"}
+,{"stream_name":"stdout","time":89.825980441,"data":"          question-match median 0.495 over 300 sampled hits (floor 0.2)\n"}
+,{"stream_name":"stdout","time":89.825989216,"data":"          ✅ id space VERIFIED as ChatDoctor -- branch 1 enabled\n"}
+,{"stream_name":"stdout","time":89.825996773,"data":"\n"}
+,{"stream_name":"stdout","time":89.826003361,"data":"routing:\n"}
+,{"stream_name":"stdout","time":89.82601014,"data":"  ID_LOOKUP      1000  (100.0%)\n"}
+,{"stream_name":"stdout","time":2669.752323116,"data":"  champion 16/1000\n"}
+,{"stream_name":"stdout","time":2669.752375787,"data":"  champion 32/1000\n"}
+,{"stream_name":"stdout","time":2669.752383813,"data":"  champion 48/1000\n"}
+,{"stream_name":"stdout","time":2669.752388911,"data":"  champion 64/1000\n"}
+,{"stream_name":"stdout","time":2669.752393893,"data":"  champion 80/1000\n"}
+,{"stream_name":"stdout","time":2669.752399234,"data":"  champion 96/1000\n"}
+,{"stream_name":"stdout","time":2669.752404416,"data":"  champion 112/1000\n"}
+,{"stream_name":"stdout","time":2669.752410064,"data":"  champion 128/1000\n"}
+,{"stream_name":"stdout","time":2669.752415974,"data":"  champion 144/1000\n"}
+,{"stream_name":"stdout","time":2669.752421499,"data":"  champion 160/1000\n"}
+,{"stream_name":"stdout","time":2669.752426654,"data":"  champion 176/1000\n"}
+,{"stream_name":"stdout","time":2669.752432354,"data":"  champion 192/1000\n"}
+,{"stream_name":"stdout","time":2669.752437464,"data":"  champion 208/1000\n"}
+,{"stream_name":"stdout","time":2669.752442562,"data":"  champion 224/1000\n"}
+,{"stream_name":"stdout","time":2669.752447452,"data":"  champion 240/1000\n"}
+,{"stream_name":"stdout","time":2669.752452098,"data":"  champion 256/1000\n"}
+,{"stream_name":"stdout","time":2669.752474239,"data":"  champion 272/1000\n"}
+,{"stream_name":"stdout","time":2669.752479505,"data":"  champion 288/1000\n"}
+,{"stream_name":"stdout","time":2669.752483553,"data":"  champion 304/1000\n"}
+,{"stream_name":"stdout","time":2669.752487385,"data":"  champion 320/1000\n"}
+,{"stream_name":"stdout","time":2669.752491079,"data":"  champion 336/1000\n"}
+,{"stream_name":"stdout","time":2669.75249528,"data":"  champion 352/1000\n"}
+,{"stream_name":"stdout","time":2669.752499067,"data":"  champion 368/1000\n"}
+,{"stream_name":"stdout","time":2669.752502806,"data":"  champion 384/1000\n"}
+,{"stream_name":"stdout","time":2669.752506541,"data":"  champion 400/1000\n"}
+,{"stream_name":"stdout","time":2669.752510404,"data":"  champion 416/1000\n"}
+,{"stream_name":"stdout","time":2669.752514129,"data":"  champion 432/1000\n"}
+,{"stream_name":"stdout","time":2669.752517933,"data":"  champion 448/1000\n"}
+,{"stream_name":"stdout","time":2669.752521801,"data":"  champion 464/1000\n"}
+,{"stream_name":"stdout","time":2669.752525787,"data":"  champion 480/1000\n"}
+,{"stream_name":"stdout","time":2669.752530352,"data":"  champion 496/1000\n"}
+,{"stream_name":"stdout","time":2669.752534179,"data":"  champion 512/1000\n"}
+,{"stream_name":"stdout","time":2669.752538059,"data":"  champion 528/1000\n"}
+,{"stream_name":"stdout","time":2669.752541831,"data":"  champion 544/1000\n"}
+,{"stream_name":"stdout","time":2669.752546047,"data":"  champion 560/1000\n"}
+,{"stream_name":"stdout","time":2669.752549834,"data":"  champion 576/1000\n"}
+,{"stream_name":"stdout","time":2669.75255337,"data":"  champion 592/1000\n"}
+,{"stream_name":"stdout","time":2669.752557119,"data":"  champion 608/1000\n"}
+,{"stream_name":"stdout","time":2669.752560933,"data":"  champion 624/1000\n"}
+,{"stream_name":"stdout","time":2669.752564707,"data":"  champion 640/1000\n"}
+,{"stream_name":"stdout","time":2669.752568704,"data":"  champion 656/1000\n"}
+,{"stream_name":"stdout","time":2669.752572357,"data":"  champion 672/1000\n"}
+,{"stream_name":"stdout","time":2669.752576134,"data":"  champion 688/1000\n"}
+,{"stream_name":"stdout","time":2669.752579794,"data":"  champion 704/1000\n"}
+,{"stream_name":"stdout","time":2669.752583582,"data":"  champion 720/1000\n"}
+,{"stream_name":"stdout","time":2669.752588282,"data":"  champion 736/1000\n"}
+,{"stream_name":"stdout","time":2669.75259217,"data":"  champion 752/1000\n"}
+,{"stream_name":"stdout","time":2669.752596813,"data":"  champion 768/1000\n"}
+,{"stream_name":"stdout","time":2669.752600931,"data":"  champion 784/1000\n"}
+,{"stream_name":"stdout","time":2669.752604849,"data":"  champion 800/1000\n"}
+,{"stream_name":"stdout","time":2669.752608532,"data":"  champion 816/1000\n"}
+,{"stream_name":"stdout","time":2669.752612554,"data":"  champion 832/1000\n"}
+,{"stream_name":"stdout","time":2669.752616353,"data":"  champion 848/1000\n"}
+,{"stream_name":"stdout","time":2669.752620012,"data":"  champion 864/1000\n"}
+,{"stream_name":"stdout","time":2669.752623814,"data":"  champion 880/1000\n"}
+,{"stream_name":"stdout","time":2669.752627567,"data":"  champion 896/1000\n"}
+,{"stream_name":"stdout","time":2669.752631776,"data":"  champion 912/1000\n"}
+,{"stream_name":"stdout","time":2669.752635592,"data":"  champion 928/1000\n"}
+,{"stream_name":"stdout","time":2669.752650825,"data":"  champion 944/1000\n"}
+,{"stream_name":"stdout","time":2669.752654919,"data":"  champion 960/1000\n"}
+,{"stream_name":"stdout","time":2669.752658763,"data":"  champion 976/1000\n"}
+,{"stream_name":"stdout","time":2669.752662874,"data":"  champion 992/1000\n"}
+,{"stream_name":"stdout","time":2669.752676462,"data":"  champion 1000/1000\n"}
+,{"stream_name":"stdout","time":2669.752680229,"data":"\n"}
+,{"stream_name":"stdout","time":2669.752683859,"data":"\n"}
+,{"stream_name":"stdout","time":2669.752687473,"data":"champion produced 1000 answers\n"}
+,{"stream_name":"stdout","time":2669.779667387,"data":"specialist produced 0 answers\n"}
+,{"stream_name":"stdout","time":2669.860847776,"data":"✅ wrote submission.csv  (1000, 2)\n"}
+,{"stream_name":"stdout","time":2669.860890813,"data":"\n"}
+,{"stream_name":"stdout","time":2669.860895487,"data":"mean words 100 | terminated 91.5% | blank 0\n"}
+,{"stream_name":"stdout","time":2669.860898816,"data":"parameters used at inference: 2,129,402,944 \u003c= 3,000,000,000\n"}
+,{"stream_name":"stderr","time":2673.906120526,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2673.906155498,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2674.087764877,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2674.08779196,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2674.869139726,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":2675.229342039,"data":"[NbConvertApp] Writing 45334 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":2678.17262195,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2679.14317262,"data":"[NbConvertApp] Writing 371606 bytes to __results__.html\n"}
+]

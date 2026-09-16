@@ -1,0 +1,18 @@
+{
+  "id": "farhanishraqq/nascenia-routed-inference",
+  "title": "nascenia-routed-inference",
+  "code_file": "nascenia-routed-inference.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_internet": true,
+  "dataset_sources": [
+    "farhanishraqq/nascenia-peak5-checkpoint-average",
+    "farhanishraqq/nascenia-router-corpus",
+    "farhanishraqq/nascenia-phase2-qwen35-2b"
+  ],
+  "competition_sources": ["nascenia-ai-hackathon"],
+  "kernel_sources": []
+}

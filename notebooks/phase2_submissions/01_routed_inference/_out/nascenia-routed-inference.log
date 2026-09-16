@@ -1,0 +1,58 @@
+[{"stream_name":"stderr","time":10.341713398,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":10.341796437,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":11.70993503,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.709966747,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.709973553,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.709978615,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":12.535125767,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":12.535157268,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":12.535163007,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":12.53516717,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":20.089663881,"data":"  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":20.292477457,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/44.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m44.0/44.0 kB\u001b[0m \u001b[31m2.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":20.848848349,"data":"\u001b[?25h\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/185.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m185.0/185.0 kB\u001b[0m \u001b[31m11.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":21.508855031,"data":"\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":21.610607399,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/64.2 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m64.2/64.2 kB\u001b[0m \u001b[31m4.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":22.371331433,"data":"\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":22.626003838,"data":"\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/12.0 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m4.6/12.0 MB\u001b[0m \u001b[31m139.3 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m211.1 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m211.1 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m92.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":22.677019568,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/566.4 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m566.4/566.4 kB\u001b[0m \u001b[31m24.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":23.996426583999998,"data":"\u001b[?25h  Building wheel for normalizer (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":25.21387363,"data":"  Building wheel for emoji (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":26.325775387,"data":"  Building wheel for ftfy (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":55.061571414,"data":"Tesla T4 sm_75 -\u003e torch.float32\n"}
+,{"stream_name":"stderr","time":58.065516703,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":58.065551274,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":58.065559333,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":58.065712316,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":58.065731975,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":58.066017828,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":58.066196745,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":58.066228544,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":58.066233805,"data":"Exception encountered at \"In [3]\":\n"}
+,{"stream_name":"stderr","time":58.066238482,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":58.066243181,"data":"FileNotFoundError                         Traceback (most recent call last)\n"}
+,{"stream_name":"stderr","time":58.0662479,"data":"/tmp/ipykernel_23/553890361.py in \u003ccell line: 0\u003e()\n"}
+,{"stream_name":"stderr","time":58.066253127,"data":"     11 #    silently load the wrong model — so anchor each on its dataset name, then verify by\n"}
+,{"stream_name":"stderr","time":58.066258414,"data":"     12 #    architecture below. This exact collision was caught before the first push.\n"}
+,{"stream_name":"stderr","time":58.0662892,"data":"---\u003e 13 CKPT   = os.path.dirname(find(\"/kaggle/input/*peak5*/**/best/config.json\", \"champion checkpoint\"))\n"}
+,{"stream_name":"stderr","time":58.066292772,"data":"     14 CORPUS = find(\"/kaggle/input/**/router_corpus.parquet\", \"router corpus\")\n"}
+,{"stream_name":"stderr","time":58.066295384,"data":"     15 \n"}
+,{"stream_name":"stderr","time":58.06629766,"data":"\n"}
+,{"stream_name":"stderr","time":58.066299982,"data":"/tmp/ipykernel_23/553890361.py in find(pattern, what, required)\n"}
+,{"stream_name":"stderr","time":58.066302383,"data":"      4     hits = glob.glob(pattern, recursive=True)\n"}
+,{"stream_name":"stderr","time":58.066304828,"data":"      5     if not hits and required:\n"}
+,{"stream_name":"stderr","time":58.066307203,"data":"----\u003e 6         raise FileNotFoundError(f\"could not locate {what} via {pattern}\")\n"}
+,{"stream_name":"stderr","time":58.0663098,"data":"      7     return hits[0] if hits else None\n"}
+,{"stream_name":"stderr","time":58.066312153,"data":"      8 \n"}
+,{"stream_name":"stderr","time":58.066314402,"data":"\n"}
+,{"stream_name":"stderr","time":58.066316634,"data":"FileNotFoundError: could not locate champion checkpoint via /kaggle/input/*peak5*/**/best/config.json\n"}
+,{"stream_name":"stderr","time":58.06631919,"data":"\n"}
+,{"stream_name":"stderr","time":60.260079881,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":60.260109684,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":60.456170336,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":60.456200568,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":61.187536428,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":61.512625371,"data":"[NbConvertApp] Writing 29318 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":64.059608848,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":64.951695375,"data":"[NbConvertApp] Writing 350330 bytes to __results__.html\n"}
+]

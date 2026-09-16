@@ -1,0 +1,5 @@
+transformers==4.57.3
+torch>=2.8.0
+pandas
+sentencepiece
+git+https://github.com/csebuetnlp/normalizer

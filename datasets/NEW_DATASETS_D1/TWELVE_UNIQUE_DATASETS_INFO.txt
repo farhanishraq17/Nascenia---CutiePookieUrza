@@ -1,0 +1,130 @@
+====================================================================================================
+TWELVE UNIQUE DATASETS - SOURCES, LINKS & TRANSLATION METHODOLOGY
+Bengali Medical Dialogue Generation - Nascenia AI Hackathon
+====================================================================================================
+
+This document describes the additional Bengali medical training data built from the "Medical
+Datasets for LLM" list (rows 1-50) in:
+    https://github.com/ahammadmejbah/Awesome-Datasets-Hub
+
+Of the 50 listed datasets, only 12 are patient-query -> doctor-response text that fit this task
+(the rest are images, NER token corpora, literature dumps, pharmacology/genomics DBs, or
+access-restricted EHR sets). Of those 12, six were freely obtainable and were translated to
+Bengali; the other six could not be prepared (reasons listed at the bottom).
+
+----------------------------------------------------------------------------------------------------
+FINAL DELIVERABLE
+----------------------------------------------------------------------------------------------------
+    Converted datasets/twelve unique datasets.csv
+    Converted datasets/twelve unique datasets.json
+
+    Schema  : id, source, input, output   (input = patient query, output = doctor response; Bengali)
+    Rows    : 277,095   (deduplicated, quality-filtered)
+    Quality : 0 empty rows, 0 duplicate (input,output) pairs, 0 duplicate questions
+              inputs 100.0% Bengali script, outputs 99.8% Bengali script
+              de-duplicated against the official Given datasets/train.csv (no overlap)
+
+Row counts by source (final, after cleaning):
+    medmcqa            178,967
+    medinstruct_52k     51,989
+    medical_meadow      33,222
+    medqa_usmle         10,015
+    covid_qa             1,903
+    pubmedqa               999
+    ------------------------------
+    TOTAL              277,095
+
+----------------------------------------------------------------------------------------------------
+THE SIX DATASETS INCLUDED (source, link, license, how translated)
+----------------------------------------------------------------------------------------------------
+
+1. MedMCQA                         id prefix: medmcqa_        license: MIT
+   Link   : https://huggingface.co/datasets/openlifescienceai/medmcqa
+   Home   : https://medmcqa.github.io
+   Origin : Indian medical entrance MCQs (AIIMS / NEET-PG).
+   Mapping: input  = question + "Options: (a).. (b).. (c).. (d).."
+            output = correct option text + explanation (exp) when present.
+   Language of source: English -> translated to Bengali.
+
+2. MedInstruct-52K (AlpaCare)      id prefix: medinst_        license: Research use
+   Link   : https://huggingface.co/datasets/lavita/AlpaCare-MedInstruct-52k
+   Origin : Medical instruction-following pairs.
+   Mapping: input  = instruction (+ input field when present), output = response.
+   Language of source: English -> translated to Bengali.
+
+3. Medical Meadow (flashcards)     id prefix: meadow_         license: Apache-2.0
+   Link   : https://huggingface.co/datasets/medalpaca/medical_meadow_medical_flashcards
+   Origin : Medical flashcard Q&A (MedAlpaca).
+   Mapping: input = question, output = answer.
+   Language of source: English -> translated to Bengali.
+
+4. MedQA (USMLE, 4-options)        id prefix: medqa_          license: MIT
+   Link   : https://huggingface.co/datasets/GBaker/MedQA-USMLE-4-options
+   Origin : US medical licensing exam questions (github.com/jind11/MedQA).
+   Note   : the bigbio/med_qa loader is a deprecated dataset script; the GBaker
+            parquet mirror was used instead (identical content, loads cleanly).
+   Mapping: input = question + options, output = correct answer text.
+   Language of source: English -> translated to Bengali.
+
+5. COVID-QA                        id prefix: cqa_            license: MIT (Apache-2.0 components)
+   Link   : https://github.com/deepset-ai/COVID-QA
+   File   : data/question-answering/COVID-QA.json (SQuAD-style).
+   Mapping: input = question, output = answer span.
+   Language of source: English -> translated to Bengali.
+
+6. PubMedQA                        id prefix: pmqa_           license: MIT
+   Link   : https://github.com/pubmedqa/pubmedqa   (data/ori_pqal.json, 1,000 expert-labeled)
+   Home   : https://pubmedqa.github.io
+   Mapping: input = QUESTION, output = final_decision + LONG_ANSWER.
+   Language of source: English -> translated to Bengali.
+
+----------------------------------------------------------------------------------------------------
+HOW IT WAS TRANSLATED (methodology)
+----------------------------------------------------------------------------------------------------
+The same proven engine used for the existing "More datasets" collection was reused
+(src/translate_more_datasets_to_bangla.py), driven for the new sources via:
+    src/prepare_new_datasets.py            -> builds new_datasets_unified_en.csv (English, unified schema)
+    src/translate_new_datasets_to_bangla.py -> Google Translate (gtx) -> new_datasets_bengali_train.csv
+
+Translation engine details:
+  - Endpoint      : https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=bn
+  - Concurrency   : ThreadPoolExecutor, 20 workers.
+  - Chunking      : long fields split into <=1,200-char chunks, translated, reassembled.
+  - Retries       : exponential backoff on timeout / rate-limit; on hard failure the English
+                    chunk is kept (these leftovers are caught and fixed in the cleaning step).
+  - Sanitization  : clean_code_symbols_and_syntax() strips HTML/markdown/code symbols and
+                    zero-width characters, collapses whitespace, normalizes punctuation
+                    (,, -> ,  |  ।। -> ।).
+  - Digits        : English digits transliterated to Bengali (0-9 -> ০-৯).
+  - Checkpointing : real-time JSON checkpoint; safe to stop and resume.
+
+Cleaning & quality-fix (src/finalize_twelve_unique_datasets.py + src/retranslate_and_merge.py):
+  - Started from 280,575 translated rows.
+  - Removed: 15 empty, 71 exact duplicate (input,output) pairs, 1,958 duplicate questions,
+    0 overlaps with the official train.csv.
+  - Flagged 7,955 failed/untranslated rows (output or input < 30% Bengali) and re-translated
+    them from their ORIGINAL ENGLISH; 6,504 were successfully fixed and merged back. The
+    remaining 1,386 (mostly drug-name / abbreviation lists that don't translate) were left out.
+  - Final: 277,095 clean, de-duplicated Bengali Q&A rows.
+
+----------------------------------------------------------------------------------------------------
+THE SIX DATASETS NOT INCLUDED (and why)
+----------------------------------------------------------------------------------------------------
+  - BioASQ          : requires signing the BioASQ participant agreement; not freely downloadable.
+  - MASH-QA         : data hosted on Google Drive; needs the Drive file id to fetch.
+  - MedDialog       : English set hosted on Google Drive; repo clone requires auth.
+  - MedC-I          : source unresolved (medci.com does not resolve to a public dataset).
+  - LiveQA (TREC-17): the public repo has the reference answers stripped (only 3 of 104 remain).
+  - MeQSum          : question-summarization (question -> shorter question), not doctor responses,
+                      so it does not fit the patient->doctor task.
+
+(MASH-QA and MedDialog can still be added later: src/prepare_new_datasets.py / the translator
+ accept a Google Drive file id via --mashqa-drive-id / --meddialog-drive-id.)
+
+----------------------------------------------------------------------------------------------------
+COMPLIANCE NOTE (Phase 2)
+----------------------------------------------------------------------------------------------------
+Per the rulebook, external data must be disclosed in the Phase 2 write-up. The six sources above
+(MedMCQA, MedInstruct-52K/AlpaCare, Medical Meadow, MedQA-USMLE, COVID-QA, PubMedQA), the Google
+Translate (gtx) translation tool, and this methodology should be listed there.
+====================================================================================================

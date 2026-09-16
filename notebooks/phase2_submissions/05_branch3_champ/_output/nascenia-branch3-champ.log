@@ -1,0 +1,139 @@
+[{"stream_name":"stderr","time":7.226965961,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.229364498,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":8.154389175,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.154422605,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.154428075,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.154438103,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.810001959000001,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.810039744000001,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.810043662,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.810046219,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":14.411332539,"data":"  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":14.665875327,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/44.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m44.0/44.0 kB\u001b[0m \u001b[31m1.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":15.174555542,"data":"\u001b[?25h\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/185.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m185.0/185.0 kB\u001b[0m \u001b[31m9.1 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":15.88542739,"data":"\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":15.936284182,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/64.2 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m64.2/64.2 kB\u001b[0m \u001b[31m3.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":16.646451636,"data":"\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":16.900746636,"data":"\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/12.0 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m4.1/12.0 MB\u001b[0m \u001b[31m123.4 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m211.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m205.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m205.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m81.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":16.900805011,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/566.4 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m566.4/566.4 kB\u001b[0m \u001b[31m30.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":18.218239339,"data":"\u001b[?25h  Building wheel for normalizer (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":19.33435053,"data":"  Building wheel for emoji (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":20.450679663,"data":"  Building wheel for ftfy (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":44.827585089,"data":"Tesla T4 sm_75 -\u003e torch.float32\n"}
+,{"stream_name":"stdout","time":45.026603493,"data":"ckpt : /kaggle/input/datasets/farhanishraqq/nascenia-peak5-checkpoint-average/best\n"}
+,{"stream_name":"stdout","time":45.026646547,"data":"probe: /kaggle/input/datasets/farhanishraqq/nascenia-branch3-probe/branch3_probe.parquet\n"}
+,{"stream_name":"stdout","time":77.23948896,"data":"champion 247,577,856 params, logits finite\n"}
+,{"stream_name":"stdout","time":77.684728604,"data":"362 rows claimed by branch 3 at tau2=0.35\n"}
+,{"stream_name":"stdout","time":77.684768561,"data":"\n"}
+,{"stream_name":"stdout","time":77.684774336,"data":"arm A -- champion fed the ai_medical_chatbot draft (branch 3 as designed)\n"}
+,{"stream_name":"stdout","time":92.626289525,"data":"  8/362\n"}
+,{"stream_name":"stdout","time":107.673122571,"data":"  16/362\n"}
+,{"stream_name":"stdout","time":124.992558687,"data":"  24/362\n"}
+,{"stream_name":"stdout","time":138.691680008,"data":"  32/362\n"}
+,{"stream_name":"stdout","time":150.465244214,"data":"  40/362\n"}
+,{"stream_name":"stdout","time":164.002782285,"data":"  48/362\n"}
+,{"stream_name":"stdout","time":178.811716645,"data":"  56/362\n"}
+,{"stream_name":"stdout","time":188.601948928,"data":"  64/362\n"}
+,{"stream_name":"stdout","time":195.267981345,"data":"  72/362\n"}
+,{"stream_name":"stdout","time":205.921133058,"data":"  80/362\n"}
+,{"stream_name":"stdout","time":221.206638844,"data":"  88/362\n"}
+,{"stream_name":"stdout","time":238.094985264,"data":"  96/362\n"}
+,{"stream_name":"stdout","time":251.824653455,"data":"  104/362\n"}
+,{"stream_name":"stdout","time":266.733167189,"data":"  112/362\n"}
+,{"stream_name":"stdout","time":275.92705953,"data":"  120/362\n"}
+,{"stream_name":"stdout","time":290.162888004,"data":"  128/362\n"}
+,{"stream_name":"stdout","time":317.015428894,"data":"  136/362\n"}
+,{"stream_name":"stdout","time":327.0996547,"data":"  144/362\n"}
+,{"stream_name":"stdout","time":351.172321505,"data":"  152/362\n"}
+,{"stream_name":"stdout","time":371.745391937,"data":"  160/362\n"}
+,{"stream_name":"stdout","time":386.741129213,"data":"  168/362\n"}
+,{"stream_name":"stdout","time":403.973322053,"data":"  176/362\n"}
+,{"stream_name":"stdout","time":414.208969958,"data":"  184/362\n"}
+,{"stream_name":"stdout","time":440.787966655,"data":"  192/362\n"}
+,{"stream_name":"stdout","time":456.61840908,"data":"  200/362\n"}
+,{"stream_name":"stdout","time":475.115690596,"data":"  208/362\n"}
+,{"stream_name":"stdout","time":498.568163129,"data":"  216/362\n"}
+,{"stream_name":"stdout","time":513.89683974,"data":"  224/362\n"}
+,{"stream_name":"stdout","time":535.427199221,"data":"  232/362\n"}
+,{"stream_name":"stdout","time":547.870031913,"data":"  240/362\n"}
+,{"stream_name":"stdout","time":574.420183522,"data":"  248/362\n"}
+,{"stream_name":"stdout","time":584.12342584,"data":"  256/362\n"}
+,{"stream_name":"stdout","time":604.918746019,"data":"  264/362\n"}
+,{"stream_name":"stdout","time":615.823337839,"data":"  272/362\n"}
+,{"stream_name":"stdout","time":638.504885689,"data":"  280/362\n"}
+,{"stream_name":"stdout","time":652.630636974,"data":"  288/362\n"}
+,{"stream_name":"stdout","time":660.791233242,"data":"  296/362\n"}
+,{"stream_name":"stdout","time":687.442009638,"data":"  304/362\n"}
+,{"stream_name":"stdout","time":698.01276375,"data":"  312/362\n"}
+,{"stream_name":"stdout","time":708.533613922,"data":"  320/362\n"}
+,{"stream_name":"stdout","time":733.131730378,"data":"  328/362\n"}
+,{"stream_name":"stdout","time":759.722160493,"data":"  336/362\n"}
+,{"stream_name":"stdout","time":782.444076199,"data":"  344/362\n"}
+,{"stream_name":"stdout","time":794.942967396,"data":"  352/362\n"}
+,{"stream_name":"stdout","time":805.47836895,"data":"  360/362\n"}
+,{"stream_name":"stdout","time":810.190833955,"data":"  362/362\n"}
+,{"stream_name":"stdout","time":810.389742281,"data":"\n"}
+,{"stream_name":"stdout","time":810.389781503,"data":"arm B -- champion fed ChatDoctor's SUB-threshold draft (i.e. just lower tau1)\n"}
+,{"stream_name":"stdout","time":822.403219975,"data":"  8/362\n"}
+,{"stream_name":"stdout","time":830.70540626,"data":"  16/362\n"}
+,{"stream_name":"stdout","time":841.406769347,"data":"  24/362\n"}
+,{"stream_name":"stdout","time":849.578676263,"data":"  32/362\n"}
+,{"stream_name":"stdout","time":861.371692388,"data":"  40/362\n"}
+,{"stream_name":"stdout","time":880.169641511,"data":"  48/362\n"}
+,{"stream_name":"stdout","time":890.828344865,"data":"  56/362\n"}
+,{"stream_name":"stdout","time":903.546378442,"data":"  64/362\n"}
+,{"stream_name":"stdout","time":918.852062886,"data":"  72/362\n"}
+,{"stream_name":"stdout","time":931.406322713,"data":"  80/362\n"}
+,{"stream_name":"stdout","time":942.782867256,"data":"  88/362\n"}
+,{"stream_name":"stdout","time":952.000419367,"data":"  96/362\n"}
+,{"stream_name":"stdout","time":966.185552189,"data":"  104/362\n"}
+,{"stream_name":"stdout","time":980.416113057,"data":"  112/362\n"}
+,{"stream_name":"stdout","time":990.433136447,"data":"  120/362\n"}
+,{"stream_name":"stdout","time":1002.183899647,"data":"  128/362\n"}
+,{"stream_name":"stdout","time":1013.228613899,"data":"  136/362\n"}
+,{"stream_name":"stdout","time":1027.949729829,"data":"  144/362\n"}
+,{"stream_name":"stdout","time":1042.990114651,"data":"  152/362\n"}
+,{"stream_name":"stdout","time":1052.753406675,"data":"  160/362\n"}
+,{"stream_name":"stdout","time":1063.219649682,"data":"  168/362\n"}
+,{"stream_name":"stdout","time":1075.994414911,"data":"  176/362\n"}
+,{"stream_name":"stdout","time":1087.293631595,"data":"  184/362\n"}
+,{"stream_name":"stdout","time":1106.800116965,"data":"  192/362\n"}
+,{"stream_name":"stdout","time":1116.447016152,"data":"  200/362\n"}
+,{"stream_name":"stdout","time":1134.833246096,"data":"  208/362\n"}
+,{"stream_name":"stdout","time":1144.288052866,"data":"  216/362\n"}
+,{"stream_name":"stdout","time":1153.041600417,"data":"  224/362\n"}
+,{"stream_name":"stdout","time":1170.11710137,"data":"  232/362\n"}
+,{"stream_name":"stdout","time":1178.928704455,"data":"  240/362\n"}
+,{"stream_name":"stdout","time":1190.240622602,"data":"  248/362\n"}
+,{"stream_name":"stdout","time":1204.507167197,"data":"  256/362\n"}
+,{"stream_name":"stdout","time":1219.732468619,"data":"  264/362\n"}
+,{"stream_name":"stdout","time":1233.14616382,"data":"  272/362\n"}
+,{"stream_name":"stdout","time":1244.402710145,"data":"  280/362\n"}
+,{"stream_name":"stdout","time":1256.970621759,"data":"  288/362\n"}
+,{"stream_name":"stdout","time":1269.060021942,"data":"  296/362\n"}
+,{"stream_name":"stdout","time":1282.840694696,"data":"  304/362\n"}
+,{"stream_name":"stdout","time":1296.055000474,"data":"  312/362\n"}
+,{"stream_name":"stdout","time":1304.610658104,"data":"  320/362\n"}
+,{"stream_name":"stdout","time":1316.650942088,"data":"  328/362\n"}
+,{"stream_name":"stdout","time":1340.754469208,"data":"  336/362\n"}
+,{"stream_name":"stdout","time":1354.009815076,"data":"  344/362\n"}
+,{"stream_name":"stdout","time":1365.355750737,"data":"  352/362\n"}
+,{"stream_name":"stdout","time":1374.214977745,"data":"  360/362\n"}
+,{"stream_name":"stdout","time":1377.785746332,"data":"  362/362\n"}
+,{"stream_name":"stdout","time":1379.188317227,"data":"\n"}
+,{"stream_name":"stdout","time":1379.188354621,"data":"==================================================================\n"}
+,{"stream_name":"stdout","time":1379.188359333,"data":"arm A  champion + aimc draft : Token F1 0.6257   ROUGE-L 0.5849\n"}
+,{"stream_name":"stdout","time":1379.18836262,"data":"arm B  champion + cd  draft  : Token F1 0.2094   ROUGE-L 0.1280\n"}
+,{"stream_name":"stdout","time":1379.188365808,"data":"==================================================================\n"}
+,{"stream_name":"stdout","time":1379.188368862,"data":"\n"}
+,{"stream_name":"stdout","time":1379.188371748,"data":"Qwen D1 on these same rows runs in nascenia-branch3-qwen; compare there.\n"}
+,{"stream_name":"stdout","time":1379.188374778,"data":"(reference: draft-level F1 was aimc 0.3917 vs ChatDoctor sub-threshold ~0.4769)\n"}
+,{"stream_name":"stderr","time":1385.159454422,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1385.159490677,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1385.336100402,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1385.336125515,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1385.972893828,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":1386.286412766,"data":"[NbConvertApp] Writing 15074 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":1388.686014472,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1389.522673619,"data":"[NbConvertApp] Writing 308327 bytes to __results__.html\n"}
+]

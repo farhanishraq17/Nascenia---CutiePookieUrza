@@ -1,0 +1,15 @@
+{
+  "id": "farhanishraqq/nascenia-submit-banglat5",
+  "title": "Nascenia Submit BanglaT5",
+  "code_file": "submit_banglat5.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": ["farhanishraqq/nascenia-code"],
+  "competition_sources": ["nascenia-ai-hackathon"],
+  "kernel_sources": ["farhanishraqq/nascenia-banglat5-v2"],
+  "model_sources": []
+}
