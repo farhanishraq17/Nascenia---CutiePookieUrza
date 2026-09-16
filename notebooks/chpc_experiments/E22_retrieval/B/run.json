@@ -1,0 +1,46 @@
+{
+  "run_name": "B",
+  "model": "csebuetnlp/banglat5",
+  "data_dir": "../data/english_draft_rag",
+  "seed": 11,
+  "params": 247577856,
+  "train_rows": 101737,
+  "epochs": 3.0,
+  "max_steps": 12000,
+  "eval_steps": 250,
+  "early_stopping_patience": 8,
+  "lr": 0.001,
+  "effective_batch": 64,
+  "label_smoothing": 0.0,
+  "optim": "adafactor",
+  "max_source_len": 768,
+  "max_target_len": 512,
+  "grad_checkpointing": false,
+  "precision": "bf16",
+  "gpu": "NVIDIA L40S",
+  "n_gpu": 1,
+  "normalizer": true,
+  "decoding": {
+    "num_beams": 4,
+    "min_new_tokens": 80,
+    "max_new_tokens": 320,
+    "length_penalty": 1.0
+  },
+  "dev": {
+    "loss": 0.37715256214141846,
+    "token_f1": 0.8246502627021456,
+    "rouge_l": 0.7960020004427357,
+    "bertscore": 0.9324846709433943,
+    "composite": 0.872837814370888,
+    "pred_tokens": 100.47666666666667,
+    "runtime": 123.7276,
+    "samples_per_second": 2.425,
+    "steps_per_second": 0.307
+  },
+  "eval_subset": 300,
+  "train_minutes": 480.9,
+  "checkpoint_hash": "4c051733954e707f",
+  "versions": {
+    "torch": "2.8.0+cu128"
+  }
+}

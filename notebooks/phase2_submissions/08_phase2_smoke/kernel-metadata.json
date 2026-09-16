@@ -1,0 +1,20 @@
+{
+  "id": "farhanishraqq/nascenia-phase2-smoke",
+  "title": "nascenia-phase2-smoke",
+  "code_file": "nascenia-phase2-smoke.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_internet": true,
+  "dataset_sources": [
+    "farhanishraqq/nascenia-peak5-checkpoint-average",
+    "farhanishraqq/nascenia-phase2-qwen35-d1",
+    "farhanishraqq/nascenia-aimc-lookup",
+    "farhanishraqq/nascenia-router-corpus",
+    "farhanishraqq/nascenia-p2-smoke"
+  ],
+  "competition_sources": [],
+  "kernel_sources": []
+}

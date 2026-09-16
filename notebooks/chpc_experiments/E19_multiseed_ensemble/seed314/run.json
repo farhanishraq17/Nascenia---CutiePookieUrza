@@ -1,0 +1,46 @@
+{
+  "run_name": "seed314",
+  "model": "csebuetnlp/banglat5",
+  "data_dir": "../data/english_draft",
+  "seed": 314,
+  "params": 247577856,
+  "train_rows": 101737,
+  "epochs": 3.0,
+  "max_steps": 12000,
+  "eval_steps": 250,
+  "early_stopping_patience": 5,
+  "lr": 0.001,
+  "effective_batch": 64,
+  "label_smoothing": 0.0,
+  "optim": "adafactor",
+  "max_source_len": 768,
+  "max_target_len": 512,
+  "grad_checkpointing": false,
+  "precision": "bf16",
+  "gpu": "NVIDIA A800 40GB Active",
+  "n_gpu": 1,
+  "normalizer": true,
+  "decoding": {
+    "num_beams": 4,
+    "min_new_tokens": 80,
+    "max_new_tokens": 320,
+    "length_penalty": 1.0
+  },
+  "dev": {
+    "loss": 0.3789904713630676,
+    "token_f1": 0.8204446831404102,
+    "rouge_l": 0.7928785436276448,
+    "bertscore": 0.9322487770163038,
+    "composite": 0.870833502175804,
+    "pred_tokens": 99.94,
+    "runtime": 140.8874,
+    "samples_per_second": 2.129,
+    "steps_per_second": 0.27
+  },
+  "eval_subset": 300,
+  "train_minutes": 334.4,
+  "checkpoint_hash": "1f885a5fd90c82f4",
+  "versions": {
+    "torch": "2.8.0+cu128"
+  }
+}

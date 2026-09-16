@@ -1,0 +1,42 @@
+{
+  "run_name": "banglat5_xfer_seed23",
+  "model": "csebuetnlp/banglat5",
+  "seed": 23,
+  "params": 247577856,
+  "train_rows": 101737,
+  "epochs": 2.0,
+  "lr": 0.001,
+  "effective_batch": 64,
+  "label_smoothing": 0.0,
+  "optim": "adafactor",
+  "max_source_len": 384,
+  "max_target_len": 256,
+  "grad_checkpointing": false,
+  "precision": "fp32",
+  "gpu": "Tesla T4",
+  "n_gpu": 1,
+  "normalizer": true,
+  "decoding": {
+    "num_beams": 4,
+    "min_new_tokens": 80,
+    "max_new_tokens": 320,
+    "length_penalty": 1.0
+  },
+  "dev": {
+    "loss": 0.6045406460762024,
+    "token_f1": 0.7723293226906737,
+    "rouge_l": 0.7331754122112062,
+    "bertscore": 0.9149933502057433,
+    "composite": 0.8358305543523151,
+    "pred_tokens": 98.58,
+    "runtime": 237.1099,
+    "samples_per_second": 1.265,
+    "steps_per_second": 0.16
+  },
+  "eval_subset": 300,
+  "train_minutes": 476.2,
+  "checkpoint_hash": "405e7bc63c9cf945",
+  "versions": {
+    "torch": "2.10.0+cu128"
+  }
+}

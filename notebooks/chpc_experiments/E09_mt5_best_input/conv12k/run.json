@@ -1,0 +1,46 @@
+{
+  "run_name": "conv12k",
+  "model": "google/mt5-base",
+  "data_dir": "../data/english_draft",
+  "seed": 11,
+  "params": 582401280,
+  "train_rows": 101737,
+  "epochs": 3.0,
+  "max_steps": 12000,
+  "eval_steps": 250,
+  "early_stopping_patience": 8,
+  "lr": 0.001,
+  "effective_batch": 64,
+  "label_smoothing": 0.0,
+  "optim": "adafactor",
+  "max_source_len": 1024,
+  "max_target_len": 640,
+  "grad_checkpointing": false,
+  "precision": "bf16",
+  "gpu": "NVIDIA A800 40GB Active",
+  "n_gpu": 1,
+  "normalizer": true,
+  "decoding": {
+    "num_beams": 4,
+    "min_new_tokens": 80,
+    "max_new_tokens": 320,
+    "length_penalty": 1.0
+  },
+  "dev": {
+    "loss": 0.22817830741405487,
+    "token_f1": 0.7998201672739782,
+    "rouge_l": 0.7697957386197949,
+    "bertscore": 0.9188449725717529,
+    "composite": 0.853327684192029,
+    "pred_tokens": 93.12333333333333,
+    "runtime": 376.9367,
+    "samples_per_second": 0.796,
+    "steps_per_second": 0.199
+  },
+  "eval_subset": 300,
+  "train_minutes": 647.0,
+  "checkpoint_hash": "fffdb026a636143f",
+  "versions": {
+    "torch": "2.8.0+cu128"
+  }
+}

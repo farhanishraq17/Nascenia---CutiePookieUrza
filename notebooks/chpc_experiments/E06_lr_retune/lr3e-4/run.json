@@ -1,0 +1,46 @@
+{
+  "run_name": "lr3e-4",
+  "model": "csebuetnlp/banglat5",
+  "data_dir": "../data/english_draft",
+  "seed": 11,
+  "params": 247577856,
+  "train_rows": 101737,
+  "epochs": 3.0,
+  "max_steps": 4000,
+  "eval_steps": 250,
+  "early_stopping_patience": 5,
+  "lr": 0.0003,
+  "effective_batch": 64,
+  "label_smoothing": 0.0,
+  "optim": "adafactor",
+  "max_source_len": 768,
+  "max_target_len": 512,
+  "grad_checkpointing": false,
+  "precision": "bf16",
+  "gpu": "NVIDIA H100 NVL",
+  "n_gpu": 1,
+  "normalizer": true,
+  "decoding": {
+    "num_beams": 4,
+    "min_new_tokens": 80,
+    "max_new_tokens": 320,
+    "length_penalty": 1.0
+  },
+  "dev": {
+    "loss": 0.5575739741325378,
+    "token_f1": 0.7774146219850867,
+    "rouge_l": 0.7436974545173338,
+    "bertscore": 0.9190573904513742,
+    "composite": 0.8414925727246799,
+    "pred_tokens": 99.88,
+    "runtime": 48.823,
+    "samples_per_second": 6.145,
+    "steps_per_second": 0.205
+  },
+  "eval_subset": 300,
+  "train_minutes": 65.4,
+  "checkpoint_hash": "757df17cd33933e7",
+  "versions": {
+    "torch": "2.8.0+cu128"
+  }
+}

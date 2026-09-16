@@ -1,0 +1,71 @@
+[{"stream_name":"stderr","time":5.133999974,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":5.134062559,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":5.84421765,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":5.844246083,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":5.84425165,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":5.844255883,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":6.393215771,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.393246147,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.393249685,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.393252446,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.570837658,"data":"  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":12.126986158,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/44.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━\u001b[0m \u001b[32m30.7/44.0 kB\u001b[0m \u001b[31m2.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m44.0/44.0 kB\u001b[0m \u001b[31m618.1 kB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":12.886155814,"data":"\u001b[?25h\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/185.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[91m━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m71.7/185.0 kB\u001b[0m \u001b[31m3.3 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K     \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m184.3/185.0 kB\u001b[0m \u001b[31m3.1 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m185.0/185.0 kB\u001b[0m \u001b[31m2.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.5940523,"data":"\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":13.746177224,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/64.2 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m64.2/64.2 kB\u001b[0m \u001b[31m4.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":14.40420885,"data":"\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":14.86027642,"data":"\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/12.0 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.3/12.0 MB\u001b[0m \u001b[31m14.7 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.8/12.0 MB\u001b[0m \u001b[31m12.1 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.5/12.0 MB\u001b[0m \u001b[31m14.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m2.7/12.0 MB\u001b[0m \u001b[31m19.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m4.8/12.0 MB\u001b[0m \u001b[31m27.6 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━\u001b[0m \u001b[32m8.3/12.0 MB\u001b[0m \u001b[31m42.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m79.5 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m79.5 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m56.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":14.910598367,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/566.4 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m566.4/566.4 kB\u001b[0m \u001b[31m36.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":16.125009091,"data":"\u001b[?25h  Building wheel for normalizer (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":17.239229784,"data":"  Building wheel for emoji (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":18.352945917,"data":"  Building wheel for ftfy (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":39.485354442,"data":"Tesla T4 sm_75 -\u003e torch.float32\n"}
+,{"stream_name":"stdout","time":39.485385188,"data":"transformers 4.57.3 | normalizer OK: হেলো, নাসেনিয়া ডকে\n"}
+,{"stream_name":"stdout","time":39.531405564,"data":"champion   : /kaggle/input/datasets/farhanishraqq/nascenia-peak5-checkpoint-average/best\n"}
+,{"stream_name":"stdout","time":39.531427291,"data":"specialist : /kaggle/input/datasets/farhanishraqq/nascenia-phase2-qwen35-d1/best\n"}
+,{"stream_name":"stdout","time":39.531433881,"data":"test input : /kaggle/input/datasets/farhanishraqq/nascenia-peak5-checkpoint-average/test_english_draft.parquet\n"}
+,{"stream_name":"stdout","time":39.531439279,"data":"reference  : /kaggle/input/datasets/farhanishraqq/nascenia-peak5-checkpoint-average/submission_reference.csv\n"}
+,{"stream_name":"stdout","time":39.556243633,"data":"champion   safetensors tensors : 247,577,856   (recorded at inference 247,577,856)\n"}
+,{"stream_name":"stdout","time":39.556262761,"data":"specialist safetensors tensors : 1,881,825,088   (recorded at inference 1,881,825,088)\n"}
+,{"stream_name":"stdout","time":39.556269279,"data":"\n"}
+,{"stream_name":"stdout","time":39.556274025,"data":"COMBINED inference parameters : 2,129,402,944\n"}
+,{"stream_name":"stdout","time":39.556278714,"data":"✅ within the 3B cap (headroom 871M)\n"}
+,{"stream_name":"stdout","time":65.04591934,"data":"champion loaded parameters: 247,577,856\n"}
+,{"stream_name":"stdout","time":65.546299167,"data":"✅ champion loaded, param count exact, logits finite\n"}
+,{"stream_name":"stdout","time":65.564318928,"data":"decoder: {'num_beams': 8, 'min_new_tokens': 0, 'max_new_tokens': 320, 'length_penalty': 1.2, 'do_sample': False} | max_src 768\n"}
+,{"stream_name":"stdout","time":65.76548159,"data":"routing over 1000 competition test rows:\n"}
+,{"stream_name":"stdout","time":65.76551442,"data":"  champion    1000\n"}
+,{"stream_name":"stdout","time":65.765520222,"data":"  specialist     0\n"}
+,{"stream_name":"stdout","time":65.765524666,"data":"\n"}
+,{"stream_name":"stdout","time":65.765529019,"data":"✅ 1000/1000 route to the champion; the specialist is never invoked on Phase 1,\n"}
+,{"stream_name":"stdout","time":65.765534233,"data":"   so its weights cannot affect this submission. It exists for Phase 2, where 0% resolve.\n"}
+,{"stream_name":"stdout","time":349.538798084,"data":"  dev 160/300  4.7min, ~4min left\n"}
+,{"stream_name":"stdout","time":631.922072349,"data":"  dev 300/300  9.4min, ~0min left\n"}
+,{"stream_name":"stdout","time":631.954929289,"data":"\n"}
+,{"stream_name":"stdout","time":631.954952505,"data":"dev[0:300] Token F1 = 0.8364   (recorded 0.8348)\n"}
+,{"stream_name":"stdout","time":631.954958342,"data":"✅ matches the recorded value\n"}
+,{"stream_name":"stdout","time":995.21694925,"data":"  test 160/1000  6.1min, ~32min left\n"}
+,{"stream_name":"stdout","time":1355.470432886,"data":"  test 320/1000  12.1min, ~26min left\n"}
+,{"stream_name":"stdout","time":1815.93602047,"data":"  test 480/1000  19.7min, ~21min left\n"}
+,{"stream_name":"stdout","time":2146.094223297,"data":"  test 640/1000  25.2min, ~14min left\n"}
+,{"stream_name":"stdout","time":2571.860090956,"data":"  test 800/1000  32.3min, ~8min left\n"}
+,{"stream_name":"stdout","time":2952.496041703,"data":"  test 960/1000  38.7min, ~2min left\n"}
+,{"stream_name":"stdout","time":3075.869846742,"data":"  test 1000/1000  40.7min, ~0min left\n"}
+,{"stream_name":"stdout","time":3075.921533565,"data":"✅ submission.csv (1000, 2)\n"}
+,{"stream_name":"stdout","time":3076.108262297,"data":"identical rows                        : 1000/1000\n"}
+,{"stream_name":"stdout","time":3076.108297797,"data":"mean Token F1 vs the scored submission : 1.0000\n"}
+,{"stream_name":"stdout","time":3076.108303811,"data":"\n"}
+,{"stream_name":"stdout","time":3076.108307741,"data":"====================================================================\n"}
+,{"stream_name":"stdout","time":3076.108311826,"data":"✅ EXACT reproduction of the 0.89552 leaderboard entry, through the FINAL\n"}
+,{"stream_name":"stdout","time":3076.108336853,"data":"   two-branch architecture. The specialist is attached and counted against the\n"}
+,{"stream_name":"stdout","time":3076.108342261,"data":"   3B cap (combined 2,129,402,944) yet provably changed nothing on Phase 1.\n"}
+,{"stream_name":"stdout","time":3076.108347123,"data":"====================================================================\n"}
+,{"stream_name":"stderr","time":3081.076771418,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3081.076803016,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3081.221268846,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3081.22129384,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3081.882217287,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":3082.202654465,"data":"[NbConvertApp] Writing 26515 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":3084.63028058,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3085.437861963,"data":"[NbConvertApp] Writing 332694 bytes to __results__.html\n"}
+]

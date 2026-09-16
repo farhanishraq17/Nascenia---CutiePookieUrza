@@ -1,0 +1,7 @@
+# Scored submissions are evidence: their sha256 is quoted in the docs, so never convert line endings.
+*.csv -text
+
+# Shell and SLURM scripts must keep LF endings to run.
+*.sh text eol=lf
+*.sbatch text eol=lf
+Dockerfile text eol=lf

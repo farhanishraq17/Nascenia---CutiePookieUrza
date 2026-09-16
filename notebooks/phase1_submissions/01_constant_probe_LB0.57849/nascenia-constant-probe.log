@@ -1,0 +1,32 @@
+[{"stream_name":"stderr","time":7.155517243,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.155595006,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":8.137981939,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.1380644,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.138071405,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.138076531,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.898089982,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.898136511,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.898157468,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.898162956,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.166924227,"data":"/kaggle/input contains: ['competitions']\n"}
+,{"stream_name":"stdout","time":11.166979711,"data":"loaded /kaggle/input/competitions/nascenia-ai-hackathon/test.csv  shape=(1000, 2)  columns=['id', 'input']\n"}
+,{"stream_name":"stdout","time":11.186204024,"data":"length: 770 chars, 119 whitespace tokens\n"}
+,{"stream_name":"stdout","time":11.186241948,"data":"reference median: 93 tokens / ~594 chars\n"}
+,{"stream_name":"stdout","time":11.186247517,"data":"\n"}
+,{"stream_name":"stdout","time":11.186255132,"data":"হেলো, নাসেনিয়া ডকে আপনাকে স্বাগতম। আপনার অনুসন্ধানের জন্য ধন্যবাদ। আমি আপনার প্রশ্নটি দেখেছি এবং আপনার উদ্বেগ বুঝতে পেরেছি। আমি যথাসাধ্য আপনাকে সাহায্য করার চেষ্টা করব। আপনার বর্ণনা করা লক্ষণগুলো বিভিন্ন কারণে হতে পারে এবং এর সঠিক কারণ নির্ণয়ের জন্য একটি বিস্তারিত পরীক্ষা প্রয়োজন। তাই আমি আপনাকে একজন বিশেষজ্ঞ ডাক্তারের সাথে সরাসরি পরামর্শ করার পরামর্শ দিচ্ছি। প্রয়োজনীয় পরীক্ষা-নিরীক্ষা করানো উচিত এবং রিপোর্ট অনুযায়ী চিকিৎসা শুরু করা যেতে পারে। এই সময়ে পর্যাপ্ত বিশ্রাম নিন, প্রচুর পানি পান করুন এবং স্বাস্থ্যকর খাবার খান। ডাক্তারের পরামর্শ ছাড়া কোনো ওষুধ সেবন করবেন না। যদি সমস্যা বাড়তে থাকে বা তীব্র হয়, তাহলে দেরি না করে দ্রুত ডাক্তারের শরণাপন্ন হন। আশা করি এই উত্তরটি আপনাকে সাহায্য করবে। আরও কোনো প্রশ্ন থাকলে নির্দ্বিধায় জিজ্ঞাসা করতে পারেন। ধন্যবাদ।\n"}
+,{"stream_name":"stdout","time":11.241621645,"data":"wrote submission.csv  shape=(1000, 2)  columns=['id', 'output']\n"}
+,{"stream_name":"stdout","time":11.314559831,"data":"rows          1000\n"}
+,{"stream_name":"stdout","time":11.314602986,"data":"columns       ['id', 'output']\n"}
+,{"stream_name":"stdout","time":11.314608711,"data":"unique ids    1000\n"}
+,{"stream_name":"stdout","time":11.31461275,"data":"encoding OK   True\n"}
+,{"stream_name":"stdout","time":11.314616906,"data":"\n"}
+,{"stream_name":"stdout","time":11.31462828,"data":"✅ all checks passed\n"}
+,{"stream_name":"stderr","time":14.606606289,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":14.606648851,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":14.791001692,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":14.791034187,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":15.623243361,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":16.006643207,"data":"[NbConvertApp] Writing 15476 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":19.120164119,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":20.133398357,"data":"[NbConvertApp] Writing 296620 bytes to __results__.html\n"}
+]

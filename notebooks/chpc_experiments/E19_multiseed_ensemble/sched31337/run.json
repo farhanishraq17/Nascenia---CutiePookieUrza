@@ -1,0 +1,46 @@
+{
+  "run_name": "sched31337",
+  "model": "csebuetnlp/banglat5",
+  "data_dir": "../data/english_draft",
+  "seed": 31337,
+  "params": 247577856,
+  "train_rows": 101737,
+  "epochs": 3.0,
+  "max_steps": 30000,
+  "eval_steps": 250,
+  "early_stopping_patience": 8,
+  "lr": 0.001,
+  "effective_batch": 64,
+  "label_smoothing": 0.0,
+  "optim": "adafactor",
+  "max_source_len": 768,
+  "max_target_len": 512,
+  "grad_checkpointing": false,
+  "precision": "bf16",
+  "gpu": "NVIDIA L40S",
+  "n_gpu": 1,
+  "normalizer": true,
+  "decoding": {
+    "num_beams": 4,
+    "min_new_tokens": 80,
+    "max_new_tokens": 320,
+    "length_penalty": 1.0
+  },
+  "dev": {
+    "loss": 0.3733021020889282,
+    "token_f1": 0.8279670750836644,
+    "rouge_l": 0.79968622266679,
+    "bertscore": 0.9335263179978025,
+    "composite": 0.8750905260573586,
+    "pred_tokens": 100.34,
+    "runtime": 167.9559,
+    "samples_per_second": 1.786,
+    "steps_per_second": 0.226
+  },
+  "eval_subset": 300,
+  "train_minutes": 562.5,
+  "checkpoint_hash": "dbabe4d5a375177a",
+  "versions": {
+    "torch": "2.8.0+cu128"
+  }
+}

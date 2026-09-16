@@ -1,0 +1,14 @@
+{
+  "id": "farhanishraqq/nascenia-peak5-inference",
+  "title": "nascenia-peak5-inference",
+  "code_file": "nascenia-peak5-inference.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_internet": true,
+  "dataset_sources": ["farhanishraqq/nascenia-peak5-checkpoint-average"],
+  "competition_sources": ["nascenia-ai-hackathon"],
+  "kernel_sources": []
+}

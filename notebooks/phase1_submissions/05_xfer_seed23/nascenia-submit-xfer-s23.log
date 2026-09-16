@@ -1,0 +1,180 @@
+[{"stream_name":"stderr","time":9.643561002,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":9.643630246,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":10.975864318,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.975934851,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.975943327,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.975948544,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":11.747673129,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.747705181,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.747711337,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.747716604,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":21.712415929,"data":"torch 2.10.0+cu128 | ['Tesla T4', 'Tesla T4'] | sm_75\n"}
+,{"stream_name":"stdout","time":21.712472118,"data":"✅ hardware OK\n"}
+,{"stream_name":"stdout","time":27.254107677,"data":"  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":27.55934719,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/44.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m44.0/44.0 kB\u001b[0m \u001b[31m1.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":28.116525745,"data":"\u001b[?25h\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/185.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m185.0/185.0 kB\u001b[0m \u001b[31m6.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":28.826659189,"data":"\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":28.877635557,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/64.2 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m64.2/64.2 kB\u001b[0m \u001b[31m3.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":29.637606436,"data":"\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":29.942122091,"data":"\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/12.0 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m2.0/12.0 MB\u001b[0m \u001b[31m61.5 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━\u001b[0m \u001b[32m8.7/12.0 MB\u001b[0m \u001b[31m128.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m189.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m189.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m90.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":29.94218238,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/566.4 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m566.4/566.4 kB\u001b[0m \u001b[31m28.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":31.358147533,"data":"\u001b[?25h  Building wheel for normalizer (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":32.52327799,"data":"  Building wheel for emoji (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":33.637013893,"data":"  Building wheel for ftfy (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":53.344971072,"data":"transformers 4.57.3 | normalizer OK: হেলো, নাসেনিয়া ডকে\n"}
+,{"stream_name":"stdout","time":53.548181443,"data":"/kaggle/input: ['datasets', 'competitions']\n"}
+,{"stream_name":"stdout","time":55.273320247,"data":"✅ code dataset current\n"}
+,{"stream_name":"stdout","time":55.27336281,"data":"CODE: /kaggle/input/datasets/didhitinahid/nascenia-code \n"}
+,{"stream_name":"stdout","time":55.273367805,"data":"RAW : /kaggle/input/competitions/nascenia-ai-hackathon \n"}
+,{"stream_name":"stdout","time":55.273371183,"data":"DRAFTS: /kaggle/input/datasets/didhitinahid/nascenia-drafts-devtest/hcm_drafts_devtest.csv \n"}
+,{"stream_name":"stdout","time":55.273374813,"data":"CKPT: /kaggle/input/datasets/didhitinahid/nascenia-xfer-ckpt-s23\n"}
+,{"stream_name":"stdout","time":55.813827918,"data":"====================================================================\r\n"}
+,{"stream_name":"stdout","time":55.813861402,"data":"01_prep.py — data preparation\r\n"}
+,{"stream_name":"stdout","time":55.813871909,"data":"====================================================================\r\n"}
+,{"stream_name":"stdout","time":55.813875518,"data":"seed=42  dev_size=5000  brand_normalize=True\r\n"}
+,{"stream_name":"stdout","time":55.813910756,"data":"\r\n"}
+,{"stream_name":"stdout","time":55.813916366,"data":"raw dir: /kaggle/input/competitions/nascenia-ai-hackathon\r\n"}
+,{"stream_name":"stdout","time":62.754403688,"data":"loaded train.csv  (108954, 3)\r\n"}
+,{"stream_name":"stdout","time":62.754459631,"data":"loaded test.csv   (1000, 2)\r\n"}
+,{"stream_name":"stdout","time":62.805364952,"data":"\r\n"}
+,{"stream_name":"stdout","time":62.805413956,"data":"[1] dropped nulls                  -     0   -\u003e 108954\r\n"}
+,{"stream_name":"stdout","time":82.78056552,"data":"\r\n"}
+,{"stream_name":"stdout","time":82.780606597,"data":"[2] brand normalize চ্যাটডক্টর -\u003e নাসেনিয়া ডক\r\n"}
+,{"stream_name":"stdout","time":82.780613495,"data":"      train outputs rewritten       3213  (2.95%)\r\n"}
+,{"stream_name":"stdout","time":82.780618304,"data":"      train inputs rewritten         250\r\n"}
+,{"stream_name":"stdout","time":82.780623237,"data":"      latin 'ChatDoctor' outputs    1438\r\n"}
+,{"stream_name":"stdout","time":82.780627824,"data":"      test inputs rewritten            3\r\n"}
+,{"stream_name":"stdout","time":82.831320524,"data":"      residual after rewrite           0  ✅\r\n"}
+,{"stream_name":"stdout","time":82.831358291,"data":"\r\n"}
+,{"stream_name":"stdout","time":82.831362859,"data":"[3] NFC + whitespace collapse applied to all text fields\r\n"}
+,{"stream_name":"stdout","time":84.552334472,"data":"\r\n"}
+,{"stream_name":"stdout","time":84.552368256,"data":"[4] dropped degenerate rows        -  2214   -\u003e 106740\r\n"}
+,{"stream_name":"stdout","time":84.552374182,"data":"      (input \u003c 10 tokens or output \u003c 15 tokens)\r\n"}
+,{"stream_name":"stdout","time":85.925075209,"data":"\r\n"}
+,{"stream_name":"stdout","time":85.925104424,"data":"[5] dropped exact (input,output) dupes - 0   -\u003e 106740\r\n"}
+,{"stream_name":"stdout","time":85.97065859,"data":"      duplicate outputs KEPT         2307  (they encode the boilerplate prior)\r\n"}
+,{"stream_name":"stdout","time":86.021625886,"data":"\r\n"}
+,{"stream_name":"stdout","time":86.021658532,"data":"[6] split (seed=42)\r\n"}
+,{"stream_name":"stdout","time":86.021663849,"data":"      train   101740\r\n"}
+,{"stream_name":"stdout","time":86.02166861,"data":"      dev       5000   FROZEN — never train on this\r\n"}
+,{"stream_name":"stdout","time":86.021674015,"data":"\r\n"}
+,{"stream_name":"stdout","time":86.021678743,"data":"--------------------------------------------------------------------\r\n"}
+,{"stream_name":"stdout","time":86.02168364,"data":"token length stats (whitespace)\r\n"}
+,{"stream_name":"stdout","time":86.021688351,"data":"--------------------------------------------------------------------\r\n"}
+,{"stream_name":"stdout","time":86.021693202,"data":"field               mean    p25    p50    p75    p90    p99\r\n"}
+,{"stream_name":"stdout","time":86.78000768,"data":"train input         76.7     53     65     87    120    235\r\n"}
+,{"stream_name":"stdout","time":87.688819903,"data":"train output        99.7     77     93    117    144    224\r\n"}
+,{"stream_name":"stdout","time":87.739274921,"data":"dev input           77.3     53     66     87    121    256\r\n"}
+,{"stream_name":"stdout","time":87.78984716,"data":"dev output         100.2     77     93    117    145    223\r\n"}
+,{"stream_name":"stdout","time":87.789872491,"data":"test input          74.1     52     64     86    118    199\r\n"}
+,{"stream_name":"stdout","time":95.979600776,"data":"\r\n"}
+,{"stream_name":"stdout","time":95.979639714,"data":"outputs starting with 'হেলো': 76.36%\r\n"}
+,{"stream_name":"stdout","time":96.080909142,"data":"outputs containing 'নাসেনিয়া ডক': 51.09%\r\n"}
+,{"stream_name":"stdout","time":96.232861348,"data":"\r\n"}
+,{"stream_name":"stdout","time":96.232938996,"data":"test inputs found in train: 0  ✅\r\n"}
+,{"stream_name":"stdout","time":97.754122096,"data":"\r\n"}
+,{"stream_name":"stdout","time":97.754150364,"data":"--------------------------------------------------------------------\r\n"}
+,{"stream_name":"stdout","time":97.754154686,"data":"written to /kaggle/working/processed\r\n"}
+,{"stream_name":"stdout","time":97.754158011,"data":"  train.parquet      107.94 MB\r\n"}
+,{"stream_name":"stdout","time":97.75416139,"data":"  dev.parquet          5.34 MB\r\n"}
+,{"stream_name":"stdout","time":97.754164815,"data":"  test.parquet         0.44 MB\r\n"}
+,{"stream_name":"stdout","time":97.754168084,"data":"  prep_report.txt\r\n"}
+,{"stream_name":"stdout","time":99.193316926,"data":"  dev   5000 rows · 100% draft coverage · src 101.0 tokens\n"}
+,{"stream_name":"stdout","time":99.193353977,"data":"  test  1000 rows · 100% draft coverage · src 104.2 tokens\n"}
+,{"stream_name":"stdout","time":99.215596663,"data":"python 04_decode.py --ckpt /kaggle/input/datasets/didhitinahid/nascenia-xfer-ckpt-s23 --split dev --limit 300 --data-dir /kaggle/working/xfer --mode beam --num-beams 4 --min-new-tokens 80 --max-new-tokens 320 --length-penalty 1.0 --no-bertscore --record /kaggle/working/dev.json\n"}
+,{"stream_name":"stdout","time":319.014646042,"data":"dev: 300 rows | checkpoints: 1\n"}
+,{"stream_name":"stdout","time":319.014708684,"data":"\n"}
+,{"stream_name":"stdout","time":319.014716718,"data":"  loaded /kaggle/input/datasets/didhitinahid/nascenia-xfer-ckpt-s23  (247.6M params, torch.float32, hash 9e3126b85e78323a)\n"}
+,{"stream_name":"stdout","time":319.0147226,"data":"\n"}
+,{"stream_name":"stdout","time":319.014727401,"data":"TOTAL INFERENCE PARAMETERS: 247,577,856 (0.248B)\n"}
+,{"stream_name":"stdout","time":319.014732589,"data":"✅ within the 3B cap  (headroom 2752M)\n"}
+,{"stream_name":"stdout","time":319.014738107,"data":"\n"}
+,{"stream_name":"stdout","time":319.014742661,"data":"decoded 300 rows in 2.9 min (1 candidate(s)/row, mode=beam)\n"}
+,{"stream_name":"stdout","time":319.014747411,"data":"\n"}
+,{"stream_name":"stdout","time":319.014752012,"data":"n = 300\n"}
+,{"stream_name":"stdout","time":319.01475668,"data":"  BERTScore F1  n/a (skipped)   (weight 0.5)\n"}
+,{"stream_name":"stdout","time":319.01476168,"data":"  Token F1      0.7723   (weight 0.3)\n"}
+,{"stream_name":"stdout","time":319.014771473,"data":"  ROUGE-L F1    0.7332   (weight 0.2)\n"}
+,{"stream_name":"stdout","time":319.014775124,"data":"  COMPOSITE     0.3783   ⚠️ PARTIAL — lexical only, max 0.5\n"}
+,{"stream_name":"stdout","time":319.014778813,"data":"  mean tokens   pred 98.6 vs ref 100.1\n"}
+,{"stream_name":"stdout","time":319.014797614,"data":"\n"}
+,{"stream_name":"stdout","time":319.014803599,"data":"  lexical (0.3*F1 + 0.2*RL) = 0.3783\n"}
+,{"stream_name":"stdout","time":319.014809121,"data":"  ✅ vs CONST-OPT-01 bar TokenF1 0.3519  (+0.4204)\n"}
+,{"stream_name":"stdout","time":319.014814911,"data":"  ✅ vs LB constant TokenF1 0.2669  (+0.5054)\n"}
+,{"stream_name":"stdout","time":319.014819921,"data":"\n"}
+,{"stream_name":"stdout","time":319.014824593,"data":"  ⚠️  composite is mis-calibrated (~ -0.118); judge on Token F1 / ROUGE-L.\n"}
+,{"stream_name":"stdout","time":319.014829602,"data":"run record: /kaggle/working/dev.json\n"}
+,{"stream_name":"stdout","time":319.22347688,"data":"dev: 300 rows | checkpoints: 1\n"}
+,{"stream_name":"stdout","time":319.223504765,"data":"\n"}
+,{"stream_name":"stdout","time":319.223523513,"data":"  loaded /kaggle/input/datasets/didhitinahid/nascenia-xfer-ckpt-s23  (247.6M params, torch.float32, hash 9e3126b85e78323a)\n"}
+,{"stream_name":"stdout","time":319.223527072,"data":"\n"}
+,{"stream_name":"stdout","time":319.223529563,"data":"TOTAL INFERENCE PARAMETERS: 247,577,856 (0.248B)\n"}
+,{"stream_name":"stdout","time":319.223532107,"data":"✅ within the 3B cap  (headroom 2752M)\n"}
+,{"stream_name":"stdout","time":319.223550785,"data":"\n"}
+,{"stream_name":"stdout","time":319.223555015,"data":"decoded 300 rows in 2.9 min (1 candidate(s)/row, mode=beam)\n"}
+,{"stream_name":"stdout","time":319.223559351,"data":"\n"}
+,{"stream_name":"stdout","time":319.223563163,"data":"n = 300\n"}
+,{"stream_name":"stdout","time":319.223566906,"data":"  BERTScore F1  n/a (skipped)   (weight 0.5)\n"}
+,{"stream_name":"stdout","time":319.223571509,"data":"  Token F1      0.7723   (weight 0.3)\n"}
+,{"stream_name":"stdout","time":319.223575503,"data":"  ROUGE-L F1    0.7332   (weight 0.2)\n"}
+,{"stream_name":"stdout","time":319.223579143,"data":"  COMPOSITE     0.3783   ⚠️ PARTIAL — lexical only, max 0.5\n"}
+,{"stream_name":"stdout","time":319.223583113,"data":"  mean tokens   pred 98.6 vs ref 100.1\n"}
+,{"stream_name":"stdout","time":319.223586825,"data":"\n"}
+,{"stream_name":"stdout","time":319.223590228,"data":"  lexical (0.3*F1 + 0.2*RL) = 0.3783\n"}
+,{"stream_name":"stdout","time":319.223593813,"data":"  ✅ vs CONST-OPT-01 bar TokenF1 0.3519  (+0.4204)\n"}
+,{"stream_name":"stdout","time":319.223597447,"data":"  ✅ vs LB constant TokenF1 0.2669  (+0.5054)\n"}
+,{"stream_name":"stdout","time":319.223601089,"data":"\n"}
+,{"stream_name":"stdout","time":319.223604523,"data":"  ⚠️  composite is mis-calibrated (~ -0.118); judge on Token F1 / ROUGE-L.\n"}
+,{"stream_name":"stdout","time":319.223608256,"data":"run record: /kaggle/working/dev.json\n"}
+,{"stream_name":"stdout","time":324.406674708,"data":"             TokenF1   ROUGE-L   pred LB\n"}
+,{"stream_name":"stdout","time":324.406826828,"data":"recorded      0.7723    0.7332    0.8455\n"}
+,{"stream_name":"stdout","time":324.406833202,"data":"now           0.7723    0.7332    0.8455\n"}
+,{"stream_name":"stdout","time":324.406835878,"data":"delta        +0.0000   -0.0000\n"}
+,{"stream_name":"stdout","time":324.406838524,"data":"\n"}
+,{"stream_name":"stdout","time":324.406840792,"data":"mean output 98.6 tokens (references ~100)\n"}
+,{"stream_name":"stdout","time":324.406843624,"data":"\n"}
+,{"stream_name":"stdout","time":324.406846122,"data":"✅ checkpoint verified\n"}
+,{"stream_name":"stdout","time":324.406849127,"data":"\n"}
+,{"stream_name":"stdout","time":324.406851393,"data":"vs the no-model bar (draft + 3 regexes): TokenF1 0.5984 / ROUGE-L 0.5482\n"}
+,{"stream_name":"stdout","time":324.406853933,"data":"   🥇 the model is genuinely converting register — clear gain over the regex\n"}
+,{"stream_name":"stdout","time":324.428123716,"data":"python 04_decode.py --ckpt /kaggle/input/datasets/didhitinahid/nascenia-xfer-ckpt-s23 --split test --data-dir /kaggle/working/xfer --mode beam --num-beams 4 --min-new-tokens 80 --max-new-tokens 320 --length-penalty 1.0 --no-bertscore --out /kaggle/working/submission.csv --record /kaggle/working/test_run.json\n"}
+,{"stream_name":"stdout","time":324.428148927,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":1129.049280604,"data":"test: 1000 rows | checkpoints: 1\n"}
+,{"stream_name":"stdout","time":1129.049348315,"data":"\n"}
+,{"stream_name":"stdout","time":1129.049355602,"data":"  loaded /kaggle/input/datasets/didhitinahid/nascenia-xfer-ckpt-s23  (247.6M params, torch.float32, hash 9e3126b85e78323a)\n"}
+,{"stream_name":"stdout","time":1129.049376148,"data":"\n"}
+,{"stream_name":"stdout","time":1129.049380763,"data":"TOTAL INFERENCE PARAMETERS: 247,577,856 (0.248B)\n"}
+,{"stream_name":"stdout","time":1129.04938488,"data":"✅ within the 3B cap  (headroom 2752M)\n"}
+,{"stream_name":"stdout","time":1129.04938966,"data":"\n"}
+,{"stream_name":"stdout","time":1129.049393566,"data":"decoded 1000 rows in 13.2 min (1 candidate(s)/row, mode=beam)\n"}
+,{"stream_name":"stdout","time":1129.049398239,"data":"\n"}
+,{"stream_name":"stdout","time":1129.04940208,"data":"wrote /kaggle/working/submission.csv  shape=(1000, 2)  columns=['id', 'output']\n"}
+,{"stream_name":"stdout","time":1129.049406549,"data":"✅ submission checks passed\n"}
+,{"stream_name":"stdout","time":1129.049410524,"data":"run record: /kaggle/working/test_run.json\n"}
+,{"stream_name":"stdout","time":1129.25948023,"data":"test: 1000 rows | checkpoints: 1\n"}
+,{"stream_name":"stdout","time":1129.259508643,"data":"\n"}
+,{"stream_name":"stdout","time":1129.259511772,"data":"  loaded /kaggle/input/datasets/didhitinahid/nascenia-xfer-ckpt-s23  (247.6M params, torch.float32, hash 9e3126b85e78323a)\n"}
+,{"stream_name":"stdout","time":1129.259514677,"data":"\n"}
+,{"stream_name":"stdout","time":1129.259517518,"data":"TOTAL INFERENCE PARAMETERS: 247,577,856 (0.248B)\n"}
+,{"stream_name":"stdout","time":1129.259533948,"data":"✅ within the 3B cap  (headroom 2752M)\n"}
+,{"stream_name":"stdout","time":1129.259539003,"data":"\n"}
+,{"stream_name":"stdout","time":1129.259542904,"data":"decoded 1000 rows in 13.2 min (1 candidate(s)/row, mode=beam)\n"}
+,{"stream_name":"stdout","time":1129.259546494,"data":"\n"}
+,{"stream_name":"stdout","time":1129.259550301,"data":"wrote /kaggle/working/submission.csv  shape=(1000, 2)  columns=['id', 'output']\n"}
+,{"stream_name":"stdout","time":1129.259554399,"data":"✅ submission checks passed\n"}
+,{"stream_name":"stdout","time":1129.259558205,"data":"run record: /kaggle/working/test_run.json\n"}
+,{"stream_name":"stdout","time":1130.992463516,"data":"rows 1000 | cols ['id', 'output'] | mean 101.4 tokens (refs ~100)\n"}
+,{"stream_name":"stdout","time":1130.992490824,"data":"\n"}
+,{"stream_name":"stdout","time":1130.992495166,"data":"register:  opens হেলো  78.2%  (refs 76.4%, draft 0.1%)\n"}
+,{"stream_name":"stdout","time":1130.992499617,"data":"           has নাসেনিয়া  51.9%  (refs 50.0%, draft 0.0%)\n"}
+,{"stream_name":"stdout","time":1130.992503337,"data":"\n"}
+,{"stream_name":"stdout","time":1130.992506677,"data":"✅ all checks passed — submission.csv ready\n"}
+,{"stream_name":"stderr","time":1134.324960323,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1134.324987788,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1134.537589558,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1134.537618841,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1135.361492137,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":1135.667197489,"data":"[NbConvertApp] Writing 30118 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":1138.132071777,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1138.97475641,"data":"[NbConvertApp] Writing 329989 bytes to __results__.html\n"}
+]

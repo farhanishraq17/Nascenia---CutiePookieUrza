@@ -1,0 +1,111 @@
+{
+  "arm": "D1",
+  "model": "Qwen/Qwen3.5-2B",
+  "data_dir": "../data/plain_core_plus_icliniq",
+  "params": 1881825088,
+  "train_rows": 109061,
+  "lr": 2e-05,
+  "optim": "adafactor",
+  "effective_batch": 64,
+  "max_src": 1024,
+  "max_tgt": 640,
+  "max_steps": 4500,
+  "eval_steps": 500,
+  "patience": 6,
+  "precision": "torch.bfloat16",
+  "gpu": "NVIDIA H200",
+  "train_minutes": 1943.8,
+  "best": {
+    "token_f1": 0.26463482583169706,
+    "step": 2500,
+    "rouge_l": 0.18212161692570364
+  },
+  "trajectory": [
+    {
+      "step": 500,
+      "token_f1": 0.2227,
+      "rouge_l": 0.154,
+      "mean_tokens": 115.9,
+      "helo_pct": 48.0,
+      "secs": 1136.9
+    },
+    {
+      "step": 1000,
+      "token_f1": 0.23969,
+      "rouge_l": 0.16198,
+      "mean_tokens": 120.2,
+      "helo_pct": 63.0,
+      "secs": 1155.3
+    },
+    {
+      "step": 1500,
+      "token_f1": 0.24688,
+      "rouge_l": 0.16434,
+      "mean_tokens": 117.9,
+      "helo_pct": 82.7,
+      "secs": 1148.8
+    },
+    {
+      "step": 2000,
+      "token_f1": 0.25318,
+      "rouge_l": 0.17544,
+      "mean_tokens": 121.4,
+      "helo_pct": 78.0,
+      "secs": 1158.1
+    },
+    {
+      "step": 2500,
+      "token_f1": 0.26463,
+      "rouge_l": 0.18212,
+      "mean_tokens": 112.0,
+      "helo_pct": 77.0,
+      "secs": 1115.6
+    },
+    {
+      "step": 3000,
+      "token_f1": 0.25756,
+      "rouge_l": 0.17818,
+      "mean_tokens": 114.1,
+      "helo_pct": 83.7,
+      "secs": 1133.9
+    },
+    {
+      "step": 3500,
+      "token_f1": 0.25584,
+      "rouge_l": 0.17455,
+      "mean_tokens": 112.2,
+      "helo_pct": 80.7,
+      "secs": 1126.8
+    },
+    {
+      "step": 4000,
+      "token_f1": 0.25387,
+      "rouge_l": 0.17363,
+      "mean_tokens": 113.6,
+      "helo_pct": 81.7,
+      "secs": 1126.5
+    },
+    {
+      "step": 4500,
+      "token_f1": 0.25612,
+      "rouge_l": 0.17365,
+      "mean_tokens": 114.0,
+      "helo_pct": 81.7,
+      "secs": 1122.2
+    }
+  ],
+  "final": {
+    "n": 300,
+    "token_f1": 0.2561184085181833,
+    "rouge_l": 0.1736512494528723,
+    "mean_pred_tokens": 113.96666666666667,
+    "helo_opener_pct": 81.66666666666667,
+    "nasenia_pct": 82.66666666666667,
+    "truncated_pct": 28.666666666666668,
+    "empty_pct": 0.0
+  },
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.14.1"
+  }
+}

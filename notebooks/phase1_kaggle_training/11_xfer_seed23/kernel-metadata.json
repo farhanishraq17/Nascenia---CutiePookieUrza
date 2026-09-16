@@ -1,0 +1,20 @@
+{
+  "id": "salam2026/nascenia-xfer-banglat5",
+  "title": "Nascenia Xfer BanglaT5",
+  "code_file": "nascenia-xfer-banglat5.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [
+    "salam2026/nascenia-code",
+    "salam2026/nascenia-data",
+    "salam2026/nascenia-hcm-bn"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": [],
+  "machine_shape": "NvidiaTeslaT4"
+}

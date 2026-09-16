@@ -1,0 +1,17 @@
+{
+  "arm": "D1_solo",
+  "ckpt": "/kaggle/input/datasets/farhanishraqq/nascenia-phase2-qwen35-d1/best",
+  "params": 1881825088,
+  "dtype": "torch.float32",
+  "decode": {
+    "beams": 4,
+    "lp": 1.0,
+    "max_src": 1024,
+    "max_new": 640
+  },
+  "dev300_token_f1": 0.2674992662955729,
+  "recorded_dev300_token_f1": 0.26463482583169706,
+  "mean_tokens": 112.801,
+  "helo_pct": 78.3,
+  "unterminated_pct": 25.4
+}

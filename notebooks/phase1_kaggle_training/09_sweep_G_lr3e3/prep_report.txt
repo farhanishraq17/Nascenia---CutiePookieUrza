@@ -1,0 +1,50 @@
+====================================================================
+01_prep.py — data preparation
+====================================================================
+seed=42  dev_size=5000  brand_normalize=True
+
+raw dir: /kaggle/input/datasets/ishmamahmid/nascenia-data
+loaded train.csv  (108954, 3)
+loaded test.csv   (1000, 2)
+
+[1] dropped nulls                  -     0   -> 108954
+
+[2] brand normalize চ্যাটডক্টর -> নাসেনিয়া ডক
+      train outputs rewritten       3213  (2.95%)
+      train inputs rewritten         250
+      latin 'ChatDoctor' outputs    1438
+      test inputs rewritten            3
+      residual after rewrite           0  ✅
+
+[3] NFC + whitespace collapse applied to all text fields
+
+[4] dropped degenerate rows        -  2214   -> 106740
+      (input < 10 tokens or output < 15 tokens)
+
+[5] dropped exact (input,output) dupes - 0   -> 106740
+      duplicate outputs KEPT         2307  (they encode the boilerplate prior)
+
+[6] split (seed=42)
+      train   101740
+      dev       5000   FROZEN — never train on this
+
+--------------------------------------------------------------------
+token length stats (whitespace)
+--------------------------------------------------------------------
+field               mean    p25    p50    p75    p90    p99
+train input         76.7     53     65     87    120    235
+train output        99.7     77     93    117    144    224
+dev input           77.3     53     66     87    121    256
+dev output         100.2     77     93    117    145    223
+test input          74.1     52     64     86    118    199
+
+outputs starting with 'হেলো': 76.36%
+outputs containing 'নাসেনিয়া ডক': 51.09%
+
+test inputs found in train: 0  ✅
+
+--------------------------------------------------------------------
+written to /kaggle/working/processed
+  train.parquet      107.94 MB
+  dev.parquet          5.34 MB
+  test.parquet         0.44 MB

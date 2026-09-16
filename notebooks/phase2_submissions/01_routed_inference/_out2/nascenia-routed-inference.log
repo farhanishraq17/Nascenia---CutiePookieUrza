@@ -1,0 +1,65 @@
+[{"stream_name":"stderr","time":6.208185268,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.208257826,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.032667141,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.03269585,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.032701169,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.032704937,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.647304143,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.647352132,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.647359442,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.647364821,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":12.82127592,"data":"  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":13.124747592,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/44.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m44.0/44.0 kB\u001b[0m \u001b[31m1.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.681768525,"data":"\u001b[?25h\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/185.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m184.3/185.0 kB\u001b[0m \u001b[31m8.1 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m185.0/185.0 kB\u001b[0m \u001b[31m5.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":14.340128099,"data":"\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":14.441247338,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/64.2 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m64.2/64.2 kB\u001b[0m \u001b[31m4.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":15.150536486,"data":"\u001b[?25h  Preparing metadata (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":15.40531622,"data":"\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/12.0 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.0/12.0 MB\u001b[0m \u001b[31m29.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m4.9/12.0 MB\u001b[0m \u001b[31m71.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m179.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m179.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m12.0/12.0 MB\u001b[0m \u001b[31m91.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":15.455796745,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/566.4 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m566.4/566.4 kB\u001b[0m \u001b[31m34.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":16.721032947,"data":"\u001b[?25h  Building wheel for normalizer (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":17.834844546,"data":"  Building wheel for emoji (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":18.94954741,"data":"  Building wheel for ftfy (setup.py) ... \u001b[?25l\u001b[?25hdone\r\n"}
+,{"stream_name":"stdout","time":42.246234521,"data":"Tesla T4 sm_75 -\u003e torch.float32\n"}
+,{"stream_name":"stdout","time":42.359658575,"data":"checkpoints visible:\n"}
+,{"stream_name":"stdout","time":42.359691454,"data":"    /kaggle/input/datasets/farhanishraqq/nascenia-peak5-checkpoint-average/best/config.json\n"}
+,{"stream_name":"stdout","time":42.359696415,"data":"    /kaggle/input/datasets/farhanishraqq/nascenia-phase2-qwen35-2b/best/config.json\n"}
+,{"stream_name":"stdout","time":42.359700181,"data":"champion  : /kaggle/input/datasets/farhanishraqq/nascenia-peak5-checkpoint-average/best (t5forconditionalgeneration)\n"}
+,{"stream_name":"stdout","time":42.35970363,"data":"corpus    : /kaggle/input/datasets/farhanishraqq/nascenia-router-corpus/router_corpus.parquet\n"}
+,{"stream_name":"stdout","time":42.359707494,"data":"specialist: /kaggle/input/datasets/farhanishraqq/nascenia-phase2-qwen35-2b/best\n"}
+,{"stream_name":"stdout","time":42.359710837,"data":"INPUT     : /kaggle/input/competitions/nascenia-ai-hackathon/test.csv\n"}
+,{"stream_name":"stdout","time":42.35971423,"data":"\n"}
+,{"stream_name":"stdout","time":42.359717397,"data":"1,000 rows to answer\n"}
+,{"stream_name":"stdout","time":74.732524508,"data":"champion parameters: 247,577,856\n"}
+,{"stream_name":"stdout","time":74.732557789,"data":"router parameters  : 0  (char-ngram TF-IDF is not a neural model)\n"}
+,{"stream_name":"stdout","time":75.387278822,"data":"✅ logits finite\n"}
+,{"stream_name":"stdout","time":78.735502252,"data":"corpus usable for matching: 112,154\n"}
+,{"stream_name":"stdout","time":135.106091262,"data":"indexed 112,154 x 300,000\n"}
+,{"stream_name":"stdout","time":135.139029004,"data":"ID_LOOKUP      1,000  (100.0%)\n"}
+,{"stream_name":"stdout","time":135.139052005,"data":"CONTENT_MATCH      0  (  0.0%)\n"}
+,{"stream_name":"stdout","time":135.13905758800001,"data":"SPECIALIST         0  (  0.0%)\n"}
+,{"stream_name":"stdout","time":135.139065804,"data":"\n"}
+,{"stream_name":"stdout","time":135.139069264,"data":"→ every id resolved: this is Phase-1-like data, identical to the 0.89552 path.\n"}
+,{"stream_name":"stdout","time":135.303690172,"data":"champion: 1,000 rows\n"}
+,{"stream_name":"stdout","time":181.564064725,"data":"   0/1000\n"}
+,{"stream_name":"stdout","time":526.117333451,"data":"   160/1000\n"}
+,{"stream_name":"stdout","time":937.694798335,"data":"   320/1000\n"}
+,{"stream_name":"stdout","time":1430.47033286,"data":"   480/1000\n"}
+,{"stream_name":"stdout","time":1782.105950555,"data":"   640/1000\n"}
+,{"stream_name":"stdout","time":2218.828806152,"data":"   800/1000\n"}
+,{"stream_name":"stdout","time":2646.386300808,"data":"   960/1000\n"}
+,{"stream_name":"stdout","time":2725.687477573,"data":"\n"}
+,{"stream_name":"stdout","time":2725.687516583,"data":"✅ generated 1,000\n"}
+,{"stream_name":"stdout","time":2725.72556501,"data":"(1000, 2)\n"}
+,{"stream_name":"stdout","time":2725.770109763,"data":"no targets supplied — nothing to score (expected for the real test set).\n"}
+,{"stream_name":"stdout","time":2725.770134997,"data":"routing mix: {'ID_LOOKUP': 1000}\n"}
+,{"stream_name":"stdout","time":2725.770141294,"data":"\n"}
+,{"stream_name":"stdout","time":2725.770146048,"data":"✅ wrote submission.csv\n"}
+,{"stream_name":"stderr","time":2731.363705073,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2731.363748,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2731.534471649,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2731.534494811,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2732.21793485,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":2732.521320531,"data":"[NbConvertApp] Writing 32636 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":2734.927931179,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2735.777552935,"data":"[NbConvertApp] Writing 352883 bytes to __results__.html\n"}
+]

@@ -1,0 +1,46 @@
+{
+  "run_name": "clean_s23",
+  "model": "csebuetnlp/banglat5",
+  "data_dir": "../data/english_draft_clean",
+  "seed": 23,
+  "params": 247577856,
+  "train_rows": 96545,
+  "epochs": 3.0,
+  "max_steps": 12000,
+  "eval_steps": 250,
+  "early_stopping_patience": 8,
+  "lr": 0.001,
+  "effective_batch": 64,
+  "label_smoothing": 0.0,
+  "optim": "adafactor",
+  "max_source_len": 768,
+  "max_target_len": 512,
+  "grad_checkpointing": false,
+  "precision": "bf16",
+  "gpu": "NVIDIA L40S",
+  "n_gpu": 1,
+  "normalizer": true,
+  "decoding": {
+    "num_beams": 4,
+    "min_new_tokens": 80,
+    "max_new_tokens": 320,
+    "length_penalty": 1.0
+  },
+  "dev": {
+    "loss": 0.39400938153266907,
+    "token_f1": 0.8142700526341851,
+    "rouge_l": 0.7850899547605614,
+    "bertscore": 0.9291668274292401,
+    "composite": 0.8658824204569877,
+    "pred_tokens": 100.24666666666667,
+    "runtime": 117.735,
+    "samples_per_second": 2.548,
+    "steps_per_second": 0.323
+  },
+  "eval_subset": 300,
+  "train_minutes": 139.4,
+  "checkpoint_hash": "7f4df5cd8d549b0e",
+  "versions": {
+    "torch": "2.8.0+cu128"
+  }
+}

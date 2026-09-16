@@ -1,0 +1,46 @@
+{
+  "run_name": "dedup_s42",
+  "model": "csebuetnlp/banglat5",
+  "data_dir": "../data/english_draft_dedup",
+  "seed": 42,
+  "params": 247577856,
+  "train_rows": 99486,
+  "epochs": 3.0,
+  "max_steps": 12000,
+  "eval_steps": 250,
+  "early_stopping_patience": 8,
+  "lr": 0.001,
+  "effective_batch": 64,
+  "label_smoothing": 0.0,
+  "optim": "adafactor",
+  "max_source_len": 768,
+  "max_target_len": 512,
+  "grad_checkpointing": false,
+  "precision": "bf16",
+  "gpu": "NVIDIA A800 40GB Active",
+  "n_gpu": 1,
+  "normalizer": true,
+  "decoding": {
+    "num_beams": 4,
+    "min_new_tokens": 80,
+    "max_new_tokens": 320,
+    "length_penalty": 1.0
+  },
+  "dev": {
+    "loss": 0.37591713666915894,
+    "token_f1": 0.8241545087700941,
+    "rouge_l": 0.795831683390074,
+    "bertscore": 0.9328279469719375,
+    "composite": 0.8728266627950118,
+    "pred_tokens": 100.11666666666666,
+    "runtime": 135.9474,
+    "samples_per_second": 2.207,
+    "steps_per_second": 0.28
+  },
+  "eval_subset": 300,
+  "train_minutes": 45.0,
+  "checkpoint_hash": "d66232c43ea6207b",
+  "versions": {
+    "torch": "2.8.0+cu128"
+  }
+}

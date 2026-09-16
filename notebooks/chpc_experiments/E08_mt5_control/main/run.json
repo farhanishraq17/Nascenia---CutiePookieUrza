@@ -1,0 +1,45 @@
+{
+  "run_name": "main",
+  "model": "google/mt5-base",
+  "seed": 11,
+  "params": 582401280,
+  "train_rows": 101737,
+  "epochs": 3.0,
+  "max_steps": 4000,
+  "eval_steps": 250,
+  "early_stopping_patience": 5,
+  "lr": 0.001,
+  "effective_batch": 64,
+  "label_smoothing": 0.0,
+  "optim": "adafactor",
+  "max_source_len": 640,
+  "max_target_len": 640,
+  "grad_checkpointing": false,
+  "precision": "bf16",
+  "gpu": "NVIDIA H100 NVL",
+  "n_gpu": 1,
+  "normalizer": true,
+  "decoding": {
+    "num_beams": 4,
+    "min_new_tokens": 80,
+    "max_new_tokens": 320,
+    "length_penalty": 1.0
+  },
+  "dev": {
+    "loss": 0.3457793891429901,
+    "token_f1": 0.7557643709111005,
+    "rouge_l": 0.7165920299745149,
+    "bertscore": 0.9039801644930715,
+    "composite": 0.8220377995147689,
+    "pred_tokens": 92.05,
+    "runtime": 94.2283,
+    "samples_per_second": 3.184,
+    "steps_per_second": 0.202
+  },
+  "eval_subset": 300,
+  "train_minutes": 90.2,
+  "checkpoint_hash": "0845d190d7cbcdd3",
+  "versions": {
+    "torch": "2.8.0+cu128"
+  }
+}

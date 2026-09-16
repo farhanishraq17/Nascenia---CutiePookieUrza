@@ -1,0 +1,14 @@
+{
+  "id": "farhanishraqq/nascenia-transfer-test24",
+  "title": "nascenia-transfer-test24",
+  "code_file": "nascenia-transfer-test24.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_internet": true,
+  "dataset_sources": ["farhanishraqq/nascenia-peak5-checkpoint-average"],
+  "competition_sources": [],
+  "kernel_sources": []
+}

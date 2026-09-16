@@ -1,0 +1,138 @@
+[{"stream_name":"stderr","time":7.239109504,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.239868732,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":8.203659004,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.203688664,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.20369508,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.203699853,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.877391367,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.877445101,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.877451772,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.877456498,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":14.148859291,"data":"\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/11.6 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.5/11.6 MB\u001b[0m \u001b[31m15.3 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.5/11.6 MB\u001b[0m \u001b[31m50.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━\u001b[0m \u001b[32m11.1/11.6 MB\u001b[0m \u001b[31m160.5 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m11.6/11.6 MB\u001b[0m \u001b[31m178.3 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m11.6/11.6 MB\u001b[0m \u001b[31m88.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":14.199613506,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/389.2 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m389.2/389.2 kB\u001b[0m \u001b[31m22.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":14.250277865,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.4 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.4/1.4 MB\u001b[0m \u001b[31m51.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":14.301694543,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/516.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m516.0/516.0 kB\u001b[0m \u001b[31m23.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":48.013304714,"data":"\u001b[?25hTesla T4 sm_75 -\u003e torch.float32  transformers 5.14.1\n"}
+,{"stream_name":"stdout","time":48.087924805,"data":"ckpt      : /kaggle/input/datasets/farhanishraqq/nascenia-phase2-qwen35-2b/best\n"}
+,{"stream_name":"stdout","time":48.087964023,"data":"dev_plain : /kaggle/input/datasets/farhanishraqq/nascenia-phase2-qwen35-2b/dev_plain.parquet\n"}
+,{"stream_name":"stdout","time":48.087972167,"data":"pool_dir  : /kaggle/input/datasets/farhanishraqq/nascenia-phase2-pool\n"}
+,{"stream_name":"stdout","time":48.087977652,"data":"router    : /kaggle/input/datasets/farhanishraqq/nascenia-router-corpus/router_corpus.parquet\n"}
+,{"stream_name":"stderr","time":60.125033048,"data":"[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d\n"}
+,{"stream_name":"stderr","time":60.125085525,"data":"\n"}
+,{"stream_name":"stderr","time":60.125090772,"data":"[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d\n"}
+,{"stream_name":"stdout","time":67.916104253,"data":"parameters: 1,881,825,088\n"}
+,{"stream_name":"stdout","time":67.916153798,"data":"✅ within cap. Combined with champion (247,577,856): 2.13B before the retriever's ~278M\n"}
+,{"stream_name":"stdout","time":68.865614557,"data":"✅ logits finite -- checkpoint loads and runs\n"}
+,{"stream_name":"stdout","time":71.928593326,"data":"Tier-1 pool: 118,912 rows  (sources: {'competition_train': np.int64(101740), 'icliniq': np.int64(7321), 'genmedgpt': np.int64(5200), 'doctor_qa_bangla': np.int64(4651)})\n"}
+,{"stream_name":"stdout","time":75.173928396,"data":"healthcaremagic (leak-safe): 106,154 rows  (dropped 6,000 dev/test-overlapping ids)\n"}
+,{"stream_name":"stdout","time":75.173960244,"data":"\n"}
+,{"stream_name":"stdout","time":75.173966788,"data":"✅ EXPANDED pool: 225,066 rows, 0 dev/test leak\n"}
+,{"stream_name":"stdout","time":75.173972786,"data":"source\n"}
+,{"stream_name":"stdout","time":75.173977643,"data":"healthcaremagic      106154\n"}
+,{"stream_name":"stdout","time":75.17398345,"data":"competition_train    101740\n"}
+,{"stream_name":"stdout","time":75.173989137,"data":"icliniq                7321\n"}
+,{"stream_name":"stdout","time":75.173994614,"data":"genmedgpt              5200\n"}
+,{"stream_name":"stdout","time":75.17400025,"data":"doctor_qa_bangla       4651\n"}
+,{"stream_name":"stdout","time":75.174005249,"data":"Name: count, dtype: int64\n"}
+,{"stream_name":"stderr","time":75.433331175,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":75.433388342,"data":"\n"}
+,{"stream_name":"stderr","time":75.433392594,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":85.109054914,"data":"retriever: intfloat/multilingual-e5-base  278,043,648 params  (counts toward the 3B cap if a RAG arm ships)\n"}
+,{"stream_name":"stdout","time":86.73286365,"data":"  embedded 0/225066\n"}
+,{"stream_name":"stdout","time":156.398198365,"data":"  embedded 5120/225066\n"}
+,{"stream_name":"stdout","time":239.554815447,"data":"  embedded 10240/225066\n"}
+,{"stream_name":"stdout","time":322.79312308,"data":"  embedded 15360/225066\n"}
+,{"stream_name":"stdout","time":405.82556291,"data":"  embedded 20480/225066\n"}
+,{"stream_name":"stdout","time":488.698748912,"data":"  embedded 25600/225066\n"}
+,{"stream_name":"stdout","time":571.995125695,"data":"  embedded 30720/225066\n"}
+,{"stream_name":"stdout","time":655.511506416,"data":"  embedded 35840/225066\n"}
+,{"stream_name":"stdout","time":738.857134911,"data":"  embedded 40960/225066\n"}
+,{"stream_name":"stdout","time":821.640373265,"data":"  embedded 46080/225066\n"}
+,{"stream_name":"stdout","time":904.88814145,"data":"  embedded 51200/225066\n"}
+,{"stream_name":"stdout","time":988.443782395,"data":"  embedded 56320/225066\n"}
+,{"stream_name":"stdout","time":1071.850201307,"data":"  embedded 61440/225066\n"}
+,{"stream_name":"stdout","time":1154.885729204,"data":"  embedded 66560/225066\n"}
+,{"stream_name":"stdout","time":1238.138676569,"data":"  embedded 71680/225066\n"}
+,{"stream_name":"stdout","time":1321.632152146,"data":"  embedded 76800/225066\n"}
+,{"stream_name":"stdout","time":1405.139272537,"data":"  embedded 81920/225066\n"}
+,{"stream_name":"stdout","time":1488.710088008,"data":"  embedded 87040/225066\n"}
+,{"stream_name":"stdout","time":1572.290843355,"data":"  embedded 92160/225066\n"}
+,{"stream_name":"stdout","time":1655.653779299,"data":"  embedded 97280/225066\n"}
+,{"stream_name":"stdout","time":1728.865812676,"data":"  embedded 102400/225066\n"}
+,{"stream_name":"stdout","time":1762.61528873,"data":"  embedded 107520/225066\n"}
+,{"stream_name":"stdout","time":1804.738126732,"data":"  embedded 112640/225066\n"}
+,{"stream_name":"stdout","time":1888.280934861,"data":"  embedded 117760/225066\n"}
+,{"stream_name":"stdout","time":1971.230851463,"data":"  embedded 122880/225066\n"}
+,{"stream_name":"stdout","time":2053.809009373,"data":"  embedded 128000/225066\n"}
+,{"stream_name":"stdout","time":2136.979883559,"data":"  embedded 133120/225066\n"}
+,{"stream_name":"stdout","time":2219.415131776,"data":"  embedded 138240/225066\n"}
+,{"stream_name":"stdout","time":2302.771130773,"data":"  embedded 143360/225066\n"}
+,{"stream_name":"stdout","time":2385.141134914,"data":"  embedded 148480/225066\n"}
+,{"stream_name":"stdout","time":2468.059134108,"data":"  embedded 153600/225066\n"}
+,{"stream_name":"stdout","time":2551.190821859,"data":"  embedded 158720/225066\n"}
+,{"stream_name":"stdout","time":2634.001224082,"data":"  embedded 163840/225066\n"}
+,{"stream_name":"stdout","time":2717.356303608,"data":"  embedded 168960/225066\n"}
+,{"stream_name":"stdout","time":2800.684171429,"data":"  embedded 174080/225066\n"}
+,{"stream_name":"stdout","time":2883.926980126,"data":"  embedded 179200/225066\n"}
+,{"stream_name":"stdout","time":2966.631734032,"data":"  embedded 184320/225066\n"}
+,{"stream_name":"stdout","time":3049.35812121,"data":"  embedded 189440/225066\n"}
+,{"stream_name":"stdout","time":3131.879253494,"data":"  embedded 194560/225066\n"}
+,{"stream_name":"stdout","time":3215.144110694,"data":"  embedded 199680/225066\n"}
+,{"stream_name":"stdout","time":3298.180699753,"data":"  embedded 204800/225066\n"}
+,{"stream_name":"stdout","time":3380.577885776,"data":"  embedded 209920/225066\n"}
+,{"stream_name":"stdout","time":3463.782149927,"data":"  embedded 215040/225066\n"}
+,{"stream_name":"stdout","time":3546.153410297,"data":"  embedded 220160/225066\n"}
+,{"stream_name":"stdout","time":3623.671211105,"data":"pool embeddings: (225066, 768)  (59.0 min)\n"}
+,{"stream_name":"stdout","time":3623.864662374,"data":"dev: 300 rows\n"}
+,{"stream_name":"stdout","time":3625.907172606,"data":"  embedded 0/300\n"}
+,{"stream_name":"stdout","time":3629.436613198,"data":"mean top-1 similarity: 0.9141   min: 0.8619\n"}
+,{"stream_name":"stdout","time":3629.436657431,"data":"retrieved-source breakdown: Counter({'competition_train': 224, 'healthcaremagic': 59, 'icliniq': 16, 'genmedgpt': 1})\n"}
+,{"stream_name":"stdout","time":3629.474284096,"data":"--- sample RAG input (row 0) ---\n"}
+,{"stream_name":"stdout","time":3629.474310301,"data":"অনুরূপ কেস:\n"}
+,{"stream_name":"stdout","time":3629.474319537,"data":"রোগী: হেলো, আমি প্রায় এক ঘণ্টা আগে দোকানে ছিলাম এবং হঠাৎ আমার খুব গরম লাগতে শুরু করে, আমার হাত ঘামছিল, তারপর ঘরটা ঘুরতে শুরু করে এবং আমার খুব বমি বমি ভাব হচ্ছিল। তাই আমি বসে পড়লাম এবং কাঁপতে শুরু করলাম, আমার মনে হচ্ছিল আমি অজ্ঞান হয়ে যাব। আপনি কি জানেন এটি কী?\n"}
+,{"stream_name":"stdout","time":3629.474332026,"data":"ডাক্তার: হেলো, আমি আপনার প্রশ্নটি দেখেছি এবং আপনার উদ্বেগগুলো বুঝতে পেরেছি। আমার মনে হয় আপনি যে সমস্যার কথা বর্ণনা করেছেন তা সিনকোপ বা ভার্টিগো হতে পারে। আপনি যদি ক্লান্ত, মানসিক চাপে থাকেন বা ভালোমতো না ঘুমিয়ে থাকেন, তবে সম্ভবত এটি সিনকোপ ছিল। আর যদি আপনি আপনার দৈনন্দিন রুটিনেই ছিলেন, তবে সম্ভবত এটি ভার্টিগো ছিল। উভয় ক্ষেত্রেই যদি এটি আবার ঘটে, তবে আমি আপনাকে আপনার প্রাথমিক চিকিৎসকের সাথে পরামর্শ করার পরামর্শ দিচ্ছি।\n"}
+,{"stream_name":"stdout","time":3629.474343561,"data":"\n"}
+,{"stream_name":"stdout","time":3629.474348457,"data":"--- true target (row 0) ---\n"}
+,{"stream_name":"stdout","time":3629.474354949,"data":"হেলো, বেশ কিছু সম্ভাবনা রয়েছে, তবে কিছুক্ষণ দাঁড়িয়ে থাকার পর হঠাৎ গরম লাগা এবং অজ্ঞান হয়ে যাওয়ার মতো অনুভূতি (দৃষ্টি ঝাপসা হয়ে আসা) হওয়ার লক্ষণগুলো থেকে এটিই বেশি মনে হচ্ছে যে আপনার রক্তচাপ কমে\n"}
+,{"stream_name":"stdout","time":3629.503115127,"data":"retriever params (278,043,648) + specialist (1,881,825,088) + champion (247,577,856) = 2.41B\n"}
+,{"stream_name":"stdout","time":3629.637121237,"data":"Generating: baseline (plain, X2's own format) ...\n"}
+,{"stream_name":"stdout","time":3798.213595515,"data":"  0/300\n"}
+,{"stream_name":"stdout","time":5322.467569121,"data":"  80/300\n"}
+,{"stream_name":"stdout","time":6736.441194312,"data":"  160/300\n"}
+,{"stream_name":"stdout","time":8160.968000861,"data":"  240/300\n"}
+,{"stream_name":"stdout","time":9061.300157216,"data":"\n"}
+,{"stream_name":"stdout","time":9061.300201781,"data":"=== BASELINE -- plain input, no RAG (replicates run_X2.json's 0.2641) (n=300) ===\n"}
+,{"stream_name":"stdout","time":9061.300210183,"data":"  Token F1 0.2648   ROUGE-L 0.1782   vs floor 0.1454: +0.1194 (clears)\n"}
+,{"stream_name":"stdout","time":9061.300217121,"data":"  mean tokens 113.5 (ref 100.0)   হেলো% 78.7 (ref 76.4)   truncated% 66.3 (ref 6.8)   empty% 0.0\n"}
+,{"stream_name":"stdout","time":9061.300224698,"data":"\n"}
+,{"stream_name":"stdout","time":9061.300231008,"data":"Generating: X6 -- RAG bolt-on, expanded 225,066-row corpus ...\n"}
+,{"stream_name":"stdout","time":9232.826563166,"data":"  0/300\n"}
+,{"stream_name":"stdout","time":10954.133997856,"data":"  80/300\n"}
+,{"stream_name":"stdout","time":12672.033673188,"data":"  160/300\n"}
+,{"stream_name":"stdout","time":14391.941816471,"data":"  240/300\n"}
+,{"stream_name":"stdout","time":15532.891008203,"data":"\n"}
+,{"stream_name":"stdout","time":15532.891084455,"data":"=== X6 -- RAG bolt-on (expanded corpus) (n=300) ===\n"}
+,{"stream_name":"stdout","time":15532.891100361,"data":"  Token F1 0.1828   ROUGE-L 0.1220   vs floor 0.1454: +0.0374 (clears)\n"}
+,{"stream_name":"stdout","time":15532.891104822,"data":"  mean tokens 129.4 (ref 100.0)   হেলো% 31.7 (ref 76.4)   truncated% 74.7 (ref 6.8)   empty% 0.0\n"}
+,{"stream_name":"stdout","time":15532.891109221,"data":"  🔴 copy-check: overlap w/ TRUE target 0.1828  vs  overlap w/ SHOWN reference 0.2357  margin -0.0529\n"}
+,{"stream_name":"stdout","time":15532.891113104,"data":"     margin \u003e 0 -\u003e answering.  margin \u003c 0 -\u003e COPYING the retrieved example, not answering.\n"}
+,{"stream_name":"stdout","time":15532.916773437,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":15532.916806367,"data":"Token F1   plain=0.2648   X6(RAG)=0.1828   delta=-0.0820\n"}
+,{"stream_name":"stdout","time":15532.916813368,"data":"ROUGE-L    plain=0.1782   X6(RAG)=0.1220   delta=-0.0562\n"}
+,{"stream_name":"stdout","time":15532.916819269,"data":"copy_margin (X6): -0.0529  (COPYING -- arm has failed regardless of F1)\n"}
+,{"stream_name":"stdout","time":15532.9168246,"data":"\n"}
+,{"stream_name":"stdout","time":15532.916830274,"data":"\u003c\u003c X2: the extra context actively hurts an unprepared model -- clean negative.\n"}
+,{"stream_name":"stdout","time":15532.916836696,"data":"  Do not ship bolt-on RAG with this checkpoint. If RAG is still worth pursuing,\n"}
+,{"stream_name":"stdout","time":15532.916841858,"data":"  it must be TRAINED IN (X3), not bolted on.\n"}
+,{"stream_name":"stdout","time":15532.916847239,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":15532.916852402,"data":"\n"}
+,{"stream_name":"stdout","time":15532.916857973,"data":"✅ wrote x6_result.json\n"}
+,{"stream_name":"stderr","time":15539.744146152,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":15539.744205507,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":15539.946677317,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":15539.946706017,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":15540.70424823,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":15541.149545564,"data":"[NbConvertApp] Writing 129566 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":15544.144124481,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":15545.236202825,"data":"[NbConvertApp] Writing 447540 bytes to __results__.html\n"}
+]

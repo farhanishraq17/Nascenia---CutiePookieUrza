@@ -1,0 +1,18 @@
+{
+  "id": "salam2026/nascenia-sweep-b-4epoch",
+  "title": "Nascenia Sweep B-4epoch",
+  "code_file": "nascenia-sweep-b-4epoch.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [
+    "salam2026/nascenia-code",
+    "salam2026/nascenia-data"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

@@ -1,0 +1,18 @@
+{
+  "id": "farhanishraqq/nascenia-qwen-rag-bolton",
+  "title": "nascenia-qwen-rag-bolton",
+  "code_file": "nascenia-qwen-rag-bolton.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_internet": true,
+  "dataset_sources": [
+    "farhanishraqq/nascenia-phase2-qwen35-2b",
+    "farhanishraqq/nascenia-phase2-pool",
+    "farhanishraqq/nascenia-router-corpus"
+  ],
+  "competition_sources": [],
+  "kernel_sources": []
+}

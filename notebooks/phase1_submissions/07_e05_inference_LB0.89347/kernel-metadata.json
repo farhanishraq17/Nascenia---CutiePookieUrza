@@ -1,0 +1,14 @@
+{
+  "id": "farhanishraqq/nascenia-e05-inference",
+  "title": "nascenia-e05-inference",
+  "code_file": "nascenia-e05-inference.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_internet": true,
+  "dataset_sources": ["farhanishraqq/nascenia-e05-english-draft"],
+  "competition_sources": ["nascenia-ai-hackathon"],
+  "kernel_sources": []
+}

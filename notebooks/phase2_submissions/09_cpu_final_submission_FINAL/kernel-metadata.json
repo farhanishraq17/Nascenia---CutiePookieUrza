@@ -1,0 +1,22 @@
+{
+  "id": "farhanishraqq/cpu-final-submission",
+  "title": "CPU-Final_Submission",
+  "code_file": "CPU-Final_Submission.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_internet": true,
+  "dataset_sources": [
+    "farhanishraqq/nascenia-peak5-checkpoint-average",
+    "farhanishraqq/nascenia-phase2-qwen35-d1",
+    "farhanishraqq/nascenia-aimc-lookup",
+    "farhanishraqq/nascenia-router-corpus",
+    "farhanishraqq/nascenia-phase2-repro-pack"
+  ],
+  "competition_sources": [
+    "nascenia-ai-hackathon"
+  ],
+  "kernel_sources": []
+}

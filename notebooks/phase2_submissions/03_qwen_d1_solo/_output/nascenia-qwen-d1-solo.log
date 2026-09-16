@@ -1,0 +1,82 @@
+[{"stream_name":"stderr","time":6.61569932,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.615764506,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.514438066,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.514470257,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.514473942,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.514476606,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.121963436,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.12199123,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.122012488,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.122017196,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":12.865213421,"data":"\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/11.6 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.5/11.6 MB\u001b[0m \u001b[31m15.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m4.3/11.6 MB\u001b[0m \u001b[31m62.7 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━\u001b[0m \u001b[32m10.0/11.6 MB\u001b[0m \u001b[31m99.6 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m11.6/11.6 MB\u001b[0m \u001b[31m156.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m11.6/11.6 MB\u001b[0m \u001b[31m86.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":12.865254023,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/389.2 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m389.2/389.2 kB\u001b[0m \u001b[31m27.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":12.915961245,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.4 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.4/1.4 MB\u001b[0m \u001b[31m61.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":12.966852732,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/516.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m516.0/516.0 kB\u001b[0m \u001b[31m35.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":42.967967072,"data":"\u001b[?25hTesla T4 sm_75 -\u003e torch.float32  transformers 5.14.1\n"}
+,{"stream_name":"stdout","time":43.022171414,"data":"checkpoints visible: ['/kaggle/input/datasets/farhanishraqq/nascenia-phase2-qwen35-d1/best/config.json']\n"}
+,{"stream_name":"stdout","time":43.022195292,"data":"ckpt : /kaggle/input/datasets/farhanishraqq/nascenia-phase2-qwen35-d1/best\n"}
+,{"stream_name":"stdout","time":43.022201485,"data":"dev  : /kaggle/input/datasets/farhanishraqq/nascenia-phase2-pool/dev.parquet\n"}
+,{"stream_name":"stdout","time":43.022206174,"data":"test : /kaggle/input/competitions/nascenia-ai-hackathon/test.csv\n"}
+,{"stream_name":"stdout","time":43.022210682,"data":"\n"}
+,{"stream_name":"stdout","time":43.022214974,"data":"recorded: arm D1  data ../data/plain_core_plus_icliniq  step 2500  Token F1 0.2646  (109,061 train rows, torch.bfloat16)\n"}
+,{"stream_name":"stderr","time":53.7641965,"data":"[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d\n"}
+,{"stream_name":"stderr","time":53.764228203,"data":"\n"}
+,{"stream_name":"stderr","time":53.76423448,"data":"[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d\n"}
+,{"stream_name":"stdout","time":61.504601495,"data":"parameters: 1,881,825,088\n"}
+,{"stream_name":"stdout","time":61.504640972,"data":"✅ qwen3_5_text, matches run_D1.json, 1118M under the cap\n"}
+,{"stream_name":"stdout","time":61.50464636,"data":"   (solo run -- the champion's 247,577,856 is NOT loaded here)\n"}
+,{"stream_name":"stdout","time":62.405324374,"data":"✅ logits finite\n"}
+,{"stream_name":"stdout","time":62.425708452,"data":"decoder ready: {'beams': 4, 'lp': 1.0, 'max_src': 1024, 'max_new': 640, 'batch': 8}\n"}
+,{"stream_name":"stdout","time":62.934629169,"data":"gate: dev[0:300], recorded Token F1 0.2646 (bf16/H200); this run is fp32/T4\n"}
+,{"stream_name":"stdout","time":62.93469862,"data":"\n"}
+,{"stream_name":"stdout","time":1326.019110125,"data":"  dev 80/300  21.1min elapsed, ~58min left\n"}
+,{"stream_name":"stdout","time":2494.727924945,"data":"  dev 160/300  40.5min elapsed, ~35min left\n"}
+,{"stream_name":"stdout","time":3604.138319946,"data":"  dev 240/300  59.0min elapsed, ~15min left\n"}
+,{"stream_name":"stdout","time":4460.106912481,"data":"  dev 300/300  73.3min elapsed, ~0min left\n"}
+,{"stream_name":"stdout","time":4460.118105988,"data":"\n"}
+,{"stream_name":"stdout","time":4460.11812732,"data":"dev[0:300] Token F1 = 0.2675   recorded 0.2646   delta +0.0029\n"}
+,{"stream_name":"stdout","time":4460.118175083,"data":"✅ within noise of the recorded value\n"}
+,{"stream_name":"stdout","time":4460.283093177,"data":"test: 1000 rows, cols ['id', 'input']\n"}
+,{"stream_name":"stdout","time":5598.680665956,"data":"  test 80/1000  19.0min elapsed, ~218min left\n"}
+,{"stream_name":"stdout","time":6743.582992864,"data":"  test 160/1000  38.1min elapsed, ~200min left\n"}
+,{"stream_name":"stdout","time":7919.100195613,"data":"  test 240/1000  57.6min elapsed, ~183min left\n"}
+,{"stream_name":"stdout","time":9140.055434976,"data":"  test 320/1000  78.0min elapsed, ~166min left\n"}
+,{"stream_name":"stdout","time":10240.514658785,"data":"  test 400/1000  96.3min elapsed, ~145min left\n"}
+,{"stream_name":"stdout","time":11346.211895811,"data":"  test 480/1000  114.8min elapsed, ~124min left\n"}
+,{"stream_name":"stdout","time":12464.8823541,"data":"  test 560/1000  133.4min elapsed, ~105min left\n"}
+,{"stream_name":"stdout","time":13596.885251518,"data":"  test 640/1000  152.3min elapsed, ~86min left\n"}
+,{"stream_name":"stdout","time":14711.653251909,"data":"  test 720/1000  170.9min elapsed, ~66min left\n"}
+,{"stream_name":"stdout","time":15890.043311342,"data":"  test 800/1000  190.5min elapsed, ~48min left\n"}
+,{"stream_name":"stdout","time":17049.366690531,"data":"  test 880/1000  209.8min elapsed, ~29min left\n"}
+,{"stream_name":"stdout","time":18166.058431672,"data":"  test 960/1000  228.4min elapsed, ~10min left\n"}
+,{"stream_name":"stdout","time":18748.484032822,"data":"  test 1000/1000  238.1min elapsed, ~0min left\n"}
+,{"stream_name":"stdout","time":18748.588298723,"data":"✅ submission.csv  (1000, 2)\n"}
+,{"stream_name":"stdout","time":18748.588321599,"data":"\n"}
+,{"stream_name":"stdout","time":18748.588325502,"data":"register read-out (references: ~100 tokens · হেলো 76.4% · un-terminated 6.8%)\n"}
+,{"stream_name":"stdout","time":18748.588329214,"data":"  mean tokens     112.8\n"}
+,{"stream_name":"stdout","time":18748.588332244,"data":"  হেলো opener      78.3%\n"}
+,{"stream_name":"stdout","time":18748.588335595,"data":"  un-terminated    25.4%   (D1 recorded 27.3% on held-out)\n"}
+,{"stream_name":"stdout","time":18748.603075103,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":18748.603103369,"data":"This is the SPECIALIST ALONE. The champion (0.89552) is not involved.\n"}
+,{"stream_name":"stdout","time":18748.603110595,"data":"\n"}
+,{"stream_name":"stdout","time":18748.60311491,"data":"  dev[0:300] Token F1 (this run) : 0.2675\n"}
+,{"stream_name":"stdout","time":18748.603119123,"data":"  held-out Token F1 / ROUGE-L    : 0.2625 / 0.1830   (n=1000, from the bundle)\n"}
+,{"stream_name":"stdout","time":18748.603123514,"data":"  predicted LB composite         : ~0.583\n"}
+,{"stream_name":"stdout","time":18748.603127976,"data":"  arm X2 actually scored         : 0.57249   (different arm, different data)\n"}
+,{"stream_name":"stdout","time":18748.603133271,"data":"\n"}
+,{"stream_name":"stdout","time":18748.603137323,"data":"A result near ~0.57-0.58 is the EXPECTED outcome and confirms the specialist is\n"}
+,{"stream_name":"stdout","time":18748.603142025,"data":"working as designed -- it answers from scratch, where the champion's lookup gives it\n"}
+,{"stream_name":"stdout","time":18748.603147351,"data":"0.1235. It does not compete with 0.89552 and is not meant to.\n"}
+,{"stream_name":"stdout","time":18748.603152064,"data":"\n"}
+,{"stream_name":"stdout","time":18748.603156188,"data":"The genuinely NEW information is BERTScore, which is 50% of the composite and has no\n"}
+,{"stream_name":"stdout","time":18748.603160769,"data":"calibrated local harness. Back it out as:  B = (LB - 0.3*F1 - 0.2*RL) / 0.5\n"}
+,{"stream_name":"stdout","time":18748.603176007,"data":"======================================================================\n"}
+,{"stream_name":"stderr","time":18754.101728714,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":18754.101768769,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":18754.260208013,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":18754.260231909,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":18754.918730515,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":18755.213939839,"data":"[NbConvertApp] Writing 38454 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":18757.494109896,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":18758.29461309,"data":"[NbConvertApp] Writing 345632 bytes to __results__.html\n"}
+]
