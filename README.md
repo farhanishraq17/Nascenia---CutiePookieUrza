@@ -24,6 +24,8 @@ Kaggle community competition <a href="https://www.kaggle.com/competitions/nascen
 
 <img src="assets/champion.jpg" alt="Nascenia AI Hackathon on Kaggle — Champion, Team CutiePookieUrza" width="560">
 
+<sub><a href="https://www.linkedin.com/posts/nascenia-it_activity-7508019184090464256-aakG">Announced by Nascenia on LinkedIn</a></sub>
+
 </div>
 
 ---
