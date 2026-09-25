@@ -1,6 +1,6 @@
 <div align="center">
 
-# নাসেনিয়া ডক · Nascenia Doc
+# Team CutiePookieUrza — Winning Solution
 
 ### Register-transfer generation for Bengali medical dialogue under a 3-billion-parameter budget
 
@@ -18,7 +18,7 @@
 **Md. Farhan Ishraq**¹ · **Didhiti Nahid**¹ · **Tamim Muhammad Rayeed**² · **Ishmam Tahmid**¹
 
 <sub>¹ Islamic University of Technology &nbsp;·&nbsp; ² University of Dhaka<br>
-Team **CutiePookieUrza** · Kaggle community competition <a href="https://www.kaggle.com/competitions/nascenia-ai-hackathon"><code>nascenia-ai-hackathon</code></a> · July–August 2026</sub>
+Kaggle community competition <a href="https://www.kaggle.com/competitions/nascenia-ai-hackathon"><code>nascenia-ai-hackathon</code></a> · July–August 2026</sub>
 
 <br>
 
