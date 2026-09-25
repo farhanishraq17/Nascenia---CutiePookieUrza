@@ -26,7 +26,7 @@ cannot collide.
 |---|---|---|---|
 | `icliniq` | **7,321** | ChatDoctor repo — iCliniq consultations (**different site** from HealthCareMagic) | EN→BN, our translation |
 | `genmedgpt` | **5,200** | GenMedGPT-5k | EN→BN, our translation |
-| `doctor_qa_bangla` | **4,651** | [`shetumohanto/doctor_qa_bangla`](https://huggingface.co/datasets/shetumohanto/doctor_qa_bangla) | 🥇 **Native Bengali** — no translation fingerprint |
+| `doctor_qa_bangla` | **4,651** | [`shetumohanto/doctor_qa_bangla`](https://huggingface.co/datasets/shetumohanto/doctor_qa_bangla) | **Native Bengali** — no translation fingerprint |
 
 ---
 
@@ -41,7 +41,7 @@ cannot collide.
 | `doctor_qa_bangla` | 13 | 51.9 / 41 | **0.0%** |
 | `genmedgpt` | 20 | 36.3 / 31 | **0.0%** |
 
-### 🔴 The extra 17,172 rows are OFF-REGISTER, and you must decide deliberately whether to use them
+### The extra 17,172 rows are OFF-REGISTER, and you must decide deliberately whether to use them
 
 **Not one of the 17,172 extra rows opens with `হেলো`** — against **76.4%** of the competition's
 own answers. They are also much shorter: GenMedGPT's median answer is **31 words** against the
@@ -62,7 +62,7 @@ off-register content is precisely what a lexical-overlap metric punishes.
   length distribution down, and both Token F1 and ROUGE-L have precision terms that punish
   length mismatch in either direction.
 
-🔴 **This is exactly what experiment X4 exists to settle.** X4 trains on `plain_core_only`
+**This is exactly what experiment X4 exists to settle.** X4 trains on `plain_core_only`
 (competition rows only) versus the full mix, at identical config. **Run it. Do not assume more
 data is better** — this project has already measured extra data *hurting* for this precise
 reason. If X4 comes out inside the 0.0044 noise floor, prefer the smaller dataset: fewer external
@@ -106,16 +106,16 @@ The frozen split is **seed 42, 5,000 dev rows**. Every number in this project re
 
 | Check | Result |
 |---|---|
-| dev ids present in the training pool | **0 of 5,000** ✅ |
-| test ids present in the training pool | **0 of 1,000** ✅ |
-| `healthcaremagic` rows in `extra_sources.parquet` | **0** — excluded at extraction ✅ |
-| `given_train` rows (competition split duplicated back in) | **0** ✅ |
+| dev ids present in the training pool | **0 of 5,000** |
+| test ids present in the training pool | **0 of 1,000** |
+| `healthcaremagic` rows in `extra_sources.parquet` | **0** — excluded at extraction |
+| `given_train` rows (competition split duplicated back in) | **0** |
 
 Both `build_index.py` and `build_data.py` re-assert these at runtime. **Do not disable them.**
 `build_data.py` additionally enforces that no row may retrieve *itself* or a near-duplicate
 (cosine > 0.97) as its own RAG reference — which would paste the answer into the input.
 
-🔴 **`dev.parquet` and `test.parquet` are for evaluation only. Never train on them.** Rules §8
+**`dev.parquet` and `test.parquet` are for evaluation only. Never train on them.** Rules §8
 makes training on test inputs a disqualifying offence.
 
 ---

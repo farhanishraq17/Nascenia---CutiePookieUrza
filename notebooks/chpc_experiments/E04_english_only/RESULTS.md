@@ -1,6 +1,6 @@
 # E04_english_only — results
 
-> ## 🔴 SUPERSEDED AT CONVERGENCE — read this first
+> ## SUPERSEDED AT CONVERGENCE — read this first
 >
 > Everything below is a **4,000-step** measurement, and its headline "the draft is worth
 > **+0.0053**" does not survive convergence. At 12,000 steps:
@@ -19,14 +19,14 @@
 > 0.8219 / 0.7949 (old decoder) · peak step 9,500 · 6.46 h · RTX PRO 4000 Blackwell, bf16 ·
 > 640/512 · register হেলো 75.0 % / নাসেনিয়া 55.0 %, 100.0 tokens · truncation 0.25 % / 0.035 %.
 >
-> ⚠️ The "+0.0053" figure was quoted repeatedly across this project — including as the reason
+> The "+0.0053" figure was quoted repeatedly across this project — including as the reason
 > not to build E21. The direction of that argument survives (it is now *weaker*, not stronger:
 > the draft matters even less), but the effect size was **4× too large** and compared a
 > converged arm against a non-converged one.
 
 **Ran 2026-08-09 on CHPC granite `grn008`, 1 × H100 NVL, bf16.** See `../_slurm/README.md`.
 
-## 🔴 VERDICT: **English alone beats our Bengali draft alone.** The draft is worth only +0.0053.
+## VERDICT: **English alone beats our Bengali draft alone.** The draft is worth only +0.0053.
 
 This is the most consequential Tier-1 result after E01, and it inverts an assumption the whole
 project has carried since ALIGN-01.
@@ -54,19 +54,19 @@ E04 removes the middle hop entirely and loses almost nothing. Two things follow:
 2. **The project's translation-quality anxiety was aimed at the wrong target.** E17 spent a full
    experiment asking whether a better translator would raise the ceiling, and closed with "keep
    Google". E04 reframes that: the draft's *quality* matters less than expected because the draft
-   itself is nearly redundant. 🔴 **E21's draft-robustness arms and any future E17-style
+   itself is nearly redundant. **E21's draft-robustness arms and any future E17-style
    re-translation should be re-costed against this** — insurance on a component worth 0.0053 is
    cheap insurance to skip.
 
-⚠️ **What this does NOT say.** It does not mean "ship english-only". E01 is still the highest
+**What this does NOT say.** It does not mean "ship english-only". E01 is still the highest
 non-`all_inputs` score, the gap is outside noise, and Phase 2 reproducibility favours the arm with
 the best number. It means the draft is a **weak** contributor whose cost/benefit is now known.
 
-## Checkpoints — 🔴 keep every arm, including the losers
+## Checkpoints — keep every arm, including the losers
 
 | Arm | `best/` kept? | Kaggle dataset | Token F1 | ROUGE-L | peak step | hours | notes |
 |---|---|---|---|---|---|---|---|
-| `main` | ✅ `E04_english_only/main/best` | *(not uploaded)* | 0.7979 | 0.7667 | **3,750** | 0.82 | ckpt hash `4accfa4f6352ea38` · 247,577,856 params |
+| `main` | `E04_english_only/main/best` | *(not uploaded)* | 0.7979 | 0.7667 | **3,750** | 0.82 | ckpt hash `4accfa4f6352ea38` · 247,577,856 params |
 
 `main/submission.csv` written. **The cheapest strong arm in the program** — 49 min of H100 for
 0.7979, against E07's 92 min for 0.8042.
@@ -97,7 +97,7 @@ Still climbing at the budget's end — five for five across the program.
 
 - **What it must beat:** E01 (0.8032). Decision table: *"E04 ≈ E01 ⇒ the draft is redundant given
   English ⇒ ship english-only; halves input length."*
-- **Result:** ➖➖ **0.0053 below E01 — just outside noise.** The decision table's "≈" is not quite
+- **Result:** **0.0053 below E01 — just outside noise.** The decision table's "≈" is not quite
   met, so english-only does not automatically ship, but the draft's contribution is now bounded
   and small.
 - **What it changes:**

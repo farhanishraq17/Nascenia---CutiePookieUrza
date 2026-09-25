@@ -31,4 +31,4 @@
 
 best single (E15/ckptavg_peak5) : 0.8348
 pooled MBR               : 0.8349   (+0.0001)
-🔴 MBR does NOT beat the best single member — consensus adds nothing here
+MBR does NOT beat the best single member — consensus adds nothing here

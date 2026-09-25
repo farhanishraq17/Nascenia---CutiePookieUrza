@@ -119,7 +119,7 @@ open links, no gate, free. `ic_*` and `hcm_*` rows come from the *same* file in 
 `intfloat/multilingual-e5-base` (MIT) was used to build the retrieval index for the RAG
 *ablations*. It is **not** used at inference and does not count toward the parameter cap.
 
-### ✅ Winner-licensing check — cleared, with the reasoning stated
+### Winner-licensing check — cleared, with the reasoning stated
 
 The winner-licensing rule (`RULEBOOK/COMPETITION_RULES.md` §12) requires winners to license **the
 winning submission and the source code used to generate it** under an OSI-approved licence that
@@ -142,7 +142,7 @@ points support this reading:
    participant could have used it.
 4. **Kudos-only Community competition** — no prize, no commercial productisation downstream.
 
-⚠️ Two caveats kept deliberately visible: the "academic research only" term means this pipeline
+Two caveats kept deliberately visible: the "academic research only" term means this pipeline
 **must not be deployed commercially or clinically as-is**, and if the organizers ever apply the
 licence bar to *input data* despite the exception, the fallback is **arm X4** (competition data
 only, 101,740 rows, held-out **0.2643** — statistically tied with D1's 0.2625) which uses **no

@@ -1,4 +1,4 @@
-> ⚠️ **Repo note — the headline result below is RETRACTED.** ROUTER-01's "~88% of rows recovered, within 0.006 of a perfect lookup" was measured with a leak: the leak control compared ChatDoctor ids (`hcm_0`) with competition ids (`17200`), matched nothing, and so let every dev query retrieve its own answer (BUG-10). Re-measured leak-free ([`validate_router_leakfree.py`](validate_router_leakfree.py)), ChatDoctor content-match serves 2.6% of rows at the wrong-match floor (Token F1 0.19–0.21). The shipped router dropped it and retrieves from the ai-medical-chatbot corpus instead (0.6257 on rows whose ids do not resolve). See [`PROGRESS.md`](../../../PROGRESS.md), 2026-08-23 (later). The generated `inference_routed.ipynb` is [`notebooks/phase2_submissions/01_routed_inference/`](../../../notebooks/phase2_submissions/01_routed_inference/). The text below is kept as written.
+> **Repo note — the headline result below is RETRACTED.** ROUTER-01's "~88% of rows recovered, within 0.006 of a perfect lookup" was measured with a leak: the leak control compared ChatDoctor ids (`hcm_0`) with competition ids (`17200`), matched nothing, and so let every dev query retrieve its own answer (BUG-10). Re-measured leak-free ([`validate_router_leakfree.py`](validate_router_leakfree.py)), ChatDoctor content-match serves 2.6% of rows at the wrong-match floor (Token F1 0.19–0.21). The shipped router dropped it and retrieves from the ai-medical-chatbot corpus instead (0.6257 on rows whose ids do not resolve). See [`PROGRESS.md`](../../../PROGRESS.md), 2026-08-23 (later). The generated `inference_routed.ipynb` is [`notebooks/phase2_submissions/01_routed_inference/`](../../../notebooks/phase2_submissions/01_routed_inference/). The text below is kept as written.
 
 # router/ — the three-branch router
 
@@ -49,7 +49,7 @@ Reproduce with `python validate_router.py --repo-root ../..`
 
 **Default τ = 0.40.** Near-ceiling quality on the large majority of rows, with a clean fallback.
 
-### 🔴 Why the threshold is not optional
+### Why the threshold is not optional
 
 | | draft F1 | mean similarity | n |
 |---|---|---|---|
@@ -94,7 +94,7 @@ default here.
 | `router.py` | the `Router` class — importable, plus a CLI for routing a file |
 | `validate_router.py` | reproduces the tables above on the frozen dev split (no GPU needed) |
 | `build_inference_nb.py` | generates the submission notebook — **edit this, not the .ipynb** |
-| `inference_routed.ipynb` | 🥇 **the submission notebook.** One swappable `INPUT_PATH`, handles all three branches |
+| `inference_routed.ipynb` | **the submission notebook.** One swappable `INPUT_PATH`, handles all three branches |
 
 ## Using the notebook
 

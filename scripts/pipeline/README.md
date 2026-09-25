@@ -8,7 +8,7 @@
 | **`02_train_t5.py`** | The trainer. `--data-dir --model --precision auto` · Adafactor · fail-safe `compute_metrics` · selects the best checkpoint on **composite**, never loss |
 | **`04_decode.py`** | Beam / MBR decoding + submission writer. **fp32 by default** with a non-finite-logits probe at load, and takes `--data-dir` |
 | **`metric.py`** | The exact competition composite. `python metric.py --selftest` verifies the LCS implementation against brute force — **run it once after install** |
-| `01_prep.py` | Rebuilds the frozen split from the raw competition CSVs. 🔴 `--seed 42 --dev-size 5000`, never anything else |
+| `01_prep.py` | Rebuilds the frozen split from the raw competition CSVs. `--seed 42 --dev-size 5000`, never anything else |
 | **`09_build_inputs.py`** | Composes any input combination: `--fields q,en,bn`. This is how you build a dataset the prebuilt set does not cover |
 | `07_build_transfer_en.py` | Earlier english+draft builder — superseded by `09`, kept for provenance |
 | `05_build_transfer.py` | Original draft-only builder |

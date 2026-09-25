@@ -6,7 +6,7 @@
 **Ran 2026-08-20/21.** Effective batch **64**, bf16, `adafactor`, gradient checkpointing on,
 LR 2e-5. Caps set from **this model's own tokenizer**, measured before training — see below.
 
-> ### 🔴 This model was scheduled to be CUT, and was run anyway
+> ### This model was scheduled to be CUT, and was run anyway
 > GPU_BUDGET §4 nominates C as the first thing to drop, and its gate fired: both A and B cleared
 > the bar with fluent Bengali. C ran because §4's own carve-out applied — *"When NOT to cut C:
 > you have idle GPUs. The three-way comparison is strictly more informative — if it is free, run
@@ -15,7 +15,7 @@ LR 2e-5. Caps set from **this model's own tokenizer**, measured before training 
 > is much better behaved, yet drops twice as far as D1 on the second disjoint slice. Both halves
 > of that matter; see the verdict.
 
-## 🥇 HEADLINE: the "bad tokenizer" model is the best-behaved model in the bake-off
+## HEADLINE: the "bad tokenizer" model is the best-behaved model in the bake-off
 
 C was included to test whether Bengali instruction-tuning compensates for a 4.85× tokenizer
 handicap. **The answer splits in two.** On *register* it wins outright: 12.8% un-terminated answers against
@@ -29,10 +29,10 @@ it competing; weaker generalization is what keeps it out of the bundle.
 | Arm | Data | peak | @step | final | **HELD-OUT** | ckpt |
 |---|---|---|---|---|---|---|
 | **X0 zero-shot** | plain | — | — | **0.1524** | — | n/a |
-| **X1 few-shot k=4** | plain | — | — | **0.1636** ✅ | — | n/a |
-| **X2 finetune** 🥇 | plain | **0.2577** | 2500 | 0.2491 | **0.2583** | ☑ |
-| X3 finetune+RAG | rag | 0.2525 | 2000 | *(partial)* | 0.2516 | ☑ |
-| **X4 ablation** | core_only | 0.2574 | 1500 | 0.2528 | 0.2572 | ☑ |
+| **X1 few-shot k=4** | plain | — | — | **0.1636** | — | n/a |
+| **X2 finetune** | plain | **0.2577** | 2500 | 0.2491 | **0.2583** | done |
+| X3 finetune+RAG | rag | 0.2525 | 2000 | *(partial)* | 0.2516 | done |
+| **X4 ablation** | core_only | 0.2574 | 1500 | 0.2528 | 0.2572 | done |
 | X5 LR sweep | — | *not run* | | | | — |
 | X6 RAG-at-inference | rag | — | — | 0.2543 | — | n/a |
 | X7 decode sweep | — | — | — | **0.2596** → **0.2486** *(disjoint)* | n/a |
@@ -46,7 +46,7 @@ neither be confirmed nor ruled out.
 **X3 is a partial run**, stopped at step 2000/4500 by request to free its 8×A800 allocation; its
 peak and checkpoint were already on disk, and `run.json` is flagged `partial: true`.
 
-## 🔴 X0 reproduced — and C's central claim still fails
+## X0 reproduced — and C's central claim still fails
 
 | Arm | Token F1 | ROUGE-L | tok | হেলো | নাসেনিয়া | trunc |
 |---|---|---|---|---|---|---|
@@ -73,12 +73,12 @@ plausibly because instruction-tuning makes it better at using in-context example
 
 | Arm | mean tokens | হেলো % | নাসেনিয়া % | **truncated %** | empty % |
 |---|---|---|---|---|---|
-| **X2** | 103.8 | 77.1 | 81.1 | **12.8** ✅ | 0.0 |
+| **X2** | 103.8 | 77.1 | 81.1 | **12.8** | 0.0 |
 | X3 | 106.3 | 75.0 | 82.3 | 17.2 | 0.0 |
-| **X4** | 102.0 | 76.7 | 56.7 | **16.2** ✅ | 0.0 |
+| **X4** | 102.0 | 76.7 | 56.7 | **16.2** | 0.0 |
 | X6 | 111.8 | — | — | 13.3 | 0.0 |
 | *references* | *~100* | *76.4* | *50.0* | ***6.8*** | — |
-| *(B's best arms, for contrast)* | *110–115* | *78–84* | *85* | ***27–71*** 🔴 | *0.0* |
+| *(B's best arms, for contrast)* | *110–115* | *78–84* | *85* | ***27–71*** | *0.0* |
 
 This is the strongest result in this file. **C X2 sits at 103.8 tokens against a 100-token
 reference and 77.1% হেলো against 76.4%** — essentially on the reference distribution — and
@@ -87,12 +87,12 @@ bake-off to get নাসেনিয়া nearly right** (56.7% vs the referen
 at ~85%. Phase 2 is judged on *"tone, completeness, clarity as a doctor's response"*, and on that
 axis C is the best model here by a wide margin.
 
-## 🔴 RAG copy-check — C copies even with retrieval TRAINED IN
+## RAG copy-check — C copies even with retrieval TRAINED IN
 
 | Arm | Token F1 | overlap w/ TRUE target | overlap w/ SHOWN reference | **margin** |
 |---|---|---|---|---|
-| X3 (trained in) | 0.2516 | 0.2516 | 0.2717 | **−0.0201** 🔴 **copying** |
-| X6 (bolted on) | 0.2543 | 0.2543 | 0.2787 | **−0.0244** 🔴 **copying** |
+| X3 (trained in) | 0.2516 | 0.2516 | 0.2717 | **−0.0201** **copying** |
+| X6 (bolted on) | 0.2543 | 0.2543 | 0.2787 | **−0.0244** **copying** |
 
 **Both RAG arms have negative margins.** Per EXPERIMENTS.md both have failed regardless of score.
 This is worse than B, where at least the trained-in arm answered (+0.0274) and only the bolted-on
@@ -117,7 +117,7 @@ On X2's checkpoint, `dev[0:300]`, `min_new_tokens=0`:
 
 **`beams=4` beats `beams=8` by 0.007–0.013** — the same direction as A and B, and the one decode
 finding that reproduces across all three models. `length_penalty` moves 0.0017 across its whole
-range, i.e. nothing. 🔴 **The held-out re-verification has now landed, and it is the worst news in this file.**
+range, i.e. nothing. **The held-out re-verification has now landed, and it is the worst news in this file.**
 Selecting on `devext[0:300]` and re-scoring the winner on the disjoint `devext[300:600]`:
 
 | arm | sweep winner | **disjoint VERIFY** | drop |
@@ -165,7 +165,7 @@ X3 was still climbing when stopped (0.2411 → 0.2466 → 0.2525) but decelerati
 | torch / transformers | 2.8.0+cu128 / 5.14.1 |
 | combined pipeline | 247,577,856 (champion) + 1,720,574,976 = **1,968,152,832** — 1.03B under the 3B cap |
 
-🔴 **The documented `MAX_TGT=640` starting value would have been a silent disaster.** The p95
+**The documented `MAX_TGT=640` starting value would have been a silent disaster.** The p95
 target in this tokenizer is **1,149 tokens** — the shipped default would have cut off more than 5%
 of answers and the score would have measured the cap, not the model. This is precisely the failure
 INSTRUCTIONS.md warns "already invalidated three arms in this project's model zoo." We ran the

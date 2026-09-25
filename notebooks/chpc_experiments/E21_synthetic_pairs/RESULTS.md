@@ -5,15 +5,15 @@ cross-experiment scoreboard. Anything surprising goes here, not there.
 
 _5 arms_
 
-## Checkpoints — 🔴 keep every arm, including the losers
+## Checkpoints — keep every arm, including the losers
 
 | Arm | `best/` kept? | Kaggle dataset | Token F1 | ROUGE-L | peak step | hours | notes |
 |---|---|---|---|---|---|---|---|
-| `A0_gold_control` | ☐ | | | | | | |
-| `A1_backtranslated` | ☐ | | | | | | |
-| `A2_tagged` | ☐ | | | | | | |
-| `B_pseudolabel` | ☐ | | | | | | |
-| `C_teacher_targets` | ☐ | | | | | | |
+| `A0_gold_control` | pending | | | | | | |
+| `A1_backtranslated` | pending | | | | | | |
+| `A2_tagged` | pending | | | | | | |
+| `B_pseudolabel` | pending | | | | | | |
+| `C_teacher_targets` | pending | | | | | | |
 
 **Why the losers matter too:** a model that scores *below* the incumbent but **disagrees with it
 usefully** is exactly what E14/E19 need and cannot get from another seed. MBR failed once because
@@ -43,7 +43,7 @@ the finding** — E05 exists only because the incumbent's trajectory showed it h
 ## Verdict
 
 - **What it must beat:** see `EXPERIMENT.md`
-- **Result:** ✅ / ➖ within noise (<0.0044) / ❌
+- **Result:** / within noise (<0.0044) /
 - **What it changes:**
 - **Row-level disagreement with the incumbent:** _(report even when the score loses)_
 

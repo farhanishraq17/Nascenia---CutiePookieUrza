@@ -2,11 +2,11 @@
 
 **Ran 2026-08-09 on CHPC granite `grn008`, 1 × H100 NVL, bf16.** See `../_slurm/README.md`.
 
-## ➖ VERDICT: all three fields ≈ two fields. **The signals are not complementary — ship E01.**
+## VERDICT: all three fields ≈ two fields. **The signals are not complementary — ship E01.**
 
 | | Input | src p95 | Token F1 | ROUGE-L | pred LB |
 |---|---|---|---|---|---|
-| 🏆 incumbent | draft, 384/256 | — | 0.7724 | 0.7324 | 0.85030 *(actual)* |
+| incumbent | draft, 384/256 | — | 0.7724 | 0.7324 | 0.85030 *(actual)* |
 | **E01** | **english + draft, 768/512** | 603 | **0.8027** | 0.7719 | 0.8676 |
 | **E03** | **question + english + draft, 1024/512** | **734** | **0.8040** | 0.7727 | 0.8681 |
 | E02 | question + draft, 640/512 | 387 | 0.7741 | 0.7361 | 0.8474 |
@@ -21,11 +21,11 @@ Per the decision table — *"E03 ≈ max(E01, E02) ⇒ one field dominates ⇒ s
 **the Tier-1 winner is `english_draft`**, and it wins on cost as well as parity: E01 trains in
 **1.08 h** against E03's **1.35 h** (25 % cheaper) on a p95 source 131 tokens shorter.
 
-## Checkpoints — 🔴 keep every arm, including the losers
+## Checkpoints — keep every arm, including the losers
 
 | Arm | `best/` kept? | Kaggle dataset | Token F1 | ROUGE-L | peak step | hours | notes |
 |---|---|---|---|---|---|---|---|
-| `main` | ✅ `E03_all_inputs/main/best` | *(not uploaded)* | 0.8040 | 0.7727 | **3,750** | 1.35 | ckpt hash `7cd7aaa88baa8502` · 247,577,856 params |
+| `main` | `E03_all_inputs/main/best` | *(not uploaded)* | 0.8040 | 0.7727 | **3,750** | 1.35 | ckpt hash `7cd7aaa88baa8502` · 247,577,856 params |
 
 `main/submission.csv` is written. Numerically this is the **highest-scoring arm in the program so
 far** — it is not "the winner" only because E01 matches it inside noise with a shorter input, and
@@ -58,7 +58,7 @@ Still climbing at the budget's end, like every other arm here. The last 1,000 st
 ## Verdict
 
 - **What it must beat:** incumbent 0.7724 / 0.7324, and `max(E01, E02)`
-- **Result:** ✅ vs the incumbent (+0.0316) · ➖ vs E01 (+0.0013, within noise)
+- **Result:** vs the incumbent (+0.0316) · vs E01 (+0.0013, within noise)
 - **What it changes:**
   - **Tier 1 is settled: `english_draft`.** Downstream experiments (E05b, E06, E09, E12, E13,
     E19) all point there.
@@ -75,7 +75,7 @@ E02 (question added to *draft*) → +0.0017. E03 (question added to *english + d
 A field that is uninformative on its own and stays uninformative alongside a strong field is
 about as clean a negative as this program can produce — no interaction effect hiding anywhere.
 
-⚠️ E03 is the arm most exposed to BUG-04: at the old 384-token decode default it would have been
+E03 is the arm most exposed to BUG-04: at the old 384-token decode default it would have been
 scored on roughly the first third of a 734-token p95 input. It was decoded after the fix, so the
 number above is clean — but any all_inputs number produced before 2026-08-09 should be discarded
 rather than compared.

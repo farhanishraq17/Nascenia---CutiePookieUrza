@@ -11,7 +11,7 @@ You are running a three-way model bake-off for the Phase 2 half of a Kaggle comp
 "Phase2 Final architecture/". Read these, in this order, before running anything:
 
   1. README.md        — the routing architecture, the bar to beat, the non-negotiables
-  2. GPU_BUDGET.md    — 🔴 READ BEFORE LAUNCHING. 5 days left, and the full matrix is not sized to
+  2. GPU_BUDGET.md    — READ BEFORE LAUNCHING. 5 days left, and the full matrix is not sized to
                         it. Measured per-step rates from this project's own runs, three config
                         changes that cut cost at no scientific cost, a priority order for what to
                         drop, and the gate for cutting model C. You do the scheduling.
@@ -93,7 +93,7 @@ NON-NEGOTIABLE
     any difference below 0.0044 — that is the measured noise floor.
   - Do not touch, retrain, or re-average the existing champion checkpoint.
 
-BUDGET — 🔴 YOU HAVE 5 DAYS. Phase 2 bundle is due Aug 25, 12:00 GMT+6.
+BUDGET — YOU HAVE 5 DAYS. Phase 2 bundle is due Aug 25, 12:00 GMT+6.
 
 Decoders cost 15-35x more per step than the seq2seq model, measured from this project's own ~60
 previous runs. Model A (mT5) is nearly free; B and C are where the entire budget goes.
@@ -102,7 +102,7 @@ GPU_BUDGET.md has the measured per-step rates, three config changes that cut cos
 cost, and a priority order for what to drop. YOU decide the actual schedule and how much fits --
 you know your fleet, the folder does not. Tell me what you decided to run and what you dropped.
 
-🔴 THE ONE GATE TO WATCH: as soon as A's and B's X2 arms land, check them. If EITHER clears Token
+THE ONE GATE TO WATCH: as soon as A's and B's X2 arms land, check them. If EITHER clears Token
 F1 0.1454 by more than the 0.0044 noise floor and produces fluent on-topic Bengali, STOP model C
 and spend that time on the winner instead -- training it longer, running its decode sweep properly,
 or building the combined routing inference script, which is still unwritten and is a hard

@@ -1,13 +1,13 @@
 # E17 — Re-translate the draft with a stronger model
 
-**Tier 1 — INFORMATION · Priority: 🥇 HIGHEST · No GPU required for the decisive measurement**
+**Tier 1 — INFORMATION · Priority: HIGHEST · No GPU required for the decisive measurement**
 
 ## The question
 
 > Our draft was translated with **Google Translate**. It aligns to the organizers' translation at
 > **Token F1 0.5984**. Does a stronger translator raise that floor — and with it, every experiment's ceiling?
 
-## 🏁 RESULT (2026-08-07) — E17 is CLOSED. Keep the Google draft.
+## RESULT (2026-08-07) — E17 is CLOSED. Keep the Google draft.
 
 Four translators, paired against Google on each candidate's own rows:
 
@@ -35,7 +35,7 @@ Correct length, fluent Bengali, no truncation, no commentary, no register leakag
 chooses **different synonyms** — `কয়েকটি সম্ভাবনা` where Google *and* the target both say
 `বেশ কিছু সম্ভাবনা`.
 
-🔴 **This is the sharpest statement of what the metric actually measures.** It does not reward
+**This is the sharpest statement of what the metric actually measures.** It does not reward
 good Bengali. It rewards **lexical coincidence with one particular translator**, and Google's
 vocabulary happens to sit closer to the organizers' than a strong modern LLM's does.
 
@@ -52,7 +52,7 @@ vocabulary happens to sit closer to the organizers' than a strong modern LLM's d
 convergence)** — the incumbent peaked at step 2,750 and was *still improving* when Kaggle's clock
 stopped it.
 
-⚠️ **One thing E17 did buy:** NLLB and Qwen3 are now measured points in *draft space*. That makes
+**One thing E17 did buy:** NLLB and Qwen3 are now measured points in *draft space*. That makes
 them ideal augmentation sources for **E21 arm A** — back-translating real targets needs a
 translator that is genuinely *different* from the production one, and both qualify by measurement.
 
@@ -76,7 +76,7 @@ Every other Tier-1 experiment changes *which fields* the model reads. This one i
 of the most important field*. It is also the cheapest test here: the decisive measurement is an API
 job and a metric call, **no training at all**.
 
-## ⚠️ The caveat that makes this non-obvious
+## The caveat that makes this non-obvious
 
 **Better translation ≠ closer to theirs.** The metric rewards matching *one specific translator's
 fingerprint*, not translation quality. A more fluent, more idiomatic Bengali rendering could easily
@@ -114,9 +114,9 @@ than on 5,000, so treat anything under **+0.02** as inconclusive and re-measure 
 
 | Result | Meaning | Next |
 |---|---|---|
-| **≫ 0.5984** (e.g. 0.65+) | ✅ **The single most valuable finding available.** The floor rises and every experiment's ceiling rises with it. | Re-translate all 112k · rebuild all datasets · re-run E01 · **re-baseline everything** |
+| **≫ 0.5984** (e.g. 0.65+) | **The single most valuable finding available.** The floor rises and every experiment's ceiling rises with it. | Re-translate all 112k · rebuild all datasets · re-run E01 · **re-baseline everything** |
 | ≈ 0.5984 | Translator choice does not matter — the residual gap is genuine translator-to-translator variance, not quality | Close the line permanently; the model, not the draft, is the remaining lever |
-| **< 0.5984** | 🔴 **A stronger translator is *further* from the organizers'** — strong evidence they used plain machine translation | Very informative: it means the draft is near-optimal, and E05 (train longer) is where the remaining gain is |
+| **< 0.5984** | **A stronger translator is *further* from the organizers'** — strong evidence they used plain machine translation | Very informative: it means the draft is near-optimal, and E05 (train longer) is where the remaining gain is |
 
 **All three outcomes are valuable**, which is rare. Even the negative case tells you the draft is
 close to as good as it gets and redirects effort with confidence.
@@ -126,7 +126,7 @@ close to as good as it gets and redirects effort with confidence.
 - **Probe:** ~1,000 API calls per candidate. Minutes of compute, a few dollars.
 - **Full re-translation:** 112,164 calls — budget for it *only after* the probe wins.
 
-🔴 **Any new translation must be disclosed** exactly like the current one: model name and version,
+**Any new translation must be disclosed** exactly like the current one: model name and version,
 the prompt used, chunking and retry policy, row counts. Rules §2.6.a. **And it must preserve row
 order / carry the `hcm_<index>` key** — the id alignment is the whole approach, and shuffling or
 deduping before translating destroys it irrecoverably.
@@ -136,12 +136,12 @@ deduping before translating destroys it irrecoverably.
 ## Non-negotiables (every experiment)
 
 - **`transformers==4.57.3`** — assert it.
-- **bf16 on sm_80+, fp32 otherwise. 🔴 NEVER fp16** — T5 goes NaN *silently*.
+- **bf16 on sm_80+, fp32 otherwise. NEVER fp16** — T5 goes NaN *silently*.
 - **Never change the split**: `--seed 42 --dev-size 5000`.
 - **Report Token F1 and ROUGE-L**, never the local composite.
   `LB ≈ 0.4646 + 0.3098·TokenF1 + 0.2·ROUGE-L`.
 - **Ignore differences below 0.0044.**
-- 🔴 **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
+- **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
   alone force a full retrain before anything here can be submitted, and a low-scoring model that
   *disagrees usefully* is exactly what E14/E19 need. One directory per arm; `run.json` beside the
   weights (`checkpoint_hash` is not a run identity). **Record everything in this folder's

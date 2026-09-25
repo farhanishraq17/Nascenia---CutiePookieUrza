@@ -8,7 +8,7 @@ Task we are matching: **Bengali patient prompt → Bengali doctor response**
 [`../../QUESTIONS-FOR-ORGANIZERS.md`](../../QUESTIONS-FOR-ORGANIZERS.md) §B1 for
 the unresolved question of whether external data is even permitted.
 
-> ⚠️ **Nothing here has been cleared for use yet.** Rulebook §2 is
+> **Nothing here has been cleared for use yet.** Rulebook §2 is
 > self-contradictory about external data, and several items below have no
 > stated license. Read "Licensing status" and "Contamination risk" before
 > training on any of it.
@@ -46,11 +46,11 @@ Claude_Data_Search_1/
 | # | Local path | Source | Rows | License | Verified shape |
 |---|---|---|---|---|---|
 | 1 | `huggingface/doctor_qa_bangla/` | [shetumohanto/doctor_qa_bangla](https://huggingface.co/datasets/shetumohanto/doctor_qa_bangla) | **5,135** | **Apache-2.0** | Single `text` col; **all 5,135 rows** match `[INST]…[/INST]`. Bengali. Median 365 chars, p95 906. **Best match in the whole set.** |
-| 2 | `huggingface/Bengali-healthcare/` | [susnatak/Bengali-healthcare](https://huggingface.co/datasets/susnatak/Bengali-healthcare) | **47,531** | ❗none stated | `instruction`/`input`/`output`; Bengali in `instruction`+`output`. 55% have empty `input` (clean instruction→response). instruction p50 125 ch, output p50 358 ch. **Caveat: much of it is translated general-purpose Alpaca content, not clinical.** Filter before use. |
-| 3 | `huggingface/Bangla-medical-question-answering/` | [Shakil2448868/…](https://huggingface.co/datasets/Shakil2448868/Bangla-medical-question-answering) | **901** | ❗none stated | Parallel EN/BN: `Question`,`Complex_CoT`,`Response` + `_Bangla` variants. Bengali confirmed in all three `_Bangla` cols. Identical schema to **#15**, so it is a translation of that. |
-| 4 | `huggingface/Medical-english-bangla-QA/` | [Pial2233/Medical-english-bangla-QA](https://huggingface.co/datasets/Pial2233/Medical-english-bangla-QA) | **499** | ❗none stated | Single `text` col, `[INST]` format, mixed EN/BN. |
+| 2 | `huggingface/Bengali-healthcare/` | [susnatak/Bengali-healthcare](https://huggingface.co/datasets/susnatak/Bengali-healthcare) | **47,531** | none stated | `instruction`/`input`/`output`; Bengali in `instruction`+`output`. 55% have empty `input` (clean instruction→response). instruction p50 125 ch, output p50 358 ch. **Caveat: much of it is translated general-purpose Alpaca content, not clinical.** Filter before use. |
+| 3 | `huggingface/Bangla-medical-question-answering/` | [Shakil2448868/…](https://huggingface.co/datasets/Shakil2448868/Bangla-medical-question-answering) | **901** | none stated | Parallel EN/BN: `Question`,`Complex_CoT`,`Response` + `_Bangla` variants. Bengali confirmed in all three `_Bangla` cols. Identical schema to **#15**, so it is a translation of that. |
+| 4 | `huggingface/Medical-english-bangla-QA/` | [Pial2233/Medical-english-bangla-QA](https://huggingface.co/datasets/Pial2233/Medical-english-bangla-QA) | **499** | none stated | Single `text` col, `[INST]` format, mixed EN/BN. |
 
-> 🔁 **#4 and #10 are byte-identical.** I hashed every row: 499/499 overlap.
+> **#4 and #10 are byte-identical.** I hashed every row: 499/499 overlap.
 > The Kaggle "English and Bangla medical QA dataset" is a mirror of the HF one.
 > Use one, not both — double-counting would skew any training mix.
 
@@ -62,17 +62,17 @@ Claude_Data_Search_1/
 | 6 | `huggingface/BanglaHealth-paraphrase/` | [faisal4590aziz/bangla-health-related-paraphrased-dataset](https://huggingface.co/datasets/faisal4590aziz/bangla-health-related-paraphrased-dataset) | **200,000** | **CC-BY-4.0** | `source_sentence`/`paraphrased_sentence`, both Bengali. Paraphrase pairs — ideal for **Bengali health register/style adaptation**, useless as dialogue. |
 | 7 | `huggingface/Medicine-Dataset-of-Bangladesh/` | [ArnobBot/Medicine-Dataset-of-Bangladesh](https://huggingface.co/datasets/ArnobBot/Medicine-Dataset-of-Bangladesh) | 21,714 medicines + 1,711 generics | **MIT** | 6 relational CSVs (medicine, generic, indication, drug class, manufacturer, dosage form). **English**, not Bengali. Drug reference — possible RAG grounding (mind the 3B cap on any retriever). |
 | 8 | `kaggle/bengali-medical-dataset_shashwatwork/` | [shashwatwork/bengali-medical-dataset](https://www.kaggle.com/datasets/shashwatwork/bengali-medical-dataset) | 8,539 NER tokens; 659 specialist rows | CC-BY-SA-4.0 (per Kaggle) | Bengali Medical **NER** + **Specialist Classification** (`Gender`,`Problem`,`Specialist`). The 659 `Problem` texts are genuine Bengali patient complaints — small but authentic. |
-| 9 | `kaggle/bengali-medical-dataset_saurabhshahane/` | [saurabhshahane/bengali-medical-dataset](https://www.kaggle.com/datasets/saurabhshahane/bengali-medical-dataset) | 8,539 / 659 | CC-BY-4.0 (per Kaggle) | 🔁 **Same content as #8**, delivered as `.xlsx`. Duplicate. |
-| 10 | `kaggle/english-and-bangla-medical-qa/` | [pialghosh/english-and-bangla-medical-qa-dataset](https://www.kaggle.com/datasets/pialghosh/english-and-bangla-medical-qa-dataset) | 499 | not stated | 🔁 **Duplicate of #4.** Note: the CSV is **headerless** — the first record is consumed as the column name if read naively. Pass `header=None`. |
+| 9 | `kaggle/bengali-medical-dataset_saurabhshahane/` | [saurabhshahane/bengali-medical-dataset](https://www.kaggle.com/datasets/saurabhshahane/bengali-medical-dataset) | 8,539 / 659 | CC-BY-4.0 (per Kaggle) | **Same content as #8**, delivered as `.xlsx`. Duplicate. |
+| 10 | `kaggle/english-and-bangla-medical-qa/` | [pialghosh/english-and-bangla-medical-qa-dataset](https://www.kaggle.com/datasets/pialghosh/english-and-bangla-medical-qa-dataset) | 499 | not stated | **Duplicate of #4.** Note: the CSV is **headerless** — the first record is consumed as the column name if read naively. Pass `header=None`. |
 | 11 | `kaggle/bengali-english-disease-symptom/` | [imamzubaer/bengali-english-disease-symptom-dataset](https://www.kaggle.com/datasets/imamzubaer/bengali-english-disease-symptom-dataset) | **91,010** | not stated | Wide one-hot matrix: `রোগ` (disease) + ~380 bilingual symptom columns. Tabular diagnosis data, **not text**. Could seed synthetic symptom→advice pairs. |
-| 12 | `kaggle/bengali-chat-conversation/` | [dinmaybrahma/bengali-chat-coversation](https://www.kaggle.com/datasets/dinmaybrahma/bengali-chat-coversation) | 1,045 | not stated | `Question`/`Answer`, Bengali, but **very short** (Q ≈54 ch, A ≈60 ch) and general chit-chat, not medical. ⚠️ Malformed quoting — needs `quoting=3, on_bad_lines='skip'`. Low value. |
+| 12 | `kaggle/bengali-chat-conversation/` | [dinmaybrahma/bengali-chat-coversation](https://www.kaggle.com/datasets/dinmaybrahma/bengali-chat-coversation) | 1,045 | not stated | `Question`/`Answer`, Bengali, but **very short** (Q ≈54 ch, A ≈60 ch) and general chit-chat, not medical. Malformed quoting — needs `quoting=3, on_bad_lines='skip'`. Low value. |
 | 13 | `kaggle/bengali-medical-corpus/` | [musfiqrahmanramim/bengali-medical-corpus](https://www.kaggle.com/datasets/musfiqrahmanramim/bengali-medical-corpus) | — | not stated | Downloaded; inspect before use. |
 
 ## Tier 3 — English source corpora (for translate-then-train / distillation)
 
 | # | Local path | Source | Rows | License | Notes |
 |---|---|---|---|---|---|
-| 14 | `huggingface/ChatDoctor-HealthCareMagic-100k/` | [lavita/ChatDoctor-HealthCareMagic-100k](https://huggingface.co/datasets/lavita/ChatDoctor-HealthCareMagic-100k) | **112,165** | ❗none stated | `instruction`/`input`/`output`. **English.** The canonical real patient→doctor corpus and the most likely upstream source of any translated Bengali set. |
+| 14 | `huggingface/ChatDoctor-HealthCareMagic-100k/` | [lavita/ChatDoctor-HealthCareMagic-100k](https://huggingface.co/datasets/lavita/ChatDoctor-HealthCareMagic-100k) | **112,165** | none stated | `instruction`/`input`/`output`. **English.** The canonical real patient→doctor corpus and the most likely upstream source of any translated Bengali set. |
 | 15 | `huggingface/medical-o1-reasoning-SFT/` | [FreedomIntelligence/medical-o1-reasoning-SFT](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT) | 19,704 EN · 20,171 ZH · 24,887 mix · 25,358 mix-ZH | **Apache-2.0** | `Question`/`Complex_CoT`/`Response`. **Confirmed upstream of #3** (identical schema). Reasoning-heavy. |
 | 16 | `kaggle/MedQuAD/` | [pythonafroz/medquad-…](https://www.kaggle.com/datasets/pythonafroz/medquad-medical-question-answer-for-ai-research) | **16,412** | CC-BY-4.0 (NIH-derived) | `question`/`answer`/`source`/`focus_area`. **English**, authoritative NIH content. |
 | 17 | `huggingface/medical-qa-multi/` | [Malikeh1375/medical-question-answering-datasets](https://huggingface.co/datasets/Malikeh1375/medical-question-answering-datasets) | **331,191** across 10 subsets | **MIT** | Multi-corpus aggregation. **English.** Best license of any Tier-3 item. Subset breakdown below. |
@@ -81,16 +81,16 @@ Claude_Data_Search_1/
 
 | Subset | Rows | Output p50 | Worth anything? |
 |---|---|---|---|
-| `chatdoctor_icliniq` | **7,321** | 480 ch | ✅ **The new find.** Real patient→doctor dialogues from iCliniq — a *different* source than HealthCareMagic (#14), so it adds genuinely new material rather than duplicating. |
-| `medical_meadow_wikidoc_patient_information` | 5,942 | 304 ch | ✅ Patient-facing explanations — register is close to what we want. |
-| `medical_meadow_wikidoc` | 10,000 | 431 ch | ✅ Long-form medical prose. |
-| `medical_meadow_mediqa` | 2,208 | 417 ch | ✅ Consumer health QA. |
-| `all-processed` | 246,678 | 417 ch | ⚠️ Superset aggregation — **overlaps every other subset**, including #14. Use *either* this *or* the individual subsets, never both. |
-| `medical_meadow_medical_flashcards` | 33,955 | 150 ch | ➖ Terse flashcard answers. |
-| `medical_meadow_health_advice` | 8,676 | **17 ch** | ❌ Classification labels, not prose. |
-| `medical_meadow_medqa` | 10,178 | **25 ch** | ❌ MCQ answers. |
-| `medical_meadow_pubmed_causal` | 2,446 | 43 ch | ❌ Classification. |
-| `medical_meadow_mmmlu` | 3,787 | **1 ch** | ❌ Single-letter MCQ answers. Useless here. |
+| `chatdoctor_icliniq` | **7,321** | 480 ch | **The new find.** Real patient→doctor dialogues from iCliniq — a *different* source than HealthCareMagic (#14), so it adds genuinely new material rather than duplicating. |
+| `medical_meadow_wikidoc_patient_information` | 5,942 | 304 ch | Patient-facing explanations — register is close to what we want. |
+| `medical_meadow_wikidoc` | 10,000 | 431 ch | Long-form medical prose. |
+| `medical_meadow_mediqa` | 2,208 | 417 ch | Consumer health QA. |
+| `all-processed` | 246,678 | 417 ch | Superset aggregation — **overlaps every other subset**, including #14. Use *either* this *or* the individual subsets, never both. |
+| `medical_meadow_medical_flashcards` | 33,955 | 150 ch | Terse flashcard answers. |
+| `medical_meadow_health_advice` | 8,676 | **17 ch** | Classification labels, not prose. |
+| `medical_meadow_medqa` | 10,178 | **25 ch** | MCQ answers. |
+| `medical_meadow_pubmed_causal` | 2,446 | 43 ch | Classification. |
+| `medical_meadow_mmmlu` | 3,787 | **1 ch** | Single-letter MCQ answers. Useless here. |
 
 ---
 
@@ -120,7 +120,7 @@ From `../links.md`, none yet verified against the 3B cap:
 - **mT5-base** (~580M) — best performer on MTS-Dialog-Bangla.
 - **mBART-50** (~610M).
 
-⚠️ Per CLAUDE.md §2 rule 5, **print `sum(p.numel() …)` and assert ≤3e9 before
+Per CLAUDE.md §2 rule 5, **print `sum(p.numel() …)` and assert ≤3e9 before
 using any of these.** Encoder-decoder models with large multilingual
 vocabularies carry heavy embedding tables.
 

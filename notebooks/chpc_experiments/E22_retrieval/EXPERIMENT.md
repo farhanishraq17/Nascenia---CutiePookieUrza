@@ -1,12 +1,12 @@
 # E22 — Retrieval augmentation (RAG)
 
-**Tier 4 — DATA · Priority: LOW for Phase 1 · 🥇 HIGH for Phase 2**
+**Tier 4 — DATA · Priority: LOW for Phase 1 · HIGH for Phase 2**
 
 ## The question
 
 > RAG won the QA track of the NLP4Health shared task. **Does it help us — and where?**
 
-## 🔴 Read this before running anything
+## Read this before running anything
 
 RAG earned its reputation on the paper's **open-ended QA** task, where Team Samvad's RAG system
 took the highest QA F1 (**0.78**) because it *"provided superior factual grounding, reducing
@@ -54,7 +54,7 @@ benefits from being shown *relevant* conversions rather than arbitrary ones.
 | k | 20, matching E20's current budget |
 | Compare against | E20 stage 1 with random examples |
 
-🔴 **Index train only.** Retrieving a dev row's own pair returns the answer and the number becomes
+**Index train only.** Retrieving a dev row's own pair returns the answer and the number becomes
 meaningless — the same leak that removed 6,000 rows from `warmstart_corpus`.
 
 ## Arm B — retrieval-augmented input to the fine-tuned model
@@ -66,7 +66,7 @@ where it could pay: rows whose draft is unlike anything in training. **Report th
 retrieval similarity**; a gain concentrated in the low-similarity tail would be real even if the
 average is flat.
 
-## 🥇 Arm C — RAG for Phase 2 clinical QA
+## Arm C — RAG for Phase 2 clinical QA
 
 **This is the arm worth building.**
 
@@ -79,11 +79,11 @@ has optimised for it, and grounding is precisely what the paper's RAG system won
 | Query | the patient question (`data/question_only/`) |
 | Use | ground the answer in retrieved real doctor responses instead of generating parametrically |
 
-⚠️ **The corpus is leak-safe and must stay that way** — 6,000 rows whose ids fall in the frozen
+**The corpus is leak-safe and must stay that way** — 6,000 rows whose ids fall in the frozen
 dev/test split were removed because they are a *second translation of answers we evaluate on*.
 Retrieving one would leak the eval set. Verified 0 dev-id overlap; **re-verify after any rebuild**.
 
-🔴 **A retrieval index counts toward nothing in the 3B cap — but the retriever model does.** If
+**A retrieval index counts toward nothing in the 3B cap — but the retriever model does.** If
 Arm C ships, `multilingual-e5-base` (278M) is added to the parameter budget alongside the
 generator. Assert the total.
 
@@ -91,13 +91,13 @@ generator. Assert the total.
 
 | Arm | Result | Meaning |
 |---|---|---|
-| **A** | > E20 random-example baseline | ✅ Cheap upgrade to the teacher probe — adopt it |
+| **A** | > E20 random-example baseline | Cheap upgrade to the teacher probe — adopt it |
 | **A** | ≈ baseline | The teacher generalises the register from any examples; k-NN selection adds nothing |
 | **B** | ≈ incumbent *(expected)* | Confirms the fine-tuned model already internalised the register |
 | **B** | gain in the low-similarity tail only | Real but narrow — consider it only for out-of-distribution rows |
-| **C** | fewer hallucinations / better clinical audit | ✅ **Ship for Phase 2** even at zero Phase-1 gain |
+| **C** | fewer hallucinations / better clinical audit | **Ship for Phase 2** even at zero Phase-1 gain |
 
-⚠️ **Do not let this displace E05, E17, or E18.** The honest expectation is: **arm A a small win,
+**Do not let this displace E05, E17, or E18.** The honest expectation is: **arm A a small win,
 arm B nothing, arm C the real prize** — and arm C is measured by the Phase-2 audit in E16, not by
 Token F1.
 
@@ -110,7 +110,7 @@ Token F1.
 - **Count the retriever's parameters** toward the 3B cap if it ships.
 - **Report Token F1 and ROUGE-L**, never the local composite.
 - **Ignore differences below 0.0044.**
-- 🔴 **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
+- **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
   alone force a full retrain before anything here can be submitted, and a low-scoring model that
   *disagrees usefully* is exactly what E14/E19 need. One directory per arm; `run.json` beside the
   weights (`checkpoint_hash` is not a run identity). **Record everything in this folder's

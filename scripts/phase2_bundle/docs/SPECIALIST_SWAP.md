@@ -14,7 +14,7 @@ judge can most easily see.
 | arm | held-out Token F1 | **truncated %** | mean tokens | হেলো % |
 |---|---|---|---|---|
 | **D1 + iCliniq** *(shipped)* | 0.2625 | **27.3** | 114.1 | 78.5 |
-| **X5 @ lr 1e-5** | 0.2610 | **14.8** ✅ | 103.7 | 78.5 |
+| **X5 @ lr 1e-5** | 0.2610 | **14.8** | 103.7 | 78.5 |
 | *references* | — | ***6.8*** | *~100* | *76.4* |
 
 The Token F1 gap is **0.0015**. The noise floor this task actually exhibits is **~0.02**
@@ -42,7 +42,7 @@ scaled ×100). A judge spread of 10 points across finalists is worth 2.0. Cuttin
 12.5% of judged answers plausibly returns **~0.5–0.8 Final points** — more than retaking #1 on
 Phase 1 would have, at zero GPU cost.
 
-⚠️ If the organizers instead min-max normalize Phase 1 across finalists, that arithmetic inverts
+If the organizers instead min-max normalize Phase 1 across finalists, that arithmetic inverts
 and Phase 1 dominates. The swap still costs nothing on Phase 1, so it is correct under both
 readings — but do not quote the point estimate as if the normalization were known.
 

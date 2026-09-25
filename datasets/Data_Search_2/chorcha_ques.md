@@ -6,7 +6,7 @@
 
 ---
 
-## ⚠️ Important: Question text could not be extracted
+## Important: Question text could not be extracted
 
 The individual **question wording is not publicly available** on this page. It is
 gated behind account login **and** paid batch enrollment. As an anonymous visitor,

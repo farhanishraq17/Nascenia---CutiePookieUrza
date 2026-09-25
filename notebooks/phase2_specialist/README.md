@@ -5,7 +5,7 @@
 **Read this file first, then `GPU_BUDGET.md`, then `DATA_GUIDE.md`, then `EXPERIMENTS.md`, then
 your model's `INSTRUCTIONS.md`.**
 
-🔴 **`GPU_BUDGET.md` is not optional reading, and there are only 5 days** (Phase 2 bundle due
+**`GPU_BUDGET.md` is not optional reading, and there are only 5 days** (Phase 2 bundle due
 **Aug 25, 12:00 GMT+6**). The matrix in `EXPERIMENTS.md` is scientifically complete but is **not**
 sized to that deadline. `GPU_BUDGET.md` gives you throughput **measured from this project's own
 ~60 previous runs**, three config changes that cut the cost substantially at no scientific cost,
@@ -13,7 +13,7 @@ a priority order for what to drop, and a stated gate for cutting model **C**.
 
 **You budget the wall clock** — you know your fleet, this folder does not.
 
-✅ **This folder is fully self-contained — ~119 MB, all data bundled in `data/_sources/`.**
+**This folder is fully self-contained — ~119 MB, all data bundled in `data/_sources/`.**
 Nothing outside it is needed. Copy the whole folder anywhere and run.
 
 | bundled file | rows | what it is |
@@ -58,7 +58,7 @@ its branch is unaffected.
 **Rules §3 permits this**: *"Ensembling multiple models is permitted, provided that the combined
 parameter count of all models used at inference stays under 3B."*
 
-## 🔴 The measurement that created this folder
+## The measurement that created this folder
 
 The champion cannot answer a question it wasn't handed a draft for. Measured on the frozen
 `dev[0:300]` split, champion unchanged:
@@ -81,9 +81,9 @@ real gain over it is new ground.
 
 | Folder | Model | Params | Why it's a candidate |
 |---|---|---|---|
-| **`A_mT5_base/`** | `google/mt5-base` | 580M | 🥇 **Best measured Bengali score of the three (0.8017)** *despite being 3.4× smaller than B*, best tokenizer efficiency (271 tok/answer), and it is seq2seq — the same architecture family and trainer as the champion, so the lowest-risk pipeline |
+| **`A_mT5_base/`** | `google/mt5-base` | 580M | **Best measured Bengali score of the three (0.8017)** *despite being 3.4× smaller than B*, best tokenizer efficiency (271 tok/answer), and it is seq2seq — the same architecture family and trainer as the champion, so the lowest-risk pipeline |
 | **`B_Qwen35_2B/`** | `Qwen/Qwen3.5-2B` | 2B | Best *decoder* that is open and fits. 248k vocab (294 tok/answer). Tests whether raw scale + broader pretraining beats a small efficient seq2seq at genuine reasoning |
-| **`C_BanglaAI_17B/`** ⛔ **CUT 2026-08-20** | `swapnillo/Bangla-AI-1.7B` | 1.7B | Already Bengali-instruction-tuned on 100K instructions. ⚠️ Built on Qwen3-1.7B, whose tokenizer measured **worst of every decoder tested** (689 tok/answer, 4.85× handicap) — instruction-tuning does not fix a tokenizer. Included because its instruction-tuning may compensate; **do not assume it will**. Cut per the cut-gate below once `A_mT5_base`'s X3 cleared 0.2533 — see `C_BanglaAI_17B/RESULTS.md` |
+| **`C_BanglaAI_17B/`** **CUT 2026-08-20** | `swapnillo/Bangla-AI-1.7B` | 1.7B | Already Bengali-instruction-tuned on 100K instructions. Built on Qwen3-1.7B, whose tokenizer measured **worst of every decoder tested** (689 tok/answer, 4.85× handicap) — instruction-tuning does not fix a tokenizer. Included because its instruction-tuning may compensate; **do not assume it will**. Cut per the cut-gate below once `A_mT5_base`'s X3 cleared 0.2533 — see `C_BanglaAI_17B/RESULTS.md` |
 
 Those scores come from this project's own model zoo (E18) measured on a *different* task
 (register transfer). Treat them as a **tokenizer-efficiency and baseline-competence signal, not
@@ -110,7 +110,7 @@ Run from the folder root. No arguments needed — the defaults point at the bund
 ```bash
 python shared/build_index.py     # 1. dense retrieval index over the 118,912-row pool (~1 GPU-h)
 python shared/build_data.py      # 2. all dataset variants: plain / rag / plain_core_only
-# 3. 🔴 read 5 rows of data/rag/train.parquet BY HAND before training anything (see below)
+# 3. read 5 rows of data/rag/train.parquet BY HAND before training anything (see below)
 # 4. per model: train.ipynb (set ARM in cell 1, once per arm), then inference.ipynb
 # 5. fill in each RESULTS.md, then pick the overall winner
 ```
@@ -118,7 +118,7 @@ python shared/build_data.py      # 2. all dataset variants: plain / rag / plain_
 Steps 1–2 are shared and run **once**. Steps 4–5 are per-model and independent — run them
 concurrently if you have the GPUs.
 
-🔴 **Step 3 is not optional.** `build_data.py` asserts that no row retrieves itself as its own
+**Step 3 is not optional.** `build_data.py` asserts that no row retrieves itself as its own
 RAG reference, but an assert cannot catch a subtly wrong template and your eyes can. Confirm the
 `অনুরূপ কেস` reference is a **different case** from the question being asked. If the reference
 *is* the answer, every RAG number is meaningless.
@@ -128,17 +128,17 @@ concurrently.
 
 ## Non-negotiables
 
-- 🔴 **Never modify the champion.** No retraining, no re-averaging, no touching
+- **Never modify the champion.** No retraining, no re-averaging, no touching
   `ckptavg_peak5`. Its 0.89552 must stay reproducible byte-for-byte.
-- 🔴 **Never change the frozen split**: seed 42, 5,000 dev rows. Every number in this project
+- **Never change the frozen split**: seed 42, 5,000 dev rows. Every number in this project
   rests on it.
-- 🔴 **Never fp16.** T5 overflows to NaN *silently* — it still prints a parameter count, still
+- **Never fp16.** T5 overflows to NaN *silently* — it still prints a parameter count, still
   "decodes", still writes a valid CSV of garbage. bf16 on sm_80+, fp32 below. Gate on
   `torch.cuda.get_device_capability()[0] >= 8`, **not** `is_bf16_supported()` (that returns True
   on a T4 via emulation).
-- 🔴 **Judge on Token F1 and ROUGE-L, never the local composite** — it is mis-calibrated by
+- **Judge on Token F1 and ROUGE-L, never the local composite** — it is mis-calibrated by
   ~0.118. Ignore any difference below **0.0044** (the measured noise floor).
-- 🔴 **Keep every arm's checkpoint**, including losers. A model that scores worse but *disagrees
+- **Keep every arm's checkpoint**, including losers. A model that scores worse but *disagrees
   usefully* is the only thing an ensemble can use.
 - **Report the trajectory, not just the best number.** Where a run peaks is often the finding —
   the champion's own predecessor was under-trained by 4.4× and nobody noticed until the full

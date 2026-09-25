@@ -12,7 +12,7 @@ removed to protect the frozen dev split. Every decision below is backed by a mea
 
 | File | Rows | What it is |
 |---|---|---|
-| **`aligned_pairs.csv`** | **107,737** | 🥇 **The asset.** `comp_id · split · draft · target` — competition id joined to our Bengali ChatDoctor translation. Training data for the register-transfer model. |
+| **`aligned_pairs.csv`** | **107,737** | **The asset.** `comp_id · split · draft · target` — competition id joined to our Bengali ChatDoctor translation. Training data for the register-transfer model. |
 | **`master_c_bengali.csv`** | **123,289** | Clean Bengali medical-dialogue corpus. `id · source · input · output`. For optional warm-start and Phase 2 clinical quality. |
 
 ### `aligned_pairs.csv` coverage
@@ -28,7 +28,7 @@ removed to protect the frozen dev split. Every decision below is backed by a mea
 
 ---
 
-## 🔴 The leak this dataset ships with, and how it was removed
+## The leak this dataset ships with, and how it was removed
 
 **`bengali_medical_train_master.csv` contains the competition `train.csv` in full** as
 `source == given_train` (108,954 rows, ids `0,1,2,…`). Measured: **all 5,000 of our frozen dev
@@ -46,7 +46,7 @@ the frozen dev or test split are dropped** from the corpus. They survive only in
 
 ---
 
-## ✅ Kept (123,289 rows)
+## Kept (123,289 rows)
 
 | Source | Rows kept | Origin | Language | Why kept |
 |---|---|---|---|---|
@@ -63,7 +63,7 @@ Corpus output length: **mean 95.4, median 88 tokens** against competition refere
 
 ---
 
-## ❌ Excluded (287,236 rows), with the measurement
+## Excluded (287,236 rows), with the measurement
 
 ### `given_train` — 108,954 — **not external data**
 It is the competition training set, and it contains the frozen dev split. See the leak section above.
@@ -124,7 +124,7 @@ Community/Kudos-only competition whose own data is CC BY-NC 4.0.
 chunking, retry backoff, zero-width symbol sanitisation, English→Bengali digit transliteration.
 Performed by this team; the Bengali text is our own derived artifact.
 
-🔴 **Disclosure is mandatory** in the Phase 2 write-up and must name: the repo URL, the research-only
+**Disclosure is mandatory** in the Phase 2 write-up and must name: the repo URL, the research-only
 restriction, the translation method above, row counts, and the dedup/filter rules in this document.
 
 ---

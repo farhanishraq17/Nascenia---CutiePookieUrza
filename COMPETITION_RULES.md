@@ -15,13 +15,13 @@
 4. Kaggle **Rules** tab (competition-specific + Kaggle Foundational Rules)
 5. Local inspection of `DATA/COMPETITION_PROVIDED_DATA/`
 
-> **📌 In any conflict between the PDF rulebook and Kaggle, the Kaggle page is final.** See §0.
+> **In any conflict between the PDF rulebook and Kaggle, the Kaggle page is final.** See §0.
 
 **Competition status at time of writing:** 144 entrants · ~20 days remaining · rules accepted on our account.
 
 ---
 
-## ⚡ 0.0 ORGANIZER RULE UPDATES — relayed by the user, these supersede the text below
+## 0.0 ORGANIZER RULE UPDATES — relayed by the user, these supersede the text below
 
 Organizers may amend the rules with notice (§14). The following were confirmed by the user and **override both the PDF rulebook and the older Kaggle Rules text quoted later in this document**:
 
@@ -35,17 +35,17 @@ Organizers may amend the rules with notice (§14). The following were confirmed 
 
 ---
 
-## ⚠️ 0. PRECEDENCE RULE & REMAINING CONFLICTS
+## 0. PRECEDENCE RULE & REMAINING CONFLICTS
 
-> ## 📌 **PRECEDENCE: KAGGLE IS FINAL.**
+> ## **PRECEDENCE: KAGGLE IS FINAL.**
 > **Wherever the PDF rulebook (`Rulebook_Nascenia.pdf`) and the Kaggle competition pages disagree, the Kaggle page governs.** The PDF is treated as background/context only. Within Kaggle itself, the order is: **Kaggle Foundational Rules → Kaggle competition-specific Rules tab → Data tab → Overview tab.** (Kaggle's Foundational Rules state explicitly that they supersede and nullify contrary competition-specific rules.)
 
 Applying that rule, here is where each conflict lands.
 
-### ✅ C1 — Submission column name — **RESOLVED: `id,output`**
+### C1 — Submission column name — **RESOLVED: `id,output`**
 | Source | Stated format | |
 |---|---|---|
-| Kaggle **Data → Submission Format** | `id,output` | ✅ **governs** |
+| Kaggle **Data → Submission Format** | `id,output` | **governs** |
 | ~~Kaggle **Overview → Submission Format**~~ | ~~`id,doctor_response`~~ | superseded |
 
 Exactly two columns, one row per `id` in `test.csv`:
@@ -56,7 +56,7 @@ id,output
 ```
 The Data tab is the authoritative page for file schema and matches the `train.csv` column name. Confirmed by the user 2026-08-04.
 
-### ✅ C2 — Phase 1 submission limit — **RESOLVED: 5 per day**
+### C2 — Phase 1 submission limit — **RESOLVED: 5 per day**
 | Source | Stated limit |
 |---|---|
 | **Kaggle Rules §2.2.a** ← **governs** | "You may submit a maximum of **five (5) Submissions per day**" |
@@ -64,13 +64,13 @@ The Data tab is the authoritative page for file schema and matches the `train.cs
 
 **We get 5 submissions per day**, and this is what the platform enforces. Also from the same section: **you may select one (1) Final Submission for judging.**
 
-### ✅ C3 — Phase 2 deadline time — **RESOLVED: August 25, 12:00 PM BD**
+### C3 — Phase 2 deadline time — **RESOLVED: August 25, 12:00 PM BD**
 The PDF contradicted itself (§5.1 "12 PM" vs §7 timeline "00:00"). Kaggle Rules state **August 25th, 12 PM, BD Time Zone** → **that is the deadline.**
 
-### ✅ C4 — Data license — **RESOLVED: CC BY-NC 4.0**
+### C4 — Data license — **RESOLVED: CC BY-NC 4.0**
 The Kaggle **Rules** tab (§1.7 and §2.4.a) states **CC BY-NC 4.0**; the Data tab's metadata sidebar shows CC BY-NC-SA 4.0. The Rules tab is the binding legal text and outranks the Data tab sidebar → **CC BY-NC 4.0**. Either way our obligation is identical: **non-commercial use, no redistribution.**
 
-### 🟡 C5 — Team registration deadline precedes the start date — **STANDS AS WRITTEN**
+### C5 — Team registration deadline precedes the start date — **STANDS AS WRITTEN**
 Kaggle Rules §2.3 lists team registration deadline **August 2** with data released **August 4**. The PDF says the same, so there is no PDF-vs-Kaggle conflict to resolve — the Kaggle text simply reads as impossible on its face. **Kaggle governs, so August 2 is the stated date.** Worth a Discussion-tab question if we intend to change team composition, but nothing to act on otherwise.
 
 ---
@@ -152,7 +152,7 @@ Phase 1 Score = (1/N) Σ Score_i
 
 ---
 
-## 4. Model Constraints ⚠️
+## 4. Model Constraints
 
 - Any base LLM allowed **as long as it has ≤ 3,000,000,000 (3B) parameters at inference time**.
 - **Permitted:** fine-tuning, LoRA / adapters, quantization, distillation, prompt engineering.
@@ -192,17 +192,17 @@ Phase 1 Score = (1/N) Σ Score_i
 
 ## 6. Data Rules & External Data
 
-- ✅ **External data IS allowed** — for both training data and base LLMs.
-- ⚠️ **But the Kaggle Rules impose a real constraint the PDF does not.** External data/models must be:
+- **External data IS allowed** — for both training data and base LLMs.
+- **But the Kaggle Rules impose a real constraint the PDF does not.** External data/models must be:
   - **publicly available and equally accessible to all participants at no cost**, **or**
   - satisfy the **"Reasonableness Standard"** — minimal cost, reasonably accessible to all.
   - Example given: a small subscription (e.g. Gemini Advanced) is fine; a proprietary dataset costing more than the prize is not.
-- ✅ **All external data must be disclosed in the submission notes.**
-- ✅ **AutoML tools permitted**, provided you hold an appropriate license.
-- ❌ **No private code sharing** outside your team during the competition. Public sharing is allowed **only** on the competition's own Kaggle forum/notebooks, and doing so licenses it under an OSI-approved license.
-- ❌ **No redistribution** of Competition Data to anyone not participating. You must take reasonable measures to prevent access by non-participants.
-- ❌ Non-commercial use only (CC BY-NC 4.0 — see C4).
-- ❌ **Open-source code only:** if open source code is used in the model, it must be under an **OSI-approved license that does not limit commercial use**. (Rules out GPL-encumbered or research-only-license components in the final pipeline — check base model licenses.)
+- **All external data must be disclosed in the submission notes.**
+- **AutoML tools permitted**, provided you hold an appropriate license.
+- **No private code sharing** outside your team during the competition. Public sharing is allowed **only** on the competition's own Kaggle forum/notebooks, and doing so licenses it under an OSI-approved license.
+- **No redistribution** of Competition Data to anyone not participating. You must take reasonable measures to prevent access by non-participants.
+- Non-commercial use only (CC BY-NC 4.0 — see C4).
+- **Open-source code only:** if open source code is used in the model, it must be under an **OSI-approved license that does not limit commercial use**. (Rules out GPL-encumbered or research-only-license components in the final pipeline — check base model licenses.)
 
 > Practical note: the local collection under `DATA/EXTERNAL_COLLECTED_DATA/` looks compliant (public HF/Kaggle/GitHub datasets), but **each source's license must be checked** against the "no commercial-use limits" requirement before it goes into a winning submission.
 
@@ -287,7 +287,7 @@ All times **GMT+6 / BD Time Zone**. Dates below reconcile the PDF timeline with 
 | Milestone | Date |
 |---|---|
 | Competition opens / data released | **August 4** |
-| Team registration deadline | **August 2** ⚠️ (see C5) |
+| Team registration deadline | **August 2** (see C5) |
 | **Phase 1 submission deadline (leaderboard closes)** | **August 24, 12:00 AM (00:00)** |
 | Private leaderboard revealed | Immediately after contest end |
 | Top 10 announced / Phase 2 submission opens | Immediately after contest end |
@@ -302,7 +302,7 @@ All times **GMT+6 / BD Time Zone**. Dates below reconcile the PDF timeline with 
 ## 10. Eligibility & Teams
 
 - Open to anyone; **18+** (or age of majority in your jurisdiction).
-- **Team size: NO LIMIT.** ⚡ **Updated 2026-08-05** — the organizers removed the cap; a team may have unlimited members. This supersedes the "maximum four (4)" in both the PDF rulebook §6 and the Kaggle Rules tab §2.1.a, which predate the change. Organizers may update rules with notice (§14).
+- **Team size: NO LIMIT.** **Updated 2026-08-05** — the organizers removed the cap; a team may have unlimited members. This supersedes the "maximum four (4)" in both the PDF rulebook §6 and the Kaggle Rules tab §2.1.a, which predate the change. Organizers may update rules with notice (§14).
   - **Practical consequence:** GPU quota is **per account** (~30 h/week), so each additional teammate adds ~30 GPU-h/week. Submissions remain **5/day per team** regardless of size.
 - Each individual on **only one team**; **one Kaggle account only**.
 - Team mergers allowed via the team leader, subject to combined submission-count limits.
@@ -318,9 +318,9 @@ All times **GMT+6 / BD Time Zone**. Dates below reconcile the PDF timeline with 
 
 | Place | Prize |
 |---|---|
-| 🥇 1st | 30,000 BDT |
-| 🥈 2nd | 10,000 BDT |
-| 🥉 3rd | 5,000 BDT |
+| 1st | 30,000 BDT |
+| 2nd | 10,000 BDT |
+| 3rd | 5,000 BDT |
 
 - Awarded on the final weighted Final Score (§2).
 - Competition awards **Kudos only — no Kaggle Points or Medals.**
@@ -329,7 +329,7 @@ All times **GMT+6 / BD Time Zone**. Dates below reconcile the PDF timeline with 
 
 ---
 
-## 12. IP & Licensing — ⚠️ Open Source is MANDATORY for winners
+## 12. IP & Licensing — Open Source is MANDATORY for winners
 
 - **Winner License Type: Open Source.** This is stronger than the PDF's "may be asked to open-source." Winners **must** license the winning submission **and the source code used to generate it** under an **OSI-approved license that does not limit commercial use**.
   - Exception: generally commercially-available third-party software you don't own, and input data / pretrained models carrying an incompatible license, do not need to be relicensed.

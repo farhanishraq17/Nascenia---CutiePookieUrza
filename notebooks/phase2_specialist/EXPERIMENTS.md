@@ -1,6 +1,6 @@
 # EXPERIMENTS — the matrix
 
-> ⚠️ **This file describes the complete matrix, not necessarily the plan you should launch.**
+> **This file describes the complete matrix, not necessarily the plan you should launch.**
 > **You have 5 days** (Phase 2 due Aug 25, 12:00 GMT+6), and decoders cost **15–35× more per step**
 > than the seq2seq model. **Read `GPU_BUDGET.md` first** — it has measured throughput from this
 > project's own runs, three config changes that cut cost at no scientific cost, a priority order
@@ -16,7 +16,7 @@ for one model and not another makes the comparison worthless.
 | A and B... | Conclusion |
 |---|---|
 | **agree** | The data verdict is architecture-independent — **C inherits it**, no re-run needed |
-| **disagree** | 🔴 Data effects *are* architecture-specific. A real finding — say so, and run D1–D3 on C too before trusting its X2 |
+| **disagree** | Data effects *are* architecture-specific. A real finding — say so, and run D1–D3 on C too before trusting its X2 |
 
 `C_BanglaAI_17B` does **not** run them up front, and should only do so if A and B disagree.
 
@@ -29,22 +29,22 @@ fix achieved on the frozen champion. **Noise floor: `0.0044`.** Ignore smaller d
 
 | ID | Name | Trains? | Data | What question it answers |
 |---|---|---|---|---|
-| **X0** | Zero-shot | ❌ | — | What does this base model do with no help at all? |
-| **X1** | Few-shot (k=4) | ❌ | train pool | Does prompting alone get anywhere? |
-| **X2** | **Fine-tune, plain** | ✅ | `data/plain/` | 🥇 The primary arm. Can it learn to answer? |
-| **X3** | **Fine-tune + RAG** | ✅ | `data/rag/` | Does a retrieved reference case, *trained in*, beat plain? |
-| **X4** | Data ablation | ✅ | `data/plain_core_only/` | Do the extra 17k non-competition rows help, or is competition-only enough? |
-| **X5** | LR sweep | ✅ | winner of X2/X3 | Is the default LR right for **this** model? |
-| **X6** | RAG-at-inference-only | ❌ | X2's checkpoint | Must RAG be trained in, or can it be bolted on? |
-| **X7** | Decode sweep | ❌ | best checkpoint | Cheapest remaining gain. Always run last. |
+| **X0** | Zero-shot | no | — | What does this base model do with no help at all? |
+| **X1** | Few-shot (k=4) | no | train pool | Does prompting alone get anywhere? |
+| **X2** | **Fine-tune, plain** | yes | `data/plain/` | The primary arm. Can it learn to answer? |
+| **X3** | **Fine-tune + RAG** | yes | `data/rag/` | Does a retrieved reference case, *trained in*, beat plain? |
+| **X4** | Data ablation | yes | `data/plain_core_only/` | Do the extra 17k non-competition rows help, or is competition-only enough? |
+| **X5** | LR sweep | yes | winner of X2/X3 | Is the default LR right for **this** model? |
+| **X6** | RAG-at-inference-only | no | X2's checkpoint | Must RAG be trained in, or can it be bolted on? |
+| **X7** | Decode sweep | no | best checkpoint | Cheapest remaining gain. Always run last. |
 
 ### Data decomposition — `A_mT5_base` + `B_Qwen35_2B`
 
 | ID | Name | Trains? | Data | What question it answers |
 |---|---|---|---|---|
-| **D1** | + iCliniq only | ✅ | `plain_core_plus_icliniq` | Does the closest-register extra help? |
-| **D2** | + GenMedGPT only | ✅ | `plain_core_plus_genmedgpt` | 🔴 Does the **length outlier** hurt? |
-| **D3** | + doctor_qa_bangla only | ✅ | `plain_core_plus_doctor_qa_bangla` | Does the only **natively Bengali** source help? |
+| **D1** | + iCliniq only | yes | `plain_core_plus_icliniq` | Does the closest-register extra help? |
+| **D2** | + GenMedGPT only | yes | `plain_core_plus_genmedgpt` | Does the **length outlier** hurt? |
+| **D3** | + doctor_qa_bangla only | yes | `plain_core_plus_doctor_qa_bangla` | Does the only **natively Bengali** source help? |
 
 ---
 
@@ -57,7 +57,7 @@ each `INSTRUCTIONS.md`). ~15 minutes.
 bought. If X2 lands at 0.45 and X0 was already 0.40, the fine-tune barely did anything and you
 have a different problem than the number alone suggests.
 
-⚠️ **mT5-base is a pure pretrained seq2seq with no instruction tuning** — expect near-gibberish,
+**mT5-base is a pure pretrained seq2seq with no instruction tuning** — expect near-gibberish,
 possibly empty strings or sentinel tokens (`<extra_id_0>`). That is the correct, expected result,
 not a bug. Record it and move on.
 
@@ -67,13 +67,13 @@ Same, plus **k=4 real `(question, answer)` example pairs** in the prompt, drawn 
 split only**. Use the *same* 4 examples for every dev row (seeded, recorded) so the arm is
 reproducible.
 
-🔴 **Never draw few-shot examples from dev or test.** That is a direct leak of the evaluation set.
+**Never draw few-shot examples from dev or test.** That is a direct leak of the evaluation set.
 
 **Gate:** if X1 ≫ X2 for a given model, stop and investigate before trusting X2 — it almost
 certainly means the fine-tune is broken (wrong LR, wrong loss masking, wrong padding side), not
 that prompting genuinely beats training.
 
-## X2 — Fine-tune, plain 🥇 *the primary arm*
+## X2 — Fine-tune, plain *the primary arm*
 
 `data/plain/` — `input` = the patient's question, `output` = the doctor's answer. No retrieval,
 no template scaffolding beyond the model's own instruction format.
@@ -97,7 +97,7 @@ steps, and let **early stopping on the composite metric** find the peak.
 reference case during training will frequently ignore it at inference. X6 tests exactly that
 difference.
 
-🔴 **Report the copy-check, and treat it as more important than the headline score.**
+**Report the copy-check, and treat it as more important than the headline score.**
 `shared/evaluate.py` computes, per row, the token overlap between the prediction and (a) the true
 target, and (b) **its own retrieved reference**. High overlap with the reference and low with the
 target means the model is *copying the example*, not answering — a failure mode that can still
@@ -124,7 +124,7 @@ source caused it — and the three are very unalike:
 |---|---|---|---|---|
 | `icliniq` | 7,321 | 77 words | **0.0%** | closest to the competition's 93 — plausibly harmless |
 | `doctor_qa_bangla` | 4,651 | 41 words | **0.0%** | short, but the **only natively-Bengali** source anywhere in this project |
-| `genmedgpt` | 5,200 | **31 words** | **0.0%** | 🔴 **a third the reference length.** The prime suspect if X4 goes negative |
+| `genmedgpt` | 5,200 | **31 words** | **0.0%** | **a third the reference length.** The prime suspect if X4 goes negative |
 
 **All three open with `হেলো` 0.0% of the time against the competition's 76.4%** — the same
 off-register signature that got a 166,193-row corpus excluded from this project earlier. That is
@@ -139,14 +139,14 @@ Run each at **X2's exact config**, changing only `DATA`. Then read the ladder:
 | all three > X4 | Diversity genuinely helps despite the register mismatch — **ship `plain`**, and say so, because it contradicts this project's Phase 1 prior |
 | all three < X4 | Off-register data hurts even for Phase 2 — **ship `plain_core_only`** and record it as a clean negative |
 
-⚠️ **Judge these against the 0.0044 noise floor, not against each other's decimals.** 17,172 rows
+**Judge these against the 0.0044 noise floor, not against each other's decimals.** 17,172 rows
 is 14% of the pool; the honest expectation is that most of these differences are small.
 
 **Also record `mean_pred_tokens` for every D arm.** If the short extras hurt, the mechanism should
 show up as output length dragged below the references' ~100 words. That is the diagnostic that
 tells you *why*, and it may land differently on a decoder than on a seq2seq.
 
-### 🔴 The cross-check is the point — resolve it explicitly
+### The cross-check is the point — resolve it explicitly
 
 Fill in the comparison table in **`B_Qwen35_2B/RESULTS.md`** and state a verdict:
 
@@ -164,7 +164,7 @@ The defaults in each `INSTRUCTIONS.md` are the correct *class* (≈1e-3 seq2seq,
 not necessarily the optimum for this task. Sweep **3 values, one decade apart, within the class**,
 on the winner of X2/X3.
 
-🔴 **Never sweep across classes.** Putting 1e-3 on a decoder diverges and produces a run that
+**Never sweep across classes.** Putting 1e-3 on a decoder diverges and produces a run that
 looks like a bad model rather than a broken one. This has already happened in this project.
 
 ## X6 — RAG at inference only *(no training)*
@@ -206,7 +206,7 @@ Two hard-won notes from this project's own decode work:
 | **Copy-vs-reference overlap** (RAG arms) | See X3. The single most important RAG diagnostic |
 | Exact param count | `sum(p.numel())`. Assert < 3B. Never trust the model card |
 | Precision actually used, GPU | bf16/fp32 — and confirm it was never fp16 |
-| Checkpoint path | 🔴 **A row with a score and no checkpoint is a result that cannot be submitted without retraining** |
+| Checkpoint path | **A row with a score and no checkpoint is a result that cannot be submitted without retraining** |
 
 ## Deliverables when you are done
 

@@ -8,8 +8,8 @@ Translate the `english` column of the CSVs here into **Bengali**.
 
 | File | Rows | Do it |
 |---|---|---|
-| **`PROBE_1000_dev.csv`** | **1,000** | ✅ **Start here.** ~1% of the work, and it decides whether the rest is worth doing. |
-| `FULL_107737.csv` | 107,737 | ⏸️ Only after the probe wins. ~12M words. |
+| **`PROBE_1000_dev.csv`** | **1,000** | **Start here.** ~1% of the work, and it decides whether the rest is worth doing. |
+| `FULL_107737.csv` | 107,737 | ⏸Only after the probe wins. ~12M words. |
 
 The current draft was made with **Google Translate** and matches the target at **Token F1 0.5984**.
 The probe answers one question: *does a stronger translator land closer, or further away?* It is
@@ -29,7 +29,7 @@ hcm_id,bengali
 
 Name it `PROBE_1000_dev_TRANSLATED.csv` (or `FULL_107737_TRANSLATED.csv`).
 
-## 🔴 The three rules that matter more than translation quality
+## The three rules that matter more than translation quality
 
 **1. Never drop, merge, reorder or renumber a row.**
 `hcm_id` is a row index into the original ChatDoctor corpus, and it is what aligns this data to the

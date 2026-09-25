@@ -5,7 +5,7 @@ cross-experiment scoreboard. Anything surprising goes here, not there.
 
 _single arm — 1280/768_
 
-## 🔴 Measured before the run: truncation was already nearly zero, so E07's ceiling is small
+## Measured before the run: truncation was already nearly zero, so E07's ceiling is small
 
 `code/10_truncation_report.py`, 20,000 sampled train rows per dataset, each dataset's **own**
 training caps, csebuetnlp normalizer applied, tokenizer counts (not words):
@@ -22,7 +22,7 @@ training caps, csebuetnlp normalizer applied, tokenizer counts (not words):
 
 **E07 raises the cap for 0.83 % of rows on the source side and 0.05 % on the target side.**
 Even if every one of those rows were fixed perfectly, the headroom is a fraction of the 0.0044
-noise floor. **Predict ➖ within noise, and read a positive result with suspicion** — at this
+noise floor. **Predict within noise, and read a positive result with suspicion** — at this
 truncation rate a >0.0044 gain is more likely to be seed noise than recovered information.
 
 The run is still worth having as the *measurement* that closes the question, but it should not
@@ -36,7 +36,7 @@ Two things this also settles for the rest of the program:
   0.05 % at 512). Small in absolute terms, but it is the tokenizer handicap E08 exists to price,
   showing up in the data before a single step is trained.
 
-## ✅ RESULT: prediction confirmed. **+0.0007 over E03 — inside noise. The question is closed.**
+## RESULT: prediction confirmed. **+0.0007 over E03 — inside noise. The question is closed.**
 
 **Ran 2026-08-09 on CHPC granite `grn008`, 1 × H100 NVL, bf16.**
 
@@ -46,19 +46,19 @@ Two things this also settles for the rest of the program:
 | **E07** | **all inputs** | **1280/768** | **0.8042** | **0.7733** | **0.8684** | **1.54** |
 | Δ | *(un-truncating)* | | **+0.0007** | +0.0006 | | **+14 %** cost |
 
-The pre-registered prediction above — *"predict ➖ within noise, and read a positive result with
+The pre-registered prediction above — *"predict within noise, and read a positive result with
 suspicion"* — holds exactly. Raising the caps for 0.83 % of source rows and 0.05 % of target rows
 bought 0.0007, one sixth of the noise floor, for 14 % more wall clock.
 
-🔴 **Truncation is not a lever on this task and no result elsewhere in the program should be
+**Truncation is not a lever on this task and no result elsewhere in the program should be
 discounted as "truncation-limited".** That is the value of this arm: it converts an untested
 assumption into a measured zero.
 
-## Checkpoints — 🔴 keep every arm, including the losers
+## Checkpoints — keep every arm, including the losers
 
 | Arm | `best/` kept? | Kaggle dataset | Token F1 | ROUGE-L | peak step | hours | notes |
 |---|---|---|---|---|---|---|---|
-| `main` | ✅ `E07_no_truncation/main/best` | *(not uploaded)* | 0.8042 | 0.7733 | **3,250** | 1.54 | ckpt hash `6d05bc7a0fea3b27` · 247,577,856 params |
+| `main` | `E07_no_truncation/main/best` | *(not uploaded)* | 0.8042 | 0.7733 | **3,250** | 1.54 | ckpt hash `6d05bc7a0fea3b27` · 247,577,856 params |
 
 **Why the losers matter too:** a model that scores *below* the incumbent but **disagrees with it
 usefully** is exactly what E14/E19 need and cannot get from another seed. MBR failed once because
@@ -92,9 +92,9 @@ un-truncated inputs simply having nothing more to give.
 ## Verdict
 
 - **What it must beat:** E03 (0.8035), the same input at 1024/512
-- **Result:** ➖ **+0.0007 — within noise.** The pre-registered prediction was correct.
+- **Result:** **+0.0007 — within noise.** The pre-registered prediction was correct.
 - **What it changes:**
-  - 🏁 **Truncation is closed as a lever.** No experiment in this program is truncation-limited,
+  - **Truncation is closed as a lever.** No experiment in this program is truncation-limited,
     and no future arm needs caps above its dataset's own.
   - The 512-token **target** cap is confirmed free across every BanglaT5 arm (0.05 % of rows).
   - Practical consequence: prefer the *smaller* cap that fits, since E07 cost 14 % more wall clock

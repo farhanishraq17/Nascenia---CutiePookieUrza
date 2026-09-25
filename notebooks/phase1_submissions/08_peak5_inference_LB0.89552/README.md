@@ -28,7 +28,7 @@ training/
                                     doesn't require a notebook for training, only for inference —
                                     see the note below)
   nasc-E05-english_draft.sbatch    the exact SLURM invocation that produced the base checkpoint.
-                                    🔴 There is no training NOTEBOOK for this model — it was
+                                    There is no training NOTEBOOK for this model — it was
                                     trained on CHPC via this script directly, verified to match
                                     base_run.json exactly. A stale, wrong-config .ipynb template
                                     exists elsewhere in the repo (fine_tune_project/
@@ -61,7 +61,7 @@ data/
 requirements.txt                  pinned deps
 ```
 
-## 🔴 Two things every reader of this folder should know before trusting it
+## Two things every reader of this folder should know before trusting it
 
 **1. Reproduction evidence is the decoded outputs, not a weight hash.** Two identical training
 runs on this project produced 300/300 identical predictions but *different* `checkpoint_hash`

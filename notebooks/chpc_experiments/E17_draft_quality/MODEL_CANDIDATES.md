@@ -10,7 +10,7 @@ Current standings on the same 10 rows (paired, so row difficulty cancels):
 
 ---
 
-## 🔴 The finding that changes the plan
+## The finding that changes the plan
 
 **The organizers did not use Google Translate.** If they had, our Google draft would score
 ~0.95 against their text, not **0.6230**. And an LLM — Claude — lands *closer to their
@@ -28,18 +28,18 @@ their post-processing, not their translator.
 
 Three of the four proposed models need adjusting before spending GPU time.
 
-### ✅ `Qwen/Qwen3-235B-A22B` — **the right Qwen to test**
+### `Qwen/Qwen3-235B-A22B` — **the right Qwen to test**
 
 This is the one worth running, and it was the Kaggle link rather than the #1 pick.
 
 **Qwen3 expanded to 119 languages and dialects, and Bengali is among them.** MoE: 235B total,
 **22B active**, so it generates at roughly 22B-dense speed on a big node.
 
-⚠️ **Qwen3 defaults to thinking mode.** Translation does not need it, and it wraps output in
+**Qwen3 defaults to thinking mode.** Translation does not need it, and it wraps output in
 `<think>` blocks you would have to strip. `run_local_models.py` passes
 `enable_thinking=False` automatically for any model with `qwen3` in the name.
 
-### ⚠️ `Qwen/Qwen2.5-72B-Instruct` — **Bengali is the open question, not the size**
+### `Qwen/Qwen2.5-72B-Instruct` — **Bengali is the open question, not the size**
 
 Ranked #1 in the brief on the strength of "29+ languages including Bengali." **Qwen2.5's
 headline language list is Chinese, English, French, Spanish, Portuguese, German, Italian,
@@ -49,7 +49,7 @@ in it.** Qwen3's 119-language list is where Bengali is explicit.
 Worth running as a **control** — it is cheap and settles the question empirically — but expect
 Qwen3 to beat it on Bengali specifically, which is the opposite of the brief's ranking.
 
-### ❌ `Qwen/Qwen3-Coder-480B-A35B-Instruct` — **skip this one**
+### `Qwen/Qwen3-Coder-480B-A35B-Instruct` — **skip this one**
 
 The brief says the "Coder" designation shouldn't fool us because large code models excel at
 "structured reasoning and preserving exact document formats."
@@ -63,7 +63,7 @@ measuring. Format preservation is handled by the CSV harness, not the model.
 and *smaller*. If you want the Coder model tested anyway it costs one command, but I would
 spend the slot elsewhere.
 
-### ❌ `Qwen/Qwen1.5-110B-Chat` — **skip; superseded**
+### `Qwen/Qwen1.5-110B-Chat` — **skip; superseded**
 
 Qwen1.5 is early-2024 and its multilingual coverage is far weaker than 2.5, let alone 3.
 Parameter count does not compensate for a generation gap in language coverage — Bengali was
@@ -72,7 +72,7 @@ list to serve, for the weakest expected Bengali.
 
 ---
 
-## 🥇 The category the shortlist is missing: dedicated EN→BN MT
+## The category the shortlist is missing: dedicated EN→BN MT
 
 All four proposals are general LLMs. The strongest **open-weights English→Bengali** systems are
 purpose-built translation models, and they are *far* cheaper to run:
@@ -90,7 +90,7 @@ Two reasons these matter beyond quality:
 2. **They make the full run nearly free.** IndicTrans2 at 1B translates 107,737 rows in a
    fraction of the time a 235B MoE needs.
 
-⚠️ Both are **sentence-level** systems — feeding them a 108-word paragraph degrades output
+Both are **sentence-level** systems — feeding them a 108-word paragraph degrades output
 badly. `run_local_models.py` splits into sentences, translates, and rejoins.
 
 ---
@@ -123,7 +123,7 @@ modest cost.
 A candidate is worth acting on only if **vs_google > +0.02 AND |t| > 2**. The scorer prints
 both, plus a contamination check.
 
-🔴 **The contamination check is not a formality.** An LLM that notices the target style and
+**The contamination check is not a formality.** An LLM that notices the target style and
 adds `হেলো` / `নাসেনিয়া ডক` scores higher for the wrong reason — that is styling, which a
 separate model already learns. Both must read ~0%. A candidate that leaks register is
 disqualified regardless of its score.

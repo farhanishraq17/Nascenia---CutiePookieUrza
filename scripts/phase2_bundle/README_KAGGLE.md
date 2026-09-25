@@ -26,7 +26,7 @@ Corpora used by the router, also attached to the notebook:
 ```
 WRITEUP.md        approach, base models, fine-tuning method, external-data disclosure
 MANIFEST.md       bundle manifest + sha256 for every file
-env/              🔴 the dependency/environment files
+env/              the dependency/environment files
                   requirements_nascenia.txt      champion  (transformers 4.57.3)
                   requirements_nascenia_q35.txt  specialist(transformers 5.14.1)
                   Dockerfile · setup_envs.sh · verify_envs.sh · README.md
@@ -52,7 +52,7 @@ datasets above placed under `weights/`, then:
 P2_ENV_CHAMPION=<env> P2_ENV_SPECIALIST=<env> ./scripts/run_bundle.sh <test.parquet> <out.csv>
 ```
 
-🔴 `torch==2.8.0+cu128` is not on plain PyPI. Every provided build path sets
+`torch==2.8.0+cu128` is not on plain PyPI. Every provided build path sets
 `PIP_EXTRA_INDEX_URL=https://download.pytorch.org/whl/cu128`. `git` is also required — both
 environments pin the csebuetnlp normalizer as a `git+https` requirement.
 

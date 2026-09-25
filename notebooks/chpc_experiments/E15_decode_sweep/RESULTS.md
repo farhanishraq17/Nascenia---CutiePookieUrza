@@ -6,16 +6,16 @@ the original decoder sweep (2026-08-10, `sweep.json` / `sweep2.json`), and the
 which is where the result is. Selection on `dev.iloc[:300]`, verification on the disjoint
 `dev.iloc[300:600]`. Noise floor **0.0044** Token F1.
 
-## 🔴 ANSWER: `ckptavg_peak5` is the shipped model. Public LB **0.89552, #1**.
+## ANSWER: `ckptavg_peak5` is the shipped model. Public LB **0.89552, #1**.
 
 Averaging the champion run's **own** five checkpoints around its peak beats the champion itself,
 beats the cross-seed soup, and is the current leaderboard entry.
 
 | model | dev[0:300] | dev[300:600] *(disjoint)* | public LB |
 |---|---|---|---|
-| 🏆 champion `E05/english_draft/best` | 0.8328 | 0.8348 | 0.89347 |
+| champion `E05/english_draft/best` | 0.8328 | 0.8348 | 0.89347 |
 | `E14/soup_greedy_champ` — champion + E19/sched777 | 0.8345 | 0.8384 | 0.89532 |
-| 🏆🏆 **`ckptavg_peak5`** — champion's own ckpts 11500–12500 | **0.8348** | **0.8404** | **0.89552** |
+| **`ckptavg_peak5`** — champion's own ckpts 11500–12500 | **0.8348** | **0.8404** | **0.89552** |
 | Δ peak5 − champion | **+0.0021** | **+0.0057** | **+0.00205** |
 
 Same architecture, same 247,577,856 params, same decoder, **zero extra training**. The gain came
@@ -38,7 +38,7 @@ average time on dev[0:300] with the E15 decoder. Read straight from each arm's `
 | `ckptavg_tail5` | 11000–12000 | 5 | 0.8337 | +0.0009 |
 | `ckptavg_tail7` | 10500–12000 | 7 | 0.8323 | **−0.0005** |
 | `ckptavg_peak3` | 11750, 12000, 12250 | 3 | **0.8349** | **+0.0022** |
-| 🏆 **`ckptavg_peak5`** | 11500, 11750, 12000, 12250, 12500 | 5 | **0.8348** | **+0.0021** |
+| **`ckptavg_peak5`** | 11500, 11750, 12000, 12250, 12500 | 5 | **0.8348** | **+0.0021** |
 | `ckptavg_peak7` | 11250–12750 | 7 | 0.8341 | +0.0014 |
 | `ckptavg_peak9` | 11000–13000 | 9 | 0.8336 | +0.0008 |
 | `ckptavg_wide12` | 9500–14000 (12, coarse) | 12 | 0.8333 | +0.0006 |
@@ -46,7 +46,7 @@ average time on dev[0:300] with the E15 decoder. Read straight from each arm's `
 Full precision for the two that matter: peak3 **0.834931**, peak5 **0.834843** — a gap of
 **0.00009**, 2 % of the noise floor. See "anything surprising".
 
-### 🔴 The structural point: peak-CENTRED beats tail-centred
+### The structural point: peak-CENTRED beats tail-centred
 
 `tail-N` = the last N checkpoints, **ending at** the best one (12000).
 `peak-N` = N checkpoints **centred on** the best one.
@@ -71,7 +71,7 @@ the peak.** Its right half (12250, 12500) exists only because early stopping ran
 checkpoint can only ever build tail-N — the family that does not work. Keep the post-peak
 checkpoints.
 
-## (b) 🔴 The disjoint verification — this is the evidence that matters
+## (b) The disjoint verification — this is the evidence that matters
 
 dev[0:300] is the split every one of these arms was **selected** on, so its ranking is
 contaminated by selection. `../code/14_decode_sweep.py` re-decodes on **dev[300:600]**, which
@@ -82,7 +82,7 @@ nothing was selected on. Read from `verify_*.json`.
 | champion `english_draft/best` | 0.8328 | 0.8348 | +0.0020 | — |
 | `E14/soup_greedy_champ` | 0.8345 | 0.8384 | +0.0039 | +0.0037 |
 | `E14/ch_31337` | 0.8348 | 0.8397 | +0.0049 | +0.0050 |
-| 🏆 **`ckptavg_peak5`** | **0.8348** | **0.8404** | **+0.0056** | **+0.0057** |
+| **`ckptavg_peak5`** | **0.8348** | **0.8404** | **+0.0056** | **+0.0057** |
 
 **peak5's margin grows on held-out rows: +0.0021 on the split it was chosen on, +0.0057 on the
 split it was not.** That is the shape a real effect has. A selection artefact shrinks or reverses
@@ -105,7 +105,7 @@ Re-swept on the champion, `num_beams ∈ {4, 8, 12, 16}` × `length_penalty ∈ 
 | best on the verify split | 16 | 1.6 | 0.832728 | **0.834990** |
 
 - On the **beams-8 grid**, the verify-based re-rank re-picked the shipped `lp 1.2` exactly:
-  the sweep log ends `best swept config: 0.8328 (Δ +0.0000) ➖ inside the 0.0044 noise floor —
+  the sweep log ends `best swept config: 0.8328 (Δ +0.0000) inside the 0.0044 noise floor —
   keep the shipped decoder`.
 - Across **all 36**, the largest honest gain available is **+0.00024** (b16/lp1.6 on the verify
   split) — **5 % of the noise floor**. The selection split prefers lp 1.8 by +0.00032, and that
@@ -135,26 +135,26 @@ From `sweep2.json`, all ten (beams, lp) pairs:
 nothing is bought by raising the cap. But 256 costs **−0.0011** and 192 costs **−0.0085**, so the
 cap is *not* free to lower.
 
-🔴 **Correction to the reason usually given for this.** The claim that "nothing this model emits
+**Correction to the reason usually given for this.** The claim that "nothing this model emits
 exceeds ~100 tokens" is false. 100 is the *mean* — measured max prediction is **226 words on dev**
 and **271 on test** (`ckptavg_peak5/{dev_e15dec,test}.json`). The distribution has a real tail;
 320 clears it and 256 clips it. The setting is safe because it sits above the tail, not because
 the tail does not exist.
 
-## Checkpoints — 🔴 keep every arm, including the losers
+## Checkpoints — keep every arm, including the losers
 
 | Arm | kept? | Token F1 | ROUGE-L | source steps | notes |
 |---|---|---|---|---|---|
-| 🏆 `ckptavg_peak5` | ✅ **SHIPPED** | **0.8348** | 0.8061 | 11500–12500 | `submission.csv` + `test.json` written |
-| `ckptavg_peak3` | ✅ | 0.8349 | — | 11750–12250 | ⚠️ never verified on dev[300:600] |
-| `ckptavg_peak7` | ✅ | 0.8341 | — | 11250–12750 | |
-| `ckptavg_peak9` | ✅ | 0.8336 | — | 11000–13000 | |
-| `ckptavg_tail2` | ✅ | 0.8344 | — | 11750–12000 | |
-| `ckptavg_tail3` | ✅ | 0.8330 | — | 11500–12000 | also feeds `E14/tail3_plus_sched777` |
-| `ckptavg_tail4` | ✅ | 0.8340 | — | 11250–12000 | |
-| `ckptavg_tail5` | ✅ | 0.8337 | — | 11000–12000 | |
-| `ckptavg_tail7` | ✅ | 0.8323 | — | 10500–12000 | 🔴 **the only arm below the champion** — keep it, it is what proves the tail recipe fails |
-| `ckptavg_wide12` | ✅ | 0.8333 | — | 9500–14000 | coarse 500-step grid |
+| `ckptavg_peak5` | **SHIPPED** | **0.8348** | 0.8061 | 11500–12500 | `submission.csv` + `test.json` written |
+| `ckptavg_peak3` | yes | 0.8349 | — | 11750–12250 | never verified on dev[300:600] |
+| `ckptavg_peak7` | yes | 0.8341 | — | 11250–12750 | |
+| `ckptavg_peak9` | yes | 0.8336 | — | 11000–13000 | |
+| `ckptavg_tail2` | yes | 0.8344 | — | 11750–12000 | |
+| `ckptavg_tail3` | yes | 0.8330 | — | 11500–12000 | also feeds `E14/tail3_plus_sched777` |
+| `ckptavg_tail4` | yes | 0.8340 | — | 11250–12000 | |
+| `ckptavg_tail5` | yes | 0.8337 | — | 11000–12000 | |
+| `ckptavg_tail7` | yes | 0.8323 | — | 10500–12000 | **the only arm below the champion** — keep it, it is what proves the tail recipe fails |
+| `ckptavg_wide12` | yes | 0.8333 | — | 9500–14000 | coarse 500-step grid |
 
 Shared by all ten:
 
@@ -166,7 +166,7 @@ Shared by all ten:
 | decoder | beams 8 · length_penalty 1.2 · min_new_tokens 0 · max_new_tokens 320 · max_source_len 768 · greedy (`do_sample=False`) |
 | averaging | uniform, fp32, `../code/17_model_soup.py` |
 | hardware | granite `grn023`, A800 40 GB, fp32 · ~2–4 min per dev-300 decode, 8.7 min for test-1000 |
-| shipped hash | `161f3b7b0ac89309` as recorded in `ckptavg_peak5/test.json` — ⚠️ **not reproducible, see below** |
+| shipped hash | `161f3b7b0ac89309` as recorded in `ckptavg_peak5/test.json` — **not reproducible, see below** |
 
 **Weights-vs-decode gate passed:** the standalone re-decode of `peak5` reproduces the average-time
 score to `delta +3.33e-16` (`_slurm/logs_a800/peak5-test.out`) — the model written to disk is the
@@ -177,8 +177,8 @@ model that was scored.
 | Arm | split | mean output tokens | `হেলো` opener % | `নাসেনিয়া` % | % truncated (src/tgt) | precision | GPU |
 |---|---|---|---|---|---|---|---|
 | champion (reference point) | dev[0:300] | 99.63 | 75.0 % | 52.33 % | 1.62 % / 0.05 % | fp32 | A800 40 GB |
-| 🏆 `ckptavg_peak5` | dev[0:300] | 99.48 | 75.0 % | 52.67 % | 1.62 % / 0.05 % | fp32 | A800 40 GB |
-| 🏆 `ckptavg_peak5` | **test (1000)** | 99.9 | **76.2 %** | **50.6 %** | 1.62 % / 0.05 % | fp32 | A800 40 GB |
+| `ckptavg_peak5` | dev[0:300] | 99.48 | 75.0 % | 52.67 % | 1.62 % / 0.05 % | fp32 | A800 40 GB |
+| `ckptavg_peak5` | **test (1000)** | 99.9 | **76.2 %** | **50.6 %** | 1.62 % / 0.05 % | fp32 | A800 40 GB |
 | `E14/soup_greedy_champ` | dev[0:300] | 99.78 | — | — | 1.62 % / 0.05 % | fp32 | A800 40 GB |
 | `E14/ch_31337` | dev[0:300] | 99.36 | — | — | 1.62 % / 0.05 % | fp32 | A800 40 GB |
 
@@ -207,19 +207,19 @@ floor**. That is exactly why averaging over it works: those checkpoints are not 
 are equally-good models with decorrelated errors, and 12250/12500 are the two the shipped model
 needs.
 
-🔴 Note the peak5 window (11500–12500) contains the **lowest eval in the entire 11000–14000
+Note the peak5 window (11500–12500) contains the **lowest eval in the entire 11000–14000
 plateau** (11500, .8219) and still wins. Do not select averaging members by their individual scores — `peak3`, which excludes
 11500, gains only 0.00009 for doing so.
 
 ## Verdict
 
 - **What it must beat:** the best model's own decoder score — the champion at **0.8328**.
-- **Result:** ✅ **+0.0021** on the selection split, **+0.0057** on the disjoint split,
+- **Result:** **+0.0021** on the selection split, **+0.0057** on the disjoint split,
   **+0.00205** on the public leaderboard. Clears the 0.0044 noise floor on held-out rows.
 - **What it changes:**
-  1. 🔴 **The decoder question is closed.** 124 configs across three sweeps; residual headroom
+  1. **The decoder question is closed.** 124 configs across three sweeps; residual headroom
      +0.00024, i.e. 5 % of the noise floor. Any further decoder work on this model is wasted.
-  2. 🔴 **The averaging question is open, and it is where the gains are.** Checkpoint averaging
+  2. **The averaging question is open, and it is where the gains are.** Checkpoint averaging
      over one run bought more (+0.0057 verified) than the entire cross-seed soup programme in E14
      (+0.0037), at zero training cost.
   3. **"Average the last N checkpoints" is the wrong recipe on this task** — invert it to
@@ -229,12 +229,12 @@ plateau** (11500, .8219) and still wins. Do not select averaging members by thei
      early stopping classified as failures to improve.
 - **Row-level disagreement with the incumbent:** not measured for the averaging arms. A soup is
   one model, not a pool, so `13_disagreement.py` has nothing to compare — the E14 gate does not
-  apply here. ⚠️ This means the +0.0057 is **not** decomposable into "which rows got better"
+  apply here. This means the +0.0057 is **not** decomposable into "which rows got better"
   without a re-decode; that analysis was not run.
 
 ## Anything surprising
 
-**1. 🔴 `peak3` scores higher than the model that shipped, and was never verified.**
+**1. `peak3` scores higher than the model that shipped, and was never verified.**
 peak3 = 0.834931 vs peak5 = 0.834843 on dev[0:300] — peak3 wins by **0.00009**, 2 % of the noise
 floor. peak5 shipped because it is the arm that was carried through the disjoint verification
 (0.8404) and the test decode; peak3 has a `soup.json` and nothing else. The choice was made on
@@ -242,7 +242,7 @@ floor. peak5 shipped because it is the arm that was carried through the disjoint
 not pretend peak5 led the selection split. It did not. Verifying peak3 on dev[300:600] is the one
 cheap open item left in this experiment.
 
-**2. 🔴 The recorded checkpoint hashes do not identify the weights.** `04_decode.py:ckpt_hash()`
+**2. The recorded checkpoint hashes do not identify the weights.** `04_decode.py:ckpt_hash()`
 hashes only **file names and sizes**, not contents:
 
 ```python
@@ -261,7 +261,7 @@ Two consequences, both reproduced:
   changed the hash before the test pass ran. Recomputing today gives `fa466f2dd87c2ff5`, because
   `test.json` and `submission.csv` now exist too.
 
-⚠️ **The shipped model's recorded hash `161f3b7b0ac89309` cannot be recomputed from the directory
+**The shipped model's recorded hash `161f3b7b0ac89309` cannot be recomputed from the directory
 as it stands.** For Phase-2 evidence use the content hash from `02_train_t5.py:sha256_dir()`
 instead — the champion's is `6f9d4d6756032397` (`E05/.../run.json`). The averaged arms have no
 content hash at all; `17_model_soup.py` does not write one.

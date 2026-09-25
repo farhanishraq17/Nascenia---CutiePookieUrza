@@ -31,7 +31,7 @@ codebase, same data.
 H100 NVL measured **~1.9× faster** than A800 on the same BanglaT5 config — scale accordingly if
 your fleet differs.
 
-### 🔴 The one structural fact
+### The one structural fact
 
 **Decoders cost 15–35× more per step than BanglaT5, and ~15× more than mT5-base.**
 
@@ -45,7 +45,7 @@ make should start from that asymmetry.
 Apply these before costing anything — they change the price substantially and give up no
 information.
 
-**① `MAX_SRC 2048` → `1024` on every arm except X3 (RAG).** 🥇 **Biggest single saving.**
+**① `MAX_SRC 2048` → `1024` on every arm except X3 (RAG).** **Biggest single saving.**
 A plain patient question is ~77 words ≈ 400 tokens. Only the RAG arm carries a full reference case
 and genuinely needs 2048. The global 2048 in the shipped notebooks was over-cautious. **Roughly
 halves the cost of X2, X4 and D1–D3.**
@@ -54,7 +54,7 @@ halves the cost of X2, X4 and D1–D3.**
 The 20,000 budget comes from this project's E05 lesson, where the champion turned out to be
 under-trained by 4.4×. **That lesson was BanglaT5 on register transfer and does not transfer
 here**: the decoder arms in this project's own model zoo peaked at **2,750–3,500 out of 4,000**.
-🔴 **Keep the generous budget on A** — it is seq2seq, it is cheap, and the E05 lesson genuinely
+**Keep the generous budget on A** — it is seq2seq, it is cheap, and the E05 lesson genuinely
 applies to that family.
 
 **③ Drop X5 (the LR sweep, 3 runs) on B and C.** It re-derives a learning-rate class that this
@@ -70,7 +70,7 @@ Run top-down. Stop wherever your budget runs out.
 | Priority | What | Why it ranks here |
 |---|---|---|
 | **1** | **X0 + X1 on all three** | Nearly free (decode only, ~20–40 min each). Catches a broken setup *before* you spend real GPU-hours on it |
-| **2** | **X2 on A and B** | 🔴 **This is the experiment.** Without it there is no Phase 2 model at all |
+| **2** | **X2 on A and B** | **This is the experiment.** Without it there is no Phase 2 model at all |
 | **3** | **X3 on A and B** | Does RAG earn its 278M retriever? Decides the whole architecture |
 | **4** | **X7 decode sweep on the winner** | No training. Historically the cheapest real gain on the board |
 | **5** | X4 + D1–D3 on A | Cheap on mT5; answers the data question for everyone |
@@ -81,11 +81,11 @@ Run top-down. Stop wherever your budget runs out.
 worse than no X2 — it produces a number that looks like a measurement and isn't. If you are out of
 time, **drop whole arms and keep the rest honest.**
 
-🔴 **Never cut X2 on both A and B.** At least one must complete or the deliverable does not exist.
+**Never cut X2 on both A and B.** At least one must complete or the deliverable does not exist.
 
 ---
 
-## 4. 🔴 CUT MODEL C IF A OR B LOOKS GOOD
+## 4. CUT MODEL C IF A OR B LOOKS GOOD
 
 **`C_BanglaAI_17B` is the first thing to drop.**
 
@@ -129,7 +129,7 @@ expensive to discover late.**
 
 - **Sequence-length scaling is treated as linear here.** If attention dominates, the true cost is
   closer to quadratic and **the decoder numbers are under-estimates.**
-  🔴 **After the first 500 steps of B's X2, compute `elapsed_min / 0.5` and compare it to what §1
+  **After the first 500 steps of B's X2, compute `elapsed_min / 0.5` and compare it to what §1
   predicts for your GPU.** If it is materially worse, **cut model C immediately** rather than
   finding out three days in.
 - **Early-stop step counts are inferred, not measured for this task.** Nothing has ever trained on

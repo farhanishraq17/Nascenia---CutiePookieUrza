@@ -1,6 +1,6 @@
 # E01 — BanglaT5 + English + draft
 
-**Tier 1 — INFORMATION · Priority: 🥇 HIGHEST**
+**Tier 1 — INFORMATION · Priority: HIGHEST**
 
 ## The question
 
@@ -69,7 +69,7 @@ different experiment. Keep the effective batch at **32–64**.
 
 | Result | Meaning | Next |
 |---|---|---|
-| **> 0.7724** | ✅ English adds information. The cheapest real win available. | Ship it; then E03/E05 |
+| **> 0.7724** | English adds information. The cheapest real win available. | Ship it; then E03/E05 |
 | ≈ 0.7724 | The draft already carries what English would add | Drop the English line; go to E02 |
 | < 0.7724 | English is *distracting* — longer input, no gain | Check truncation first, then E04 |
 
@@ -78,7 +78,7 @@ different experiment. Keep the effective batch at **32–64**.
 ## Non-negotiables (every experiment)
 
 - **`transformers==4.57.3`** — other versions do not train this pipeline correctly. Assert it.
-- **bf16 on sm_80+, fp32 otherwise. 🔴 NEVER fp16** — T5 goes NaN *silently* and still writes a
+- **bf16 on sm_80+, fp32 otherwise. NEVER fp16** — T5 goes NaN *silently* and still writes a
   well-formed CSV of garbage.
 - **Never change the split**: `--seed 42 --dev-size 5000`. Every number in this project rests on it.
 - **Select on composite, never `eval_loss`** — they move in opposite directions on some tasks; one
@@ -92,7 +92,7 @@ different experiment. Keep the effective batch at **32–64**.
 
 Record everything in [`../RESULTS.md`](../RESULTS.md).
 
-- 🔴 **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
+- **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
   alone force a full retrain before anything here can be submitted, and a low-scoring model that
   *disagrees usefully* is exactly what E14/E19 need. One directory per arm; `run.json` beside the
   weights (`checkpoint_hash` is not a run identity). **Record everything in this folder's

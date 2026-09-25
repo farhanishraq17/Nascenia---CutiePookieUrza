@@ -15,7 +15,7 @@ does not — running each in its own validated stack costs nothing.
 
 ---
 
-## 🔴 The one thing that breaks a fresh install
+## The one thing that breaks a fresh install
 
 `torch==2.8.0+cu128` **is not on plain PyPI.** A bare `pip install -r requirements_nascenia.txt`
 fails on the first line. Every path below sets the PyTorch index for you:

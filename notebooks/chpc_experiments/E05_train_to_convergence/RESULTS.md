@@ -2,14 +2,14 @@
 
 **Ran 2026-08-09 on CHPC granite `grn008`, 1 × H100 NVL, bf16.** See `../_slurm/README.md`.
 
-## 🔴 ANSWER: the convergence point is **step 15,250** — 5.5× the incumbent's 2,750.
+## ANSWER: the convergence point is **step 15,250** — 5.5× the incumbent's 2,750.
 
 The incumbent stopped at 2,750 because a Kaggle session ran out, and the program has assumed ever
 since that this was roughly the right budget. It was not.
 
 | | Token F1 | ROUGE-L | pred LB | peak step |
 |---|---|---|---|---|
-| 🏆 incumbent — same input, 384/256 | 0.7724 | 0.7324 | 0.85030 *(actual)* |  2,750 |
+| incumbent — same input, 384/256 | 0.7724 | 0.7324 | 0.85030 *(actual)* |  2,750 |
 | **E05 — draft only, 768/512, run to convergence** | **0.8011** | **0.7645** | **0.8658** | **15,250** |
 | Δ | **+0.0287** | **+0.0321** | **+0.016** | **5.5×** |
 
@@ -42,11 +42,11 @@ Three things the shape says:
    question→answer sweep, where one run's *lowest* loss coincided with its *worst* Token F1. That
    divergence was a property of that task, not of BanglaT5.
 
-## Checkpoints — 🔴 E05 is the exception: the trajectory checkpoints ARE the result
+## Checkpoints — E05 is the exception: the trajectory checkpoints ARE the result
 
 | Arm | `best/` kept? | Kaggle dataset | Token F1 | ROUGE-L | peak step | hours | notes |
 |---|---|---|---|---|---|---|---|
-| `main` | ✅ `E05_train_to_convergence/main/best` | *(not uploaded)* | 0.8011 | 0.7645 | **15,250** | 2.87 | ckpt hash `7077b30bcc031165` · 247,577,856 params |
+| `main` | `E05_train_to_convergence/main/best` | *(not uploaded)* | 0.8011 | 0.7645 | **15,250** | 2.87 | ckpt hash `7077b30bcc031165` · 247,577,856 params |
 
 **69 intermediate checkpoints kept, 65 GB**, one every 250 steps — finer than the "every 2,000
 steps" the README asks for, deliberately, because the 250-step grid is what located the peak. They
@@ -66,9 +66,9 @@ not appear on this task.
 ## Verdict
 
 - **What it must beat:** the incumbent's peak, 0.7724 / 0.7324 at step 2,750
-- **Result:** ✅ **+0.0287**, peak at **15,250**
+- **Result:** **+0.0287**, peak at **15,250**
 - **What it changes:**
-  - 🔴 **Every 4,000-step number in this program is a lower bound**, including E01's 0.8032 and
+  - **Every 4,000-step number in this program is a lower bound**, including E01's 0.8032 and
     E03/E07's 0.804. The whole Tier-1 table was measured at roughly a quarter of the productive
     budget.
   - **`E05/english_draft` — the same 30k budget on the Tier-1 winner — is the run that matters**,
@@ -88,13 +88,13 @@ project has spent its effort on *what the model reads*, and it turns out **how l
 almost the same thing.** Neither had been run to convergence before today, so the two levers had
 never been compared on equal footing.
 
-⚠️ **Cost note for anyone repeating this:** the peak arrived at 2.87 h of H100 time. On the Kaggle
+**Cost note for anyone repeating this:** the peak arrived at 2.87 h of H100 time. On the Kaggle
 T4 this run would have taken **roughly 57 hours** — 4.75 twelve-hour sessions. The experiment was
 not skipped out of oversight; it was genuinely unreachable on the original hardware.
 
 ---
 
-# 🏆 `english_draft` — THE CHAMPION. Public LB **0.89347, #1**.
+# `english_draft` — THE CHAMPION. Public LB **0.89347, #1**.
 
 This arm is the model behind the leaderboard entry and is **mandatory Phase 2 evidence**.
 It was missing from this file entirely until 2026-08-13.
@@ -102,7 +102,7 @@ It was missing from this file entirely until 2026-08-13.
 | | Token F1 | ROUGE-L | public LB |
 |---|---|---|---|
 | shipped decoder (beam 4, lp 1.0, min_new 80) | 0.8257 | 0.7968 | **0.88008** |
-| **+ E15 decoder (beam 8, lp 1.2, min_new 0)** | **0.8328** | **0.8039** | **0.89347** 🏆 |
+| **+ E15 decoder (beam 8, lp 1.2, min_new 0)** | **0.8328** | **0.8039** | **0.89347** |
 
 Same weights for both rows — only decoding differs. That +0.0134 of leaderboard came from
 deleting a stale `min_new_tokens 80` floor, and ~0.010 of it was **BERTScore**, which this
@@ -130,7 +130,7 @@ on a T4 in fp32, despite the original being produced in bf16 on an H100.
 | 100.7 | 75.0 % | 53.3 % | **1.62 % / 0.05 %** | bf16 | H100 NVL |
 
 References ~100 tokens · `হেলো` 76.4 % · `নাসেনিয়া` 50.0 %. On target on all three.
-⚠️ Note the truncation figure is **not** 0.0 % like the `main` arm — english_draft cuts 1.62 %
+Note the truncation figure is **not** 0.0 % like the `main` arm — english_draft cuts 1.62 %
 of sources at 768 (p95 603, max 1851). Measured in `_slurm/analysis/truncation.md`.
 
 ## Trajectory — plateau, not turnover
@@ -139,7 +139,7 @@ of sources at 768 (p95 603, max 1851). Measured in `_slurm/analysis/truncation.m
 |---|---|---|---|---|---|---|---|
 | Token F1 | .7906 | .8077 | .8172 | .8161 | .8219 | **.8268** | .8235 |
 
-🔴 **Correction to this file's earlier claim.** The peak is at 12,000 with 8 further evals
+**Correction to this file's earlier claim.** The peak is at 12,000 with 8 further evals
 after it, so the best checkpoint is *not* the last one. But the maximum decline after the peak
 is **0.0037 — inside the 0.0044 noise floor**, so this is a plateau that early stopping cut,
 **not** the loss/metric divergence seen on the old question→answer task. The "no turnover"
@@ -148,7 +148,7 @@ language elsewhere in this program should be read as "no *harmful* turnover".
 ## Verdict
 
 - **Convergence for this input is step 12,000**, not the 15,250 measured on `draft_only`.
-  🔴 The "E19's budget is set: ~15,250" line earlier in this file is **superseded** — E19 in
+  The "E19's budget is set: ~15,250" line earlier in this file is **superseded** — E19 in
   fact ran at 12,000, which was correct.
 - Combining the two confirmed gains (English +0.0220, convergence +0.0287) did not simply add:
   the champion sits at 0.8328 against a draft-only-at-convergence 0.8011.

@@ -12,7 +12,7 @@ different questions:
 Selection on `dev.iloc[:300]`, verification on the disjoint `dev.iloc[300:600]`. Noise floor
 **0.0044** Token F1.
 
-## 🔴 ANSWER: souping works, but only with a partner that shares the champion's **schedule**.
+## ANSWER: souping works, but only with a partner that shares the champion's **schedule**.
 
 `soup_greedy_champ` (champion + E19/sched777, uniform 50/50) scored **0.8345 dev / 0.8384
 verify** and took the leaderboard to **0.89532**. It was then beaten by `E15/ckptavg_peak5`
@@ -24,7 +24,7 @@ shipped model. Full write-up of the winner: `../E15_decode_sweep/RESULTS.md`.
 | champion `E05/english_draft/best` | 0.8328 | 0.8348 | 0.89347 |
 | **`soup_greedy_champ`** = champion + sched777 | **0.8345** | **0.8384** | **0.89532** |
 | `ch_31337` = champion + sched31337 | 0.8348 | 0.8397 | *(not submitted)* |
-| 🏆 `E15/ckptavg_peak5` *(for reference)* | 0.8348 | **0.8404** | **0.89552** |
+| `E15/ckptavg_peak5` *(for reference)* | 0.8348 | **0.8404** | **0.89552** |
 
 ## (a) The pairwise soup table — champion + one E19 partner, uniform
 
@@ -33,10 +33,10 @@ Read from each arm's `soup.json`; `partner alone` is that seed's own `dev_e15dec
 
 | partner | `max_steps` | partner alone | **pair** | vs champion 0.8328 |
 |---|---|---|---|---|
-| `sched31337` † | **30000** | 0.8332 | **0.8348** | **+0.0021** ✅ |
-| `sched777` | **30000** | *(0.8235, old decoder — no e15dec run)* | **0.8345** | **+0.0018** ✅ |
-| `seed11` | 12000 | 0.8319 | 0.8332 | +0.0004 ➖ |
-| `seed21` | 12000 | 0.8286 | 0.8326 | −0.0002 ➖ |
+| `sched31337` † | **30000** | 0.8332 | **0.8348** | **+0.0021** |
+| `sched777` | **30000** | *(0.8235, old decoder — no e15dec run)* | **0.8345** | **+0.0018** |
+| `seed11` | 12000 | 0.8319 | 0.8332 | +0.0004 |
+| `seed21` | 12000 | 0.8286 | 0.8326 | −0.0002 |
 | `seed2024` | 12000 | 0.8293 | 0.8319 | −0.0008 |
 | `seed42` | 12000 | 0.8301 | 0.8317 | −0.0010 |
 | `seed23` | 12000 | 0.8306 | 0.8315 | −0.0013 |
@@ -44,7 +44,7 @@ Read from each arm's `soup.json`; `partner alone` is that seed's own `dev_e15dec
 | `seed1337` | 12000 | 0.8317 | 0.8306 | −0.0022 |
 | `seed99` | 12000 | 0.8280 | 0.8306 | −0.0021 |
 | `seed7` | 12000 | 0.8269 | 0.8290 | −0.0037 |
-| `seed314` | 12000 | 0.8272 | **0.8236** | **−0.0092** 🔴 |
+| `seed314` | 12000 | 0.8272 | **0.8236** | **−0.0092** |
 
 † `ch_31337`, run 2026-08-14, after the other eleven. The eleven `pair_*` arms were run together
 on 08-13.
@@ -53,7 +53,7 @@ on 08-13.
 on this split — which is why the disjoint verification in (e) is the number that decides anything.
 Adding `ch_31337` makes it 3 of 12, and all three of the winners are the 30,000-step arms.
 
-## (b) 🔴 The interpretation: it is the SCHEDULE, not the seed
+## (b) The interpretation: it is the SCHEDULE, not the seed
 
 E19 ran two families against the same data and the same architecture:
 
@@ -73,7 +73,7 @@ schedule has already annealed to zero by 12000. Weight averaging only works insi
 the 12 k runs are in a different one, and averaging across the boundary destroys rather than
 smooths.
 
-🔴 **The controlled evidence for "schedule, not seed" is `seed11`.** The champion's own seed is
+**The controlled evidence for "schedule, not seed" is `seed11`.** The champion's own seed is
 **11** (`E05/.../run.json: "seed": 11`), and `E19/seed11` is that same seed at a 12,000-step
 horizon. Sharing the seed buys **+0.0004** — nothing. Sharing the schedule with a *different* seed
 buys **+0.0018 to +0.0021**. Seed identity is not what puts two checkpoints in the same basin;
@@ -151,7 +151,7 @@ everything you have" is dead on this task** — it dilutes the one good member w
 from the wrong basin. `soup_top4` contains `sched777`, the single best partner, and still scores
 0.8305 because four other 12 k members are dragging it.
 
-## (d) 🔴 CORRECTION: "greedy soup finds nothing" was an artefact of the seeding order
+## (d) CORRECTION: "greedy soup finds nothing" was an artefact of the seeding order
 
 This file previously carried the result that greedy souping over E19's seeds returned **1 member
 and no gain**. That is `soup_greedy/soup.json` = 0.8319, and it is real — but it is real *only for
@@ -177,7 +177,7 @@ greedy soup: 2 members, dev Token F1 0.8345
 ```
 
 **A real +0.0018 result was hidden for two days by argument order**, and the earlier version of
-this file recorded the null as if it were a property of souping. 🔴 Greedy soup is order-dependent
+this file recorded the null as if it were a property of souping. Greedy soup is order-dependent
 by construction; **always seed it from the best available model**, and never report a greedy null
 without stating what it started from.
 
@@ -191,7 +191,7 @@ dev[0:300] is the split all of these were selected on. `../code/14_decode_sweep.
 | champion | 0.8328 | 0.8348 | — |
 | `soup_greedy_champ` | 0.8345 | 0.8384 | +0.0037 |
 | `ch_31337` | 0.8348 | 0.8397 | +0.0050 |
-| 🏆 `E15/ckptavg_peak5` | 0.8348 | **0.8404** | **+0.0057** |
+| `E15/ckptavg_peak5` | 0.8348 | **0.8404** | **+0.0057** |
 
 `ch_31337` and `peak5` are tied on the selection split (0.83483 vs 0.83484) — that split cannot
 separate them. **The disjoint split can: 0.8397 vs 0.8404.** peak5 shipped on that 0.0007, and on
@@ -199,11 +199,11 @@ one further consideration: peak5 needs only the champion run's own checkpoints, 
 depends on a separate 30 k training run, so peak5 is the cheaper and more reproducible artefact
 for Phase 2.
 
-⚠️ 0.0007 on 300 rows is **well inside the noise floor**. The claim "peak5 is better than
+0.0007 on 300 rows is **well inside the noise floor**. The claim "peak5 is better than
 ch_31337" is *not* supported; the claim "peak5 is not worse, and is cheaper" is. Both beat the
 champion by more than the noise floor, and that is the finding.
 
-## Checkpoints — 🔴 keep every arm, including the losers
+## Checkpoints — keep every arm, including the losers
 
 All arms: `T5ForConditionalGeneration`, vocab 32128, **247,577,856 params** (within the 3B cap,
 headroom 2752 M), uniform fp32 averaging via `../code/17_model_soup.py`, scored with the E15
@@ -211,34 +211,34 @@ decoder (beams 8 · lp 1.2 · min_new 0 · max_new 320 · max_source_len 768, `d
 
 | Arm | kept? | dev[0:300] | verify[300:600] | members | notes |
 |---|---|---|---|---|---|
-| `ch_31337` | ✅ | **0.8348** | **0.8397** | champion + sched31337 | ties peak5 on selection, loses on verify |
-| `soup_greedy_champ` | ✅ | **0.8345** | **0.8384** | champion + sched777 | **submitted, LB 0.89532** |
-| `pair_sched777` | ✅ | 0.8345 | — | champion + sched777 | byte-identical recipe to `soup_greedy_champ` |
-| `peak5_31337` | ✅ | 0.8344 | — | peak5 + sched31337 | |
-| `peak5_777_31337` | ✅ | 0.8340 | — | 3-way | |
-| `ch_777_31337` | ✅ | 0.8338 | — | 3-way | |
-| `tail3_plus_sched777` | ✅ | 0.8334 | — | E15/tail3 + sched777 | axis composition |
-| `peak5_plus_sched777` | ✅ | 0.8333 | — | E15/peak5 + sched777 | axis composition |
-| `pair_seed11` | ✅ | 0.8332 | — | champion + seed11 | same seed as champion, different horizon |
-| `soup_top3` | ✅ | 0.8328 | — | 3-way | best of the uniform ladder — ties champion |
-| `pair_seed21` | ✅ | 0.8326 | — | | |
-| `pair_seed2024` | ✅ | 0.8319 | — | | |
-| `soup_greedy` | ✅ | 0.8319 | — | seed11 only | 🔴 the order-artefact — see (d) |
-| `pair_seed42` | ✅ | 0.8317 | — | | |
-| `pair_seed23` | ✅ | 0.8315 | — | | |
-| `pair_seed555` | ✅ | 0.8308 | — | | |
-| `pair_seed1337` / `soup_top2` | ✅ | 0.8306 | — | | identical member sets |
-| `pair_seed99` | ✅ | 0.8306 | — | | |
-| `soup_top4` | ✅ | 0.8305 | — | | contains sched777 and still loses |
-| `soup_top8` | ✅ | 0.8293 | — | | |
-| `pair_seed7` | ✅ | 0.8290 | — | | |
-| `soup_top5` | ✅ | 0.8289 | — | | |
-| `soup_top6` | ✅ | 0.8286 | — | | |
-| `soup_uniform` | ✅ | 0.8282 | — | 10 seeds, no champion | |
-| `pair_seed314` | ✅ | **0.8236** | — | champion + seed314 | 🔴 **worst arm, −0.0092** — keep it, it is the whole basin argument |
-| `greedy_from_peak5` | ✅ | 0.8348 | — | peak5 only | records 5 rejections |
+| `ch_31337` | yes | **0.8348** | **0.8397** | champion + sched31337 | ties peak5 on selection, loses on verify |
+| `soup_greedy_champ` | yes | **0.8345** | **0.8384** | champion + sched777 | **submitted, LB 0.89532** |
+| `pair_sched777` | yes | 0.8345 | — | champion + sched777 | byte-identical recipe to `soup_greedy_champ` |
+| `peak5_31337` | yes | 0.8344 | — | peak5 + sched31337 | |
+| `peak5_777_31337` | yes | 0.8340 | — | 3-way | |
+| `ch_777_31337` | yes | 0.8338 | — | 3-way | |
+| `tail3_plus_sched777` | yes | 0.8334 | — | E15/tail3 + sched777 | axis composition |
+| `peak5_plus_sched777` | yes | 0.8333 | — | E15/peak5 + sched777 | axis composition |
+| `pair_seed11` | yes | 0.8332 | — | champion + seed11 | same seed as champion, different horizon |
+| `soup_top3` | yes | 0.8328 | — | 3-way | best of the uniform ladder — ties champion |
+| `pair_seed21` | yes | 0.8326 | — | | |
+| `pair_seed2024` | yes | 0.8319 | — | | |
+| `soup_greedy` | yes | 0.8319 | — | seed11 only | the order-artefact — see (d) |
+| `pair_seed42` | yes | 0.8317 | — | | |
+| `pair_seed23` | yes | 0.8315 | — | | |
+| `pair_seed555` | yes | 0.8308 | — | | |
+| `pair_seed1337` / `soup_top2` | yes | 0.8306 | — | | identical member sets |
+| `pair_seed99` | yes | 0.8306 | — | | |
+| `soup_top4` | yes | 0.8305 | — | | contains sched777 and still loses |
+| `soup_top8` | yes | 0.8293 | — | | |
+| `pair_seed7` | yes | 0.8290 | — | | |
+| `soup_top5` | yes | 0.8289 | — | | |
+| `soup_top6` | yes | 0.8286 | — | | |
+| `soup_uniform` | yes | 0.8282 | — | 10 seeds, no champion | |
+| `pair_seed314` | yes | **0.8236** | — | champion + seed314 | **worst arm, −0.0092** — keep it, it is the whole basin argument |
+| `greedy_from_peak5` | yes | 0.8348 | — | peak5 only | records 5 rejections |
 
-⚠️ **These checkpoints have no trustworthy hash.** `17_model_soup.py` writes no hash at all, and
+**These checkpoints have no trustworthy hash.** `17_model_soup.py` writes no hash at all, and
 the decode-path `04_decode.py:ckpt_hash()` hashes file *names and sizes only*, so every BanglaT5
 checkpoint collides — `E19/seed11`, `seed42` and `seed314` all report `114136fe6dcde4c8`. Full
 diagnosis in `../E15_decode_sweep/RESULTS.md` § "anything surprising". For Phase-2 evidence use
@@ -255,7 +255,7 @@ the source runs' content hashes (champion: `6f9d4d6756032397`).
 
 References: ~100 tokens · `হেলো` 76.4 % · `নাসেনিয়া` 50.0 %. Draft: 0.06 % / 0.00 %.
 
-⚠️ **Register was not captured for the soup arms.** `14_decode_sweep.py` records `mean_tokens` but
+**Register was not captured for the soup arms.** `14_decode_sweep.py` records `mean_tokens` but
 not the opener/`নাসেনিয়া` rates, so only length is verifiable here. All arms sit at 99.4–99.8
 tokens against references at ~100 — averaging does not shift output length. Truncation is
 inherited from the source data (768 cap, `../_slurm/analysis/truncation.md`) and cannot be changed
@@ -265,10 +265,10 @@ by averaging.
 
 - **What it must beat:** the best single model, by more than 0.0044 — the champion at **0.8328**
   selection / **0.8348** verify.
-- **Result:** ✅ **`soup_greedy_champ` +0.0037 verify, +0.00185 LB.** Clears the noise floor on
+- **Result:** **`soup_greedy_champ` +0.0037 verify, +0.00185 LB.** Clears the noise floor on
   the disjoint split. Superseded by `E15/ckptavg_peak5` (+0.0057 verify, +0.00205 LB).
 - **What it changes:**
-  1. 🔴 **Phase 1's headline prediction was wrong.** The gate said architecture/tokenizer
+  1. **Phase 1's headline prediction was wrong.** The gate said architecture/tokenizer
      diversity was the axis to chase and seeds were the dead end. In fact **nothing
      architecture-diverse ever contributed** — mT5 and the Qwen arms cannot be souped at all
      (`17_model_soup.py` refuses across architectures and vocabularies, correctly), and the only
@@ -288,7 +288,7 @@ by averaging.
 
 ## Anything surprising
 
-**1. 🔴 The best available partner was never tested.** `E19/sched2468` is the third 30,000-step
+**1. The best available partner was never tested.** `E19/sched2468` is the third 30,000-step
 run (`max_steps: 30000`, standalone **0.8331** — the best standalone of any E19 arm), and **there
 is no `pair_sched2468` directory.** The two 30 k partners that *were* tested are the two best
 results in this file. This is the single cheapest open item in the experiment: one `17_model_soup.py`
@@ -337,7 +337,7 @@ independent evidence.
 # Phase 1 (2026-08-09) — the disagreement gate
 
 Measured with `../code/13_disagreement.py` on the frozen dev-300 split, five arms available at the
-time. 🔴 **Retained for the record, but read (b) above first — its central prediction did not hold.**
+time. **Retained for the record, but read (b) above first — its central prediction did not hold.**
 
 ## The gate passed. Members genuinely disagreed, and an oracle had +0.0195 of headroom.
 
@@ -358,8 +358,8 @@ reference*; no deployable selector can.
 
 | A | B | exact-diff % | mean pairwise Token F1 |
 |---|---|---|---|
-| E01 en+draft | E03 q+en+draft | 95.0 % | **0.9343** ⚠️ near-duplicates |
-| E02 q+draft | E18 banglat5 draft | 96.7 % | **0.9253** ⚠️ near-duplicates |
+| E01 en+draft | E03 q+en+draft | 95.0 % | **0.9343** near-duplicates |
+| E02 q+draft | E18 banglat5 draft | 96.7 % | **0.9253** near-duplicates |
 | E01 | E18 banglat5 | 99.0 % | 0.8809 |
 | E03 | E18 banglat5 | 98.7 % | 0.8775 |
 | E03 | E02 | 98.3 % | 0.8737 |
@@ -367,7 +367,7 @@ reference*; no deployable selector can.
 | E18 banglat5 | **E08 mT5** | 99.3 % | **0.8461** |
 | E02 | **E08 mT5** | 99.3 % | **0.8440** |
 | E01 | **E08 mT5** | 99.7 % | **0.8265** |
-| E03 | **E08 mT5** | 99.7 % | **0.8230** 🥇 most diverse pair |
+| E03 | **E08 mT5** | 99.7 % | **0.8230** most diverse pair |
 
 **Exact-string difference is useless** — every pair sits at 95–99.7 %, because two fluent Bengali
 paragraphs are essentially never byte-identical. **Token F1 similarity is the number to use.**
@@ -382,7 +382,7 @@ paragraphs are essentially never byte-identical. **Token F1 similarity is the nu
 | E02 q+draft | 0.7734 | 0.879 |
 | **E08 mT5-base** | **0.7563** *(worst)* | **0.835** *(most different)* |
 
-## 🔴 What Phase 2 did to this conclusion
+## What Phase 2 did to this conclusion
 
 Phase 1 concluded: *"the evidence points at architecture/tokenizer diversity, not input diversity
 and not seeds"*, and predicted that E19's ten seeds would show higher mutual similarity than 0.87

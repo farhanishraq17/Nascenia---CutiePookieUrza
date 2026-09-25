@@ -1,6 +1,6 @@
 # E20 — Large-teacher ceiling probe, then distillation
 
-**Tier 4 — DATA · Priority: 🥇 HIGHEST CEILING · unlocked by unlimited GPU**
+**Tier 4 — DATA · Priority: HIGHEST CEILING · unlocked by unlimited GPU**
 
 ## The question
 
@@ -33,7 +33,7 @@ Run the teacher **few-shot** on 300 dev rows. No training.
 | Decoding | greedy, `enable_thinking=False` |
 | Cost | a few GPU-hours, no training |
 
-🔴 **The in-context examples must come from `train` only.** Drawing them from dev leaks the
+**The in-context examples must come from `train` only.** Drawing them from dev leaks the
 evaluation set and the number becomes meaningless. This is the same trap that removed 6,000 rows
 from `warmstart_corpus`.
 
@@ -41,9 +41,9 @@ from `warmstart_corpus`.
 
 | Teacher Token F1 | Meaning | Next |
 |---|---|---|
-| **> 0.82** | Real headroom above the student's 0.7724 | ✅ **Run Stage 2** |
+| **> 0.82** | Real headroom above the student's 0.7724 | **Run Stage 2** |
 | 0.77 – 0.82 | Marginal — distillation would chase a thin margin | Judgment call; prefer E05 |
-| **< 0.7724** | 🔴 **Scale does not substitute for fine-tuning on a fingerprint-matching task.** | **Stop. Do not run Stage 2.** Record it — it is a genuinely useful negative that closes the whole "bigger teacher" line |
+| **< 0.7724** | **Scale does not substitute for fine-tuning on a fingerprint-matching task.** | **Stop. Do not run Stage 2.** Record it — it is a genuinely useful negative that closes the whole "bigger teacher" line |
 
 ## Stage 2 — sequence-level KD (only if Stage 1 clears 0.82)
 
@@ -75,11 +75,11 @@ config so the target is the only variable.
 
 | Pattern | Conclusion |
 |---|---|
-| B or C > A by >0.0044 | ✅ Distillation works. **The teacher never ships — cap satisfied**, only the student is submitted |
+| B or C > A by >0.0044 | Distillation works. **The teacher never ships — cap satisfied**, only the student is submitted |
 | C > B | Gold carries signal the teacher loses; keep the mix |
 | A ≥ B and A ≥ C | Gold is already the better target. Close the line; the earlier ceiling probe told you why |
 
-## 🔴 Disclosure
+## Disclosure
 
 Teacher-generated training data is **external data processed by an external model**. Rules §2.6.a
 requires disclosing it: model name and version, the exact prompt, the in-context example policy,
@@ -93,12 +93,12 @@ licences restrict exactly this; check before Stage 2, not after.
 
 ## Non-negotiables (every experiment)
 
-- **bf16 on sm_80+, fp32 otherwise. 🔴 NEVER fp16** — T5 goes NaN *silently*.
+- **bf16 on sm_80+, fp32 otherwise. NEVER fp16** — T5 goes NaN *silently*.
 - **Never change the split**: `--seed 42 --dev-size 5000`.
 - **In-context examples from `train` only** — never dev or test.
 - **Report Token F1 and ROUGE-L**, never the local composite.
 - **Ignore differences below 0.0044.**
-- 🔴 **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
+- **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
   alone force a full retrain before anything here can be submitted, and a low-scoring model that
   *disagrees usefully* is exactly what E14/E19 need. One directory per arm; `run.json` beside the
   weights (`checkpoint_hash` is not a run identity). **Record everything in this folder's

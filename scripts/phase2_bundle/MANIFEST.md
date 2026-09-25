@@ -21,11 +21,11 @@ P2_ENV_CHAMPION=<champion-env> P2_ENV_SPECIALIST=<specialist-env> \
 Weights, the id-lookup corpus, the scripts and both **environment specifications** are in this
 directory. Self-tested standalone on 2026-08-21 (see verification/bundle_selftest.csv).
 
-🔴 **The two environments are the one thing not pre-built** — only their pinned requirements ship
+**The two environments are the one thing not pre-built** — only their pinned requirements ship
 (`env/requirements_nascenia.txt`, `env/requirements_nascenia_q35.txt`), because they total ~20 GB.
 `env/Dockerfile` and `env/setup_envs.sh` build them deterministically; see `env/README.md`.
 
-🔴 **`torch==2.8.0+cu128` is not on plain PyPI.** A bare `pip install -r ...` fails on its first
+**`torch==2.8.0+cu128` is not on plain PyPI.** A bare `pip install -r ...` fails on its first
 line. Every provided build path sets `PIP_EXTRA_INDEX_URL=https://download.pytorch.org/whl/cu128`.
 `git` is also required — both envs pin the csebuetnlp normalizer as a `git+https` requirement and
 the champion branch refuses to run without it.
@@ -59,7 +59,7 @@ env/                         Dockerfile · setup_envs.sh · verify_envs.sh · RE
 lookup/                      the id-resolution corpus that routes rows to the champion
 scripts/                     run_bundle.sh · bundle_decode.py · swap_specialist.sh · audit_register.py
 verification/
-weights/champion_banglat5_peak5/       🔴 pinned — determines whether Phase 1 reproduces
+weights/champion_banglat5_peak5/       pinned — determines whether Phase 1 reproduces
 weights/specialist_qwen35_2b_D1/       swappable via P2_SPECIALIST_DIR
 ```
 

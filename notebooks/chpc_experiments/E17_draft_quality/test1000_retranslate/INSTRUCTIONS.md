@@ -1,6 +1,6 @@
 # Re-translate the 1,000 test drafts — handoff instructions
 
-🔴 **Read §8 before doing anything else.** The cheap 24-row version of this experiment has since
+**Read §8 before doing anything else.** The cheap 24-row version of this experiment has since
 been run end-to-end and came back negative — the full 1,000-row job below is probably not worth
 your time as currently scoped. This file is kept intact below for context.
 
@@ -22,7 +22,7 @@ Claude translation, to see whether a better draft raises the final score.
 
 | File | Rows | What it is |
 |---|---|---|
-| **`TEST_1000_english.csv`** | **1,000** | 🥇 **Your input.** Columns: `hcm_id`, `english` |
+| **`TEST_1000_english.csv`** | **1,000** | **Your input.** Columns: `hcm_id`, `english` |
 | `TEST_1000_google_draft.csv` | 1,000 | The *current* Google draft, for reference only — **do not copy its wording** |
 | `INSTRUCTIONS.md` | — | This file |
 
@@ -38,7 +38,7 @@ hcm_id,bengali
 
 Save as **`TEST_1000_claude.csv`**. Rows may be in any order — they are re-joined by `hcm_id`.
 
-## 4. 🔴 The four rules that matter more than translation quality
+## 4. The four rules that matter more than translation quality
 
 These are counter-intuitive. Read them twice.
 
@@ -103,7 +103,7 @@ long before 1,000 rows, so plan to start fresh sessions and keep completed batch
 **Setting:** use the strongest model available but **turn reasoning effort DOWN**. Translation is
 not a reasoning task; high effort costs time without improving output.
 
-## 7. 🔴 Validation — run this before handing anything back
+## 7. Validation — run this before handing anything back
 
 ```python
 import pandas as pd
@@ -121,13 +121,13 @@ print(f"rows under 50% Bengali: {(bn < 0.5).sum()}   <- inspect these, likely un
 
 w = out["bengali"].str.split().str.len()
 print(f"word count: mean {w.mean():.0f} (English source mean 113)")
-print("✅ all checks passed" if len(out) == 1000 else "❌ FIX BEFORE SENDING")
+print("all checks passed" if len(out) == 1000 else "FIX BEFORE SENDING")
 ```
 
 **A mean word count far from ~113, or any row under 50% Bengali characters, means something was
 skipped or left in English.** Fix before sending.
 
-## 8. 🔴 UPDATE 2026-08-19 — the 24-row transfer test ran, and the news is bad
+## 8. UPDATE 2026-08-19 — the 24-row transfer test ran, and the news is bad
 
 **Before you spend the 4-6 hours in §5, read this.** The cheap version of this experiment — using
 the 24 rows that already had a Claude translation (`../claude_batches/`) and happen to sit inside
@@ -162,10 +162,10 @@ through the champion model** to measure the effect on final output.
 
 | translator | vs Google, on draft Token F1 | significance |
 |---|---|---|
-| **Claude Opus 5** | **+0.0631** | t = 5.88, n = 24 ✅ |
+| **Claude Opus 5** | **+0.0631** | t = 5.88, n = 24 |
 | Codex (GPT-5) | +0.0253 | t = 1.34, n = 10 — not significant |
-| NLLB-200 1.3B | −0.0439 | t = −11.41 ❌ |
-| Qwen3-14B | −0.1255 | t = −20.38 ❌ |
+| NLLB-200 1.3B | −0.0439 | t = −11.41 |
+| Qwen3-14B | −0.1255 | t = −20.38 |
 
 So Claude *does* beat Google on draft quality. **But two caveats:**
 

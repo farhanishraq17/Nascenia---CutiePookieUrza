@@ -6,7 +6,7 @@ Self-contained. **1.8 GB**: data, source corpora, code and **20 experiment specs
 this folder is required.
 
 > ### Current state
-> ⚠️ **This header is stale — see [PROGRESS.md](../../PROGRESS.md) for the real current state
+> **This header is stale — see [PROGRESS.md](../../PROGRESS.md) for the real current state
 > (0.89552, #1, shipped model is `E15_decode_sweep/ckptavg_peak5`).** Kept as historical context
 > for the wave plan below, not as a live status line.
 >
@@ -14,7 +14,7 @@ this folder is required.
 > BanglaT5 reading our Bengali draft of the answer and rewriting it in the competition's register.
 > **Token F1 0.7724 · ROUGE-L 0.7324.**
 >
-> ### 🥇 E25 — the current top priority, and it's a different kind of experiment than E01–E24
+> ### E25 — the current top priority, and it's a different kind of experiment than E01–E24
 > Every experiment below optimizes **Phase 1** (the champion, register transfer from a
 > ChatDoctor-id lookup). **That mechanism resolves on 0% of Phase 2's judging data** — the
 > organizers' own private set, never ChatDoctor-derived (confirmed by the organizers directly).
@@ -59,7 +59,7 @@ gap of 0.0001. When two independent runs agree that closely, only more **informa
 **You have unlimited GPUs, so this is not a serial list.** Each wave runs fully in parallel;
 you only wait between waves because later experiments need earlier answers.
 
-🔴 **What unlimited GPU does NOT change: the 3B cap.** Base + adapters + **every ensemble
+**What unlimited GPU does NOT change: the 3B cap.** Base + adapters + **every ensemble
 member** must total ≤3B *at inference*. The fleet's real use is training many small models and
 using large models as **teachers that never ship** (E20).
 
@@ -95,7 +95,7 @@ and where training actually converges.
 | **E12** | Does a Bengali medical warm-start help? |
 | **E13** | Does multi-task Q→A add robustness insurance? |
 | **E21** | Can synthetic pairs be manufactured from unpaired corpora — and does draft variety buy E17 insurance? |
-| E22 | **RAG** — arm A upgrades E20's teacher examples; ⚠️ arm C is the real prize and it is a **Phase 2** play |
+| E22 | **RAG** — arm A upgrades E20's teacher examples; arm C is the real prize and it is a **Phase 2** play |
 | **E19** | Does a **10-seed** ensemble work where 2 seeds failed? 10×248M = 2.48B, fits the cap |
 | **E14** | Does architecture diversity ensemble better than seed diversity? |
 
@@ -127,7 +127,7 @@ E22 arm A ───► upgrades E20 stage 1 (k-NN examples instead of random)
 any checkpoint ─► E15, E16
 ```
 
-### ❌ Removed — do not resurrect without new evidence
+### Removed — do not resurrect without new evidence
 
 | Was | Why it is gone |
 |---|---|
@@ -136,7 +136,7 @@ any checkpoint ─► E15, E16
 
 ---
 
-## ✅ How long the program took — it RAN, 2026-08-09 → 08-15
+## How long the program took — it RAN, 2026-08-09 → 08-15
 
 **This section was an estimate. It is now a measurement.** The program executed on CHPC granite and
 notchpeak across five VRAM tiers (H100 NVL, A800 40 GB, L40S, A6000, A40), one GPU per arm, bf16 —
@@ -151,13 +151,13 @@ decoder hedge, it became a 7-base zoo costing 54.7 GPU-h on its own, a third of 
 H100 NVL** — **~20×**, not the ~6× assumed above. Wall clock became dominated by *evaluation*,
 not training.
 
-🔴 **Two lessons for anyone re-planning this:**
+**Two lessons for anyone re-planning this:**
 1. **Wall clock stopped scaling past ~8 GPUs**, because two single arms could not be split —
    E05 (30,000 sequential steps) and E18's `gemma-2-2b-it` (2.6B, ~10× BanglaT5's per-step cost).
 2. **Schedule was never the constraint; it was the estimate's own scope.** Adding one experiment
    (E18) cost more than three waves of the original plan.
 
-⚠️ **E24 did not finish** — seven arms re-running the decoder zoo on the winning `english_draft`
+**E24 did not finish** — seven arms re-running the decoder zoo on the winning `english_draft`
 input produced **zero evals** before being stopped; `gemma2_2b_ed` was running at 23.5 s/it, a
 78-hour job. Given E18 already showed every decoder losing to BanglaT5 by ≥0.026, it is not worth
 resuming.
@@ -172,7 +172,7 @@ they carry every trap fix the hard way.
 
 | Notebook | What it is |
 |---|---|
-| **`PROVEN_xfer_seed11_LB0.85030.ipynb`** | 🏆 **The exact notebook behind the 0.85030 submission.** The recipe every experiment here modifies. |
+| **`PROVEN_xfer_seed11_LB0.85030.ipynb`** | **The exact notebook behind the 0.85030 submission.** The recipe every experiment here modifies. |
 | `PROVEN_xfer_seed23.ipynb` | Its seed replicate — landed 0.7723 vs 0.7724 |
 | `sweep_C_lr1e3_best_qa_arm.ipynb` | Best question→answer arm; where lr 1e-3 was established |
 | `sweep_G_lr3e3_LR_ceiling.ipynb` | The arm that turned the LR curve over |
@@ -191,7 +191,7 @@ python -c "import transformers; assert transformers.__version__=='4.57.3'"
 python code/metric.py --selftest        # verifies LCS against brute force
 ```
 
-### 🔴 Non-negotiables
+### Non-negotiables
 
 | | |
 |---|---|
@@ -218,7 +218,7 @@ Calibrated on two real submissions 0.5 of Token F1 apart; fits both to **±0.000
 
 | | Token F1 | ROUGE-L | LB |
 |---|---|---|---|
-| 🏆 **incumbent** — BanglaT5, draft only | **0.7724** | **0.7324** | **0.85030** |
+| **incumbent** — BanglaT5, draft only | **0.7724** | **0.7324** | **0.85030** |
 | draft + 3 regexes, no model | 0.5984 | 0.5482 | 0.7564 |
 | best question→answer fine-tune | 0.2576 | 0.1776 | 0.5800 |
 | constant string (previous #1) | 0.2669 | 0.1564 | 0.57849 |
@@ -242,23 +242,23 @@ conversion. This is the sharpest single diagnostic available.
 
 | Finding | Evidence |
 |---|---|
-| **LR 1e-3 optimum** *(on question→answer)* | 7 arms; the curve turns over at 3e-3. ⚠️ Never re-tuned for **this** task — that is **E06**. |
+| **LR 1e-3 optimum** *(on question→answer)* | 7 arms; the curve turns over at 3e-3. Never re-tuned for **this** task — that is **E06**. |
 | **Label smoothing does nothing** | +0.0039, inside a 0.0044 noise floor |
 | **MBR loses** | −0.0027 LB vs beam-4. Near-deterministic task; two seeds agreed to 0.0001. **E14** tests only the untested variable: architecture diversity. |
-| **More epochs hurt on question→answer** | Every arm peaked then declined. ⚠️ **Does NOT transfer** — this task never turned over. That is **E05**. |
+| **More epochs hurt on question→answer** | Every arm peaked then declined. **Does NOT transfer** — this task never turned over. That is **E05**. |
 | **Retrieval < a constant string** | 0.2047 vs 0.2669 — specific-but-wrong costs more precision than it gains recall |
 | **BanglaT5 tokenises this better than mT5** | 364/145 vs 443/272 tokens. mT5 needs **88% more tokens for the same Bengali output**. |
 | **Only 9.2% of mT5's vocab is used** | 22,991 of 250,100 → trimming takes mT5-large 1.23B → ~785M (**E10**) |
 
 ---
 
-## 🔴 Reporting back — EVERY arm's checkpoint, in its own folder
+## Reporting back — EVERY arm's checkpoint, in its own folder
 
 **Metrics alone are not a result.** Inference happens on a different machine (Kaggle), so an
 experiment that returns only numbers must be **retrained from scratch** before it can ever be
 submitted.
 
-### 🔴 Keep every arm, not just the winner
+### Keep every arm, not just the winner
 
 Several experiments run many models — E18 sweeps 7 bases, E19 trains 10 seeds, E06 runs 8 learning
 rates, E21 has 5 arms. **Keep the checkpoint for all of them, including the ones that score badly.**
@@ -277,11 +277,11 @@ rates, E21 has 5 arms. **Keep the checkpoint for all of them, including the ones
 ```
 E18_model_zoo/
     EXPERIMENT.md              the spec (what to run, what to beat)
-    train.ipynb                🔴 RUNNABLE — config in cell 1, trains every arm, asserts
+    train.ipynb                RUNNABLE — config in cell 1, trains every arm, asserts
                                   no checkpoint is missing before it finishes
-    RESULTS.md                 🔴 the per-experiment record — fill this in
+    RESULTS.md                 the per-experiment record — fill this in
     banglat5/
-        best/                  🔴 THE MODEL — config.json · model.safetensors ·
+        best/                  THE MODEL — config.json · model.safetensors ·
                                   tokenizer files · generation_config.json
         run.json               config + dev metrics — MUST sit beside the weights
         trainer_state.json     full eval trajectory
@@ -299,15 +299,15 @@ Single-arm experiments use one `main/` directory, same contents. **Every experim
 | File | |
 |---|---|
 | `EXPERIMENT.md` | the question, why it matters, what to beat, how to read the outcome |
-| **`train.ipynb`** | 🔴 **runnable** — all config in cell 1, loops over every arm, writes `best/` + `run.json` + `dev.json` per arm, and **asserts no checkpoint is missing** before it exits |
+| **`train.ipynb`** | **runnable** — all config in cell 1, loops over every arm, writes `best/` + `run.json` + `dev.json` per arm, and **asserts no checkpoint is missing** before it exits |
 
-⚠️ **The batch/accum defaults in `train.ipynb` were tuned for one 16 GB T4 — change them.**
+**The batch/accum defaults in `train.ipynb` were tuned for one 16 GB T4 — change them.**
 **Effective batch must stay 64** (`BATCH × ACCUM × N_GPU`, asserted in cell 1): that is what the
 0.85030 model used, and changing it makes the result incomparable. *How* you reach 64 is entirely
 a hardware decision. Everything else about execution — parallelism, attention kernel, workers,
 `torch.compile` — is yours to choose.
 
-🔴 **Never trade quality for throughput.** If you are memory-bound the answers are more GPUs, a
+**Never trade quality for throughput.** If you are memory-bound the answers are more GPUs, a
 smaller per-device batch with higher accumulation, or gradient checkpointing — **never** fp16,
 quantisation, LoRA in place of a full fine-tune, shorter sequences, fewer steps, or a coarser
 eval grid.
@@ -318,7 +318,7 @@ Four experiments train nothing (**E14** ensembling · **E15** decode sweep · **
 
 Do not put per-experiment detail only in the top-level scoreboard.
 
-⚠️ **E05 is the exception on intermediate checkpoints.** Its whole purpose is finding where the
+**E05 is the exception on intermediate checkpoints.** Its whole purpose is finding where the
 curve turns over, so **keep a checkpoint every 2,000 steps** there — the trajectory checkpoints
 *are* the result, not scaffolding.
 
@@ -326,10 +326,10 @@ curve turns over, so **keep a checkpoint every 2,000 steps** there — the traje
 
 | File | Holds |
 |---|---|
-| `<experiment>/RESULTS.md` | 🔴 **Everything about this experiment** — per-arm scores, checkpoint locations, trajectories, register read-out, failures, surprises |
+| `<experiment>/RESULTS.md` | **Everything about this experiment** — per-arm scores, checkpoint locations, trajectories, register read-out, failures, surprises |
 | `RESULTS.md` *(top level)* | Only the cross-experiment scoreboard and the **pairwise comparisons** that answer the program's questions |
 
-### ❌ Still not worth keeping
+### Still not worth keeping
 
 | Delete | Why |
 |---|---|
@@ -337,7 +337,7 @@ curve turns over, so **keep a checkpoint every 2,000 steps** there — the traje
 | optimizer / scheduler / RNG state | Not needed for inference |
 | intermediate `ckpt/checkpoint-*/` **weights** — *except in E05* | Superseded by that arm's `best/`. **Keep every `trainer_state.json`** — a few KB, and it is the trajectory evidence |
 
-⚠️ **`runs/smoke/` shadows the real run's filenames.** It writes its own `run.json` and
+**`runs/smoke/` shadows the real run's filenames.** It writes its own `run.json` and
 `checkpoint-63/trainer_state.json`. A glob like `runs/*/run.json` flattened into one destination
 **silently replaces a 400-minute record with a 2.6-minute one.** Filter `smoke` explicitly and
 verify `run_name`/`seed` after any copy.
@@ -363,13 +363,13 @@ cd ckpt_upload && kaggle datasets create -p . -r zip
 Licence is **CC-BY-NC-SA-4.0**, inherited from BanglaT5. `-r zip` matters at this size.
 Record the dataset slug in that experiment's `RESULTS.md` checkpoint table.
 
-🔴 **`run.json` must ship inside the same folder as the weights.** `checkpoint_hash` is not a run
+**`run.json` must ship inside the same folder as the weights.** `checkpoint_hash` is not a run
 identity — ours hashed file *names and sizes*, so three different models reported the same hash and
 a 393-minute run collided with a 2.6-minute smoke test. **The `run.json` config block beside the
 weights is the only reliable link between a checkpoint and the number it scored.**
 
-🔴 **The model behind any submitted score is mandatory Phase 2 evidence and must never be deleted** —
+**The model behind any submitted score is mandatory Phase 2 evidence and must never be deleted** —
 Phase 2 requires reproducing the leaderboard outputs from the checkpoint.
 
-⚠️ **Report the trajectory, not just the best number.** Where a run peaks is often the finding —
+**Report the trajectory, not just the best number.** Where a run peaks is often the finding —
 E05 exists entirely because the incumbent's trajectory showed it had not converged.

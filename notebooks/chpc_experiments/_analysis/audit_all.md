@@ -58,5 +58,5 @@
 | E18/indicbart | 1000 | 0.1 | 0.0002 | 9.3 | 98.4 | 0.0025 | 0.1 | 42 | 48 | 54 |
 | /draft | 1000 | 0.0 | 0.0003 | 10.1 | 35.3 | 0.0068 | 0.0 | 63 | 92 | 163 |
 
-references: ~100 tokens. 🔴 clinical correctness / contradiction / unsafe advice are NOT measured here — they need a medical judge.
+references: ~100 tokens. clinical correctness / contradiction / unsafe advice are NOT measured here — they need a medical judge.
 wrote /scratch/general/nfs1/u1592009/Nascenia_Datathon/fine_tune_project/_slurm/analysis/audit_all.json  (worst 100 rows per arm, for manual review)

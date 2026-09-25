@@ -34,7 +34,7 @@ parallel and cost one wall-clock run.
 | Config | **Identical across members** — seed is the only variable |
 | Steps | Whatever E05 establishes as the convergence point |
 
-🔴 **Assert the total parameter count in the inference script**: `10 × 247,577,856 = 2,475,778,560`.
+**Assert the total parameter count in the inference script**: `10 × 247,577,856 = 2,475,778,560`.
 Note the count is **transformers-version dependent** — 296.9M each under transformers 5.x with
 untied embeddings, which would be **2.97B** and dangerously close to the cap. Measure it in the
 actual Phase 2 inference environment, not locally.
@@ -64,12 +64,12 @@ Require more than the **0.0044** noise floor.
 
 | Result | Meaning |
 |---|---|
-| Logit averaging > best single by >0.0044 | ✅ The two-seed failure was about **n**, not about ensembling. Ship it — it fits the cap. |
+| Logit averaging > best single by >0.0044 | The two-seed failure was about **n**, not about ensembling. Ship it — it fits the cap. |
 | Only MBR improves | Consistent with the earlier finding; the gain is from candidate volume |
 | Nothing beats the best single | **Ensembling is closed on this task.** Two independent failures is enough — stop spending on it |
 | Members agree >90% of rows | Seeds do not diversify a near-deterministic task. **E14's architecture diversity is the only remaining ensemble hope** |
 
-⚠️ **The prior here is negative.** MBR has already lost once. This is worth running because the
+**The prior here is negative.** MBR has already lost once. This is worth running because the
 members are free on a fleet and logit averaging is genuinely untested — not because the odds are
 good. Do not let it displace E05 or E17.
 
@@ -77,12 +77,12 @@ good. Do not let it displace E05 or E17.
 
 ## Non-negotiables (every experiment)
 
-- **bf16 on sm_80+, fp32 otherwise. 🔴 NEVER fp16** — T5 goes NaN *silently*.
+- **bf16 on sm_80+, fp32 otherwise. NEVER fp16** — T5 goes NaN *silently*.
 - **Never change the split**: `--seed 42 --dev-size 5000`. (Distinct from the *training* seed.)
 - **Report Token F1 and ROUGE-L**, never the local composite.
 - **Assert total params < 3B** in the inference script, measured in the Phase 2 environment.
 - **Ignore differences below 0.0044.**
-- 🔴 **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
+- **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
   alone force a full retrain before anything here can be submitted, and a low-scoring model that
   *disagrees usefully* is exactly what E14/E19 need. One directory per arm; `run.json` beside the
   weights (`checkpoint_hash` is not a run identity). **Record everything in this folder's

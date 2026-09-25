@@ -16,7 +16,7 @@ champion, same trainer shape, none of the decoder-only footguns (no chat templat
 masking, no left-padding trap). If it wins, the whole Phase 2 branch costs 580M params and leaves
 ~1.9B of headroom under the cap.
 
-## 🔴 Three things specific to mT5 that will otherwise waste a day
+## Three things specific to mT5 that will otherwise waste a day
 
 **1. X0/X1 will produce garbage. That is correct.**
 mT5-base is a *pure pretrained* span-corruption model with **no instruction tuning whatsoever**.
@@ -47,12 +47,12 @@ architecture classes.**
 |---|---|---|
 | `LR` | **1e-3** | Measured optimum for seq2seq on this corpus. Sweep 3e-4 / 1e-3 / 3e-3 in X5 |
 | `OPTIM` | `adafactor` | T5's canonical optimizer; factors the second moment, so it needs far less memory than AdamW (~12 bytes/param) |
-| `BATCH × ACCUM` | 4 × 16 | 🔴 product must be 64. mT5 is small — you can likely go 16×4 or 32×2 and train much faster |
+| `BATCH × ACCUM` | 4 × 16 | product must be 64. mT5 is small — you can likely go 16×4 or 32×2 and train much faster |
 | `MAX_SRC / MAX_TGT` | 1024 / 512 | 512 target is generous vs mT5's ~271 median. Raise `MAX_SRC` to 1536 for X3 if you see prompt truncation |
 | `MAX_STEPS` | 20000 | Generous on purpose; early stopping finds the peak |
 | `EVAL_STEPS` | 500 | Drop to 250 if evals are fast — a coarse grid straddles the peak |
 | `GRAD_CKPT` | True | Turn **off** for mT5, it is small enough. ~20% faster |
-| precision | bf16 on sm_80+ | 🔴 never fp16 — T5 goes NaN silently and still writes valid-looking output |
+| precision | bf16 on sm_80+ | never fp16 — T5 goes NaN silently and still writes valid-looking output |
 
 ## Arm-by-arm
 
@@ -60,15 +60,15 @@ architecture classes.**
 |---|---|---|---|
 | **X0** | `plain` | Near-zero, sentinel tokens | Record the failure mode verbatim; do not debug |
 | **X1** | `plain` | Still poor | Few-shot is prepended as plain text (no chat template) — inspect one built prompt |
-| **X2** 🥇 | `plain` | The primary result | Truncation %, trajectory shape, peak step |
-| **X3** | `rag` | vs X2 | 🔴 copy-margin. Also longer inputs — check prompt truncation |
+| **X2** | `plain` | The primary result | Truncation %, trajectory shape, peak step |
+| **X3** | `rag` | vs X2 | copy-margin. Also longer inputs — check prompt truncation |
 | **X4** | `plain_core_only` | vs X2 | If within 0.0044, prefer the smaller dataset |
 | **X5** | winner | 3 LRs, one decade apart | Stay in the seq2seq class |
 | **D1** | `plain_core_plus_icliniq` | vs X4 | closest-register extra |
-| **D2** | `plain_core_plus_genmedgpt` | vs X4 | 🔴 31-word median answers — watch `mean_pred_tokens` |
+| **D2** | `plain_core_plus_genmedgpt` | vs X4 | 31-word median answers — watch `mean_pred_tokens` |
 | **D3** | `plain_core_plus_doctor_qa_bangla` | vs X4 | the only natively-Bengali source in the project |
 
-## 🔴 This model also carries the data decomposition (D1–D3) for all three
+## This model also carries the data decomposition (D1–D3) for all three
 
 X4 only compares *all extras* against *none*. D1–D3 isolate each of the three extra sources, so
 that a negative X4 can be attributed rather than guessed at. **They run here and nowhere else** —
@@ -79,7 +79,7 @@ Run each at **X2's exact config** (same LR, batch, steps, seed), changing only `
 the ladder table in `RESULTS.md` and **state the winning data variant there** — B and C will use it
 for their own X2.
 
-⚠️ All three extras open with `হেলো` **0.0%** of the time against the competition's **76.4%**. That
+All three extras open with `হেলো` **0.0%** of the time against the competition's **76.4%**. That
 is the same off-register signature that got a 166k-row corpus excluded from this project earlier.
 Expect small effects, judge against the 0.0044 noise floor, and if everything lands inside it,
 **prefer the smaller dataset** — fewer external sources to disclose in the Phase 2 write-up.

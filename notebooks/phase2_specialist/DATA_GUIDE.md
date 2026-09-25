@@ -4,7 +4,7 @@
 card. Several sources in the wider repo that *look* present are 131–134 byte git-LFS pointer
 stubs; those are called out explicitly so you do not waste time on them.
 
-## ✅ What is bundled — you need nothing else
+## What is bundled — you need nothing else
 
 Everything required is already in **`data/_sources/`** (~119 MB). The Tier-1 mix below is
 pre-extracted; you do not need the wider repo, the 339 MB `master_c_bengali.csv`, or any
@@ -28,7 +28,7 @@ absent — read it before adding anything.
 
 ---
 
-## 🔴 First, the "no ChatDoctor" instruction — read this before excluding anything
+## First, the "no ChatDoctor" instruction — read this before excluding anything
 
 The brief for this folder is *"train on non-ChatDoctor datasets."* That instruction is right in
 spirit but needs one precise carve-out, because taken literally it would delete the single most
@@ -62,14 +62,14 @@ re-extract from the full `master_c_bengali.csv` in the wider repo at
 
 ---
 
-## ✅ TIER 1 — the core mix. Verified real, use all of it.
+## TIER 1 — the core mix. Verified real, use all of it.
 
 | # | Source | Path | Rows | Language | Role |
 |---|---|---|---|---|---|
-| 1 | **Competition train** | `data/_sources/train.parquet` | **101,740** | Bengali (organizers') | 🥇 The backbone. Direct question→answer in the exact target register. dev/test already removed. |
+| 1 | **Competition train** | `data/_sources/train.parquet` | **101,740** | Bengali (organizers') | The backbone. Direct question→answer in the exact target register. dev/test already removed. |
 | 2 | **iCliniq** | `extra_sources.parquet`, `source=='icliniq'` | **7,321** | EN→BN (our translation) | Real patient→doctor consultations from a **different site** than HealthCareMagic — genuinely new cases, not a re-translation |
 | 3 | **GenMedGPT** | `extra_sources.parquet`, `source=='genmedgpt'` | **5,200** | EN→BN (our translation) | Real dialogue shape. Short (~35 tokens) — do not let it dominate the length distribution |
-| 4 | **doctor_qa_bangla** | `extra_sources.parquet`, `source=='doctor_qa_bangla'` | **4,651** | 🥇 **Native Bengali** | The only natively-authored Bengali source here — **zero translation fingerprint**. Small, but it is the only data that is not somebody's MT output |
+| 4 | **doctor_qa_bangla** | `extra_sources.parquet`, `source=='doctor_qa_bangla'` | **4,651** | **Native Bengali** | The only natively-authored Bengali source here — **zero translation fingerprint**. Small, but it is the only data that is not somebody's MT output |
 
 Sources 2–4 were extracted from `master_c_bengali.csv` (123,289 rows) in the wider repo at
 `DATA/EXTERNAL_COLLECTED_DATA/Data_Search_5/MASTER_C_BENGALI/` — the other 106,117 rows are
@@ -85,7 +85,7 @@ present). Do not disable those asserts.
 
 ---
 
-## ⚠️ TIER 2 — optional volume. **Not bundled** — these live in the wider repo.
+## TIER 2 — optional volume. **Not bundled** — these live in the wider repo.
 
 Paths below are relative to the repo root (the directory containing `DATA/`). Only fetch these if
 Tier 1 proves insufficient — experiment **X4** tests exactly that.
@@ -94,8 +94,8 @@ Tier 1 proves insufficient — experiment **X4** tests exactly that.
 | Source | Path | Rows | The catch |
 |---|---|---|---|
 | **`doctor_qa_bangla` raw** | `DATA/EXTERNAL_COLLECTED_DATA/Data_Search_1/huggingface/doctor_qa_bangla/dataset_mistral.csv` | 5,135 | Single `text` column in `[INST] … [/INST]` format — needs parsing. **Largely the same content as Tier-1 #4** (which is the cleaned 4,651-row version). Use one, not both. |
-| **NEW_DATASETS_D1** | `DATA/EXTERNAL_COLLECTED_DATA/NEW_DATASETS_D1/twelve unique datasets.csv` | 277,095 | 🔴 **68% is exam MCQ** (medmcqa 178,967 + medqa_usmle 10,015) — wrong task shape, and `medqa_usmle`'s median answer is **23 characters**. Translation also damaged clinical detail: `benign prostatic hyperplasia` → `প্রিজম্যাটিক` ("prismatic"), a B12 dose rendered in picograms instead of micrograms, ~33% of unit-bearing rows lost their unit. **If you use any of it, use only `source=='medical_meadow'` (33,222 rows, atomic clinical facts) and `medinstruct_52k` (51,989, longer-form) — never the MCQ slices.** |
-| **EN-BN medical QA** | `Data_Search_1/kaggle/english-and-bangla-medical-qa/English_Bangla_Medical_QA.csv` | 498 | 🔴 **Headerless CSV** — read with `header=None` or the first record is consumed as the column name. Tiny. |
+| **NEW_DATASETS_D1** | `DATA/EXTERNAL_COLLECTED_DATA/NEW_DATASETS_D1/twelve unique datasets.csv` | 277,095 | **68% is exam MCQ** (medmcqa 178,967 + medqa_usmle 10,015) — wrong task shape, and `medqa_usmle`'s median answer is **23 characters**. Translation also damaged clinical detail: `benign prostatic hyperplasia` → `প্রিজম্যাটিক` ("prismatic"), a B12 dose rendered in picograms instead of micrograms, ~33% of unit-bearing rows lost their unit. **If you use any of it, use only `source=='medical_meadow'` (33,222 rows, atomic clinical facts) and `medinstruct_52k` (51,989, longer-form) — never the MCQ slices.** |
+| **EN-BN medical QA** | `Data_Search_1/kaggle/english-and-bangla-medical-qa/English_Bangla_Medical_QA.csv` | 498 | **Headerless CSV** — read with `header=None` or the first record is consumed as the column name. Tiny. |
 
 **Recommendation:** start with Tier 1 only (experiment **X4** below tests whether Tier 2 helps).
 More data is not automatically better here — this project has already measured a 166k-row corpus
@@ -104,7 +104,7 @@ time vs the references' `হেলো` 76%).
 
 ---
 
-## ❌ DO NOT USE — each already measured or ruled out, with the reason
+## DO NOT USE — each already measured or ruled out, with the reason
 
 | Source | Why not |
 |---|---|
@@ -117,7 +117,7 @@ time vs the references' `হেলো` 76%).
 | **IndicMedDialog** (arXiv 2605.13292) | Same synthetic+MT provenance, **and licensed CC BY-NC-ND** — "No Derivatives" plausibly forbids fine-tuning outright. |
 | `BanglaCHQ-Summ` (1,880) | Native Bengali but **question summarization**, not Q&A. Wrong shape. |
 | `Data_Search_2` books | No reuse licence; includes veterinary/botanical/alternative-medicine texts. |
-| **`BanglaHealth-paraphrase`** | 🔴 **Verified 133-byte LFS stub on 2026-08-17.** The `SOURCES.md` describing it as 200,000 rows / 81.9 MB predates a git operation that reverted it. Do not plan around it without re-downloading. |
+| **`BanglaHealth-paraphrase`** | **Verified 133-byte LFS stub on 2026-08-17.** The `SOURCES.md` describing it as 200,000 rows / 81.9 MB predates a git operation that reverted it. Do not plan around it without re-downloading. |
 | `Bengali-healthcare` (47,531) | Also a **133-byte stub** now. It *was* fetched and verified once (2026-07-24) — its own note then: *"much of it is translated general-purpose Alpaca content, not clinical — filter before use."* Same register risk as `alpaca_health`. Only worth re-fetching if Tier 1+2 prove insufficient. |
 
 ---
@@ -127,7 +127,7 @@ time vs the references' `হেলো` 76%).
 `shared/build_index.py` embeds the **Tier-1 core** (118,912 rows) with
 `intfloat/multilingual-e5-base` and saves an L2-normalized matrix + metadata.
 
-🔴 **Two invariants the script asserts, and you must not disable:**
+**Two invariants the script asserts, and you must not disable:**
 
 1. **Zero frozen dev/test ids in the pool.** Retrieving a dev row's own pair returns the answer
    and every number becomes meaningless.

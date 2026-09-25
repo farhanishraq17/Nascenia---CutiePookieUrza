@@ -416,4 +416,4 @@ mean pairwise Token F1 between members: **0.8647**
 
 best single **0.8348** · per-row oracle **0.8707** · **oracle gain +0.0359**
 
-✅ worth pooling — an oracle has real headroom
+worth pooling — an oracle has real headroom

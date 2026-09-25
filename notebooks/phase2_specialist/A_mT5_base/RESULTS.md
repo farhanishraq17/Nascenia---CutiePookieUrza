@@ -3,7 +3,7 @@
 **Ran 2026-08-16/17 on 8 × A800 40GB, DDP via torchrun, bf16.** Effective batch **64** on every
 arm (`per_device 4 × accum 2 × 8 ranks`). Exact params **582,401,280**.
 
-## 🥇 HEADLINE: the specialist works. Every trained arm clears the bar by ~0.10.
+## HEADLINE: the specialist works. Every trained arm clears the bar by ~0.10.
 
 The bar was **0.1454** — the best any inference-time fix achieved on the frozen champion, which
 without a draft echoes the patient's message back (0.1235). mT5-base fine-tuned on real
@@ -17,20 +17,20 @@ Both columns matter — see the stability section for why the peak alone is misl
 
 | arm | data | rows | **peak F1** | peak step | **final F1** | ROUGE-L | tokens | হেলো | trunc | min |
 |---|---|---|---|---|---|---|---|---|---|---|
-| **X3 RAG** 🥇 | `rag` | 118,912 | **0.2566** | 11,500 | **0.2537** | 0.1782 | 95.8 | 86.7% | 5.7% | 342 |
+| **X3 RAG** | `rag` | 118,912 | **0.2566** | 11,500 | **0.2537** | 0.1782 | 95.8 | 86.7% | 5.7% | 342 |
 | **X4 core-only** | `plain_core_only` | 101,740 | 0.2547 | 5,000 | 0.2452 | 0.1817 | 94.1 | 84.7% | 8.7% | 134 |
 | D2 +genmedgpt | core+5,200 | 106,940 | 0.2536 | 3,500 | 0.2504 | 0.1782 | 94.7 | 71.7% | 11.0% | 109 |
 | D3 +doctor_qa | core+4,651 | 106,391 | 0.2537 | 5,000 | 0.2399 | 0.1781 | 98.8 | 84.0% | 11.7% | 133 |
 | X2 plain | all extras | 118,912 | 0.2475 | 2,500 | 0.2414 | 0.1715 | 91.7 | 77.7% | 7.3% | 99 |
-| D1 +icliniq | core+7,321 | 109,061 | 0.2538 | 3,500 | 0.2339 | 0.1553 | 104.2 | **2.0%** 🔴 | 0.0% | 95 |
+| D1 +icliniq | core+7,321 | 109,061 | 0.2538 | 3,500 | 0.2339 | 0.1553 | 104.2 | **2.0%** | 0.0% | 95 |
 | X5 lr 3e-4 | `plain` | 118,912 | 0.2488 | 8,000 | 0.2327 | 0.1719 | 96.4 | 84.0% | 16.3% | 181 |
-| X5 lr 3e-3 | `plain` | 118,912 | 0.2398 | 2,500 | **0.1492** 🔴 | 0.1592 | 130.6 | 2.7% | **61.7%** | 90 |
+| X5 lr 3e-3 | `plain` | 118,912 | 0.2398 | 2,500 | **0.1492** | 0.1592 | 130.6 | 2.7% | **61.7%** | 90 |
 | *references* | | | | | | | *~100* | *76.4%* | *6.8%* | |
 
 X0 (zero-shot) and X1 (few-shot) produced the documented near-gibberish — mT5-base is a pure
 span-corruption model with no instruction tuning. Recorded and not debugged, as instructed.
 
-## 🔴 The trajectories are unstable — do not trust a single peak
+## The trajectories are unstable — do not trust a single peak
 
 This is the most important methodological finding here, and it changes how every number above
 should be read.
@@ -60,7 +60,7 @@ external sources to disclose.
 guide named GenMedGPT's 31-word answers as the prime suspect if X4 went negative. It is not:
 D2 (+genmedgpt) has the **best final of the three** (0.2504). The individually-neutral pattern
 with a mildly negative bundle is the "all three ≈ X4" branch of the decision table ⇒ **ship
-`plain_core_only`**. ⚠️ Individually neutral yet collectively −0.007 is a genuine oddity; at this
+`plain_core_only`**. Individually neutral yet collectively −0.007 is a genuine oddity; at this
 task's real noise level it is not resolvable with the runs available.
 
 **D1 ended off-register and its Token F1 hides it.** 2.0% হেলো against the references' 76.4%,
@@ -74,7 +74,7 @@ top of the seq2seq class rather than across it. Keep **1e-3**.
 **X3 RAG — the best arm, but it has not earned its retriever.** Best final (0.2537, +0.0085 over
 X4) *and* the most stable (lowest truncation 5.7%, smallest peak→final drop). But:
 - it costs **342 min vs 134** and **+278M retriever params**;
-- 🔴 **the copy-margin is thin: 0.018.** Overlap with the true target 0.2537 vs overlap with the
+- **the copy-margin is thin: 0.018.** Overlap with the true target 0.2537 vs overlap with the
   *retrieved example it was shown* 0.2352. The prediction is nearly as similar to the example as
   to the right answer. Medical Bengali shares heavy boilerplate, so this is not proof of copying
   — but it is not a clean pass either, and the guide is explicit that this outranks the headline.
@@ -103,6 +103,6 @@ not because of the tokenizer.
 `A_mT5_base/runs/<ARM>/best` with `run.json` beside the weights, plus
 `runs_lr3e4/X5` and `runs_lr3e3/X5`. All bf16, A800, `transformers 4.57.3`, `torch 2.8.0+cu128`.
 
-⚠️ **`run.json` under-reports `effective_batch` as 8.** The notebook computes `BATCH × ACCUM` and
+**`run.json` under-reports `effective_batch` as 8.** The notebook computes `BATCH × ACCUM` and
 ignores world size; the true global batch was **4 × 2 × 8 = 64** on every arm and is comparable
 across them. The recorded field is wrong, not the training.

@@ -2,13 +2,13 @@
 
 **Ran 2026-08-09 on CHPC granite `grn008`, 1 × H100 NVL, bf16.** See `../_slurm/README.md`.
 
-## ❌ VERDICT: mT5 is not competitive. **Skip E09–E10.** The tokenizer verdict holds.
+## VERDICT: mT5 is not competitive. **Skip E09–E10.** The tokenizer verdict holds.
 
 Identical input to the incumbent (`draft_only`), so this isolates the model.
 
 | | Model | Params | Token F1 | ROUGE-L | pred LB |
 |---|---|---|---|---|---|
-| 🏆 incumbent — BanglaT5 @384/256 | banglat5 | 247.6 M | **0.7724** | 0.7324 | 0.85030 *(actual)* |
+| incumbent — BanglaT5 @384/256 | banglat5 | 247.6 M | **0.7724** | 0.7324 | 0.85030 *(actual)* |
 | `E18/banglat5` — same recipe, this pipeline | banglat5 | 247.6 M | **0.7768** | 0.7389 | 0.8531 |
 | **E08 — mT5-base @640/640** | **mt5-base** | **582.4 M** | **0.7563** | 0.7168 | 0.8423 |
 
@@ -16,18 +16,18 @@ Identical input to the incumbent (`draft_only`), so this isolates the model.
 noise floor. mT5 loses while carrying **2.35× the parameters** and a **larger sequence budget**
 (640/640 vs 384/256). The decision table's "E08 ≪ 0.7724 ⇒ drop E09" condition is met.
 
-⚠️ **E09 was queued before this landed** (mT5 on the Tier-1 winner, `english_draft`). Left running
+**E09 was queued before this landed** (mT5 on the Tier-1 winner, `english_draft`). Left running
 on purpose: it is the second half of the `E09 − E08` pair, which is the only thing that can say
 whether English helps *independently of architecture* or only through BanglaT5's tokenizer. That
 is a different question from "should mT5 ship", which this arm has already answered with no.
 
-## Checkpoints — 🔴 keep every arm, including the losers
+## Checkpoints — keep every arm, including the losers
 
 | Arm | `best/` kept? | Kaggle dataset | Token F1 | ROUGE-L | peak step | hours | notes |
 |---|---|---|---|---|---|---|---|
-| `main` | ✅ `E08_mt5_control/main/best` | *(not uploaded)* | 0.7563 | 0.7168 | **3,750** | 1.50 | ckpt hash `0845d190d7cbcdd3` · 582,401,280 params |
+| `main` | `E08_mt5_control/main/best` | *(not uploaded)* | 0.7563 | 0.7168 | **3,750** | 1.50 | ckpt hash `0845d190d7cbcdd3` · 582,401,280 params |
 
-🔴 Kept despite losing. It is the only **non-BanglaT5 encoder-decoder that still works** (unlike
+Kept despite losing. It is the only **non-BanglaT5 encoder-decoder that still works** (unlike
 IndicBART at 0.44), so it is a credible E14 ensemble member: different pretraining, different
 vocabulary, genuinely different errors. `main/submission.csv` is written.
 
@@ -63,7 +63,7 @@ change the ranking.
 ## Verdict
 
 - **What it must beat:** incumbent 0.7724 / 0.7324
-- **Result:** ❌ **−0.0161**
+- **Result:** **−0.0161**
 - **What it changes:**
   - **The measured tokenizer handicap is confirmed as a real score deficit**, not just a token
     count. mT5 needs 88 % more tokens for the same Bengali output; here it also truncates 14×

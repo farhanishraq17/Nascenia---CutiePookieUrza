@@ -14,7 +14,7 @@ Bengali medical dialogue rows), then the register-transfer task.
 The hypothesis is that broader Bengali medical fluency helps the model produce in-domain phrasing it
 would otherwise have to learn from the transfer data alone.
 
-🔴 **The corpus is leak-safe and must stay that way.** Its hcm rows whose ids fall in the frozen
+**The corpus is leak-safe and must stay that way.** Its hcm rows whose ids fall in the frozen
 dev/test split were **removed** (6,000 rows) — they are a *second translation of answers we evaluate
 on*, so training on them leaks the eval set. Verified: 0 dev-id overlap. See
 `data/warmstart_corpus/SOURCES.md`.
@@ -27,10 +27,10 @@ throughout. Natively-Bengali dialogue would add genuine variety — its only rea
 | Candidate | Note |
 |---|---|
 | `Atanuc73/Bengali-Medical-Chatbot-Dataset` (HF) | Direct Bengali patient→doctor pairs. **Not yet in the repo** — the strongest native candidate. |
-| `doctor_qa_bangla` | ✅ already inside the corpus (4,651 rows) — the only native source in it |
-| `Shakil2448868/Bangla-medical-question-answering` | ⚠️ audited at **901 rows**, is itself a *translation* of another audited set, **no stated licence**, and the local copy is a **132-byte git-LFS stub** — never downloaded |
+| `doctor_qa_bangla` | already inside the corpus (4,651 rows) — the only native source in it |
+| `Shakil2448868/Bangla-medical-question-answering` | audited at **901 rows**, is itself a *translation* of another audited set, **no stated licence**, and the local copy is a **132-byte git-LFS stub** — never downloaded |
 
-⚠️ **Before adding any of these, three checks:**
+**Before adding any of these, three checks:**
 1. **Is the local file real, or an LFS pointer?** 18 of 35 files in `Data_Search_1` are stubs
    (trap #1). `ls -la` before believing a row count.
 2. **§2.6.a** — publicly downloadable by any competitor, no gate, no cost. "No stated licence" is
@@ -93,7 +93,7 @@ different experiment. Keep the effective batch at **32–64**.
 
 | Result | Meaning |
 |---|---|
-| > baseline | ✅ Fluency transfer is real → also worth trying for Phase 2 clinical quality |
+| > baseline | Fluency transfer is real → also worth trying for Phase 2 clinical quality |
 | ≈ baseline | The transfer task already teaches everything needed |
 | < baseline | The warm-start shifted the model off-register — consistent with our measurement that off-register content is what this metric punishes |
 
@@ -102,7 +102,7 @@ different experiment. Keep the effective batch at **32–64**.
 ## Non-negotiables (every experiment)
 
 - **`transformers==4.57.3`** — other versions do not train this pipeline correctly. Assert it.
-- **bf16 on sm_80+, fp32 otherwise. 🔴 NEVER fp16** — T5 goes NaN *silently* and still writes a
+- **bf16 on sm_80+, fp32 otherwise. NEVER fp16** — T5 goes NaN *silently* and still writes a
   well-formed CSV of garbage.
 - **Never change the split**: `--seed 42 --dev-size 5000`. Every number in this project rests on it.
 - **Select on composite, never `eval_loss`** — they move in opposite directions on some tasks; one
@@ -116,7 +116,7 @@ different experiment. Keep the effective batch at **32–64**.
 
 Record everything in [`../RESULTS.md`](../RESULTS.md).
 
-- 🔴 **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
+- **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
   alone force a full retrain before anything here can be submitted, and a low-scoring model that
   *disagrees usefully* is exactly what E14/E19 need. One directory per arm; `run.json` beside the
   weights (`checkpoint_hash` is not a run identity). **Record everything in this folder's

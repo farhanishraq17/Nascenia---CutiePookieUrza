@@ -4,10 +4,10 @@ A running log of every extraction run in this project. **Book-repo conversions a
 
 | link | Source | Date (UTC) | Items | Output folder | Status |
 |------|--------|-----------|-------|---------------|--------|
-| link 3 | GitHub `manjunath5496/Human-Anatomy-Books` | 2026-07-27 | 14 books | `books/link 3/` | ✅ 14/14 converted |
-| link 2 | GitHub `manjunath5496/Physiology-Books` | 2026-07-27 | 31 books | `books/link 2/` | ✅ 31/31 converted |
-| link 1 | GitHub `manjunath5496/Medical-Books` | 2026-07-26 | 80 books | `books/link 1/` | ✅ 80/80 converted |
-| — | chorcha.net Medical Admission Question Bank | 2026-07-26 | 0 questions | `chorcha_ques.md` | ⚠️ content access-gated |
+| link 3 | GitHub `manjunath5496/Human-Anatomy-Books` | 2026-07-27 | 14 books | `books/link 3/` | 14/14 converted |
+| link 2 | GitHub `manjunath5496/Physiology-Books` | 2026-07-27 | 31 books | `books/link 2/` | 31/31 converted |
+| link 1 | GitHub `manjunath5496/Medical-Books` | 2026-07-26 | 80 books | `books/link 1/` | 80/80 converted |
+| — | chorcha.net Medical Admission Question Bank | 2026-07-26 | 0 questions | `chorcha_ques.md` | content access-gated |
 
 ### Method & fidelity notes (all runs)
 
@@ -267,7 +267,7 @@ Attempted scrape of the medical-admission question bank at <https://chorcha.net/
 | Question sets catalogued | 25 year-sets, 2,474 questions (counts only — no text) |
 | **Questions extracted** | **0 — question text is access-gated** |
 | Output file | `chorcha_ques.md` |
-| Status | ⚠️ Completed; no question content available to anonymous scraping |
+| Status | Completed; no question content available to anonymous scraping |
 
 **Issues / why no text was extracted:**
 - The rendered page shows *"No questions found"* for every year to anonymous visitors.

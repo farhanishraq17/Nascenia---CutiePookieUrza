@@ -6,7 +6,7 @@
 
 ---
 
-## 🏁 FINAL STATUS 2026-08-23 — Phase 1 is CLOSED. Nothing below is actionable.
+## FINAL STATUS 2026-08-23 — Phase 1 is CLOSED. Nothing below is actionable.
 
 **Final Phase 1 result: LB 0.89552, #1.** Shipped model
 `fine_tune_project/E15_decode_sweep/ckptavg_peak5/` (BanglaT5, 247,577,856 params).
@@ -18,13 +18,13 @@ router, champion (247,577,856) + Qwen3.5-2B arm D1 (1,881,825,088) = **2,129,402
 871M under the cap. Reproduces the scored Phase 1 submission **1000/1000 byte-identical**, and all
 26 manifest checksums verify. Due Aug 25, 12:00.
 
-### 🔴 Phase 1: the complete closed list (do not re-open any of these)
+### Phase 1: the complete closed list (do not re-open any of these)
 
 | lever | verdict | where |
 |---|---|---|
 | Decoding | 124 configs, residual **+0.00024** | E15 |
 | Draft translator quality (Claude vs Google) | **−0.0060 on final output**, copy of the E17 gain does not survive the champion | XFER-TEST24 |
-| **id-lookup correctness + draft integrity** | ✅ **verified clean on all 5,000 dev rows — no misaligned rows exist** | LOOKUP-AUDIT |
+| **id-lookup correctness + draft integrity** | **verified clean on all 5,000 dev rows — no misaligned rows exist** | LOOKUP-AUDIT |
 | Output ensembling / MBR | −0.0027, then +0.0020 (noise) vs +0.0326 oracle | MBR-01, E14 |
 | Weight ensembling / seed souping | pooling gate failed at 0.93 agreement | E19, SOUP-01 |
 | Distillation | teacher scored **0.249 below** the student | E20 |
@@ -84,11 +84,11 @@ The gap between *a randomly chosen unrelated doctor response* (0.6863) and *a ha
 
 **③ The realistic competitive band is narrow: ~0.45 to ~0.55.** A constant string floors at 0.451. A well-fine-tuned model should reach ~0.52–0.55. **Fractions of a point of Token F1 decide placings.** This justifies aggressive, targeted metric optimization.
 
-> ⚠️ **The one assumption that could invalidate ①.** If the organizers call `bert_score` with `rescale_with_baseline=True`, that ~0.68 floor is subtracted away and BERTScore becomes highly discriminative again. Their metric description says only "BERTScore F1" with no mention of rescaling, and the default is `False` — so unrescaled is the likely case. **This is the single most valuable question to ask on the Discussion tab (see §9, Day 1).** The plan below is robust either way, because the pipeline that maximizes lexical overlap on in-domain text also improves BERTScore; only the *relative effort allocation* would change.
+> **The one assumption that could invalidate ①.** If the organizers call `bert_score` with `rescale_with_baseline=True`, that ~0.68 floor is subtracted away and BERTScore becomes highly discriminative again. Their metric description says only "BERTScore F1" with no mention of rescaling, and the default is `False` — so unrescaled is the likely case. **This is the single most valuable question to ask on the Discussion tab (see §9, Day 1).** The plan below is robust either way, because the pipeline that maximizes lexical overlap on in-domain text also improves BERTScore; only the *relative effort allocation* would change.
 
 ---
 
-## 0.25 ⚡ CONFIRMED BY SUBMISSION 1 — and the metric is stronger than §0 claimed
+## 0.25 CONFIRMED BY SUBMISSION 1 — and the metric is stronger than §0 claimed
 
 **2026-08-04: a constant string scored 0.57849 and took #1 on the public leaderboard**, ahead of every fine-tuned entry. Archived: `NOTEBOOKS/0.57849_nascenia_constant_probe/`.
 
@@ -107,7 +107,7 @@ The organizers' embedding model/layer yields **0.934** where our mBERT-layer-9 y
 > **BERTScore is not rescaled** (rescaling would lower the score, not raise it), and it is very nearly a constant additive term. **Token F1 and ROUGE-L decide this competition outright.**
 
 **Actions:**
-- ⚠️ **`metric.py`'s BERTScore is mis-calibrated. Rank runs by Token F1 / ROUGE-L.** Lexical components remain valid. Calibration was attempted and **capped** — every model/layer tried (mBERT L6/9/11/12, XLM-R L8/10/11/12, DistilBERT, MiniLM) gives a constant-vs-random spread of 0.0008–0.042, so the exact identity changes no decision. One equation, three unknowns.
+- **`metric.py`'s BERTScore is mis-calibrated. Rank runs by Token F1 / ROUGE-L.** Lexical components remain valid. Calibration was attempted and **capped** — every model/layer tried (mBERT L6/9/11/12, XLM-R L8/10/11/12, DistilBERT, MiniLM) gives a constant-vs-random spread of 0.0008–0.042, so the exact identity changes no decision. One equation, three unknowns.
 - Under the true metric, human-vs-human agreement (§0.5) is ~**0.63**, not 0.53. **Revised target band: 0.65–0.70.**
 - 0.90 remains unreachable: it needs Token F1 ≈ 0.85 even with BERTScore at 1.0.
 
@@ -117,7 +117,7 @@ The organizers' embedding model/layer yields **0.934** where our mBERT-layer-9 y
 
 **② The bar for the trained model is Token F1 0.3519, not 0.2669.** A greedy constant built purely from corpus unigram frequencies — no model at all — reaches 0.3519. Any checkpoint below that has learned nothing beyond word frequencies.
 
-### 0.27 🔴 A constant string cannot win — structural, not incremental
+### 0.27 A constant string cannot win — structural, not incremental
 
 We are #1 with a hand-written constant, but that position is not convertible into a prize:
 - **Rules §8 prohibits submitting outputs from manual/human labeling rather than your model.** A hand-written constant is not model output.
@@ -141,13 +141,13 @@ Measured 2026-08-04 on the frozen data.
 
 **Two genuine expert answers to the identical patient question agree at only ~0.53 composite.** The reference is one sample from a wide distribution of valid doctor responses; which synonyms, clause order, and hedges a given doctor used is not predictable. That uncertainty is irreducible.
 
-> ⚠️ Sample is small — 9 exact-duplicate input pairs; near-duplicate search found almost nothing above 0.6 cosine (this corpus rarely repeats questions). Treat 0.53 as **directional**, not precise. It is nonetheless consistent with the constant floor (0.46) and the observed leaderboard (0.578).
+> Sample is small — 9 exact-duplicate input pairs; near-duplicate search found almost nothing above 0.6 cosine (this corpus rarely repeats questions). Treat 0.53 as **directional**, not precise. It is nonetheless consistent with the constant floor (0.46) and the observed leaderboard (0.578).
 
 **Consequences:**
 1. ~~**0.90+ is not attainable.**~~ 2. ~~**Realistic winning band: ~0.62–0.68.**~~
 3. **The leaderboard leader (0.578) already exceeds human-human agreement.** This confirms the §0 thesis: the metric rewards reproducing *this corpus's* boilerplate scaffolding — something two independent doctors would never share — not clinical correctness.
 
-> ### 🔴 Consequences 1 and 2 were WRONG — corrected 2026-08-06
+> ### Consequences 1 and 2 were WRONG — corrected 2026-08-06
 >
 > **Both were derived from CEILING-01 and both inherited its error.** CEILING-01 measured how well
 > two *independent* doctors agree (Token F1 0.36) and I treated that as a bound on any model.
@@ -223,16 +223,16 @@ Document frequency of tokens across a 20k output sample:
 
 Ranked by expected points per unit of effort:
 
-### 🔴 Rewritten 2026-08-06 — every lever is now measured, and the ranking was badly wrong
+### Rewritten 2026-08-06 — every lever is now measured, and the ranking was badly wrong
 
 | # | Lever | Predicted | **Measured** |
 |---|---|---|---|
-| **1** | **ALIGN-01 register transfer** (§5.0) — *not in the original list at all* | — | **+0.272 LB** 🏆 |
+| **1** | **ALIGN-01 register transfer** (§5.0) — *not in the original list at all* | — | **+0.272 LB** |
 | 2 | Fine-tune on all 108k, learn the boilerplate (§4, §5) | large | +0.002 vs the constant |
 | 3 | Learning rate (§4.1–4.4) — *not in the original list* | — | +0.053 Token F1 |
 | 4 | Length calibration (§7) | medium | ~0 — length self-corrects |
-| 5 | **MBR decoding** (§6) — *was ranked #1* | **large** | **−0.0027 LB** ❌ |
-| 6 | Ensemble via pooled MBR (§6.3) | small–medium | **−0.0027, output identical to the better single** ❌ |
+| 5 | **MBR decoding** (§6) — *was ranked #1* | **large** | **−0.0027 LB** |
+| 6 | Ensemble via pooled MBR (§6.3) | small–medium | **−0.0027, output identical to the better single** |
 | 7 | External data *mixed in* | negative | untested — correctly deprioritised |
 
 **The two things that actually moved the score were not on the list**, and the item ranked #1 turned
@@ -258,14 +258,14 @@ Why this is the primary bet: the metric rewards *reproducing the reference distr
 
 Also test: `google/mt5-base` (580M), `google/mt5-large` (1.2B).
 
-### Track B — ~~Decoder LLM~~ ❌ **ELIMINATED — both candidates breach the cap**
+### Track B — ~~Decoder LLM~~ **ELIMINATED — both candidates breach the cap**
 
 **Corrected 2026-08-05, verified against the model cards:**
 
 | Model | Total params | Verdict |
 |---|---|---|
-| `Qwen2.5-3B-Instruct` | **3.09B** (2.77B non-embedding) | ❌ **over 3,000,000,000** |
-| `hishab/titulm-llama-3.2-3b-v1.1` | **3.21B** | ❌ over cap |
+| `Qwen2.5-3B-Instruct` | **3.09B** (2.77B non-embedding) | **over 3,000,000,000** |
+| `hishab/titulm-llama-3.2-3b-v1.1` | **3.21B** | over cap |
 
 The rule counts **total parameters at inference**, not non-embedding. Qwen2.5-3B's 3.09B exceeds it by 90M — enough to fail Phase 2 verification and be disqualified. An earlier draft of this plan named Qwen2.5-3B as the Track B hedge and the Phase 2 asset; **that was wrong.**
 
@@ -273,15 +273,15 @@ The rule counts **total parameters at inference**, not non-embedding. Qwen2.5-3B
 
 **Track A is now the only track.** That raises the value of multi-seed pooling, which is exactly what BanglaT5's small size affords.
 
-⚠️ **License position (verified 2026-08-04):**
+**License position (verified 2026-08-04):**
 
 | Model | License | Status |
 |---|---|---|
-| ~~Qwen2.5-3B-Instruct~~ | Apache-2.0 | ❌ **3.09B — over the cap, eliminated** |
-| mT5 | Apache-2.0 | ✅ clean |
-| **BanglaT5** | **CC BY-NC-SA 4.0** | ✅ **usable — see carve-out below** |
-| ~~Llama-3.2 / titulm~~ | Llama community license (not OSI) | ❌ **3.21B — over the cap, eliminated** |
-| Gemma-2-2B | Gemma Terms (not OSI) | ⚠️ same |
+| ~~Qwen2.5-3B-Instruct~~ | Apache-2.0 | **3.09B — over the cap, eliminated** |
+| mT5 | Apache-2.0 | clean |
+| **BanglaT5** | **CC BY-NC-SA 4.0** | **usable — see carve-out below** |
+| ~~Llama-3.2 / titulm~~ | Llama community license (not OSI) | **3.21B — over the cap, eliminated** |
+| Gemma-2-2B | Gemma Terms (not OSI) | same |
 
 **The carve-out matters and resolves the BanglaT5 concern.** Kaggle Rules §2.5.a states that where *"input data or pretrained models with an incompatible license are used to generate your winning solution, you do not need to grant an open source license … for that data and/or model(s)."* So a NonCommercial base model is fine — the open-source obligation attaches to **our** code, not to the upstream checkpoint. BanglaT5's CC BY-NC-SA is also consistent with the competition data itself being CC BY-NC 4.0.
 
@@ -294,16 +294,16 @@ If a decoder hedge is ever wanted, it must be **≤ 2.5B total** to leave verifi
 
 ### 3.1 Triage of `MODELS/MODEL_LIST.md`
 
-Model-card facts below marked ✅ were **verified against the live model cards on 2026-08-04**. Items marked ⚠️ are from prior knowledge and still need checking.
+Model-card facts below marked were **verified against the live model cards on 2026-08-04**. Items marked are from prior knowledge and still need checking.
 
 **Worth testing — additions to the Track A bakeoff**
 
 | Model | ~Size | Verdict |
 |---|---|---|
-| ⚠️ `facebook/mbart-large-50` | ~610M | Seq2seq with explicit Bengali (`bn_IN`) support and strong denoising pretraining. Legitimate alternative to mT5-base in the bakeoff. |
-| ⚠️ `ai4bharat/IndicBART` | ~244M | Small enough to ensemble like BanglaT5. Covers Bengali. Likely loses on tokenization efficiency (BanglaT5 is Bengali-monolingual), but cheap to check. |
+| `facebook/mbart-large-50` | ~610M | Seq2seq with explicit Bengali (`bn_IN`) support and strong denoising pretraining. Legitimate alternative to mT5-base in the bakeoff. |
+| `ai4bharat/IndicBART` | ~244M | Small enough to ensemble like BanglaT5. Covers Bengali. Likely loses on tokenization efficiency (BanglaT5 is Bengali-monolingual), but cheap to check. |
 
-**✅ `faisal4590aziz/bangla-t5-mHealth` — downgraded after checking the card. Low priority.**
+**`faisal4590aziz/bangla-t5-mHealth` — downgraded after checking the card. Low priority.**
 
 The list flags it "very special", and an earlier draft of this plan called it the most interesting item. The model card does not support that:
 
@@ -313,7 +313,7 @@ The list flags it "very special", and an earlier draft of this plan called it th
 
 Still a legal option under the pretrained-model carve-out, and cheap to test at 0.2B — but it goes at the back of the queue, not the front.
 
-**✅ Confirmed: BanglaT5 requires the csebuetnlp normalizer.** The model card is explicit: *"make sure the text units are normalized using this pipeline before tokenizing to get best results."* Install from `github.com/csebuetnlp/normalizer` and apply it to `01_prep.py` output inside the Track A training script. Skipping it degrades the primary bet. **This is a required step, not an optimization.**
+**Confirmed: BanglaT5 requires the csebuetnlp normalizer.** The model card is explicit: *"make sure the text units are normalized using this pipeline before tokenizing to get best results."* Install from `github.com/csebuetnlp/normalizer` and apply it to `01_prep.py` output inside the Track A training script. Skipping it degrades the primary bet. **This is a required step, not an optimization.**
 
 **Ruled out — do not spend time on these**
 
@@ -335,14 +335,14 @@ Still a legal option under the pretrained-model carve-out, and cheap to test at 
 
 | Model | Params | Licence | Verdict |
 |---|---|---|---|
-| **`csebuetnlp/banglat5`** | 296.9M *(on Kaggle)* | CC BY-NC-SA 4.0 † | ✅ **primary — 3–5 seeds** |
-| **`google/mt5-base`** | 580M | Apache-2.0 | ✅ **the one architecture challenger** |
-| `facebook/mbart-large-50` | 611M | MIT | ⏸️ run only if mT5-base is competitive |
-| `ai4bharat/IndicBART` | 244M | MIT | ⏸️ Devanagari-conversion step is risky under token-overlap scoring |
-| `google/mt5-large` | 1.23B | Apache-2.0 | ❌ ~4× BanglaT5's 5.7 h in fp32 — will not fit a 12 h session |
-| `Qwen2.5-3B-Instruct` | **3.09B** | Apache-2.0 | ❌ over the cap |
-| `titulm` / `Llama-3.2-3B` | **3.21B** | Llama community | ❌ over the cap |
-| Clinical-T5 · Med-mT5 · IndicF5 · BongLlama · BanglaCHQ-Summ · Bangla MedER | — | — | ❌ wrong task or language (§3.1) |
+| **`csebuetnlp/banglat5`** | 296.9M *(on Kaggle)* | CC BY-NC-SA 4.0 † | **primary — 3–5 seeds** |
+| **`google/mt5-base`** | 580M | Apache-2.0 | **the one architecture challenger** |
+| `facebook/mbart-large-50` | 611M | MIT | ⏸run only if mT5-base is competitive |
+| `ai4bharat/IndicBART` | 244M | MIT | ⏸Devanagari-conversion step is risky under token-overlap scoring |
+| `google/mt5-large` | 1.23B | Apache-2.0 | ~4× BanglaT5's 5.7 h in fp32 — will not fit a 12 h session |
+| `Qwen2.5-3B-Instruct` | **3.09B** | Apache-2.0 | over the cap |
+| `titulm` / `Llama-3.2-3B` | **3.21B** | Llama community | over the cap |
+| Clinical-T5 · Med-mT5 · IndicF5 · BongLlama · BanglaCHQ-Summ · Bangla MedER | — | — | wrong task or language (§3.1) |
 
 † covered by the Kaggle Rules §2.5.a pretrained-model carve-out — see §3.
 
@@ -350,7 +350,7 @@ Still a legal option under the pretrained-model carve-out, and cheap to test at 
 
 **Why seed diversity beats architecture diversity here:** MBR pools *decoded strings*, so five independently-seeded BanglaT5 checkpoints already produce genuinely different candidates. And BanglaT5's Bengali-native SentencePiece tokenizes ~2–3× more efficiently than mT5's multilingual vocab — which matters when the entire objective is lexical overlap against Bengali references.
 
-⚠️ Cross-architecture pooling is only safe because `04_decode.py` now uses **each checkpoint's own tokenizer**. Before that fix, a shared tokenizer across different SentencePiece vocabs silently produced garbage.
+Cross-architecture pooling is only safe because `04_decode.py` now uses **each checkpoint's own tokenizer**. Before that fix, a shared tokenizer across different SentencePiece vocabs silently produced garbage.
 
 ### 3.3 Training-slot budget — 4 team accounts
 
@@ -370,7 +370,7 @@ Still a legal option under the pretrained-model carve-out, and cheap to test at 
 |---|---|---|
 | 1 | BanglaT5 seed 42 — **control** | must clear Token F1 **0.3519** before anything else starts |
 | 2–5 | BanglaT5 seeds 1337, +2 more | MBR pool depth |
-| ~~6~~ | ~~NLP4Health warm-start~~ | ⛔ **DROPPED — §5.3b.** Synthetic (gpt-5-nano) and *translated* to Bangla via BhashaVerse. The "natively Bengali, zero fingerprint" premise was false. |
+| ~~6~~ | ~~NLP4Health warm-start~~ | **DROPPED — §5.3b.** Synthetic (gpt-5-nano) and *translated* to Bangla via BhashaVerse. The "natively Bengali, zero fingerprint" premise was false. |
 | 7 | ChatDoctor warm-start → competition data | second curriculum arm (§5.4) |
 | 8 | **mT5-base** | architecture diversity + diagnostic |
 | 9+ | mBART-50, translated `Data_Search_4` | only if the above plateau |
@@ -388,7 +388,7 @@ Still a legal option under the pretrained-model carve-out, and cheap to test at 
 4. Deduplicate exact `(input, output)` pairs; keep duplicate outputs (they encode the boilerplate prior).
 5. Split: **5,000 dev / rest train**, fixed seed, saved to disk. Never touch dev during training.
 
-### 🔴 4.0 PIN THE LIBRARY FIRST — this was the root cause of eight failed runs
+### 4.0 PIN THE LIBRARY FIRST — this was the root cause of eight failed runs
 
 ```python
 !pip install -q --upgrade "transformers==4.57.3" git+https://github.com/csebuetnlp/normalizer
@@ -405,7 +405,7 @@ Keep the `assert`: Kaggle can silently resolve a different version, and that mus
 
 ---
 
-**Seq2seq (Track A) — ✅ the config that actually completed**
+**Seq2seq (Track A) — the config that actually completed**
 ```
 transformers==4.57.3 · single T4 (CUDA_VISIBLE_DEVICES=0) · fp32 · Adafactor
 lr 1e-3 · warmup 200 · 2 epochs · batch 8 x accum 8 = 64 effective
@@ -416,7 +416,7 @@ max_source_len 384 · max_target_len 256 · --no-group-by-length
 - Early-stop on **dev composite score, not val loss.** Loss and the metric diverge here.
 - Precision: **fp32**. T4 is sm_75 with no bf16 hardware, and T5 diverges to NaN in fp16. Gate on compute capability, *not* `torch.cuda.is_bf16_supported()` (trap #8).
 
-### ⚡ 4.1 LR raised to 1e-3 by the six-arm sweep (2026-08-05)
+### 4.1 LR raised to 1e-3 by the six-arm sweep (2026-08-05)
 
 `lr 3e-4` above was the *warmup correction*, not a tuned value. The sweep tuned it, and the trend is monotone with no visible top:
 
@@ -425,13 +425,13 @@ max_source_len 384 · max_target_len 256 · --no-group-by-length
 | 1e-4 *(+31% warmup)* | 64 | 0.2051 | 0.1433 | — | 0.5574 |
 | 3e-4 | 64 | 0.2321 | 0.1666 | 2.223 | 0.5701 |
 | 3e-4 | **32** | 0.2444 | 0.1746 | 2.220 | 0.5754 |
-| **1e-3** | 64 | **0.2576** | **0.1776** | **2.016** | **0.5800** 🥇 |
+| **1e-3** | 64 | **0.2576** | **0.1776** | **2.016** | **0.5800** |
 
-**🥇 The 1e-3 arm is the first model to pass the constant string** (0.5800 vs 0.57849) — and it does so while *still losing on Token F1* (0.2576 vs 0.2669). ROUGE-L carries it: a constant has near-optimal bag-of-words overlap but matches no word *order*, and ordering is worth 0.2 of the score. §0.27 stands, but the model track is no longer behind it.
+**The 1e-3 arm is the first model to pass the constant string** (0.5800 vs 0.57849) — and it does so while *still losing on Token F1* (0.2576 vs 0.2669). ROUGE-L carries it: a constant has near-optimal bag-of-words overlap but matches no word *order*, and ordering is worth 0.2 of the score. §0.27 stands, but the model track is no longer behind it.
 
 **The axis is optimizer updates × LR, not epochs.** Runs at different batch sizes agree at equal *step* counts (A: 0.2365 @ 3k steps, F: 0.2442 @ 3k), despite F seeing half the data per step.
 
-### 🔴 4.2 Each LR has a PEAK, not a plateau — so `load_best_model_at_end` is load-bearing
+### 4.2 Each LR has a PEAK, not a plateau — so `load_best_model_at_end` is load-bearing
 
 Arm C's trajectory:
 
@@ -452,7 +452,7 @@ Four operational consequences:
 
 **Noise floor: 0.0044 Token F1**, from three seeds of one config. Ignore anything smaller. *(Conservative — arm A had not fully converged when measured, so part of that spread is curve position rather than seed variance.)*
 
-### ✅ 4.3 Arm E closed the epoch question — budget STEPS, not epochs
+### 4.3 Arm E closed the epoch question — budget STEPS, not epochs
 
 E (lr 1e-3, seed 99, stopped at step 3,500 / epoch 2.20) landed at **Token F1 0.2539** against C's
 **0.2576** — **Δ 0.0037, inside the 0.0044 noise floor.** The prediction made from C's trajectory
@@ -463,12 +463,12 @@ held exactly. Two further facts came out of it:
 - E carries the post-peak decline 1,500 steps further than C did (0.2539 → 0.2393 by step 3,500),
   so past the peak the damage **keeps accruing** rather than levelling off.
 
-**🟢 The operational rule:** at lr 1e-3 the productive budget is **~2,000 steps**. A full 2-epoch arm
+**The operational rule:** at lr 1e-3 the productive budget is **~2,000 steps**. A full 2-epoch arm
 costs 6.5–8 h and only the first ~4 h contribute. **Run 2,500 steps with eval every 250 and stop** —
 roughly halves the cost per experiment and frees GPU hours for a different question. Never express
 the budget in epochs; the epoch count is an artefact of batch size.
 
-### 🏁 4.4 LR TUNING IS CLOSED — arm G turned the curve over (2026-08-06)
+### 4.4 LR TUNING IS CLOSED — arm G turned the curve over (2026-08-06)
 
 | lr | eff-batch | peak Token F1 | peak step |
 |---|---|---|---|
@@ -502,11 +502,11 @@ Detail: [FINE_TUNING_NOTEBOOKS/FINE_TUNING_LOG.md](FINE_TUNING_LOG.md).
 
 ~~**Decoder LLM (Track B)**~~ — removed; see §3, both 3B candidates breach the cap.
 
-⚠️ **Warmup correction (2026-08-05).** An earlier draft specified `warmup 1000`, which is wrong for a 2-epoch run: 2 epochs at effective batch 64 is only **3,180 steps**, so 1000 warmup = **31% of training spent ramping the LR from zero**. The run under that schedule reached only Token F1 0.070 at epoch 0.63. Now corrected to `--warmup 200` (~6%) with `--lr 3e-4`, as reflected in §4.0.
+**Warmup correction (2026-08-05).** An earlier draft specified `warmup 1000`, which is wrong for a 2-epoch run: 2 epochs at effective batch 64 is only **3,180 steps**, so 1000 warmup = **31% of training spent ramping the LR from zero**. The run under that schedule reached only Token F1 0.070 at epoch 0.63. Now corrected to `--warmup 200` (~6%) with `--lr 3e-4`, as reflected in §4.0.
 
 **Non-negotiable:** log `seed`, `commit`, `config`, `checkpoint hash` for every run into `LOCAL_EXPERIMENTS.md`. Phase 2 requires reproducing the exact leaderboard output or you are disqualified.
 
-🔴 **The `checkpoint_hash` written before 2026-08-05 is not valid evidence** — `sha256_dir` hashed file names and sizes only, so all BanglaT5 checkpoints collide (trap #16). Fixed to hash contents. For any earlier run, cite the `run.json` config block plus the archived notebook, and re-hash the downloaded weights.
+**The `checkpoint_hash` written before 2026-08-05 is not valid evidence** — `sha256_dir` hashed file names and sizes only, so all BanglaT5 checkpoints collide (trap #16). Fixed to hash contents. For any earlier run, cite the `run.json` config block plus the archived notebook, and re-hash the downloaded weights.
 
 ---
 
@@ -520,7 +520,7 @@ Three reasons:
 2. **108,954 in-domain pairs is already plenty** to saturate a 247M–3B model on a single narrow style.
 3. **Most of what's collected doesn't exist on disk.** Every HuggingFace file under `DATA/EXTERNAL_COLLECTED_DATA/Data_Search_1/huggingface/` is a **131–134 byte git-LFS pointer stub, not real data** — including ChatDoctor-HealthCareMagic-100k, Bengali-healthcare, medical-o1-reasoning-SFT, and medical-qa-multi. They were never fetched. What *is* real: `doctor_qa_bangla` (5,135 rows, Mistral-format), MedQuAD (16,412 English), Disease-symptom (74 MB), Medicine-Dataset-of-Bangladesh, BanglaCHQ-Summ (1,880), bengali-chat-conversation (1,074).
 
-### 🔴 5.0 SUPERSEDING FINDING — `Data_Search_3` is id-aligned with the test set (2026-08-05)
+### 5.0 SUPERSEDING FINDING — `Data_Search_3` is id-aligned with the test set (2026-08-05)
 
 **Everything in §5 below was written on the assumption that external data can only shift the output
 register. That is wrong for this one dataset, and the difference is worth ~0.17 LB.**
@@ -551,7 +551,7 @@ reproducible, and it should score **above** 0.7564 because the external text is 
 register the metric rewards: `নাসেনিয়া` appears in **0.00%** of external outputs vs **49.98%** of
 references, and the opener `হেলো` in **0.06%** vs **76.62%**.
 
-#### ✅ Provenance resolved — §2.6.a satisfied (user-confirmed 2026-08-05)
+#### Provenance resolved — §2.6.a satisfied (user-confirmed 2026-08-05)
 
 **Source: https://github.com/Kent0n-Li/ChatDoctor.** The team downloaded HealthCareMagic-100k from
 the official repo and **translated it to Bengali themselves**; `Data_Search_3` is that derived
@@ -559,14 +559,14 @@ artifact, not a third-party dataset.
 
 | §2.6.a requirement | Status |
 |---|---|
-| publicly available | ✅ public GitHub repo, open Google Drive links |
-| equally accessible to all Participants | ✅ no registration, approval, or gate |
-| at no cost | ✅ free |
+| publicly available | public GitHub repo, open Google Drive links |
+| equally accessible to all Participants | no registration, approval, or gate |
+| at no cost | free |
 
 Licence: code Apache-2.0; datasets *"for academic research only; any commercial use and clinical
 use is prohibited"* — compatible with a Community/Kudos-only competition whose own data is CC BY-NC 4.0.
 
-**🔴 The exposure is not created by our translation.** The organizers built this competition from a
+**The exposure is not created by our translation.** The organizers built this competition from a
 public dataset and **preserved its row indices as `id`**. Any competitor who downloads
 HealthCareMagic-100k and indexes by row number holds the English answers to all 1,000 test rows.
 
@@ -589,7 +589,7 @@ against this corpus, found 0/1000, and recorded "no overlap." Correct measuremen
 a different translation never matches exactly. **When two datasets share a source, compare their
 identifier spaces before concluding they are disjoint.**
 
-### 5.1 ⚡ New asset — `Data_Search_3` Bengali ChatDoctor (2026-08-05)
+### 5.1 New asset — `Data_Search_3` Bengali ChatDoctor (2026-08-05)
 
 `DATA/EXTERNAL_COLLECTED_DATA/Data_Search_3/ChatDoctor dataset/bengali_medical_train_clean.csv` is **real data, not an LFS stub**: 360 MB, **131,877 rows**, columns `id · source · input · output`. An independent Bengali translation of the same English ChatDoctor corpus our competition data came from. (`.json` is the same content — use one, never both.)
 
@@ -597,7 +597,7 @@ identifier spaces before concluding they are disjoint.**
 
 | Overlap (exact, normalized) | Count |
 |---|---|
-| competition **test** inputs present | **0 / 1000** ✅ |
+| competition **test** inputs present | **0 / 1000** |
 | competition **train** inputs present | 6 / 108,954 |
 
 **But read that carefully.** 0 exact overlap is expected *because it is a different translation of the same English source* — the test questions are very likely present, differently worded. Using it is defensible (public external data, permitted and disclosed), but it is **not** the clean separation the 0 suggests, and the disclosure must say so.
@@ -614,24 +614,24 @@ Sources reviewed in `GPT-INSTRUCTIONS.md` + `GPT_DATASET_FIND.md`, cross-checked
 
 | Source | Decision | Reason |
 |---|---|---|
-| **Bengali ChatDoctor** (`Data_Search_3`, 131,877) | ✅ **Stage-0 warm-start, 1 epoch** | Closest external match in language, dialogue style and response length. Already Bengali — no translation risk. |
-| **AI medical chatbot** (`Data_Search_4`, 256,916 English) | ⏸️ **Hold — requires translation** | Filtered subset `ai_medical_chatbot_unique_non_chatdoctor.csv` (163 MB) removes the 81,170 rows that reuse ChatDoctor inputs. **English**, so it needs translation before use. See §5.3. |
-| MTS-Dialog (1.7k, CC BY 4.0) | ⏸️ small ablation only | Native task is clinical-note generation, not answer generation. |
-| Simulated patient-physician interviews (272) / MediTOD | ⏸️ small ablation only | High quality but narrow and multi-turn. |
-| **NLP4Health-2025** (45k Bangla dialogues) | ⛔ **DROPPED 2026-08-07 — see §5.3b** | Owners explicitly permit **research use** (confirmed by the user 2026-08-05). The competition is itself research/educational (Rulebook §11), so the licence aligns. **The strongest Bangla lead in the entire audit**: 45k+ validated multilingual patient–provider dialogues with Bangla QA pairs — natively Bengali, real dialogue, no translation risk. See §5.3a for the one open condition. |
-| IndicMedDialog · MedAidDialog | ❌ unavailable | No downloadable data or reuse licence; papers promise future release. |
-| Standalone `doctor_qa_bangla` | ❌ do not add separately | Its rows are already inside Bengali ChatDoctor — would double-count. |
-| BanglaCHQ-Summ | ❌ | Question *summarization*, 28-token summaries. Wrong task. |
-| BanglaHealth paraphrases | ❌ | No doctor-response supervision; licence self-contradictory. |
-| BanglaMedQA · MedMCQA · MedQA · MediQAl · medical-o1 | ❌ | Exam / MCQ / reasoning formats. Not dialogue. |
-| MedDialog · HealthCareMagic-100k · Kaggle ChatDoctor · CovidDialog | ❌ | Repackaged versions of the *same* web-consultation sources already represented. |
-| English MedQuAD, medicine catalogue, disease-symptom table, NER, specialist labels | ❌ | Wrong task shape or language. |
-| `unified_medical_qa_train.*` · `non_medical_filtered_data.csv` | ❌ | English / explicitly non-medical (31 rows). |
-| **`Data_Search_2` — 125 English medical books (~70k pages)** | ❌ **Not for SFT, translation, or RAG** | Reference prose, not supervised dialogue pairs. Includes veterinary, botanical and alternative-medicine texts. **No dataset-wide reuse licence documented.** |
+| **Bengali ChatDoctor** (`Data_Search_3`, 131,877) | **Stage-0 warm-start, 1 epoch** | Closest external match in language, dialogue style and response length. Already Bengali — no translation risk. |
+| **AI medical chatbot** (`Data_Search_4`, 256,916 English) | ⏸**Hold — requires translation** | Filtered subset `ai_medical_chatbot_unique_non_chatdoctor.csv` (163 MB) removes the 81,170 rows that reuse ChatDoctor inputs. **English**, so it needs translation before use. See §5.3. |
+| MTS-Dialog (1.7k, CC BY 4.0) | ⏸small ablation only | Native task is clinical-note generation, not answer generation. |
+| Simulated patient-physician interviews (272) / MediTOD | ⏸small ablation only | High quality but narrow and multi-turn. |
+| **NLP4Health-2025** (45k Bangla dialogues) | **DROPPED 2026-08-07 — see §5.3b** | Owners explicitly permit **research use** (confirmed by the user 2026-08-05). The competition is itself research/educational (Rulebook §11), so the licence aligns. **The strongest Bangla lead in the entire audit**: 45k+ validated multilingual patient–provider dialogues with Bangla QA pairs — natively Bengali, real dialogue, no translation risk. See §5.3a for the one open condition. |
+| IndicMedDialog · MedAidDialog | unavailable | No downloadable data or reuse licence; papers promise future release. |
+| Standalone `doctor_qa_bangla` | do not add separately | Its rows are already inside Bengali ChatDoctor — would double-count. |
+| BanglaCHQ-Summ | no | Question *summarization*, 28-token summaries. Wrong task. |
+| BanglaHealth paraphrases | no | No doctor-response supervision; licence self-contradictory. |
+| BanglaMedQA · MedMCQA · MedQA · MediQAl · medical-o1 | no | Exam / MCQ / reasoning formats. Not dialogue. |
+| MedDialog · HealthCareMagic-100k · Kaggle ChatDoctor · CovidDialog | no | Repackaged versions of the *same* web-consultation sources already represented. |
+| English MedQuAD, medicine catalogue, disease-symptom table, NER, specialist labels | no | Wrong task shape or language. |
+| `unified_medical_qa_train.*` · `non_medical_filtered_data.csv` | no | English / explicitly non-medical (31 rows). |
+| **`Data_Search_2` — 125 English medical books (~70k pages)** | **Not for SFT, translation, or RAG** | Reference prose, not supervised dialogue pairs. Includes veterinary, botanical and alternative-medicine texts. **No dataset-wide reuse licence documented.** |
 
 ---
 
-## 5.3b 🔴 LIT-01 — the NLP4Health-2025 paper, read in full. Three claims in this plan were wrong.
+## 5.3b LIT-01 — the NLP4Health-2025 paper, read in full. Three claims in this plan were wrong.
 
 **Source:** *Patient-Centric Question Answering — Overview of the Shared Task*,
 [aclanthology.org/2025.nlpai4health-main.5](https://aclanthology.org/2025.nlpai4health-main.5/)
@@ -642,14 +642,14 @@ Sources reviewed in `GPT-INSTRUCTIONS.md` + `GPT_DATASET_FIND.md`, cross-checked
 | We recorded | The paper says |
 |---|---|
 | "45k+ **validated real** patient–provider dialogues" | **Synthetic.** A *"Human-Guided Agentic Generation pipeline"* — dialogues generated by an autonomous agent framework powered by **`gpt-5-nano-2025-08-07`** |
-| "**natively Bengali**" | ❌ **Translated.** *"validated English and Hindi dialogues were translated into the remaining Indic languages (Telugu, Tamil, **Bangla**, Gujarati, Kannada, Marathi, Dogri, Assamese) using the **BhashaVerse framework**, followed by native-speaker post-editing"* |
-| "**zero translation-fingerprint risk**" | ❌ **Two fingerprints, not zero** — GPT-5-nano generation *plus* BhashaVerse machine translation, then human post-editing |
+| "**natively Bengali**" | **Translated.** *"validated English and Hindi dialogues were translated into the remaining Indic languages (Telugu, Tamil, **Bangla**, Gujarati, Kannada, Marathi, Dogri, Assamese) using the **BhashaVerse framework**, followed by native-speaker post-editing"* |
+| "**zero translation-fingerprint risk**" | **Two fingerprints, not zero** — GPT-5-nano generation *plus* BhashaVerse machine translation, then human post-editing |
 
 What *is* genuine: the clinical curriculum (oncologists and pulmonologists at CMC Vellore) and
 the validation (three independent language experts per instance, mean ≥85/100, >80% consensus).
 Quality is not the issue — **provenance is.**
 
-🔴 **This removes the entire reason we ranked it first.** It was the top external candidate
+**This removes the entire reason we ranked it first.** It was the top external candidate
 *because* it was supposedly native real dialogue. It is neither. It carries more translation
 fingerprint than `doctor_qa_bangla`, which is already in the repo and genuinely native.
 
@@ -657,10 +657,10 @@ fingerprint than `doctor_qa_bangla`, which is already in the repo and genuinely 
 GitHub mirror exists; the paper states no licence, no download URL, and no distribution terms.
 Unverifiable — but the fingerprint finding makes it moot.
 
-**Verdict: ❌ dropped.** Not on accessibility, on provenance. `warmstart_corpus` already carries
+**Verdict: dropped.** Not on accessibility, on provenance. `warmstart_corpus` already carries
 123,289 curated rows including 4,651 natively-Bengali `doctor_qa_bangla` rows.
 
-### 🥇 What the paper gives us that is worth more than the data
+### What the paper gives us that is worth more than the data
 
 Their shared task ran a **<3B parameter cap on Indic medical dialogue** — the same constraint as
 ours. So Table 3 and Table 4 are **free prior art on exactly our model-selection question.**
@@ -680,16 +680,16 @@ ours. So Table 3 and Table 4 are **free prior art on exactly our model-selection
 
 | Team | Model | Summ BERTScore | QA F1 | KnV F1 |
 |---|---|---|---|---|
-| C-DAC | **Gemma2-2B + LoRA** | **0.93** 🥇 | 0.70 | 0.88 |
+| C-DAC | **Gemma2-2B + LoRA** | **0.93** | 0.70 | 0.88 |
 | Zaid | Qwen-1.5B + pipeline | 0.83 | 0.67 | 0.72 |
-| Samvad | mT5 / Sarvam 3B (RAG) | 0.81 | **0.78** 🥇 | — |
-| KV | **Qwen3-1.7B + QLoRA** | 0.80 | 0.65 | **0.93** 🥇 |
-| Moutushi Roy | **mT5-base** | **0.78** ⬇ | **0.55** ⬇ | **0.13** ⬇ |
+| Samvad | mT5 / Sarvam 3B (RAG) | 0.81 | **0.78** | — |
+| KV | **Qwen3-1.7B + QLoRA** | 0.80 | 0.65 | **0.93** |
+| Moutushi Roy | **mT5-base** | **0.78** | **0.55** | **0.13** |
 
 > *"decoder-only models (Qwen, Gemma) **significantly outperform encoder-decoder architectures
 > (mT5)**"*
 
-### 🔴 Three consequences for our experiment program
+### Three consequences for our experiment program
 
 **① Independent support for E18 (decoder hedge).** A separate team, on Bangla medical dialogue,
 under the same 3B cap, found decoders beat encoder-decoders. Our entire stack is encoder-decoder.
@@ -704,13 +704,13 @@ fits the cap alone, though it leaves no room to ensemble.
 **③ mT5 came last on every metric.** E08's gate ("if mT5 is not competitive, skip E09") now has
 outside evidence behind it. Do not spend the fleet on mT5 before E08 reports.
 
-⚠️ **Transfer this evidence with care.** Their task is summarisation and extraction from
+**Transfer this evidence with care.** Their task is summarisation and extraction from
 multi-turn dialogue; ours is register transfer on single answers. The **tokenizer** argument
 transfers cleanly — it is about Indic script, not task shape. The architecture result is
 suggestive, not decisive. **E18 still has to be measured.**
 
 
-### 5.3a NLP4Health-2025 — the one condition to confirm ⛔ SUPERSEDED BY §5.3b
+### 5.3a NLP4Health-2025 — the one condition to confirm SUPERSEDED BY §5.3b
 
 The licence question is settled (research use permitted). **A separate Kaggle rule still applies**, and it is the actual disqualification vector:
 
@@ -723,11 +723,11 @@ That is an **accessibility** test, not a licence test. A dataset can be freely r
 - **Yes → use it.** Record the download URL in the disclosure.
 - **Gated behind a request → get the permission in writing** and disclose that, or treat it as ineligible. Do not rely on a verbal or forum-thread permission.
 
-⛔ **This paragraph was wrong and is retained only as the record of the error — see §5.3b.** It claimed the dataset is *"natively Bengali real dialogue — the only external candidate with no translation-fingerprint risk at all."* The source paper says the dialogues are **synthetic** (`gpt-5-nano-2025-08-07`) and the Bangla is **machine-translated from English/Hindi via BhashaVerse**. It carries **two** fingerprints, not zero, and is dropped.
+**This paragraph was wrong and is retained only as the record of the error — see §5.3b.** It claimed the dataset is *"natively Bengali real dialogue — the only external candidate with no translation-fingerprint risk at all."* The source paper says the dialogues are **synthetic** (`gpt-5-nano-2025-08-07`) and the Bangla is **machine-translated from English/Hindi via BhashaVerse**. It carries **two** fingerprints, not zero, and is dropped.
 
 **Not yet present in the repo** — it needs downloading before any of this matters.
 
-### 5.3 🔴 Translation rule — and a risk the audit understates
+### 5.3 Translation rule — and a risk the audit understates
 
 Translate a corpus **only** when all hold: the source permits derivatives · it is non-overlapping medical Q→A dialogue · translation quality is auditable · it is evaluated as a *separate* warm-start against the frozen dev split.
 
@@ -738,7 +738,7 @@ Translate a corpus **only** when all hold: the source permits derivatives · it 
 ### 5.4 Staged training order (each stage kept only if it beats the previous on frozen dev)
 
 1. **Control:** BanglaT5, competition data only. ← *this is what is running now; nothing else starts until it clears Token F1 0.3519*
-2. ~~**Challenger A:** NLP4Health-2025~~ ⛔ **dropped — §5.3b.** The dataset is gpt-5-nano-generated and BhashaVerse-translated into Bangla; it carries *two* fingerprints, not zero.
+2. ~~**Challenger A:** NLP4Health-2025~~ **dropped — §5.3b.** The dataset is gpt-5-nano-generated and BhashaVerse-translated into Bangla; it carries *two* fingerprints, not zero.
 3. **Challenger B:** Bengali ChatDoctor (`Data_Search_3`) 1 epoch → competition data ≥2 epochs.
 4. *(only if 2 or 3 wins)* translated `Data_Search_4` subset → best warm-start → competition data.
 5. *(optional)* translated MTS-Dialog + simulated interviews → best warm-start → competition data.
@@ -749,9 +749,9 @@ Translate a corpus **only** when all hold: the source permits derivatives · it 
 
 ---
 
-## 6. ~~MBR Decoding — the highest-leverage lever~~ 🔴 MEASURED, AND IT LOSES
+## 6. ~~MBR Decoding — the highest-leverage lever~~ MEASURED, AND IT LOSES
 
-> ### 🏁 CLOSED 2026-08-06 — MBR is **−0.0027 LB** on the task we are actually running
+> ### CLOSED 2026-08-06 — MBR is **−0.0027 LB** on the task we are actually running
 >
 > Pooled MBR over both register-transfer seeds, against beam-4, on the same 300 dev rows:
 >
@@ -772,7 +772,7 @@ Translate a corpus **only** when all hold: the source permits derivatives · it 
 > 2. **The two seeds agree too closely.** 0.7724 vs 0.7723. §6.3's "cross-model consensus is a
 >    stronger reference proxy" needs models that *disagree usefully*; these do not.
 >
-> ⚠️ **What this does NOT establish.** MBR was designed for the **question→answer** task, where the
+> **What this does NOT establish.** MBR was designed for the **question→answer** task, where the
 > model invents content and hedging toward the generic centre should pay — that is what §6.2 argues,
 > and the measured facts behind it (retrieval 0.2047 < constant 0.2669) still stand. **MBR was never
 > measured on that task**, because ALIGN-01 superseded it first. The honest statement is: *MBR loses
@@ -831,12 +831,12 @@ Measured length sensitivity (truncated constant string, and truncated retrieval 
 **You cannot trust the public leaderboard.** It is a fraction of 1,000 rows; the noise band is wide and overfitting to it is a real way to lose the private split.
 
 1. **Fixed 5,000-row dev split**, never trained on. This is the source of truth.
-2. Implement the **exact composite metric locally** — including BERTScore. ✅ Done — `NOTEBOOKS/metric.py`, self-tested against brute force.
+2. Implement the **exact composite metric locally** — including BERTScore. Done — `NOTEBOOKS/metric.py`, self-tested against brute force.
 3. Report all three components separately on every run. Watching only the composite hides which lever moved.
 4. **Only submit when dev improves by more than dev noise.** Measured noise floor: **0.0044 Token F1** across three seeds of one config. Ignore anything smaller.
 5. Keep `LOCAL_EXPERIMENTS.md` as the run log and `PREDICTIONS.md` as the dev→LB correlation log. After 4–5 submissions you will know the offset between local dev and public LB; from then on, trust dev.
 
-### 🔴 8.1 Every inference notebook asserts a known-good number before it writes anything
+### 8.1 Every inference notebook asserts a known-good number before it writes anything
 
 Added after BUG-03, which was caught by exactly this and by nothing else. An fp16 T5 returns NaN
 logits and **still generates happily** — the notebook printed a parameter count, reported "decoded
@@ -888,7 +888,7 @@ NOTEBOOKS/                              ← code + the INFERENCE side
   02_train_t5.py                        fine-tune (BanglaT5 / mT5) — takes --data-dir
   04_decode.py                          beam | MBR | submission writer — fp32, --data-dir
   05..07_build_*.py                     transfer-dataset builders
-  0.85030_nascenia-submit-xfer-s11/     🏆 the scored #1: notebook, submission.csv, log
+  0.85030_nascenia-submit-xfer-s11/     the scored #1: notebook, submission.csv, log
   0.57849_nascenia_constant_probe/      the Day-1 probe
   _submission_runs/{s23,ens}/           ran but unscored
   _inference_notebooks/                 all 9 decode/submission .ipynb
@@ -898,7 +898,7 @@ FINE_TUNING_NOTEBOOKS/                  ← the TRAINING side
                                         + trainer_state_step*.json + prep_report
   FINE_TUNING_LOG.md                    master results table
   _run_outputs/sweep/{A,C,E,F,G}/       downloaded weights, 5 question→answer arms
-  _run_outputs/xfer/{tashin,salam}/     🔴 tashin/…/seed11/best = THE 0.85030 MODEL
+  _run_outputs/xfer/{tashin,salam}/     tashin/…/seed11/best = THE 0.85030 MODEL
 
 fine_tune_project/                  ← 1.8 GB HANDOFF for a high-GPU machine
   README.md · RESULTS.md                program overview + scoreboard
@@ -928,10 +928,10 @@ checkpoints were pruned 2026-08-06, keeping all 7 `best/` models and all 14 eval
 
 | Risk | Impact | Mitigation |
 |---|---|---|
-| **Unpinned library version on a hosted image** | **~10 GPU-h + a day lost** | ✅ **Realized, then resolved.** Kaggle ships `transformers 5.0.0`; T5 training only works pinned to **4.57.3**. Pin + `assert` in every notebook (§4.0). Check the version before debugging the code. |
-| **🔴 A silently-broken decoder writes a valid-looking submission** | **A wasted slot, or worse — a wrong final selection** | ✅ **Realized, caught.** fp16 T5 → NaN logits → 1-token outputs, with no exception anywhere and a well-formed CSV (BUG-03). Mitigations now in place: fp32 default, non-finite-logits probe at load, and a mandatory known-good-number assert in every inference notebook (§8.1). |
-| **Wrong accelerator on a pushed notebook** | ~8 failed runs | ✅ **Resolved.** `"machine_shape": "NvidiaTeslaT4"` in `kernel-metadata.json` (trap #10). Free-form string — a typo silently reverts to P100, so verify with `kaggle kernels pull <slug> -m`. Enforced by `KAGGLE_PUSH/kpush.py`, which refuses to push a GPU notebook without it. |
-| **Reproducibility evidence that proves nothing** | Phase 2 disqualification | ✅ **Caught.** `checkpoint_hash` hashed names+sizes only, so every checkpoint collided (BUG-01). Fixed to hash contents; pre-2026-08-05 hashes must not be cited. |
+| **Unpinned library version on a hosted image** | **~10 GPU-h + a day lost** | **Realized, then resolved.** Kaggle ships `transformers 5.0.0`; T5 training only works pinned to **4.57.3**. Pin + `assert` in every notebook (§4.0). Check the version before debugging the code. |
+| **A silently-broken decoder writes a valid-looking submission** | **A wasted slot, or worse — a wrong final selection** | **Realized, caught.** fp16 T5 → NaN logits → 1-token outputs, with no exception anywhere and a well-formed CSV (BUG-03). Mitigations now in place: fp32 default, non-finite-logits probe at load, and a mandatory known-good-number assert in every inference notebook (§8.1). |
+| **Wrong accelerator on a pushed notebook** | ~8 failed runs | **Resolved.** `"machine_shape": "NvidiaTeslaT4"` in `kernel-metadata.json` (trap #10). Free-form string — a typo silently reverts to P100, so verify with `kaggle kernels pull <slug> -m`. Enforced by `KAGGLE_PUSH/kpush.py`, which refuses to push a GPU notebook without it. |
+| **Reproducibility evidence that proves nothing** | Phase 2 disqualification | **Caught.** `checkpoint_hash` hashed names+sizes only, so every checkpoint collided (BUG-01). Fixed to hash contents; pre-2026-08-05 hashes must not be cited. |
 | **BERTScore is rescaled** — §0① inverts | High | Day-1 constant-string probe detects it immediately; ask on Discussion |
 | **Wrong submission column** (C1 unresolved) | Fatal for a submission | Day-1 probe settles it |
 | Public-LB overfitting on 1,000 rows | Lose private split | 5k dev split is the source of truth; treat LB as confirmation only |
@@ -958,7 +958,7 @@ Only ~36 hours separate the leaderboard close (Aug 24, 00:00) from the Phase 2 d
 
 ## 13. Summary
 
-> ### 🏆 Where this stands, 2026-08-06 — **0.85030 on the public leaderboard**
+> ### Where this stands, 2026-08-06 — **0.85030 on the public leaderboard**
 >
 > The register-transfer model (§5.0) scored **0.85030**, against the previous board leader — our own
 > constant string — at 0.57849. **+0.272**, genuinely model-generated, Rules §8 clean.
@@ -977,12 +977,12 @@ Only ~36 hours separate the leaderboard close (Aug 24, 00:00) from the Phase 2 d
 > thesis holds. Refined predictor: `LB ≈ 0.4646 + 0.3098·TokenF1 + 0.2·ROUGE-L`, fitting both
 > anchors to within 0.0001. **Dev→LB is trustworthy; stop spending slots on calibration.**
 >
-> **🏁 MBR is now measured too, and it loses** (−0.0027 LB — §6). That was the plan's #1 lever for
+> **MBR is now measured too, and it loses** (−0.0027 LB — §6). That was the plan's #1 lever for
 > four days. Every lever in §2 has now been measured; **nothing about decoding or hyperparameters
 > remains open.**
 >
 > **What remains:**
-> 1. **🥇 E17 — re-translate the draft** (§5.6). **No GPU**, ~2 h. The draft aligns at only 0.5984
+> 1. **E17 — re-translate the draft** (§5.6). **No GPU**, ~2 h. The draft aligns at only 0.5984
 >    and everything is built on that floor. If a better translator wins, **the retrain fits Kaggle**
 >    (7.9 h vs the 12 h limit — §5.7), so this is a fast loop, not a high-GPU one.
 > 2. **Phase 2 packaging** (§12) — the single highest-risk item. A 0.85 Phase 1 is worth nothing
@@ -1003,7 +1003,7 @@ the bottleneck: two BanglaT5 seeds land at 0.7724 and 0.7723.
 The English is already aligned on the same id space — `unified_medical_qa_train.csv`, **dev 5,000/5,000
 · test 1,000/1,000**.
 
-**🔴 The tokenizer measurement that set the run order.** mT5 was the obvious carrier for English input.
+**The tokenizer measurement that set the run order.** mT5 was the obvious carrier for English input.
 It is not:
 
 | | source tokens | **target tokens** |
@@ -1023,7 +1023,7 @@ tokens-per-sentence — an efficiency win, not a quality one.
 to read the outcome. 45 training arms ≈164 GPU-hours; ~36 h wall clock on 8 GPUs. Full spec, data and code in the
 project folder.
 
-### 🥇 5.6 E17 — the one lever that attacks the actual bottleneck, and it needs NO GPU
+### 5.6 E17 — the one lever that attacks the actual bottleneck, and it needs NO GPU
 
 ```
 competition target = f_B(English)      the organizers' translation
@@ -1037,13 +1037,13 @@ draft itself**, raising the ceiling for all of them simultaneously.
 **Probe:** re-translate the English answers of 1,000 dev rows with a stronger model, score against
 the target, compare to 0.5984. An API job and a metric call — no training.
 
-⚠️ **Better translation ≠ closer to theirs.** The metric rewards matching one translator's
+**Better translation ≠ closer to theirs.** The metric rewards matching one translator's
 fingerprint, not quality. The register evidence — 76.4% `হেলো` openers, mechanical boilerplate —
 suggests the organizers used plain machine translation, so a more idiomatic rendering could score
 *lower*. Genuinely 50/50, and **all three outcomes are informative**: a loss proves the draft is
 near-optimal and redirects effort to E05 with confidence.
 
-### ✅ 5.7 If E17 wins, the follow-up fits KAGGLE — no high-GPU machine needed
+### 5.7 If E17 wins, the follow-up fits KAGGLE — no high-GPU machine needed
 
 This matters for sequencing. The register-transfer training is **not** what needs big GPUs:
 

@@ -5,18 +5,18 @@ cross-experiment scoreboard. Anything surprising goes here, not there.
 
 _8 LRs in parallel_
 
-## Checkpoints — 🔴 keep every arm, including the losers
+## Checkpoints — keep every arm, including the losers
 
 | Arm | `best/` kept? | Kaggle dataset | Token F1 | ROUGE-L | peak step | hours | notes |
 |---|---|---|---|---|---|---|---|
-| `lr_1e-4` | ☐ | | | | | | |
-| `lr_3e-4` | ☐ | | | | | | |
-| `lr_5e-4` | ☐ | | | | | | |
-| `lr_1e-3` | ☐ | | | | | | |
-| `lr_2e-3` | ☐ | | | | | | |
-| `lr_3e-3` | ☐ | | | | | | |
-| `lr_5e-3` | ☐ | | | | | | |
-| `lr_1e-2` | ☐ | | | | | | |
+| `lr_1e-4` | pending | | | | | | |
+| `lr_3e-4` | pending | | | | | | |
+| `lr_5e-4` | pending | | | | | | |
+| `lr_1e-3` | pending | | | | | | |
+| `lr_2e-3` | pending | | | | | | |
+| `lr_3e-3` | pending | | | | | | |
+| `lr_5e-3` | pending | | | | | | |
+| `lr_1e-2` | pending | | | | | | |
 
 **Why the losers matter too:** a model that scores *below* the incumbent but **disagrees with it
 usefully** is exactly what E14/E19 need and cannot get from another seed. MBR failed once because
@@ -49,7 +49,7 @@ the finding** — E05 exists only because the incumbent's trajectory showed it h
 ## Verdict
 
 - **What it must beat:** see `EXPERIMENT.md`
-- **Result:** ✅ / ➖ within noise (<0.0044) / ❌
+- **Result:** / within noise (<0.0044) /
 - **What it changes:**
 - **Row-level disagreement with the incumbent:** _(report even when the score loses)_
 

@@ -5,13 +5,13 @@ cross-experiment scoreboard. Anything surprising goes here, not there.
 
 _stage 1 is a frozen teacher (no ckpt); stage 2 has 3 arms_
 
-## Checkpoints — 🔴 keep every arm, including the losers
+## Checkpoints — keep every arm, including the losers
 
 | Arm | `best/` kept? | Kaggle dataset | Token F1 | ROUGE-L | peak step | hours | notes |
 |---|---|---|---|---|---|---|---|
-| `stage2_A_gold` | ☐ | | | | | | |
-| `stage2_B_teacher` | ☐ | | | | | | |
-| `stage2_C_mixed` | ☐ | | | | | | |
+| `stage2_A_gold` | pending | | | | | | |
+| `stage2_B_teacher` | pending | | | | | | |
+| `stage2_C_mixed` | pending | | | | | | |
 
 **Why the losers matter too:** a model that scores *below* the incumbent but **disagrees with it
 usefully** is exactly what E14/E19 need and cannot get from another seed. MBR failed once because
@@ -39,7 +39,7 @@ the finding** — E05 exists only because the incumbent's trajectory showed it h
 ## Verdict
 
 - **What it must beat:** see `EXPERIMENT.md`
-- **Result:** ✅ / ➖ within noise (<0.0044) / ❌
+- **Result:** / within noise (<0.0044) /
 - **What it changes:**
 - **Row-level disagreement with the incumbent:** _(report even when the score loses)_
 

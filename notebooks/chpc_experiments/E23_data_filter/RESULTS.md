@@ -13,7 +13,7 @@ Those teach the model to stop early, and since the shipped decoder now uses `min
 the model is free to act on it. Length calibration feeds the BERTScore term that the 0.89347
 submission proved is live.
 
-🔴 **Prediction recorded before running: inside the noise floor, and non-monotone.**
+**Prediction recorded before running: inside the noise floor, and non-monotone.**
 
 ## Design — dose-response × paired seeds
 
@@ -37,14 +37,14 @@ E19 measured (0.8195–0.8258 across ten seeds). So:
 | len40_s23 | 3.6 % | 23 | 0.8224 | — | — |
 | **unfiltered baseline (ten E19 seeds)** | — | — | **0.8195 – 0.8258** | | |
 
-## 🏁 VERDICT: no effect. The last data lever is closed.
+## VERDICT: no effect. The last data lever is closed.
 
 **Every filtered arm falls inside the unfiltered seed range, and none exceeds the best
 unfiltered seed (0.8258).** The dose curve is not monotone (−0.0012 / −0.0002 / −0.0007 for
 0.8 % / 3.6 % / 6.1 %), and `len40` flips sign between seeds (−0.0002 at seed 11, +0.0001 at
 seed 23). The pre-registered prediction was correct.
 
-🔴 **A measurement error worth recording.** `clean` was first reported at **+0.0019** by
+**A measurement error worth recording.** `clean` was first reported at **+0.0019** by
 comparing its *in-training* eval against the champion's *decoded* score. Compared like-for-like
 (both old-decoder decodes, same seed) it is **+0.0002**. Mixing measurement paths manufactured a
 gain four times larger than the real one — the same failure mode as BUG-04.

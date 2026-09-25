@@ -3,13 +3,13 @@
 Fill this in as arms land. **This file is the per-experiment record**; `../RESULTS.md` is only the
 cross-experiment scoreboard. Anything surprising goes here, not there.
 
-_🏁 CLOSED — no checkpoints, translator outputs only_
+_CLOSED — no checkpoints, translator outputs only_
 
-## Checkpoints — 🔴 keep every arm, including the losers
+## Checkpoints — keep every arm, including the losers
 
 | Arm | `best/` kept? | Kaggle dataset | Token F1 | ROUGE-L | peak step | hours | notes |
 |---|---|---|---|---|---|---|---|
-| `—` | ☐ | | | | | | |
+| `—` | pending | | | | | | |
 
 **Why the losers matter too:** a model that scores *below* the incumbent but **disagrees with it
 usefully** is exactly what E14/E19 need and cannot get from another seed. MBR failed once because
@@ -35,7 +35,7 @@ the finding** — E05 exists only because the incumbent's trajectory showed it h
 ## Verdict
 
 - **What it must beat:** see `EXPERIMENT.md`
-- **Result:** ✅ / ➖ within noise (<0.0044) / ❌
+- **Result:** / within noise (<0.0044) /
 - **What it changes:**
 - **Row-level disagreement with the incumbent:** _(report even when the score loses)_
 

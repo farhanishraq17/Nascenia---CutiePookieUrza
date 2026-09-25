@@ -39,7 +39,7 @@ card. The run aborts if the cap is breached. A sample of that output from our ve
 specialist : 1,881,825,088
 champion   :   247,577,856
 COMBINED   : 2,129,402,944
-✅ within the 3B cap (headroom 871M)
+within the 3B cap (headroom 871M)
 ```
 
 Two supporting corpora are also attached and used by the router. Neither is a neural model and

@@ -10,7 +10,7 @@ messages" in general. **The fix has to be training data, not a bolted-on transla
 **Method, in two passes:**
 1. WebSearch + WebFetch across HuggingFace, GitHub, Kaggle, arXiv for anything not already in this
    repo.
-2. 🔴 **A full local audit of `DATA/` itself** — this mattered more than the web search. Three prior
+2. **A full local audit of `DATA/` itself** — this mattered more than the web search. Three prior
    sessions in this project (`Data_Search_1/SOURCES.md`, dated 2026-07-24; `Data_Search_4/SOURCES.md`
    and `Data_Search_5/MASTER_C_BENGALI/SOURCES.md`, dated 2026-08-05) already did this exact
    investigation — more rigorously, by actually loading and measuring files rather than reading
@@ -19,7 +19,7 @@ messages" in general. **The fix has to be training data, not a bolted-on transla
 
 ---
 
-## 🥇 The answer, if you only read one section
+## The answer, if you only read one section
 
 **`Data_Search_5/MASTER_C_BENGALI/master_c_bengali.csv`** already contains a ready-to-use,
 leak-checked, non-HealthCareMagic-ChatDoctor slice:
@@ -68,7 +68,7 @@ at all**:
 ~18,150 genuinely new English rows (excluding the icliniq duplicate), MIT-licensed, needing
 translation. Second-priority after the 17,172 already-ready rows above.
 
-### 🔴 Provenance trap, confirmed twice independently — MedAidDialog and IndicMedDialog
+### Provenance trap, confirmed twice independently — MedAidDialog and IndicMedDialog
 
 Two brand-new (Mar/May 2026) arXiv datasets, both multilingual-including-Bengali, both **synthetic
 LLM-generated + machine-translated** — the exact failure mode that got NLP4Health dropped from this
@@ -78,7 +78,7 @@ downloaded" verdict on both, before this session's web search ever ran them down
 - **MedAidDialog** (arXiv 2603.24132) — Llama-3.3-70B-generated, translated via TranslateGemma/TinyAya.
   CC BY-NC-SA 4.0. No public download link found by either pass.
 - **IndicMedDialog** (arXiv 2605.13292) — same pattern, "verified by native speakers" (better than
-  MedAidDialog, but still synthetic at the root). 🔴 **License is CC BY-NC-ND 4.0** — No-Derivatives
+  MedAidDialog, but still synthetic at the root). **License is CC BY-NC-ND 4.0** — No-Derivatives
   plausibly forbids fine-tuning outright, independent of the provenance concern. No download link.
 
 **Verdict stands from both passes: skip for training.** Worth knowing what these look like from the

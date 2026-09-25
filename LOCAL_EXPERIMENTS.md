@@ -9,7 +9,7 @@ Newest entries at the top. Never edit or delete a past entry — correct it with
 
 ---
 
-## 2026-08-25 — 🔴 IDGATE-01: branch 1 trusted a bare row index. Measured the separation, gated the branch.
+## 2026-08-25 — IDGATE-01: branch 1 trusted a bare row index. Measured the separation, gated the branch.
 
 **Run ID:** IDGATE-01 · **Date:** 2026-08-25 · **Harness:** `scratchpad/measure_idverify.py`,
 `scratchpad/test_guard.py` · no training, no GPU.
@@ -33,7 +33,7 @@ Control: the same questions paired with a uniformly random corpus row (seed 0). 
 | true (id → its own row) | 0.476 | 0.076 | 0.280 | 0.397 | **0.474** | 0.560 | 0.669 | 0.774 |
 | random (id → wrong row) | 0.051 | 0.003 | 0.019 | 0.033 | **0.047** | 0.066 | 0.095 | 0.165 |
 
-**🔴 The per-row test fails and the dataset-level test succeeds — this is the finding.** The
+**The per-row test fails and the dataset-level test succeeds — this is the finding.** The
 per-row distributions *overlap*: true matches reach down to 0.076, collisions reach up to 0.165.
 Threshold sweep on keeping true rows: 0.20 → 98.80%, 0.30 → 93.20%, 0.40 → 74.20%. **Every
 threshold that rejects collisions also discards genuine rows**, which would change the Phase 1
@@ -49,12 +49,12 @@ median), `ID_VERIFY_N = 300` sampled deterministically via `.head()`.
 
 | input | ids resolve | median | branch 1 | expected |
 |---|---|---|---|---|
-| real Phase 1 `test.csv` | 1000/1000 | 0.495 | ENABLED | ✅ |
-| id column stripped → `0..999` | 1000/1000 | 0.053 | DISABLED | ✅ |
-| ids shuffled (resolve, wrong row) | 1000/1000 | 0.053 | DISABLED | ✅ |
-| string ids `case_<n>` | 0/1000 | — | INACTIVE | ✅ |
+| real Phase 1 `test.csv` | 1000/1000 | 0.495 | ENABLED | yes |
+| id column stripped → `0..999` | 1000/1000 | 0.053 | DISABLED | yes |
+| ids shuffled (resolve, wrong row) | 1000/1000 | 0.053 | DISABLED | yes |
+| string ids `case_<n>` | 0/1000 | — | INACTIVE | yes |
 
-**Verdict: ✅ adopted**, shipped in `farhanishraqq/cpu-final-submission` v3. Phase 1 routing is
+**Verdict: adopted**, shipped in `farhanishraqq/cpu-final-submission` v3. Phase 1 routing is
 unchanged (median 0.495 clears the floor by 2.5×), so 0.89552 cannot move; every collision variant
 falls through to retrieval/specialist, which is the intended Phase 2 path and what WRITEUP §1
 already promised the judge.
@@ -66,7 +66,7 @@ membership in it is nearly free — verify the *content* the key points at, not 
 
 ---
 
-## 2026-08-23 — 🥇 BRANCH3-OUTPUT: the broad-corpus lookup is the largest Phase 2 gain measured. Adopt it.
+## 2026-08-23 — BRANCH3-OUTPUT: the broad-corpus lookup is the largest Phase 2 gain measured. Adopt it.
 
 **Where:** Kaggle T4 ×2 (`nascenia-branch3-champ`, `nascenia-branch3-qwen`), 362 leak-free rows
 from `branch3_probe.parquet` (`hcm_` stripped *before* exclusion; drop asserted). Paired, same
@@ -97,7 +97,7 @@ rows, same targets, shipped decoders unchanged.
 exactly what the merged-corpus test lacked. At τ≥0.60 the champion reaches **0.8114** — within
 0.023 of its full Phase 1 performance (0.8348) — on rows whose ids do not resolve at all.
 
-🔴 **B (0.2094) is WORSE than C (0.2616).** ChatDoctor content-match does not merely fail to help;
+**B (0.2094) is WORSE than C (0.2616).** ChatDoctor content-match does not merely fail to help;
 shipping it would have *actively hurt*, replacing Qwen's real answers with fluent restyles of the
 wrong patient's case. Second independent confirmation of BUG-10.
 
@@ -107,11 +107,11 @@ exceeds 0.90 overlap with its target (max 0.7864), no retrieved question is a ne
 champion's known 0.5963→0.8348 = 1.40×. The signal is real: ai_medical_chatbot holds genuine
 patient-doctor cases, and clinically similar cases attract similar advice.
 
-**Verdict: ✅ ADOPT, at τ = 0.40** (270/362 rows at 0.7371). τ=0.35 is defensible but its lowest
+**Verdict: ADOPT, at τ = 0.40** (270/362 rows at 0.7371). τ=0.35 is defensible but its lowest
 bucket beats Qwen by only +0.04 — near a coin flip. Cost: **zero parameters** (TF-IDF is not
 neural; the corpus is data). Combined stays 2,129,402,944.
 
-⚠️ **Scope, stated honestly:** these are dev rows, i.e. ChatDoctor-derived. The *hit rate* on the
+**Scope, stated honestly:** these are dev rows, i.e. ChatDoctor-derived. The *hit rate* on the
 organizers' private data is unknown and could be far lower. What transfers is the mechanism and
 the gate: ai_medical_chatbot is 166,193 real consultations, and the monotonic similarity signal
 means low-confidence rows fall through to Qwen automatically rather than being answered wrongly.
@@ -123,7 +123,7 @@ else `Qwen D1`.
 
 ---
 
-## 2026-08-23 — 🔴 BUG-10 / ROUTER-01-RETRACTED: the content-match branch was measuring self-retrieval. It is worthless.
+## 2026-08-23 — BUG-10 / ROUTER-01-RETRACTED: the content-match branch was measuring self-retrieval. It is worthless.
 
 **This retracts the ROUTER-01 entry below, and the LOOKUP-EXPAND entry that followed it.**
 Per this file's rule, the original entries are left as written and corrected here.
@@ -143,7 +143,7 @@ ids matching after stripping "hcm_"      : 5000
 did nothing. Either way **every dev query could retrieve its own answer**, and the corpus contained
 it. The reported "content match" was the perfect id lookup wearing a different hat.
 
-🔴 **The tell I had and ignored:** I reported content-match at **0.5961** against a perfect-lookup
+**The tell I had and ignored:** I reported content-match at **0.5961** against a perfect-lookup
 ceiling of **0.5963** and wrote "0.0002 from optimal." An independent retrieval channel landing two
 ten-thousandths from an oracle is not a triumph, it is a bug report. I used it instead as the
 headline argument for rejecting the broad-corpus branch.
@@ -163,7 +163,7 @@ Mean top-1 similarity collapses from 0.549 to **0.2840**.
 
 *(reported, leaked: 88.0% routed · 0.5901 · −0.0062)*
 
-**🔴 Verdict: CONTENT_MATCH is worthless. Do not ship it.** Its recovered drafts sit at
+**Verdict: CONTENT_MATCH is worthless. Do not ship it.** Its recovered drafts sit at
 **0.19–0.21**, which is the **wrong-match floor ROUTER-01 itself measured (0.1795)**. Leak-free,
 essentially every content match is a different patient's case. Raising τ does not rescue it — it
 only shrinks coverage to 2.6% while the draft stays at 0.21.
@@ -206,7 +206,7 @@ discarded. Corpus `bengali_medical_train_master.csv`, 410,525 Bengali doctor-pat
 fails, look the question up in *every other* Bengali corpus we hold, on the reasoning that more
 corpora ⇒ higher probability of a hit.
 
-🔴 **LEAK CONTROL:** the master corpus contains `given_train` (108,954 competition rows) including
+**LEAK CONTROL:** the master corpus contains `given_train` (108,954 competition rows) including
 **all 5,000 frozen dev ids**. Retrieving a dev row's own answer scores ~1.0 and proves nothing.
 All 5,000 dropped and asserted before any query ran.
 
@@ -224,7 +224,7 @@ All 5,000 dropped and asserted before any query ran.
 Per-source at τ=0.40: healthcaremagic 0.5979 (n=716) · ai_medical_chatbot 0.5547 (n=145) ·
 **given_train 0.1939 (n=35)** · doctor_qa_bangla 0.1004 (n=3).
 
-🔴 **A prediction of mine, measured and wrong.** I expected `given_train` to be the *best* draft
+**A prediction of mine, measured and wrong.** I expected `given_train` to be the *best* draft
 source because its answers are already in the organizers' register. It is the **worst** — 0.1939,
 essentially the wrong-match floor (ROUTER-01: 0.1795). **Being in-register does not rescue a draft
 whose content is a different patient's case. Content correctness dominates register entirely.**
@@ -251,7 +251,7 @@ And at every gate on the fall-through set, ChatDoctor's *rejected* draft still w
 By source: given_train 0.1970 (n=85) · ai_medical_chatbot 0.3258 (n=39) · genmedgpt 0.0547 ·
 doctor_qa_bangla 0.0351 · icliniq 0.0758.
 
-**🔴 Verdict: drop path 3.** Routing a fall-through row to another corpus *replaces a 0.4769 draft
+**Verdict: drop path 3.** Routing a fall-through row to another corpus *replaces a 0.4769 draft
 with a 0.2249 one* — roughly halving it. There is no threshold at which the other 293,371 rows beat
 what ChatDoctor already supplies, even on the rows ChatDoctor is least confident about.
 
@@ -264,7 +264,7 @@ discriminating (89.9% vs 86.7% clearing τ=0.40). On genuinely novel Phase 2 con
 **more** spurious matches wrongly diverted from the specialist to the champion — so the expansion is
 not neutral-if-useless, it is a net risk.
 
-⚠️ **Scope limit, stated honestly:** dev rows *are* ChatDoctor rows, so this measures "when the true
+**Scope limit, stated honestly:** dev rows *are* ChatDoctor rows, so this measures "when the true
 source is ChatDoctor, do other corpora help?" It cannot measure the case the proposal was really
 insurance against — Phase 2 content from a corpus we hold but ChatDoctor does not. That case is
 unmeasurable without Phase 2 data. The decision rests on the two things that *are* measured: the
@@ -275,7 +275,7 @@ ROUTER-01, validated (88% routed, 98.07% precision, 0.5901 vs 0.5963 ceiling) an
 shipped bundle**. That is a real Phase 2 gain at zero parameter cost. Final shape is therefore a
 **3-path cascade**: exact id → ChatDoctor content-match → Qwen D1.
 
-### 🔴 The decisive reason branch 3 cannot be rescued by tuning (added after review)
+### The decisive reason branch 3 cannot be rescued by tuning (added after review)
 
 The first write-up above under-stated this. The gate that makes branch 2 trustworthy **does not
 exist** for the broad corpus — its similarity score is non-monotonic and inverts:
@@ -305,7 +305,7 @@ Dropping `given_train` — the similarity magnet — lifts the gated number subs
 30 rows** at τ₂=0.35, well above the 0.2797 the merged corpus managed. So branch 3's best case is
 *not* absurd, and the earlier "all others" figure understated it.
 
-⚠️ **But the peak is fragile and the sample is tiny.** It collapses from 0.3917 to **0.0356**
+**But the peak is fragile and the sample is tiny.** It collapses from 0.3917 to **0.0356**
 between τ₂=0.35 and 0.45 — still non-monotonic — and 0.35 is being chosen because it is the
 maximum over **30 dev rows**. Selecting a threshold at the peak of a 30-row sample is overfitting,
 not calibration. Whether a 0.39 draft even beats routing to Qwen is *unmeasured*: it depends on
@@ -359,7 +359,7 @@ Token F1 between the looked-up draft answer and the organizers' true target.
 | [0.7, 0.9) | 321 | 0.5984 |
 | **overall** | **5,000** | **0.5923** |
 
-**🔴 Verdict: no misaligned rows exist.** Three independent reasons:
+**Verdict: no misaligned rows exist.** Three independent reasons:
 
 1. **The decisive one.** ROUTER-01 measured a genuinely *wrong* match at draft F1 **0.1795** vs
    0.5959 for a correct one. The worst q_match bucket here (n=107, q_match < 0.3) sits at
@@ -377,8 +377,8 @@ direction, and it is the expected level, not corruption. **Reading a low mean he
 lookup" would have been a serious misdiagnosis**; the bucketed draft_f1 is what disambiguates,
 because a real misalignment is visible as a collapse to ~0.18 and no bucket shows one.
 
-**What this closes.** The lookup dimension of Phase 1 is exhausted: mapping correctness ✅ verified,
-draft integrity ✅ verified, draft *translator* quality already closed by XFER-TEST24 (−0.006).
+**What this closes.** The lookup dimension of Phase 1 is exhausted: mapping correctness verified,
+draft integrity verified, draft *translator* quality already closed by XFER-TEST24 (−0.006).
 There is no population of broken rows to rescue, so the content-match router — which works, and is
 genuinely valuable for Phase 2 — has **nothing to repair on Phase 1**.
 
@@ -400,19 +400,19 @@ Phase 1 test rows. Decode config copied verbatim from `bundle_decode.py`'s speci
 beam 4, lp 1.0, src 1024, new 640, min_new 0, raw text (no normalizer), left padding,
 `torch.manual_seed(42)` per batch, `enable_thinking=False`.
 
-**🔴 The one deliberate deviation: fp32, not bf16** — a T4 has no bf16 hardware (sm_75) and
+**The one deliberate deviation: fp32, not bf16** — a T4 has no bf16 hardware (sm_75) and
 emulated bf16 is slower *and* unvalidated (trap #8). Gated explicitly, and it reproduced:
 
 | | Token F1 |
 |---|---|
 | recorded dev[0:300] (bf16, H200) | 0.2646 |
 | **this run, dev[0:300] (fp32, T4)** | **0.2675** |
-| delta | **+0.0029 — inside the 0.0044 noise floor** ✅ |
+| delta | **+0.0029 — inside the 0.0044 noise floor** |
 
 **This is the second independent confirmation that fp32-on-T4 faithfully reproduces this model
 family's bf16-on-H200 checkpoints** (the first was the RAG bolt-on: recorded 0.2641 → measured
 0.2648). Useful precedent: Qwen specialists can be re-decoded on Kaggle without a fidelity caveat.
-⚠️ Note this does **not** transfer to the champion — for BanglaT5, bf16 vs fp32 decodes 280/1000
+Note this does **not** transfer to the champion — for BanglaT5, bf16 vs fp32 decodes 280/1000
 rows differently, which is exactly why the bundle pins the champion branch to fp32.
 
 **Register read-out (test split, n=1000):**
@@ -465,7 +465,7 @@ dev target. Paired, so only the draft differs per row.
 Wins/losses on Token F1: **7/24 rows** favored Claude, **17/24** favored Google. Neither delta is
 distinguishable from zero at n=24. Implied LB composite delta: **−0.0023**.
 
-🔴 **Verdict: the draft-level gain does not transfer — if anything it reverses, though not
+**Verdict: the draft-level gain does not transfer — if anything it reverses, though not
 significantly.** This confirms the caveat flagged in the handoff instructions ("the champion was
 trained exclusively on Google-draft distribution, a better-but-different draft is also a
 distribution shift") in its strongest form: the shift doesn't just partly cancel the gain, it
@@ -515,7 +515,7 @@ champion's input quality, so this prices the whole branch without a GPU.
 | **0.40** | **88.0%** | **98.07%** | **0.5901** | **−0.0062** |
 | 0.45 | 77.1% | 99.09% | 0.5924 | −0.0039 |
 
-🔴 **The cost of a wrong match, which is why the gate exists:**
+**The cost of a wrong match, which is why the gate exists:**
 
 | | draft F1 | mean sim | n |
 |---|---|---|---|
@@ -525,7 +525,7 @@ champion's input quality, so this prices the whole branch without a GPU.
 A wrong match costs ~0.42 Token F1 — the champion fluently answering a *different* patient. The
 populations separate on similarity, so gating works and below-τ rows must go to the specialist.
 
-**Verdict: ✅ adopt.** At τ=0.40 the branch lands within **0.0062** of a perfect id lookup on 88%
+**Verdict: adopt.** At τ=0.40 the branch lands within **0.0062** of a perfect id lookup on 88%
 of id-less rows, at **zero parameter cost** (TF-IDF is not a neural model — a dense e5 retriever
 would have cost 278M against the 3B cap).
 
@@ -557,12 +557,12 @@ entire Phase 1 score will **never resolve** on any Phase 2 row.
 | arm | what changed | Token F1 | ROUGE-L |
 |---|---|---|---|
 | raw input only | feed the competition's raw `input`, no template, no lookup | **0.1235** | 0.0777 |
-| IndicTrans2 (`ai4bharat/indictrans2-indic-en-1B`) | ❌ blocked — gated repo, account not on the authorized-access list. 3 failed pushes fixing real bugs (internet-off breaking setup pip install, wrong `IndicTransToolkit` import path, missing HF auth) before hitting the wall | — | — |
+| IndicTrans2 (`ai4bharat/indictrans2-indic-en-1B`) | blocked — gated repo, account not on the authorized-access list. 3 failed pushes fixing real bugs (internet-off breaking setup pip install, wrong `IndicTransToolkit` import path, missing HF auth) before hitting the wall | — | — |
 | `csebuetnlp/banglat5_nmt_bn_en` + trained template | `english:`=live NMT translation of the raw input, `bangla:`=raw input, exact trained template shape | **0.1454** | 0.0877 |
 | *(reference)* champion, WITH the ChatDoctor lookup | unchanged production path | 0.8328 | 0.8039 |
 | *(reference)* Arm C, competition data only, stale (pre-convergence-fix) | direct question→answer, undertrained | 0.2576 | 0.1776 |
 
-**🔴 Verdict: correcting the input SHAPE does almost nothing — the bottleneck is training
+**Verdict: correcting the input SHAPE does almost nothing — the bottleneck is training
 distribution, not inference-time construction.** The NMT translation itself is fluent and accurate
 (verified by reading the actual translated text). Feeding it in the exact `"english: …\nbangla: …"`
 format the champion was trained on moved the score only **+0.0219** over feeding nothing at all.
@@ -591,45 +591,45 @@ Decoder throughout: **E15** — beam 8, length_penalty 1.2, min_new_tokens 0, ma
 max_source_len 768. Noise floor 0.0044 Token F1. Entered here from the archive's
 `E14_arch_ensemble/RESULTS.md` and `E15_decode_sweep/RESULTS.md`; run records verified on disk.
 
-### CKPTAVG-01 — average the champion run's own checkpoints ✅ **SHIPPED**
+### CKPTAVG-01 — average the champion run's own checkpoints **SHIPPED**
 
 | arm | members | dev[0:300] F1 | dev[300:600] F1 | ROUGE-L | LB |
 |---|---|---|---|---|---|
 | champion `E05/english_draft/best` | ckpt 12000 | 0.8328 | 0.8348 | 0.8039 | 0.89347 |
 | `ckptavg_tail3` | 11500–12000 | 0.8330 | — | — | — |
-| `ckptavg_peak3` | 11750–12250 | **0.834931** | ⚠️ **never verified** | — | — |
-| 🏆 **`ckptavg_peak5`** | 11500–12500 | **0.834843** | **0.8404** | **0.8061** | **0.89552** |
+| `ckptavg_peak3` | 11750–12250 | **0.834931** | **never verified** | — | — |
+| **`ckptavg_peak5`** | 11500–12500 | **0.834843** | **0.8404** | **0.8061** | **0.89552** |
 | `ckptavg_peak9` | 11000–13000 | 0.8336 | — | — | — |
 | `ckptavg_wide12` | 9500–14000 | 0.8333 | — | — | — |
 
 **Checkpoint:** `fine_tune_project/E15_decode_sweep/ckptavg_peak5/` — weights present locally
-(990,345,064 B), 247,577,856 params. ⚠️ **No content hash exists**: `17_model_soup.py` does not
+(990,345,064 B), 247,577,856 params. **No content hash exists**: `17_model_soup.py` does not
 write one, and the recorded `checkpoint_hash` is from `04_decode.py:ckpt_hash()`, which hashes
 **file names and sizes only** — it collides across genuinely different models and *changes as the
 directory accumulates outputs*. Use the decoded `submission.csv` as reproduction evidence.
 Register read-out: `হেলো` 75.0% (refs 76.4%) · `নাসেনিয়া` 52.7% (refs 50.0%) · 99.5 mean tokens.
 
-🔴 **Verdict: peak-CENTRED beats tail-centred at every matched N**, and the effect is not small.
+**Verdict: peak-CENTRED beats tail-centred at every matched N**, and the effect is not small.
 `tail7` is the only arm to score *below* the champion. Two of the shipped model's five members are
 post-peak checkpoints that early stopping had written off.
 
-### SOUP-01 — cross-seed weight averaging ➖ **works, but only same-schedule partners**
+### SOUP-01 — cross-seed weight averaging **works, but only same-schedule partners**
 
 Twelve 50/50 champion+partner averages. **Only the three 30,000-step arms beat the champion**;
 all ten 12,000-step E19 seeds did not.
 
 | partner | max_steps | pair F1 | vs champion |
 |---|---|---|---|
-| `sched31337` | 30,000 | 0.8348 | **+0.0021** ✅ |
-| `sched777` | 30,000 | 0.8345 | **+0.0018** ✅ (LB **0.89532**) |
-| `seed11` | 12,000 | 0.8332 | +0.0004 ➖ |
-| `seed314` | 12,000 | 0.8236 | **−0.0092** 🔴 |
+| `sched31337` | 30,000 | 0.8348 | **+0.0021** |
+| `sched777` | 30,000 | 0.8345 | **+0.0018** (LB **0.89532**) |
+| `seed11` | 12,000 | 0.8332 | +0.0004 |
+| `seed314` | 12,000 | 0.8236 | **−0.0092** |
 
 **Verdict:** E19's ten seeds are **the champion stopped early, reseeded** (patience 5 vs 8) — none
 reaches its convergence point, which is why they make poor soup partners. Souping is a
 *schedule-matching* operation, not a diversity operation. Superseded by CKPTAVG-01 for shipping.
 
-### 🔴 Open item
+### Open item
 
 `ckptavg_peak3` beat the shipped `peak5` on the selection split by **0.00009** (2% of the noise
 floor) and has a `soup.json` and nothing else — **no disjoint verification, no decode**. peak5
@@ -649,7 +649,7 @@ torch 2.8.0+cu128. `metric.py --selftest` ALL PASS.
 **Throughput: ~20× the Kaggle T4.** The 0.85030 recipe took 472 min on a T4; the same recipe here
 takes **69 min**. Wall clock is now dominated by evaluation, not training.
 
-### 🥇 The pipeline replicates the incumbent — which licenses every comparison below
+### The pipeline replicates the incumbent — which licenses every comparison below
 
 `E18/banglat5` re-runs the 0.85030 recipe exactly (draft only, 384/256, 8×8, lr 1e-3, seed 11) on
 different hardware and precision:
@@ -661,7 +661,7 @@ different hardware and precision:
 
 **0.0001 apart.** bf16 is safe for BanglaT5 here, and the T4→H100 move introduced no drift.
 
-### 🔴 Finding 1 — the incumbent had NOT converged. Not even close.
+### Finding 1 — the incumbent had NOT converged. Not even close.
 
 E05 (`draft_only`, 768/512) is still running, but its trajectory already settles the question the
 experiment was created to ask:
@@ -679,14 +679,14 @@ Three other arms (E01, E02, E18/banglat5) also peaked at or within one eval of t
 Four for four: **the question→answer task's "budget ~2,000 steps and stop" rule does not transfer
 to register transfer**, exactly as E05's premise argued.
 
-### 🥇 Finding 2 — the English source adds +0.0220. The patient question adds nothing.
+### Finding 2 — the English source adds +0.0220. The patient question adds nothing.
 
 Matched sequence caps (768/512) and matched budget (4,000 steps), so the input is the only variable:
 
 | arm | input | Token F1 @4,000 | vs draft-only |
 |---|---|---|---|
 | E05 | draft only | 0.7807 | — |
-| **E01** | **english + draft** | **0.8027** | **+0.0220** ✅ 5× the noise floor |
+| **E01** | **english + draft** | **0.8027** | **+0.0220** 5× the noise floor |
 | E03 | question + english + draft | 0.8027 *(@3,750, in flight)* | +0.0220 — no gain over E01 |
 | E02 | question + draft *(640/512)* | 0.7741 | ≈ 0 |
 
@@ -698,7 +698,7 @@ English original is the common ancestor of both translations.
 (all three fields) matches E01 (two fields) exactly. Per the decision table, when one field
 dominates, **ship the shorter input**: the Tier-1 winner is **`english_draft`**.
 
-### 📏 TRUNC-01 — truncation was never the constraint
+### TRUNC-01 — truncation was never the constraint
 
 `code/10_truncation_report.py`, 20,000 sampled train rows per dataset at each one's own caps:
 worst source cut **1.62 %** (english_draft @768), worst target cut **0.05 %** for BanglaT5. mT5
@@ -706,7 +706,7 @@ cuts **0.715 %** of targets at a *larger* 640 cap — the tokenizer handicap vis
 before a step is trained. **E07 can therefore recover less than the noise floor**; its result
 should be read as a measurement that closes the question, not as a live lever.
 
-### 🔴 BUG-04 — `04_decode.py` was scoring long-input arms on truncated inputs
+### BUG-04 — `04_decode.py` was scoring long-input arms on truncated inputs
 
 `--max-source-len` defaulted to **384** while E01 trains at 768, E03 at 1024 and E07 at 1280, and
 the runner did not pass it. Every affected arm was **under-scored by its own eval** — E01 reported
@@ -722,7 +722,7 @@ E01/E02 were re-decoded. **Any number produced before this fix is a lower bound.
 E04, E07, E08, E09, E06 (3 LRs), E12 (two-stage warm start), E13 (multitask), E18's Qwen decoder
 arms. Scoreboard: `python fine_tune_project/_slurm/collect.py`.
 
-🔴 **Blocked upstream:** `google/gemma-2-2b-it` and `meta-llama/Llama-3.2-1B-Instruct` return HF
+**Blocked upstream:** `google/gemma-2-2b-it` and `meta-llama/Llama-3.2-1B-Instruct` return HF
 **401** — gated repos, licence not accepted by this account's token. They are 2 of E18's 7 arms,
 and Gemma-2-2B is the specific model LIT-01's decoder>enc-dec finding rests on. Deferred, not
 dropped: accept the licences, then `submit.py --force-blocked`.
@@ -735,59 +735,59 @@ dropped: accept the licences, then `submit.py --force-blocked`.
 |---|---|---|---|---|---|---|---|---|---|
 | BASE-00 | 2026-08-04 | best constant string (reference floor) | — | — | 0.2506 | 0.1518 | 0.6907 | **0.4510** | baseline floor |
 | BASE-01 | 2026-08-04 | generic boilerplate string | — | — | ~0.25 | ~0.15 | 0.6983 | **~0.454** | baseline floor |
-| BASE-02 | 2026-08-04 | TF-IDF retrieval (char_wb 3-5) | — | — | 0.2047 | 0.1254 | ~0.69 | **~0.431** | ❌ worse than constant |
-| BASE-03 | 2026-08-04 | TF-IDF retrieval (word) | — | — | 0.2020 | 0.1220 | ~0.69 | **~0.430** | ❌ worse than constant |
+| BASE-02 | 2026-08-04 | TF-IDF retrieval (char_wb 3-5) | — | — | 0.2047 | 0.1254 | ~0.69 | **~0.431** | worse than constant |
+| BASE-03 | 2026-08-04 | TF-IDF retrieval (word) | — | — | 0.2020 | 0.1220 | ~0.69 | **~0.430** | worse than constant |
 | BASE-04 | 2026-08-04 | random unrelated real response | — | — | 0.1715 | 0.1049 | 0.6863 | **0.4157** | noise floor |
-| **BASE-05** | **2026-08-04** | **constant boilerplate, 119 tokens — the submitted probe string** | — | — | **0.2669** | **0.1564** | **0.6979** | **0.4603** | ✅ **frozen 5k dev — the reference floor** |
-| TRAIN-01 | 2026-08-05 | BanglaT5 lr 1e-4 · warmup 1000 | banglat5 | beam 4 | 0.2051 | 0.1433 | 0.6752 | 0.4278 | ❌ bad schedule |
-| TRAIN-02 | 2026-08-05 | BanglaT5 lr 3e-4 · seed 1337 | banglat5 | beam 4 | 0.2321 | 0.1666 | 0.6976 | 0.4518 | 🔁 superseded |
-| SWEEP-A | 2026-08-05 | lr 3e-4 · eff-batch 64 · seed 42 | banglat5 | beam 4 | 0.2365 | 0.1705 | 0.6990 | 0.4545 | ✅ reference arm |
-| SWEEP-D | 2026-08-05 | lr 3e-4 + **label smoothing 0.1** | banglat5 | beam 4 | 0.2360 | 0.1670 | 0.6963 | 0.4523 | ➖ noise — dead |
-| SWEEP-F | 2026-08-05 | lr 3e-4 · **eff-batch 32** | banglat5 | beam 4 | 0.2442 | 0.1746 | 0.7024 | 0.4594 | ✅ +0.039 over TRAIN-01 |
-| SWEEP-E | 2026-08-05 | lr 1e-3 · **4 ep** (stopped ep 2.20) · seed 99 | banglat5 | beam 4 | 0.2539 | 0.1787 | 0.7040 | 0.4638 | ➖ = C within noise — duration dead |
-| SWEEP-G | 2026-08-06 | **lr 3e-3** · early-stopped @1500 · seed 21 | banglat5 | beam 4 | 0.2390 | 0.1706 | 0.6997 | 0.4557 | 🏁 **below C — 1e-3 is the LR optimum** |
-| **SWEEP-C** | **2026-08-05** | **lr 1e-3 · eff-batch 64 · seed 7** | banglat5 | beam 4 | **0.2576** | **0.1776** | 0.7049 | **0.4653** | 🥇 **best — pred LB 0.5800 > constant** |
-| **ALIGN-01** | **2026-08-05** | 🔴 **external translation, id-joined — NOT a model** | — | — | **0.5984** | **0.5482** | — | — | probe only · pred LB **0.7564** |
-| **XFER-s11** | **2026-08-06** | 🏆 **register transfer, seed 11** | banglat5 | beam 4 | **0.7724** | **0.7324** | — | — | 🏆 **LB 0.85030 — #1** |
-| XFER-s23 | 2026-08-06 | register transfer, seed 23 | banglat5 | beam 4 | 0.7723 | 0.7332 | — | — | ✅ replicate · pred LB 0.8505 |
-| MBR-01 | 2026-08-06 | **pooled MBR over both seeds** | banglat5 ×2 | mbr 16 | 0.7677 | 0.7268 | — | — | ❌ **−0.0027 LB — closed** |
-| **E17-01** | **2026-08-07** | 🏁 four-translator bake-off — Claude +0.063, NLLB −0.044, Qwen3-14B −0.126 | — | — | — | — | — | — | ❌ **CLOSED — keep Google draft** |
-| **LIT-01** | **2026-08-07** | 📄 NLP4Health-2025 paper read — dataset is synthetic + translated | — | — | — | — | — | — | ❌ **dropped on provenance; decoder>seq2seq prior art kept** |
-| **E18-banglat5** | **2026-08-09** | 🔁 **incumbent recipe re-run on H100/bf16** — draft only, 384/256, 8×8 | banglat5 | beam 4 | **0.7768** | 0.7389 | — | — | ✅ **replicates XFER-s11 to 0.0001 at step 2,750** |
-| **E05-draft** | **2026-08-09** | draft only at **768/512**, 30k-step budget *(in flight)* | banglat5 | beam 4 | **0.7970** @11k | 0.7557 | — | — | 🔴 **incumbent had NOT converged** |
-| **E14-gate** | **2026-08-09** | 🔬 pooling gate over 5 arms — pairwise disagreement + oracle ceiling | — | — | — | — | — | — | ✅ **members differ at 0.870; oracle gain +0.0195 — pooling is live** |
-| **E01** | **2026-08-09** | 🥇 **english + draft**, 768/512, 4,000 steps | banglat5 | beam 4 | **0.8032** | **0.7719** | — | — | ✅ **+0.0220 vs E05 at matched caps+steps — English helps** |
-| **E03** | **2026-08-09** | question + english + draft, 1024/512 | banglat5 | beam 4 | **0.8035** | 0.7727 | — | — | ➖ +0.0003 over E01 — question adds nothing |
-| **E07** | **2026-08-09** | all inputs at 1280/768 | banglat5 | beam 4 | **0.8042** | 0.7733 | — | — | 🏁 **+0.0007 over E03 — truncation CLOSED** |
-| **E02** | **2026-08-09** | question + draft, 640/512 | banglat5 | beam 4 | 0.7734 | 0.7351 | — | — | ➖ **within noise of incumbent — the question adds nothing** |
-| **E04** | **2026-08-09** | 🔴 **english ONLY**, 640/512 — no Bengali input at all | banglat5 | beam 4 | **0.7979** | 0.7667 | — | — | 🔴 **beats draft-only by +0.0172; draft worth only +0.0053** |
-| **E08** | **2026-08-09** | **mT5-base** control, draft only, 640/640 | mt5-base | beam 4 | **0.7563** | 0.7168 | — | — | ❌ −0.0161 — drop E09/E10 |
-| **E18-indicbart** | **2026-08-09** | IndicBART, draft only, 384/256 *(in flight)* | IndicBART | beam 4 | 0.4400 @3,750 | — | — | — | ❌ far below — kept for E14 diversity |
-| **TRUNC-01** | **2026-08-09** | 📏 truncation audit, 20k rows × 7 dataset/tokenizer pairs | — | — | — | — | — | — | 📌 **≤1.62% src, ≤0.05% tgt — E07's premise is weak** |
-| **BUG-04** | **2026-08-09** | 🔴 `04_decode.py --max-source-len` defaulted to 384 while arms train at 768/1024/1280 | — | — | — | — | — | — | 🛠 **fixed** — silent under-scoring of every long-input arm |
-| **E05b/en_draft** | **2026-08-10** | 🏆 **english+draft, 12,000 steps — THE CHAMPION** | banglat5 | beam 4 | **0.8257** | **0.7968** | — | — | 🏆 **LB 0.88008** |
-| **E15-DEC** | **2026-08-10** | 🏆 **same ckpt, decoder beam 8 / lp 1.2 / min_new 0** | banglat5 | beam 8 | **0.8328** | **0.8039** | — | — | 🏆 **LB 0.89347 — #1** |
-| E15-SWEEP2 | 2026-08-10 | 44 configs past every boundary of sweep 1 | banglat5 | beam 8/12 | 0.8328 | 0.8039 | — | — | 🏁 **Δ0.0000 — decoding exhausted** |
-| E19×10 | 2026-08-10 | ten seeds @12k, identical decoding | banglat5 | beam 8 | 0.8267–0.8319 | — | — | — | ➖ 0.0052 spread — seeds are not diversity |
-| E03/conv12k | 2026-08-10 | all inputs @12k | banglat5 | beam 8 | 0.8293 | 0.8004 | — | — | ❌ −0.0035 vs champion |
-| E04/conv12k | 2026-08-10 | **english only** @12k | banglat5 | beam 8 | 0.8277 | 0.8002 | — | — | 🔴 draft worth only +0.0053 |
-| E12/conv12k | 2026-08-11 | warm-start → en+draft @12k | banglat5 | beam 8 | 0.8159 | 0.7848 | — | — | ❌ warm-start dead at convergence |
-| E13/conv12k | 2026-08-11 | multitask @12k | banglat5 | beam 8 | 0.8155 | 0.7853 | — | — | ❌ −0.017 |
-| E09/conv12k | 2026-08-11 | mT5 @12k | mt5-base | beam 8 | 0.8017 | 0.7718 | — | — | ❌ mT5 closed on both phases |
-| **E18/gemma2_2b** | **2026-08-11** | **Gemma-2-2B-IT — best decoder** | gemma-2-2b-it | beam 4 | **0.8068** | — | — | — | ❌ −0.026 vs BanglaT5 |
-| E18/qwen35_2b | 2026-08-11 | Qwen3.5-2B (248k vocab) | qwen3.5-2b | beam 4 | 0.7835 | — | — | — | ❌ but beats Qwen3 at every step |
-| E18/qwen3_* | 2026-08-11 | Qwen3 0.6/1.7B, Qwen2.5-1.5B (151k vocab) | qwen | beam 4 | 0.729–0.736 | — | — | — | ❌ 4.85× tokenizer handicap |
-| **E14-MBR2** | **2026-08-11** | 🔬 pooled MBR, 6 members across archs+inputs | — | — | +0.0020 | — | — | — | 🏁 **CLOSED — oracle +0.0326, consensus can't convert it** |
-| **E14-SOUP** | **2026-08-11** | 🔬 weight soups: top3 / greedy / all-10 | banglat5 | beam 8 | 0.8328 / 0.8319 / 0.8282 | — | — | — | 🏁 **CLOSED — best only ties; 10-way is worse** |
-| **E20-GATE** | **2026-08-11** | 🔴 **teacher probe, Qwen3.5-9B 16-shot** | qwen3.5-9b | greedy | **0.5841** | — | — | — | 🏁 **FAILS gate by 0.249 — distillation closed** |
-| BUG-05..09 | 2026-08-10/11 | decoder length caps · IndicBART token_type_ids · silent CPU fallback · pkill over-match · unstable GPU indices | — | — | — | — | — | — | 🛠 all guarded; see REPORT.md §5 |
+| **BASE-05** | **2026-08-04** | **constant boilerplate, 119 tokens — the submitted probe string** | — | — | **0.2669** | **0.1564** | **0.6979** | **0.4603** | **frozen 5k dev — the reference floor** |
+| TRAIN-01 | 2026-08-05 | BanglaT5 lr 1e-4 · warmup 1000 | banglat5 | beam 4 | 0.2051 | 0.1433 | 0.6752 | 0.4278 | bad schedule |
+| TRAIN-02 | 2026-08-05 | BanglaT5 lr 3e-4 · seed 1337 | banglat5 | beam 4 | 0.2321 | 0.1666 | 0.6976 | 0.4518 | superseded |
+| SWEEP-A | 2026-08-05 | lr 3e-4 · eff-batch 64 · seed 42 | banglat5 | beam 4 | 0.2365 | 0.1705 | 0.6990 | 0.4545 | reference arm |
+| SWEEP-D | 2026-08-05 | lr 3e-4 + **label smoothing 0.1** | banglat5 | beam 4 | 0.2360 | 0.1670 | 0.6963 | 0.4523 | noise — dead |
+| SWEEP-F | 2026-08-05 | lr 3e-4 · **eff-batch 32** | banglat5 | beam 4 | 0.2442 | 0.1746 | 0.7024 | 0.4594 | +0.039 over TRAIN-01 |
+| SWEEP-E | 2026-08-05 | lr 1e-3 · **4 ep** (stopped ep 2.20) · seed 99 | banglat5 | beam 4 | 0.2539 | 0.1787 | 0.7040 | 0.4638 | = C within noise — duration dead |
+| SWEEP-G | 2026-08-06 | **lr 3e-3** · early-stopped @1500 · seed 21 | banglat5 | beam 4 | 0.2390 | 0.1706 | 0.6997 | 0.4557 | **below C — 1e-3 is the LR optimum** |
+| **SWEEP-C** | **2026-08-05** | **lr 1e-3 · eff-batch 64 · seed 7** | banglat5 | beam 4 | **0.2576** | **0.1776** | 0.7049 | **0.4653** | **best — pred LB 0.5800 > constant** |
+| **ALIGN-01** | **2026-08-05** | **external translation, id-joined — NOT a model** | — | — | **0.5984** | **0.5482** | — | — | probe only · pred LB **0.7564** |
+| **XFER-s11** | **2026-08-06** | **register transfer, seed 11** | banglat5 | beam 4 | **0.7724** | **0.7324** | — | — | **LB 0.85030 — #1** |
+| XFER-s23 | 2026-08-06 | register transfer, seed 23 | banglat5 | beam 4 | 0.7723 | 0.7332 | — | — | replicate · pred LB 0.8505 |
+| MBR-01 | 2026-08-06 | **pooled MBR over both seeds** | banglat5 ×2 | mbr 16 | 0.7677 | 0.7268 | — | — | **−0.0027 LB — closed** |
+| **E17-01** | **2026-08-07** | four-translator bake-off — Claude +0.063, NLLB −0.044, Qwen3-14B −0.126 | — | — | — | — | — | — | **CLOSED — keep Google draft** |
+| **LIT-01** | **2026-08-07** | NLP4Health-2025 paper read — dataset is synthetic + translated | — | — | — | — | — | — | **dropped on provenance; decoder>seq2seq prior art kept** |
+| **E18-banglat5** | **2026-08-09** | **incumbent recipe re-run on H100/bf16** — draft only, 384/256, 8×8 | banglat5 | beam 4 | **0.7768** | 0.7389 | — | — | **replicates XFER-s11 to 0.0001 at step 2,750** |
+| **E05-draft** | **2026-08-09** | draft only at **768/512**, 30k-step budget *(in flight)* | banglat5 | beam 4 | **0.7970** @11k | 0.7557 | — | — | **incumbent had NOT converged** |
+| **E14-gate** | **2026-08-09** | pooling gate over 5 arms — pairwise disagreement + oracle ceiling | — | — | — | — | — | — | **members differ at 0.870; oracle gain +0.0195 — pooling is live** |
+| **E01** | **2026-08-09** | **english + draft**, 768/512, 4,000 steps | banglat5 | beam 4 | **0.8032** | **0.7719** | — | — | **+0.0220 vs E05 at matched caps+steps — English helps** |
+| **E03** | **2026-08-09** | question + english + draft, 1024/512 | banglat5 | beam 4 | **0.8035** | 0.7727 | — | — | +0.0003 over E01 — question adds nothing |
+| **E07** | **2026-08-09** | all inputs at 1280/768 | banglat5 | beam 4 | **0.8042** | 0.7733 | — | — | **+0.0007 over E03 — truncation CLOSED** |
+| **E02** | **2026-08-09** | question + draft, 640/512 | banglat5 | beam 4 | 0.7734 | 0.7351 | — | — | **within noise of incumbent — the question adds nothing** |
+| **E04** | **2026-08-09** | **english ONLY**, 640/512 — no Bengali input at all | banglat5 | beam 4 | **0.7979** | 0.7667 | — | — | **beats draft-only by +0.0172; draft worth only +0.0053** |
+| **E08** | **2026-08-09** | **mT5-base** control, draft only, 640/640 | mt5-base | beam 4 | **0.7563** | 0.7168 | — | — | −0.0161 — drop E09/E10 |
+| **E18-indicbart** | **2026-08-09** | IndicBART, draft only, 384/256 *(in flight)* | IndicBART | beam 4 | 0.4400 @3,750 | — | — | — | far below — kept for E14 diversity |
+| **TRUNC-01** | **2026-08-09** | truncation audit, 20k rows × 7 dataset/tokenizer pairs | — | — | — | — | — | — | **≤1.62% src, ≤0.05% tgt — E07's premise is weak** |
+| **BUG-04** | **2026-08-09** | `04_decode.py --max-source-len` defaulted to 384 while arms train at 768/1024/1280 | — | — | — | — | — | — | **fixed** — silent under-scoring of every long-input arm |
+| **E05b/en_draft** | **2026-08-10** | **english+draft, 12,000 steps — THE CHAMPION** | banglat5 | beam 4 | **0.8257** | **0.7968** | — | — | **LB 0.88008** |
+| **E15-DEC** | **2026-08-10** | **same ckpt, decoder beam 8 / lp 1.2 / min_new 0** | banglat5 | beam 8 | **0.8328** | **0.8039** | — | — | **LB 0.89347 — #1** |
+| E15-SWEEP2 | 2026-08-10 | 44 configs past every boundary of sweep 1 | banglat5 | beam 8/12 | 0.8328 | 0.8039 | — | — | **Δ0.0000 — decoding exhausted** |
+| E19×10 | 2026-08-10 | ten seeds @12k, identical decoding | banglat5 | beam 8 | 0.8267–0.8319 | — | — | — | 0.0052 spread — seeds are not diversity |
+| E03/conv12k | 2026-08-10 | all inputs @12k | banglat5 | beam 8 | 0.8293 | 0.8004 | — | — | −0.0035 vs champion |
+| E04/conv12k | 2026-08-10 | **english only** @12k | banglat5 | beam 8 | 0.8277 | 0.8002 | — | — | draft worth only +0.0053 |
+| E12/conv12k | 2026-08-11 | warm-start → en+draft @12k | banglat5 | beam 8 | 0.8159 | 0.7848 | — | — | warm-start dead at convergence |
+| E13/conv12k | 2026-08-11 | multitask @12k | banglat5 | beam 8 | 0.8155 | 0.7853 | — | — | −0.017 |
+| E09/conv12k | 2026-08-11 | mT5 @12k | mt5-base | beam 8 | 0.8017 | 0.7718 | — | — | mT5 closed on both phases |
+| **E18/gemma2_2b** | **2026-08-11** | **Gemma-2-2B-IT — best decoder** | gemma-2-2b-it | beam 4 | **0.8068** | — | — | — | −0.026 vs BanglaT5 |
+| E18/qwen35_2b | 2026-08-11 | Qwen3.5-2B (248k vocab) | qwen3.5-2b | beam 4 | 0.7835 | — | — | — | but beats Qwen3 at every step |
+| E18/qwen3_* | 2026-08-11 | Qwen3 0.6/1.7B, Qwen2.5-1.5B (151k vocab) | qwen | beam 4 | 0.729–0.736 | — | — | — | 4.85× tokenizer handicap |
+| **E14-MBR2** | **2026-08-11** | pooled MBR, 6 members across archs+inputs | — | — | +0.0020 | — | — | — | **CLOSED — oracle +0.0326, consensus can't convert it** |
+| **E14-SOUP** | **2026-08-11** | weight soups: top3 / greedy / all-10 | banglat5 | beam 8 | 0.8328 / 0.8319 / 0.8282 | — | — | — | **CLOSED — best only ties; 10-way is worse** |
+| **E20-GATE** | **2026-08-11** | **teacher probe, Qwen3.5-9B 16-shot** | qwen3.5-9b | greedy | **0.5841** | — | — | — | **FAILS gate by 0.249 — distillation closed** |
+| BUG-05..09 | 2026-08-10/11 | decoder length caps · IndicBART token_type_ids · silent CPU fallback · pkill over-match · unstable GPU indices | — | — | — | — | — | — | all guarded; see REPORT.md §5 |
 
-> ⚠️ All sweep rows are **300-row dev subsets with beam 4**, as logged by each run — not the full 5k. They are mutually comparable (identical subset and decoder) but not directly comparable to the BASE-* rows, which are full-5k.
+> All sweep rows are **300-row dev subsets with beam 4**, as logged by each run — not the full 5k. They are mutually comparable (identical subset and decoder) but not directly comparable to the BASE-* rows, which are full-5k.
 
-> ⚠️ BASE-00 … BASE-04 were measured on a **600-row provisional slice** (BERTScore on 250 rows) before the frozen split existed. Treat them as indicative only.
+> BASE-00 … BASE-04 were measured on a **600-row provisional slice** (BERTScore on 250 rows) before the frozen split existed. Treat them as indicative only.
 > **BASE-05 is the authoritative floor.** It scored **0.57849 on the public LB (#1)** — see below.
 
-### 🔴 METRIC MIS-CALIBRATION — read before comparing any composite
+### METRIC MIS-CALIBRATION — read before comparing any composite
 
 BASE-05 predicted **0.4603**, scored **0.57849** (Δ **+0.1182**, versus a ±0.002 dev noise band). Token F1 and ROUGE-L are deterministic, so the entire gap is BERTScore:
 
@@ -798,8 +798,8 @@ BASE-05 predicted **0.4603**, scored **0.57849** (Δ **+0.1182**, versus a ±0.0
 Our mBERT-layer-9 config yields **0.6979**; the organizers' yields **0.9343**.
 
 **Until `metric.py` is recalibrated:**
-- ❌ **Do not rank runs by the local `composite`** — it understates by ~0.118 and the offset may not be constant across models.
-- ✅ **Rank by Token F1 and ROUGE-L**, which are unaffected.
+- **Do not rank runs by the local `composite`** — it understates by ~0.118 and the offset may not be constant across models.
+- **Rank by Token F1 and ROUGE-L**, which are unaffected.
 - Approximate a true score with `0.5·0.934 + 0.3·TokenF1 + 0.2·ROUGE-L` only as a rough guide.
 
 **Local floor to beat, in lexical terms: Token F1 0.2669 · ROUGE-L 0.1564.**
@@ -811,13 +811,13 @@ Run on three worker accounts (2 concurrent sessions each). All share: BanglaT5, 
 
 | Arm | Account | Changed from A | Hypothesis | Token F1 | ROUGE-L | pred LB | Verdict |
 |---|---|---|---|---|---|---|---|
-| **C-lr1e3** | tashintahir | **lr 1e-3** | Adafactor's canonical T5 LR | **0.2576** | **0.1776** | **0.5800** | 🥇 **best — first to beat the constant** |
-| **F-batch32** | ishmamahmid | **eff-batch 32** | 2× optimizer updates, same data | 0.2444 | 0.1746 | 0.5754 | ✅ **+0.039 over TRAIN-01** |
-| **D-smooth** | tashintahir | **label_smoothing 0.1** | softer target vs exact copying | 0.2360 | 0.1670 | 0.5714 | ➖ +0.004 vs comparator — noise |
-| **A-lr3e4** | salam2026 | *(reference)* lr 3e-4 · warmup 200 · 2ep · eff-64 | the correction TRAIN-01 never received | 0.2365 | 0.1705 | 0.5722 | ✅ +0.031 over TRAIN-01 |
-| **E-lr1e3-4ep** | ishmamahmid | **lr 1e-3 + 4 epochs** | do C and B compound? | 0.2539 | 0.1787 | 0.5791 | ➖ **= C within noise — duration is dead** |
-| **G-lr3e3** | ishmamahmid | **lr 3e-3** | is 1e-3 the LR optimum? | 0.2390 | 0.1706 | 0.5730 | 🏁 **below C — 1e-3 IS the optimum. LR tuning closed.** |
-| **B-4epoch** | salam2026 | **4 epochs** | simply undertrained? | *cancelled* | | | ⛔ cancelled; E already answered it at a better LR |
+| **C-lr1e3** | tashintahir | **lr 1e-3** | Adafactor's canonical T5 LR | **0.2576** | **0.1776** | **0.5800** | **best — first to beat the constant** |
+| **F-batch32** | ishmamahmid | **eff-batch 32** | 2× optimizer updates, same data | 0.2444 | 0.1746 | 0.5754 | **+0.039 over TRAIN-01** |
+| **D-smooth** | tashintahir | **label_smoothing 0.1** | softer target vs exact copying | 0.2360 | 0.1670 | 0.5714 | +0.004 vs comparator — noise |
+| **A-lr3e4** | salam2026 | *(reference)* lr 3e-4 · warmup 200 · 2ep · eff-64 | the correction TRAIN-01 never received | 0.2365 | 0.1705 | 0.5722 | +0.031 over TRAIN-01 |
+| **E-lr1e3-4ep** | ishmamahmid | **lr 1e-3 + 4 epochs** | do C and B compound? | 0.2539 | 0.1787 | 0.5791 | **= C within noise — duration is dead** |
+| **G-lr3e3** | ishmamahmid | **lr 3e-3** | is 1e-3 the LR optimum? | 0.2390 | 0.1706 | 0.5730 | **below C — 1e-3 IS the optimum. LR tuning closed.** |
+| **B-4epoch** | salam2026 | **4 epochs** | simply undertrained? | *cancelled* | | | cancelled; E already answered it at a better LR |
 
 #### F-batch32 — first arm home (285.7 min · `hash 9e3126b85e78323a` · lr 0.0003 confirmed)
 
@@ -831,7 +831,7 @@ Run on three worker accounts (2 concurrent sessions each). All share: BanglaT5, 
 | **4000** | **1.26** | **0.2444** | 0.1739 | 0.5753 | 93.3 | 2.170 |
 | 4500 | 1.42 | 0.2396 | 0.1686 | 0.5728 | 100.6 | 2.149 |
 
-**🔴 Two findings, and the second is the important one:**
+**Two findings, and the second is the important one:**
 
 **① The LR correction is worth +0.039 Token F1** (0.2051 → 0.2444). TRAIN-01's weak result was a **bad schedule, not a structural ceiling**. `lr 3e-4 / warmup 200` is confirmed as the right setting.
 
@@ -845,7 +845,7 @@ Run on three worker accounts (2 concurrent sessions each). All share: BanglaT5, 
 
 **Revised sweep expectation:** only **C (lr 1e-3)** and **D (label smoothing)** can still move the number, because they change the *shape* of learning rather than its duration.
 
-#### C-lr1e3 — 🥇 best arm (393.5 min · seed 7 · lr 0.001 · eff-batch 64 · dev loss 2.016)
+#### C-lr1e3 — best arm (393.5 min · seed 7 · lr 0.001 · eff-batch 64 · dev loss 2.016)
 
 | | Token F1 | ROUGE-L | BERTScore* | pred LB | tokens | dev loss |
 |---|---|---|---|---|---|---|
@@ -853,7 +853,7 @@ Run on three worker accounts (2 concurrent sessions each). All share: BanglaT5, 
 
 \* local BERTScore, mis-calibrated by ~0.118 — ignore, see the calibration note above.
 
-**🥇 First model to pass the constant string on predicted LB**, by +0.0015 (0.5800 vs 0.57849) —
+**First model to pass the constant string on predicted LB**, by +0.0015 (0.5800 vs 0.57849) —
 and it does so **while still losing on Token F1** (0.2576 vs 0.2669). The whole margin comes from
 **ROUGE-L: 0.1776 vs 0.1564, +0.021.** The constant's bag-of-words overlap is near-optimal by
 construction, but its word *order* matches nothing. A real model emits ordered sequences, and
@@ -873,7 +873,7 @@ improved the language model and the metric together.
 | 2500 | 1.57 | 0.2533 | 0.1779 | 1.981 | 98.9 |
 | 3000 | 1.89 | 0.2510 | 0.1763 | **1.964** | 102.4 |
 
-**🔴 C peaks at step 2000 and then declines while loss falls to its minimum.** So the per-LR
+**C peaks at step 2000 and then declines while loss falls to its minimum.** So the per-LR
 "level" is a **peak, not a plateau**, and at lr 1e-3 training past it is actively harmful. Combined
 with A still climbing at step 3000, the rule is: **a higher LR reaches a higher peak, sooner.**
 
@@ -885,7 +885,7 @@ with A still climbing at step 3000, the rule is: **a higher LR reaches a higher 
 - **Arm G was changed before launch** to evaluate every **250** steps instead of 500: if the peak
   keeps moving earlier with LR, at 3e-3 it could fall between two coarse evals and never be saved.
 
-#### 🏁 G-lr3e3 — the LR curve turns over. Tuning is CLOSED. (212.2 min · seed 21 · lr 3e-3)
+#### G-lr3e3 — the LR curve turns over. Tuning is CLOSED. (212.2 min · seed 21 · lr 3e-3)
 
 **Final: Token F1 0.2390 · ROUGE-L 0.1706 · pred LB 0.5730 — below C's 0.2576.**
 
@@ -901,7 +901,7 @@ with A still climbing at step 3000, the rule is: **a higher LR reaches a higher 
 **Terminated cleanly at step 1,500 / 3,180 (47%) with `exit 0`** — early stopping fired after the
 peak, saving ~3.5 GPU-hours on a losing configuration. A complete result, not a truncated run.
 
-**🏁 This is the first arm to come in below its predecessor, which is exactly what was needed.**
+**This is the first arm to come in below its predecessor, which is exactly what was needed.**
 The LR series 1e-4 → 3e-4 → 1e-3 was monotone with no visible top, so 1e-3 was only ever a *lower
 bound*. G turns the curve over:
 
@@ -924,7 +924,7 @@ Raising the LR pulls the peak earlier, and past the optimum it also pulls it *lo
 coincides with its *worst* Token F1 (0.2245). Anyone early-stopping on loss would have selected the
 worst checkpoint in the run.
 
-#### E-lr1e3-4ep — ✅ closes the epoch question (480.4 min · seed 99 · lr 1e-3 · eff-batch 64)
+#### E-lr1e3-4ep — closes the epoch question (480.4 min · seed 99 · lr 1e-3 · eff-batch 64)
 
 Configured for 4 epochs; **stopped at step 3,500 / epoch 2.20** after 480 min. Still decisive,
 because its peak came at step 2,000 and it then declined for 1,500 further steps.
@@ -949,7 +949,7 @@ seeds, different budgets — **both peak at step 2,000**, then both decline whil
 minimum. E extends the decline 1,500 steps further than C did (0.2539 → 0.2393), so past the peak
 the damage keeps accruing rather than levelling off.
 
-**🟢 Operational consequence — this is the useful part.** At lr 1e-3 the productive budget is
+**Operational consequence — this is the useful part.** At lr 1e-3 the productive budget is
 **~2,000 steps**, not 2 epochs and certainly not 4. A full arm costs ~6.5–8 h and only the first
 ~4 h contribute. **Future arms at this LR should run 2,500 steps with eval every 250 and stop**,
 which roughly halves cost per experiment and frees GPU hours for different questions.
@@ -965,13 +965,13 @@ which roughly halves cost per experiment and frees GPU hours for different quest
 Its exact comparator is the `1337seed` run (same lr 3e-4, eff-64, 2 ep, no smoothing) at **0.2321**
 — nominally **+0.0039**. But arm A, which is the *same config again at seed 42*, reaches **0.2365**
 by epoch 1.89. So the three runs at this identical config read **0.2321 / 0.2360 / 0.2365** —
-**a seed spread of 0.0044 that entirely contains D's effect.** ❌ Label smoothing does nothing.
+**a seed spread of 0.0044 that entirely contains D's effect.** Label smoothing does nothing.
 Do not spend another arm on it.
 
 **This also calibrates every other comparison: differences below ~0.005 Token F1 are noise.**
 C's +0.021 over F and +0.026 over A are 5× that, so the LR effect below is real.
 
-#### A-lr3e4 — ✅ complete (377.9 min · seed 42 · lr 3e-4 · eff-batch 64 · dev loss 2.212)
+#### A-lr3e4 — complete (377.9 min · seed 42 · lr 3e-4 · eff-batch 64 · dev loss 2.212)
 
 Final: **Token F1 0.23645 · ROUGE-L 0.17053 · pred LB 0.5722 · 91.4 tokens.**
 
@@ -987,7 +987,7 @@ training ended at 3,180, so step 3000 was simply the final eval. The run is comp
 | 2500 | 1.57 | 0.2343 | 0.1695 | 2.230 | 87.9 |
 | **3000** | **1.89** | **0.2365** | **0.1705** | 2.212 | 91.4 |
 
-**🟢 This corrects the "plateau" story again — the axis is optimizer steps, not epochs.** Arm A was
+**This corrects the "plateau" story again — the axis is optimizer steps, not epochs.** Arm A was
 *still climbing at its final eval*, where F was flat from epoch 0.94. But compare at equal **steps**:
 
 | step | A (eff-batch 64) | F (eff-batch 32) |
@@ -999,7 +999,7 @@ Nearly the same value at the same step count, on half the data seen. **What the 
 the number of optimizer updates, not epochs of data.** F looked like it plateaued "after 1 epoch"
 only because at batch 32 one epoch is 3,180 steps.
 
-⚠️ **A never actually reached the flat region.** At eff-batch 64, a 2-epoch budget is only 3,180
+**A never actually reached the flat region.** At eff-batch 64, a 2-epoch budget is only 3,180
 steps, and A's last eval (step 3000) was still rising — so **A is mildly undertrained, and the
 0.2365 / 0.2321 / 0.2360 "seed spread" is measured at a point where the curve has not settled.**
 The 0.0044 noise floor is therefore an upper bound on true seed noise; treat it as conservative.
@@ -1008,7 +1008,7 @@ F's trajectory does show the flat region (0.2442 at 3,000 → 0.2396 at 4,500), 
 lr 3e-4 = 6,360 steps) should still land ~0.24** — it buys steps in a region already flat. **E
 remains the arm to watch**: the only one adding steps at the LR that raised the level.
 
-#### 🟢 THE REAL FINDING: learning rate is the dominant knob, and the trend is monotone
+#### THE REAL FINDING: learning rate is the dominant knob, and the trend is monotone
 
 Holding 2 epochs / eff-batch 64 fixed, four runs now isolate the LR:
 
@@ -1033,16 +1033,16 @@ level. Correct combined statement:
 the third bullet: it came in at 0.2539, i.e. equal to C within noise, so duration is dead and the
 "only arm that can move the number" framing was wrong):*
 - **A** (lr 3e-4, 2 ep) — a seed replicate of `1337seed`. Expect ~0.232; its only value now is
-  quantifying seed noise, which is what decides whether D's +0.004 means anything. ✅ *landed 0.2365.*
+  quantifying seed noise, which is what decides whether D's +0.004 means anything. *landed 0.2365.*
 - **B** (lr 3e-4, 4 ep) — extra epochs at an already-converged LR. Expect ~0.232–0.244, a cheap
   confirmation of the negative. ⏳ *still running.*
-- ~~**🔴 E** (lr 1e-3, 4 ep) — **the only remaining arm that can move the number.**~~ ✅ **Resolved:
+- ~~**E** (lr 1e-3, 4 ep) — **the only remaining arm that can move the number.**~~ **Resolved:
   E = 0.2539 vs C 0.2576.** Duration is conclusively dead; LR is the whole story. The follow-on
   written here — *"if E ≈ C … an lr 3e-3 arm earns a GPU slot"* — is why **arm G** exists.
 
 **Baselines:** TRAIN-01 **0.2051** · constant **0.2669** · frequency-only **0.3519**.
 
-**Timing:** ~8.1 s/step measured. 2-epoch arms (A, C, D, F) ≈ **7.5 h**. ⚠️ **B and E are 6,360 steps ≈ 14.4 h and will hit Kaggle's 12 h cap around epoch 3.3** — `save_total_limit=2` means a ~step-5,500 checkpoint survives, so they still answer the question, just at ~3.4 epochs rather than 4.
+**Timing:** ~8.1 s/step measured. 2-epoch arms (A, C, D, F) ≈ **7.5 h**. **B and E are 6,360 steps ≈ 14.4 h and will hit Kaggle's 12 h cap around epoch 3.3** — `save_total_limit=2` means a ~step-5,500 checkpoint survives, so they still answer the question, just at ~3.4 epochs rather than 4.
 
 **Infrastructure note:** these accounts are *not* registered for the competition. The data was uploaded to each as a private `nascenia-data` dataset and `competition_sources` left empty. No notebook code changed — Cell 3 globs `/kaggle/input/**/train.csv`, so it resolves either source. (Same globbing decision that avoided trap #6.)
 
@@ -1050,7 +1050,7 @@ the third bullet: it came in at 0.2539, i.e. equal to C within noise, so duratio
 
 ---
 
-### 🏁 E17-01 — four-translator bake-off. The Google draft wins on deployability. CLOSED. (2026-08-07)
+### E17-01 — four-translator bake-off. The Google draft wins on deployability. CLOSED. (2026-08-07)
 
 **Hypothesis:** our draft was made with Google Translate and aligns to the target at Token F1
 0.5984. A stronger translator should raise that floor and every downstream ceiling with it.
@@ -1068,7 +1068,7 @@ cancels). Faithful/plain prompt, no register styling — contamination checked o
 Contamination: `হেলো` 0.0% and `নাসেনিয়া` 0.0% on **all four** — every number measures translation,
 not injected styling.
 
-**🔴 Qwen3's loss is not a bug.** Output verified: mean 95.5 words (target 99.8), Bengali char
+**Qwen3's loss is not a bug.** Output verified: mean 95.5 words (target 99.8), Bengali char
 fraction 0.81 with 0 rows below 0.5, Latin letters 4% (target 6%), no truncation or commentary. It
 is fluent, correctly-sized Bengali that picks **different synonyms** — `কয়েকটি সম্ভাবনা` where
 Google *and* the target both say `বেশ কিছু সম্ভাবনা`.
@@ -1077,7 +1077,7 @@ Google *and* the target both say `বেশ কিছু সম্ভাবন�
 but lexical coincidence with one particular translator.** Google's vocabulary happens to sit closer
 to the organizers' than a strong modern LLM's does.
 
-**Verdict: ❌ closed. Keep the Google draft.** Claude wins but there is no Claude API here, so
+**Verdict: closed. Keep the Google draft.** Claude wins but there is no Claude API here, so
 +0.0631 is not deployable across 107,737 rows. Qwen3-235B would need **+0.146 over the 14B** to
 clear the +0.02 usefulness bar — most of the entire achievable range. Worth one cheap fleet run as
 a final check; **must not block E05.**
@@ -1102,7 +1102,7 @@ and, critically, **ran the ungated arm first and wrote it to disk before attempt
 
 ---
 
-### 🔴 LIT-01 — NLP4Health-2025 paper read in full; the dataset is synthetic and translated (2026-08-07)
+### LIT-01 — NLP4Health-2025 paper read in full; the dataset is synthetic and translated (2026-08-07)
 
 **Source:** [aclanthology.org/2025.nlpai4health-main.5](https://aclanthology.org/2025.nlpai4health-main.5/) (PDF in repo root).
 **Why:** PLAN.md ranked NLP4Health-2025 the top external candidate and CLAUDE.md called it *"the only
@@ -1118,10 +1118,10 @@ Neither claim survived reading the source.
 Genuine: the clinical curriculum (CMC Vellore oncologists/pulmonologists) and validation (3 experts
 per instance, mean ≥85/100, >80% consensus). **Quality was never the issue — provenance is.**
 
-**Verdict: ❌ dropped on provenance.** Access is also unverifiable (shared-task site refuses
+**Verdict: dropped on provenance.** Access is also unverifiable (shared-task site refuses
 connections; no HF/GitHub mirror; paper states no licence or download URL) — but that is now moot.
 
-**🥇 The paper is worth more than its data.** Same **<3B cap**, Indic medical dialogue:
+**The paper is worth more than its data.** Same **<3B cap**, Indic medical dialogue:
 
 | Team | Model | Summ BERTScore | QA F1 | KnV F1 |
 |---|---|---|---|---|
@@ -1129,7 +1129,7 @@ connections; no HF/GitHub mirror; paper states no licence or download URL) — b
 | Zaid | Qwen-1.5B + pipeline | 0.83 | 0.67 | 0.72 |
 | Samvad | mT5 / Sarvam 3B (RAG) | 0.81 | **0.78** | — |
 | KV | **Qwen3-1.7B + QLoRA** | 0.80 | 0.65 | **0.93** |
-| Moutushi Roy | **mT5-base** | 0.78 ⬇ | 0.55 ⬇ | 0.13 ⬇ |
+| Moutushi Roy | **mT5-base** | 0.78 | 0.55 | 0.13 |
 
 Zero-shot: Gemma-2-2B-IT 0.52 QA F1 > Qwen2.5-1.5B 0.45 > Llama-3.2-1B 0.43.
 
@@ -1141,7 +1141,7 @@ already specced (`Qwen3-1.7B`). ② **add `Gemma-2-2B-IT` as a second E18 arm** 
 argument is the same one that makes BanglaT5 beat mT5 for us. ③ **mT5 came last on every metric**,
 so E08's gate now has outside evidence behind it.
 
-⚠️ **Transfer with care.** Their task is summarisation/extraction from multi-turn dialogue; ours is
+**Transfer with care.** Their task is summarisation/extraction from multi-turn dialogue; ours is
 register transfer on single answers. The **tokenizer** argument transfers cleanly (it is about
 script, not task); the architecture result is suggestive only. **E18 still has to be measured.**
 
@@ -1151,7 +1151,7 @@ decision.** Read the primary source before ranking a dataset, not after.
 
 ---
 
-### 🏁 MBR-01 — MBR finally measured. It LOSES. (2026-08-06)
+### MBR-01 — MBR finally measured. It LOSES. (2026-08-06)
 
 **The plan's #1 lever for four days, now measured for the first time — and it is negative.**
 
@@ -1173,7 +1173,7 @@ Pooled MBR over both register-transfer seeds vs beam-4, **same 300 dev rows**, i
 2. **The two seeds agree too closely** — 0.7724 vs 0.7723. Pooled MBR needs models that *disagree
    usefully*; a consensus selector given near-identical candidates has nothing to select on.
 
-⚠️ **What this does NOT establish.** MBR was designed for the **question→answer** task, where the
+**What this does NOT establish.** MBR was designed for the **question→answer** task, where the
 model invents content and hedging toward the generic centre should pay — and the measurements behind
 that argument (retrieval 0.2047 < constant 0.2669) still stand. **MBR was never measured on that
 task**, because ALIGN-01 superseded it first. Honest statement: *MBR loses on register transfer*,
@@ -1182,17 +1182,17 @@ not *MBR does not work*.
 **The notebook did the right thing:** it measured all three decoders before writing anything, then
 generated the submission with **seed-23 beam** rather than shipping a worse file labelled "ensemble."
 
-🔴 **Consequence — the ensemble submission is a DUPLICATE.** Its output is byte-identical to the
+**Consequence — the ensemble submission is a DUPLICATE.** Its output is byte-identical to the
 seed-23 notebook's (`md5 fda941ab5b1d649f`, 1000/1000 rows). Submitting both would burn a slot on the
 same file. By contrast **seed 11 and seed 23 share only 34/1000 rows (3.4%)** despite differing by
 0.0001 on dev — so those two are genuinely different submissions, and the pair measures LB noise.
 
-**Verdict: ❌ closed.** Do not spend further slots on MBR or on the §6.4 beam/length sweep. Beam-4 at
+**Verdict: closed.** Do not spend further slots on MBR or on the §6.4 beam/length sweep. Beam-4 at
 `min_new 80 / max_new 320 / lp 1.0` is the shipped decoder.
 
 ---
 
-### 🔴 ALIGN-01 — the competition `id` is a ChatDoctor row index, and a public Bengali translation shares it (2026-08-05)
+### ALIGN-01 — the competition `id` is a ChatDoctor row index, and a public Bengali translation shares it (2026-08-05)
 
 **The single largest measured finding in the project.**
 
@@ -1233,7 +1233,7 @@ The branding appears in **half** of all references and is **entirely absent** fr
 text. Three regexes recover +0.0084 Token F1; a model trained on 108,943 aligned pairs should
 recover much more.
 
-**🔴 A raw lookup cannot win — identical trap to the constant string.** Rules §8 bars non-model
+**A raw lookup cannot win — identical trap to the constant string.** Rules §8 bars non-model
 output; Phase 2 requires a model + inference script reproducing the leaderboard outputs. A CSV join
 is neither.
 
@@ -1241,7 +1241,7 @@ is neither.
 translation`, `target = competition-register answer` — a **style-transfer** task. Output is
 genuinely generated, reproducible, and should beat 0.7564 by closing the register gap above.
 
-### ✅ Provenance resolved (user-confirmed 2026-08-05) — §2.6.a is satisfied
+### Provenance resolved (user-confirmed 2026-08-05) — §2.6.a is satisfied
 
 **Source: https://github.com/Kent0n-Li/ChatDoctor** — the official ChatDoctor repository. The team
 downloaded HealthCareMagic-100k from it and **translated it to Bengali themselves**; `Data_Search_3`
@@ -1249,15 +1249,15 @@ is that derived artifact, not a third-party dataset.
 
 | §2.6.a requirement | Status |
 |---|---|
-| publicly available | ✅ public GitHub repo, datasets on open Google Drive links |
-| equally accessible to all Participants | ✅ no registration, approval, or gate |
-| at no cost | ✅ free |
+| publicly available | public GitHub repo, datasets on open Google Drive links |
+| equally accessible to all Participants | no registration, approval, or gate |
+| at no cost | free |
 
 **Licence:** code Apache-2.0. Datasets carry *"ChatDoctor is for academic research only and any
 commercial use and clinical use is prohibited."* Compatible — this is a Community/Kudos-only
 competition and the competition data is itself CC BY-NC 4.0.
 
-**🔴 The reframing that matters: the exposure is not created by our translation.** The organizers
+**The reframing that matters: the exposure is not created by our translation.** The organizers
 built this competition from a public dataset and **preserved its row indices as `id`**. Any
 competitor who downloads HealthCareMagic-100k and indexes by row number holds the English answers
 to all 1,000 test rows. Our Bengali translation merely skips a translation step. Corroborating:
@@ -1295,7 +1295,7 @@ lookup, but a lookup is not model output (Rules §8) and fails Phase 2. Question
 caps at ~0.58 — five arms proved it. So the model is given the draft and asked to do the only part
 that is actually left: convert one translator's register into the other's.
 
-**🔴 The bar is 0.5984 Token F1 / 0.5482 ROUGE-L** — the draft plus three regexes, no model at all.
+**The bar is 0.5984 Token F1 / 0.5482 ROUGE-L** — the draft plus three regexes, no model at all.
 
 | Result | Reading |
 |---|---|
@@ -1355,7 +1355,7 @@ Each notebook re-scores 300 dev rows first and **asserts the result matches the 
 | 1–2 | died at cell 1 | **P100** — no `machine_shape` in the metadata (trap #10) |
 | 3–4 | died at cell 5 | **BUG-02** — `04_decode.py` read a path derived from `__file__` |
 | 5 | died at cell 6 | **BUG-03** — fp16 NaN, caught by the integrity assert |
-| 5 *(re-run)* | ✅ running on T4 | all three fixed |
+| 5 *(re-run)* | running on T4 | all three fixed |
 
 **The integrity assert is the reason this record exists.** Under v5's fp16 bug the notebook still
 wrote a perfectly well-formed `submission.csv`; without the check against the recorded Token F1, a
@@ -1364,7 +1364,7 @@ inference notebook keeps a known-good-number assert before it writes anything.**
 
 ---
 
-### 🔴 BUG-03 — `04_decode.py` decoded in fp16; T5 overflows to NaN (found 2026-08-05)
+### BUG-03 — `04_decode.py` decoded in fp16; T5 overflows to NaN (found 2026-08-05)
 **What:** `Decoder.__init__` had `fp16: bool = True` and called `m.half()` on CUDA. **T5 overflows
 to NaN in fp16** — which is exactly why every training run here is fp32.
 
@@ -1393,7 +1393,7 @@ time it ran.
 
 ---
 
-### 🔴 BUG-02 — `04_decode.py` derived its data path from `__file__` (found 2026-08-05)
+### BUG-02 — `04_decode.py` derived its data path from `__file__` (found 2026-08-05)
 **What:** `ROOT = Path(__file__).resolve().parent.parent; PROC = ROOT/"DATA"/"PROCESSED"`. Correct
 in the repo (`NOTEBOOKS/` → `../DATA/PROCESSED`), but the notebooks copy the code to
 `/kaggle/working/code/`, where it resolves to a non-existent `/kaggle/working/DATA/PROCESSED`.
@@ -1411,7 +1411,7 @@ arguments, never from its own location.**
 
 ---
 
-### 🔴 BUG-01 — `checkpoint_hash` is not a valid run identity (found 2026-08-05)
+### BUG-01 — `checkpoint_hash` is not a valid run identity (found 2026-08-05)
 **What:** `sha256_dir` in `NOTEBOOKS/02_train_t5.py` hashed **file names and sizes only, never
 file contents.** Every BanglaT5 checkpoint has the same file layout, so every run got the same hash.
 
@@ -1448,21 +1448,21 @@ this entry; already-finished checkpoints must be re-hashed from the downloaded w
 |---|---|---|---|---|---|
 | 0.2321 | 0.1666 | 0.6976 | 0.5701 | 95.4 | 2.223 |
 
-**Verdict:** 🔁 superseded. +0.027 Token F1 over TRAIN-01, confirming the LR-schedule fix
+**Verdict:** superseded. +0.027 Token F1 over TRAIN-01, confirming the LR-schedule fix
 independently of arm F — but **below both F (0.2444, same LR at half the batch) and C (0.2576,
 higher LR)**. Its lasting value is as the exact no-smoothing comparator that makes arm D
 interpretable. Not a submission candidate.
 
 ---
 
-### TRAIN-01 — first completed BanglaT5 fine-tune (seed 42) 🔴 **below the constant**
+### TRAIN-01 — first completed BanglaT5 fine-tune (seed 42) **below the constant**
 **Date:** 2026-08-05 · 431.7 min on a single T4 · `checkpoint_hash 498e2e7cbeb06445`
 
 | Field | Value |
 |---|---|
 | Base model | `csebuetnlp/banglat5` · **247,577,856 params** (tied embeddings → confirms transformers 4.57.3) |
 | Seed | 42 · train rows 101,740 |
-| **lr** | **1e-4** ⚠️ — the corrected **3e-4 / warmup 200 never reached this run** |
+| **lr** | **1e-4** — the corrected **3e-4 / warmup 200 never reached this run** |
 | Effective batch | 64 (8 × 8) · 2 epochs · Adafactor · fp32 · 384/256 |
 | Decoding | beam 4 · min_new 80 · max_new 320 · length_penalty 1.0 |
 | Eval | 300-row dev subset (not the full 5k) |
@@ -1477,16 +1477,16 @@ interpretable. Not a submission candidate.
 
 | vs bar | Δ |
 |---|---|
-| LB constant — Token F1 0.2669 | ❌ **−0.0618** |
-| Frequency-only — Token F1 0.3519 | ❌ **−0.1468** |
+| LB constant — Token F1 0.2669 | **−0.0618** |
+| Frequency-only — Token F1 0.3519 | **−0.1468** |
 
-**Verdict: ❌ does not beat a constant string.** But two things went right and one went wrong:
+**Verdict: does not beat a constant string.** But two things went right and one went wrong:
 
-✅ **The `transformers` pin worked.** `loss 2.5368` is a healthy T5 fine-tuning loss (5.0.0 reported ~163), and the 247.6M tied-embedding count confirms 4.57.3. The training pipeline is finally sound.
+**The `transformers` pin worked.** `loss 2.5368` is a healthy T5 fine-tuning loss (5.0.0 reported ~163), and the 247.6M tied-embedding count confirms 4.57.3. The training pipeline is finally sound.
 
-❌ **This run used the superseded hyperparameters.** `run.json` records `"lr": 0.0001` — 1e-4, not the corrected 3e-4, so warmup was almost certainly still 1000 of 3,180 steps. **431 minutes trained the wrong config.**
+**This run used the superseded hyperparameters.** `run.json` records `"lr": 0.0001` — 1e-4, not the corrected 3e-4, so warmup was almost certainly still 1000 of 3,180 steps. **431 minutes trained the wrong config.**
 
-🔴 **The finding that matters most — a fine-tuned model scores like retrieval:**
+**The finding that matters most — a fine-tuned model scores like retrieval:**
 
 | | Token F1 |
 |---|---|
@@ -1502,7 +1502,7 @@ interpretable. Not a submission candidate.
 
 ---
 
-### 🔴 ROOT CAUSE OF TRAIN-FAIL-01…08 — `transformers==5.0.0` (resolved 2026-08-05)
+### ROOT CAUSE OF TRAIN-FAIL-01…08 — `transformers==5.0.0` (resolved 2026-08-05)
 
 **Pinning `transformers==4.57.3` made BanglaT5 train cleanly on the first attempt.** Kaggle's default image ships 5.0.0.
 
@@ -1527,7 +1527,7 @@ Genuinely separate and still valid: the `group_by_length` silent scan (trap #12)
 
 ### TRAIN-FAIL-01…08 — eight failed BanglaT5 training attempts (infrastructure)
 **Date:** 2026-08-04 → 08-05
-**Outcome:** ❌ **zero usable checkpoints produced.** ~10 GPU-hours burned across two accounts. Every failure was infrastructure, never the model or the recipe.
+**Outcome:** **zero usable checkpoints produced.** ~10 GPU-hours burned across two accounts. Every failure was infrastructure, never the model or the recipe.
 
 | # | Config | Failure | Root cause |
 |---|---|---|---|
@@ -1566,7 +1566,7 @@ Genuinely separate and still valid: the `group_by_length` silent scan (trap #12)
 | DistilBERT-multi L6 | 0.8081 | 0.7814 | 0.0267 |
 | MiniLM sentence-mean | 0.8733 | 0.8313 | 0.0421 |
 
-**Verdict: ⚠️ capped, not solved.** Target 0.9343 sits between XLM-R L11 (0.9010) and L12 (0.9871), matching neither. The equation also has three unknowns, not one — it assumes their tokenizer matches ours.
+**Verdict: capped, not solved.** Target 0.9343 sits between XLM-R L11 (0.9010) and L12 (0.9871), matching neither. The equation also has three unknowns, not one — it assumes their tokenizer matches ours.
 
 **Why stopping is correct:** every config gives a constant-vs-random spread of **0.0008–0.042**. BERTScore is near-non-discriminative under all of them, so its exact identity changes no decision. **Rank by Token F1 / ROUGE-L.** A second data point from a future submission with different lexical scores would identify it far more cheaply than more sweeping.
 
@@ -1586,12 +1586,12 @@ Greedy multiset construction maximizing `F1 = 2·overlap/(|pred|+|ref|)`, fit on
 
 *proxy = xlm-roberta-base L11, uncalibrated; sign meaningful, magnitude not.
 
-**Verdict: ❌ do not submit.** Lexical gain +0.0206 is largely cancelled by the BERTScore drop (−0.0241 × 0.5 = −0.0120), netting ~**+0.0085** with high uncertainty.
+**Verdict: do not submit.** Lexical gain +0.0206 is largely cancelled by the BERTScore drop (−0.0241 × 0.5 = −0.0120), netting ~**+0.0085** with high uncertainty.
 
 **Two findings that matter more than the verdict:**
 
-1. **🔴 Token F1 0.3519 is reachable with NO MODEL — by pure corpus frequency statistics.** The bar for the trained model is **0.3519, not 0.2669**. A model scoring below this has learned nothing beyond unigram frequencies.
-2. **🔴 The §0 thesis needs refining.** BERTScore is flat *across fluent in-domain texts* (constant vs random real ≈ 0.006 spread) but it **does** penalize degenerate text (−0.024 for word salad). So it acts as a fluency floor, not a pure constant. **Optimizing lexical overlap at the cost of fluency is self-defeating** — gains get taxed back.
+1. **Token F1 0.3519 is reachable with NO MODEL — by pure corpus frequency statistics.** The bar for the trained model is **0.3519, not 0.2669**. A model scoring below this has learned nothing beyond unigram frequencies.
+2. **The §0 thesis needs refining.** BERTScore is flat *across fluent in-domain texts* (constant vs random real ≈ 0.006 spread) but it **does** penalize degenerate text (−0.024 for word salad). So it acts as a fluency floor, not a pure constant. **Optimizing lexical overlap at the cost of fluency is self-defeating** — gains get taxed back.
 
 ---
 
@@ -1609,7 +1609,7 @@ median composite 0.4964 · p90 0.7097
 
 Near-duplicate search (TF-IDF cosine on 3,000 queries vs 40,000 docs) found **0 pairs above 0.7** and only 3 above 0.6 — this corpus almost never repeats a question, so no larger sample is available from the data.
 
-**Verdict:** ⚠️ small n, directional only — but decisive in direction. Two genuine expert answers agree at ~0.53, while the observed public LB leader is 0.578. **0.90+ is not attainable**; realistic winning band is ~0.62–0.68. Recorded in PLAN.md §0.5.
+**Verdict:** small n, directional only — but decisive in direction. Two genuine expert answers agree at ~0.53, while the observed public LB leader is 0.578. **0.90+ is not attainable**; realistic winning band is ~0.62–0.68. Recorded in PLAN.md §0.5.
 
 ---
 
@@ -1647,7 +1647,7 @@ Copy this block for each new run.
 |---|---|---|---|---|
 | | | | | |
 
-**Verdict:** ✅ keep / ❌ drop / 🔁 iterate — and why
+**Verdict:** keep / drop / iterate — and why
 **Notes:** anything surprising; failure modes; what to try next
 ```
 
@@ -1669,7 +1669,7 @@ Scripts: `NOTEBOOKS/08_lexical_gap.py`, `NOTEBOOKS/09_draft_leverage.py`. No GPU
 **Form A — systematic word substitutions (post-edit).** Baseline Token F1 0.8348; 16.5% of our
 tokens are unmatched surplus, 17.0% of theirs unmatched deficit.
 
-🔴 **The top surplus list and the top deficit list are the SAME TOKENS.** করা is +58 surplus *and*
+**The top surplus list and the top deficit list are the SAME TOKENS.** করা is +58 surplus *and*
 -45 deficit; এবং +58/-42; আপনার +50/-36; করতে +49/-40. We over-produce a token on some rows and
 under-produce the identical token on others.
 
@@ -1686,7 +1686,7 @@ top-K *token types* exactly: K=5 +0.0078, K=25 +0.0279, K=250 +0.0895 — but th
 that needs per-row knowledge of which direction to correct. A global find-replace has **zero**
 expected gain, because the corrections cancel.
 
-**Verdict A: ❌ the residual is distributional, not a fingerprint. No lexical post-edit exists.**
+**Verdict A: the residual is distributional, not a fingerprint. No lexical post-edit exists.**
 
 **Form B — a better draft at inference.** Per-row regression of model Token F1 on draft Token F1:
 
@@ -1711,7 +1711,7 @@ difficulty (easy rows are easy for both), not draft causality, so 0.2591 is an *
 the true slope. Consistent with E05's direct measurement: adding the draft to English is worth only
 **+0.0053** total.
 
-**Verdict B: ➖ real but small and over-estimated; the causal value is bounded by E05's +0.0053.**
+**Verdict B: real but small and over-estimated; the causal value is bounded by E05's +0.0053.**
 
 **What it changes:** closes the "match their translator" line for Phase 1. The draft is not the
 bottleneck — the champion already sits 0.24 Token F1 *above* the best draft we can produce, and

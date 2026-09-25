@@ -80,7 +80,7 @@ How the GPU experiment program ran on the CHPC clusters granite and notchpeak (o
 | [`submit.py`](chpc_slurm/submit.py) | turns registry entries into SLURM jobs, one GPU per arm |
 | [`run_pool.sh`](chpc_slurm/run_pool.sh) · [`run_pool_multi.sh`](chpc_slurm/run_pool_multi.sh) | saturate the GPUs of allocations already held, from one shared work queue |
 | [`collect.py`](chpc_slurm/collect.py) · [`final_analysis.sh`](chpc_slurm/final_analysis.sh) | scoreboard over every landed arm; all write-up numbers in parallel (reports in [`../notebooks/chpc_experiments/_analysis/`](../notebooks/chpc_experiments/_analysis/)) |
-| `nasc-E*.sbatch` | one job per arm. 🥇 [`nasc-E05-english_draft.sbatch`](chpc_slurm/nasc-E05-english_draft.sbatch) is the exact invocation that trained the champion. |
+| `nasc-E*.sbatch` | one job per arm. [`nasc-E05-english_draft.sbatch`](chpc_slurm/nasc-E05-english_draft.sbatch) is the exact invocation that trained the champion. |
 | `smoke*.sbatch` · `probe.sbatch` · `redecode*.sbatch` | pipeline smoke tests, GPU probe, re-decodes after BUG-04/06 |
 | [`tasks/`](chpc_slurm/tasks/) · [`tasks_a800/`](chpc_slurm/tasks_a800/) | per-arm task scripts for the pool runners (convergence runs, seeds, soups, decoder sweeps, peak-5 composition and verification) |
 | [`grn/`](chpc_slurm/grn/) · [`np/`](chpc_slurm/np/) · [`e24/`](chpc_slurm/e24/) | job scripts for the granite and notchpeak partitions and for E24 |
@@ -101,7 +101,7 @@ The Phase 2 study (originally `Phase2 Final architecture/`). Its specs and resul
 | [`router/router.py`](phase2/router/router.py) · [`router/router_4path.py`](phase2/router/router_4path.py) | router prototypes |
 | [`router/build_inference_nb.py`](phase2/router/build_inference_nb.py) | generates the routed inference notebook |
 | [`router/build_branch3_probe.py`](phase2/router/build_branch3_probe.py) | extracts the rows the retrieval branch would serve, for the branch-3 paired test |
-| `router/validate_*.py` | router measurements. ⚠️ `validate_router.py` had no leak exclusion; `validate_router_leakfree.py` is the corrected re-measurement that retracted ROUTER-01 (see [router/README.md](phase2/router/README.md)). |
+| `router/validate_*.py` | router measurements. `validate_router.py` had no leak exclusion; `validate_router_leakfree.py` is the corrected re-measurement that retracted ROUTER-01 (see [router/README.md](phase2/router/README.md)). |
 
 ## phase2_bundle
 

@@ -1,6 +1,6 @@
 # E16 — Phase 2 clinical quality audit
 
-**Tier 6 — PHASE 2 (20% of final score) · Priority: 🥇 HIGHEST (different objective)**
+**Tier 6 — PHASE 2 (20% of final score) · Priority: HIGHEST (different objective)**
 
 ## The question
 
@@ -47,7 +47,7 @@ Not a leaderboard comparison — a **qualitative audit**.
 4. Draft the Phase 2 bundle: `inference.py`, pinned `requirements.txt` (**`transformers==4.57.3`**),
    parameter-count assertion, checkpoint hosting, and the **mandatory external-data disclosure**.
 
-## 🔵 This is the ONE place extra medical data genuinely earns its slot
+## This is the ONE place extra medical data genuinely earns its slot
 
 Everywhere else in this program, more Bengali medical dialogue optimises a track we measured as 3×
 worse (question→answer caps at Token F1 **0.2576**; register transfer reaches **0.7724**). Phase 2 is
@@ -58,9 +58,9 @@ quality is the whole score.
 |---|---|
 | **`Atanuc73/Bengali-Medical-Chatbot-Dataset`** (HF) | Native Bengali patient→doctor pairs — **zero translation fingerprint**, which matters for judged quality where it did not for overlap. **Not yet in the repo.** |
 | `doctor_qa_bangla` (4,651) | Already in `warmstart_corpus`; the only native source in it |
-| `ChatDoctor-GenMedGPT-5k` | ✅ already have it (5,200 rows) — dense, curated clinical dialogue |
+| `ChatDoctor-GenMedGPT-5k` | already have it (5,200 rows) — dense, curated clinical dialogue |
 
-⚠️ **Check before use:** is the local file real or a **git-LFS stub** (18 of 35 in `Data_Search_1`
+**Check before use:** is the local file real or a **git-LFS stub** (18 of 35 in `Data_Search_1`
 are stubs)? Is it §2.6.a-accessible with a stated licence? Does merging it preserve the dev/test
 exclusion?
 
@@ -68,7 +68,7 @@ exclusion?
 80/20 — so the clinically-better model can serve Phase 2 while the overlap-optimal one holds the
 leaderboard, provided the write-up is honest about which produced which.
 
-## ❌ Explicitly ruled out for this task — do not spend time re-checking
+## Explicitly ruled out for this task — do not spend time re-checking
 
 | Dataset | Reason (measured) |
 |---|---|
@@ -81,7 +81,7 @@ leaderboard, provided the write-up is honest about which produced which.
 ## Non-negotiables (every experiment)
 
 - **`transformers==4.57.3`** — other versions do not train this pipeline correctly. Assert it.
-- **bf16 on sm_80+, fp32 otherwise. 🔴 NEVER fp16** — T5 goes NaN *silently* and still writes a
+- **bf16 on sm_80+, fp32 otherwise. NEVER fp16** — T5 goes NaN *silently* and still writes a
   well-formed CSV of garbage.
 - **Never change the split**: `--seed 42 --dev-size 5000`. Every number in this project rests on it.
 - **Select on composite, never `eval_loss`** — they move in opposite directions on some tasks; one
@@ -95,7 +95,7 @@ leaderboard, provided the write-up is honest about which produced which.
 
 Record everything in [`../RESULTS.md`](../RESULTS.md).
 
-- 🔴 **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
+- **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
   alone force a full retrain before anything here can be submitted, and a low-scoring model that
   *disagrees usefully* is exactly what E14/E19 need. One directory per arm; `run.json` beside the
   weights (`checkpoint_hash` is not a run identity). **Record everything in this folder's

@@ -5,7 +5,7 @@
 Token F1 cannot see the failures this looks for — repetition raises recall and barely dents
 precision.
 
-## 🔴 Read the baselines first, or every number here is misleading
+## Read the baselines first, or every number here is misleading
 
 The audit was run on the **organizers' own reference answers** and on **our Bengali draft**
 (the model's input) through the identical code. Without those two rows, the arm numbers cannot
@@ -15,7 +15,7 @@ be interpreted at all:
 |---|---|---|---|---|---|---|
 | **references** *(the organizers' answers)* | 0.1 | 0.0004 | **7.9** | **6.8** | 0.0038 | 93 / 163 |
 | **our draft** *(the model's input)* | 0.0 | 0.0003 | 10.1 | **35.3** | 0.0068 | 92 / 163 |
-| 🥇 **E05/english_draft** *(best arm)* | 0.9 | 0.0009 | 9.3 | **6.8** | 0.0041 | 93 / 185 |
+| **E05/english_draft** *(best arm)* | 0.9 | 0.0009 | 9.3 | **6.8** | 0.0041 | 93 / 185 |
 | E08 mT5-base | 0.2 | 0.0009 | 8.5 | **27.9** | 0.0031 | 90 / 123 |
 
 **A 6.8 % "truncated" rate is not a defect — it is exactly the reference rate.** Answers that
@@ -23,20 +23,20 @@ end without terminal punctuation are simply a feature of this corpus. Judged aga
 naive assumption that 0 % is the target, every BanglaT5 arm would have looked broken; judged
 against the references, they are indistinguishable.
 
-## 🥇 The finding: the best arm repairs the draft's biggest defect. mT5 does not.
+## The finding: the best arm repairs the draft's biggest defect. mT5 does not.
 
 **Our draft cuts off mid-sentence in 35.3 % of rows.** The organizers' answers do so in 6.8 %.
 
 | | truncated % | |
 |---|---|---|
 | input (our draft) | 35.3 % | the defect the model inherits |
-| **E05/english_draft** | **6.8 %** | ✅ **repaired exactly to the reference rate** |
-| E08 mT5-base | 27.9 % | ❌ **barely repaired — 4× the reference rate** |
+| **E05/english_draft** | **6.8 %** | **repaired exactly to the reference rate** |
+| E08 mT5-base | 27.9 % | **barely repaired — 4× the reference rate** |
 
 This is a *register* result, not a fluency one: converting to the house style includes learning
 to finish the sentence, and BanglaT5 learns it while mT5 largely does not.
 
-🔴 **mT5 therefore fails Phase 2 as well as Phase 1.** It already lost by 0.0161 on Token F1;
+**mT5 therefore fails Phase 2 as well as Phase 1.** It already lost by 0.0161 on Token F1;
 here it leaves **more than a quarter of its answers cut off**, with a p95 length of 123 tokens
 against the references' 163 — it is systematically stopping early. An LLM judge would punish
 that far harder than Token F1 did. **E08/E09/E10 are closed on both objectives.**
@@ -72,7 +72,7 @@ Reading the rest against the references (0.1 / 0.0004 / 7.9 / 6.8 / 0.0038):
 - **Length p50 93 vs the references' 93.** p95 runs long (185 vs 163) — the arms are slightly
   more verbose in the tail, the one axis where they consistently differ from the references.
 
-## 🔴 What this does NOT cover
+## What this does NOT cover
 
 **Clinical correctness, contradiction, and unsafe advice are not measured.** They need a judge
 with medical knowledge, and there is no LLM-judge API on this machine. Three of E16's five
@@ -84,7 +84,7 @@ expected yield is low for every BanglaT5 arm.
 
 ## Verdict
 
-- **Result:** ✅ **No Phase-1 gain in this program was bought with Phase-2 quality.** The best
+- **Result:** **No Phase-1 gain in this program was bought with Phase-2 quality.** The best
   arm matches the reference distribution on every measured axis.
 - **The escalation the decision table anticipated — "E16 finds repetition in the winner ⇒
   a Phase-1 gain may cost Phase-2 score" — did not trigger.**

@@ -1,4 +1,4 @@
-# ❌ INVALID — these three runs measured a generation cap, not a model
+# INVALID — these three runs measured a generation cap, not a model
 
 First pass of E18's decoder arms, 2026-08-09. **Do not cite these numbers.**
 

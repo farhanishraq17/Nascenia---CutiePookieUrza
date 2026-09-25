@@ -32,7 +32,7 @@ control that makes every other number comparable.
 | `warmstart_corpus/` | 123,289 curated Bengali medical dialogues for the E12 two-stage curriculum. **Leak-safe** — see below |
 | `_sources/` | the raw English + Bengali corpora and the frozen split, so you can build combinations that are not prebuilt |
 
-## 🔴 `warmstart_corpus` is leak-safe and must stay that way
+## `warmstart_corpus` is leak-safe and must stay that way
 
 Its rows whose ids fall in the frozen dev/test split were **removed — 6,000 of them**. Those rows are
 *a second translation of the answers we evaluate on*, so training on them leaks the evaluation set

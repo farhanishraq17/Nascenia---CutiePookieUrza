@@ -15,7 +15,7 @@ squeue -u $USER | grep nasc             # what is running
 tail -f logs/nasc-E05-main-*.out        # one log per job
 ```
 
-## 🔴 The node: grn008, and why that one
+## The node: grn008, and why that one
 
 `grn008` is **8 × H100 NVL (94 GB), 64 CPUs, 764 GB RAM, and it was completely idle** — it sits in
 the general `granite-gpu` partition, which the owner-node GPU survey never looks at.
@@ -24,7 +24,7 @@ the general `granite-gpu` partition, which the owner-node GPU survey never looks
 -A kmarino -p granite-gpu --qos=granite-gpu-freecycle --nodelist=grn008 --gres=gpu:1
 ```
 
-⚠️ **`granite-gpu-freecycle` is preemptible.** Every job carries `--requeue`, and
+**`granite-gpu-freecycle` is preemptible.** Every job carries `--requeue`, and
 `02_train_t5.py --resume` restarts from the last 250-step checkpoint, so a preemption costs one
 eval interval. The decoder trainer keeps only `best/`, so a preempted E18 decoder arm restarts
 from zero — acceptable at 4,000 steps, worth knowing before you count on it.
@@ -36,11 +36,11 @@ full; widening the request to a node someone else is using is not.
 
 | | | |
 |---|---|---|
-| **Effective batch 64** | 🔴 fixed by the program | `registry.validate()` fails the submit if any arm's `bs × accum ≠ 64` |
+| **Effective batch 64** | fixed by the program | `registry.validate()` fails the submit if any arm's `bs × accum ≠ 64` |
 | per-device batch × accum | ours | straight from each EXPERIMENT.md — 32×2 for BanglaT5 at 768/512, 16×4 for mT5, 8×8 for the long-sequence and decoder arms |
-| precision | ours, constrained | H100 is sm_90 → **bf16**. 🔴 never fp16 |
+| precision | ours, constrained | H100 is sm_90 → **bf16**. never fp16 |
 | parallelism | ours | **1 GPU per arm, many arms at once.** These models are 0.25–1.7B; a second GPU per arm would buy less than a second arm does |
-| eval grid | 🔴 fixed | every 250 steps, 300 dev rows, selection on composite |
+| eval grid | fixed | every 250 steps, 300 dev rows, selection on composite |
 
 **Measured throughput, one H100 NVL vs the Kaggle T4 the program was written against:**
 

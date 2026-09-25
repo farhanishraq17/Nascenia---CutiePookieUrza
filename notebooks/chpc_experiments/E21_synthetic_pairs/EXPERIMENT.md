@@ -7,7 +7,7 @@
 > The winning task needs `draft → organizers' answer` pairs, and only 101,737 exist. Every other
 > Bengali corpus we hold is **unpaired**. Can we manufacture pairs — and which half is safe to fake?
 
-## 🔴 The trap: never synthesize the target
+## The trap: never synthesize the target
 
 The obvious move fails, and it fails in a way that *actively degrades* the model.
 
@@ -59,7 +59,7 @@ scored differently (−0.0439 vs Google): its output is genuinely another point 
 Run the 0.85030 model over unpaired Bengali (NLP4Health, icliniq, genmedgpt, doctor_qa_bangla) to
 generate register-converted targets, then retrain on gold + pseudo.
 
-Classic self-training. ⚠️ **The targets are now the model's own output**, so it can amplify its own
+Classic self-training. **The targets are now the model's own output**, so it can amplify its own
 biases and errors rather than correct them. Keep gold-only rows in the majority, and always compare
 against A0.
 
@@ -68,7 +68,7 @@ against A0.
 Have a large model convert unpaired Bengali into the competition register, few-shot with real
 `(draft, target)` examples drawn **from train only**.
 
-🔴 **Do not run this before E20 stage 1.** That probe asks whether a large teacher can do register
+**Do not run this before E20 stage 1.** That probe asks whether a large teacher can do register
 conversion at all. If it cannot beat 0.7724 there, it cannot manufacture usable targets here — the
 two questions are the same question.
 
@@ -84,17 +84,17 @@ Require more than the **0.0044** noise floor.
 
 | Result | Meaning |
 |---|---|
-| A1 > A0 by >0.0044 | ✅ More draft variety helps. Cheap, and the target set stayed honest |
+| A1 > A0 by >0.0044 | More draft variety helps. Cheap, and the target set stayed honest |
 | A1 ≈ A0 | Data volume is not the bottleneck — consistent with E05's finding that *training time* is. Keep A1 anyway **if it survives an E17 draft change better** |
 | A1 < A0 | The synthetic drafts are off-distribution enough to hurt. Try A2's tag, or a closer round-trip translator |
 | B or C > A0 | Surprising given the noisy targets — verify no dev leakage before believing it |
 
-⚠️ **Measure draft-robustness explicitly, not just Token F1.** Score every arm's model against
+**Measure draft-robustness explicitly, not just Token F1.** Score every arm's model against
 **both** the Google draft and a held-out alternative draft. A model that ties on Google but holds
 up far better on the alternative is the winner even at equal headline score — that is the E17
 insurance this experiment exists to buy.
 
-## 🔴 Leakage and disclosure
+## Leakage and disclosure
 
 - **Never augment a dev or test row.** Back-translation touches targets, and dev targets are the
   evaluation set — a synthetic pair built from a dev target leaks it directly into training.
@@ -106,12 +106,12 @@ insurance this experiment exists to buy.
 
 ## Non-negotiables (every experiment)
 
-- **bf16 on sm_80+, fp32 otherwise. 🔴 NEVER fp16** — T5 goes NaN *silently*.
+- **bf16 on sm_80+, fp32 otherwise. NEVER fp16** — T5 goes NaN *silently*.
 - **Never change the split**: `--seed 42 --dev-size 5000`.
 - **Augment train only** — assert zero dev/test ids in synthetic rows.
 - **Report Token F1 and ROUGE-L**, never the local composite.
 - **Ignore differences below 0.0044.**
-- 🔴 **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
+- **Keep EVERY arm's `best/` — the weights are the deliverable, losers included.** Metrics
   alone force a full retrain before anything here can be submitted, and a low-scoring model that
   *disagrees usefully* is exactly what E14/E19 need. One directory per arm; `run.json` beside the
   weights (`checkpoint_hash` is not a run identity). **Record everything in this folder's

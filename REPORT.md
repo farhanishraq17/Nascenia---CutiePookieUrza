@@ -38,7 +38,7 @@ hash `6f9d4d6756032397`. Phase-2 artifacts are on Kaggle (dataset + T4-verified 
 
 ## 2. The five findings that matter
 
-### 2.1 🔴 The incumbent had not converged — by a factor of 4.4
+### 2.1 The incumbent had not converged — by a factor of 4.4
 
 It stopped at step 2,750 because a Kaggle session ran out. Run properly, `draft_only` peaks at
 **15,250** and `english_draft` at **12,000**:
@@ -60,12 +60,12 @@ At matched caps and matched budget, so the input is the only variable:
 |---|---|---|
 | all inputs, un-truncated | 0.8042 | truncation buys +0.0007 — **closed** |
 | all inputs | 0.8035 | the question buys +0.0003 on top — **nothing** |
-| **english + draft** | **0.8032** | 🥇 winner |
+| **english + draft** | **0.8032** | winner |
 | english only | 0.7979 | the Bengali draft is worth only **+0.0053** |
 | draft only | 0.7807 | **English alone beats the draft alone by +0.0172** |
 | question + draft | 0.7734 | ≈ 0 |
 
-🔴 **The Bengali draft is the weak input, not the strong one.** A model that never sees a single
+**The Bengali draft is the weak input, not the strong one.** A model that never sees a single
 Bengali token still reproduces the corpus register exactly (`হেলো` 76.0% vs the references'
 76.4%) — the register is learned from the *targets*. This re-costs every draft-quality question
 in the program: E17 closed by keeping Google, and E21's draft-robustness arms are insurance on a
@@ -87,7 +87,7 @@ gain is **checkpoint-independent** — all 17 checkpoints gained a uniform +0.00
 ranking did not reshuffle. A second 44-config sweep past every boundary of the first found
 **exactly 0.0000** more: four configs tie at the plateau. The decoding lever is exhausted.
 
-### 2.4 🔴 RETRACTION: BERTScore is not an inert fluency floor
+### 2.4 RETRACTION: BERTScore is not an inert fluency floor
 
 The project's standing premise — "BERTScore is flat across fluent in-domain text (≈0.006
 spread)" — held for the constant-string and question→answer regimes. **It does not hold here.**
@@ -150,21 +150,21 @@ without both:
 |---|---|---|---|---|
 | **references** | 6.8 | 0.1 | 7.9 | 93 |
 | our draft (model input) | 35.3 | 0.0 | 10.1 | 92 |
-| 🥇 champion | **6.8** | 0.9 | 9.3 | 93 |
+| champion | **6.8** | 0.9 | 9.3 | 93 |
 
 **No Phase-1 gain in this program was bought with Phase-2 quality** — the champion matches the
 reference distribution on every measured axis, and the repetition failure that motivated E16
 does not recur (worst arm 1.8% vs references 0.1%).
 
-🔴 **Not covered:** clinical correctness, contradiction, unsafe advice. These need a medical
+**Not covered:** clinical correctness, contradiction, unsafe advice. These need a medical
 judge and there is no LLM-judge API on this machine. Three of E16's five checks are **open**.
 
-~~⚠️ **Reproduction gap.** The Phase-2 notebook regenerates **639/1000** rows of the scored
+~~**Reproduction gap.** The Phase-2 notebook regenerates **639/1000** rows of the scored
 submission byte-exactly (mean Token F1 0.9578). The old decoder reproduced 1000/1000; `beam 8 /
 min_new 0` is not precision-stable across bf16→fp32, since more near-ties flip. Fix: submit the
 notebook's own output once, making the entry byte-identical by construction.~~
 
-✅ **CLOSED 2026-08-21/22 — the gap was precision, and pinning it fixed it.** The routed bundle
+**CLOSED 2026-08-21/22 — the gap was precision, and pinning it fixed it.** The routed bundle
 (`PHASE2_BUNDLE_latest/PHASE2_BUNDLE/`) reproduces **1000/1000 rows byte-identical** to the scored
 0.89552 CSV — `verification/bundle_phase1.csv` and `weights/champion_banglat5_peak5/submission.csv`
 hash to the same sha256. The fix was running the champion branch in **fp32** (bf16 decoded 280/1000
@@ -189,7 +189,7 @@ Every one had the same shape: **nothing crashes, the output is well-formed, the 
 plausible.** Guards added: a CUDA assert that refuses CPU training, a length guard asserting
 `max_new_tokens ≥ p95 target length`, decode caps read from `run.json`, and UUID-based GPU pinning.
 
-### 🔴 A Phase-2 reproducibility finding
+### A Phase-2 reproducibility finding
 
 Two runs of an identical config produced **300/300 identical predictions** and equal dev F1 to
 6 dp — but **different `checkpoint_hash`**. Outputs reproduce exactly; weights do not.
@@ -206,7 +206,7 @@ draft measuring +0.0053), and E16's three judge-dependent checks (blocked on API
 warm-start (+0.0028), multitask (−0.022), decoding, seed diversity, output ensembling, weight
 ensembling, and distillation.
 
-🔴 **E20's teacher gate FAILS: 0.5841.** Qwen3.5-9B few-shot scores **0.249 below** the 248 M
+**E20's teacher gate FAILS: 0.5841.** Qwen3.5-9B few-shot scores **0.249 below** the 248 M
 student. Per E20's own table: *"< 0.7724 → STOP. Scale does not substitute for fine-tuning on a
 fingerprint-matching task."* A 36× larger model cannot match a fine-tuned small one at
 reproducing one translator's lexical fingerprint — consistent with E17, where Qwen3-14B lost as a

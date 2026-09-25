@@ -2,7 +2,7 @@
 
 **Run every arm in `../EXPERIMENTS.md`.** This file covers what is specific to this model.
 
-> 🔴 **CHECK `../GPU_BUDGET.md` §4 BEFORE STARTING THIS MODEL.**
+> **CHECK `../GPU_BUDGET.md` §4 BEFORE STARTING THIS MODEL.**
 > C is the **first thing to cut** if the schedule tightens — and there are only 5 days. The gate:
 > **if either A or B clears Token F1 0.1454 by more than the 0.0044 noise floor with fluent
 > on-topic Bengali, stop C and spend the time on the winner instead.**
@@ -19,7 +19,7 @@
 it should need the least work to produce fluent, well-formed Bengali replies, and its X0/X1
 baselines should be the strongest.
 
-**🔴 Against, and this is a real structural problem:** it is built on **Qwen3-1.7B**, whose
+**Against, and this is a real structural problem:** it is built on **Qwen3-1.7B**, whose
 tokenizer measured **worst of every decoder this project tested — 689 tokens per Bengali answer,
 a 4.85× handicap** versus BanglaT5's 142 and 2.3× worse than Qwen3.5-2B's 294. Its base scored
 **0.7287**, the bottom of the zoo.
@@ -30,15 +30,15 @@ context, slower training, slower inference, and more truncation risk at any give
 is here to test whether strong Bengali instruction-tuning can *compensate* for a bad tokenizer —
 **do not assume it will.** A clean negative here is a genuinely useful result.
 
-## ✅ X0 and X1 have ALREADY BEEN MEASURED for this model — real numbers, not estimates
+## X0 and X1 have ALREADY BEEN MEASURED for this model — real numbers, not estimates
 
 Run on Kaggle T4, 2026-08-17, on the same `dev[0:300]` slice everything else uses.
 **Exact parameter count: `1,720,574,976`.**
 
 | arm | Token F1 | ROUGE-L | verdict |
 |---|---|---|---|
-| **X0 zero-shot** | **0.1564** | 0.1022 | 🥇 **Already beats the 0.1454 bar with NO training at all** |
-| X1 few-shot (k=4) | 0.0371 | 0.0285 | 🔴 **Broken run, not a model property — see below** |
+| **X0 zero-shot** | **0.1564** | 0.1022 | **Already beats the 0.1454 bar with NO training at all** |
+| X1 few-shot (k=4) | 0.0371 | 0.0285 | **Broken run, not a model property — see below** |
 
 **X0 is the most encouraging single result in this whole comparison.** With zero fine-tuning it
 clears the bar that the champion could not reach with *any* inference-time fix, and the outputs
@@ -49,7 +49,7 @@ the champion does. That is real answering behaviour and it is exactly what Phase
 **You should still re-run X0 yourself** (different GPU, possibly different precision), but treat
 a wildly different number as a setup problem rather than a new finding.
 
-### 🔴 Why X1 collapsed — the trap that will bite you too if you reuse the probe's settings
+### Why X1 collapsed — the trap that will bite you too if you reuse the probe's settings
 
 Every few-shot prediction was **byte-identical across all 300 rows**, began mid-word
 (`র শেষে ব্যথা কমে যায়)।`), and degenerated into `সার্ভিকাল সার্ভিকাল সার্ভিকাল…`.
@@ -65,13 +65,13 @@ the actual patient question entirely**. The model was left continuing a half-fin
 p = build_prompt(dv["input"].iloc[0], shots)
 n = len(tok(p, add_special_tokens=False)["input_ids"])
 print(f"few-shot prompt = {n} tokens vs MAX_SRC = {MAX_SRC}")
-assert n < MAX_SRC, "🔴 the question is being truncated away — raise MAX_SRC or lower K_SHOT"
+assert n < MAX_SRC, "the question is being truncated away — raise MAX_SRC or lower K_SHOT"
 ```
 
 Fix by raising `MAX_SRC` (4096+) **or** lowering `K_SHOT` to 1–2. Do not accept a low X1 for this
 model without checking this first.
 
-## 🔴 Load it directly — it is NOT an adapter repo
+## Load it directly — it is NOT an adapter repo
 
 The model card's usage example shows `PeftModel.from_pretrained(base, ...)`, which is **wrong for
 this repo as published**. Verified 2026-08-17: the repo's file listing is
@@ -102,14 +102,14 @@ detail:
 
 | Setting | Start | Why this value |
 |---|---|---|
-| `LR` | **2e-5** | Decoder class. Sweep 1e-5 / 2e-5 / 5e-5 in X5. ⚠️ Consider the *lower* end — this model is already instruction-tuned, so a high LR risks overwriting the Bengali capability that is its whole reason for inclusion |
+| `LR` | **2e-5** | Decoder class. Sweep 1e-5 / 2e-5 / 5e-5 in X5. Consider the *lower* end — this model is already instruction-tuned, so a high LR risks overwriting the Bengali capability that is its whole reason for inclusion |
 | `OPTIM` | `adamw_torch` | ~12 bytes/param ≈ 20 GB of optimizer state for 1.7B. On a 24 GB card **switch to `adafactor`** |
-| `BATCH × ACCUM` | 4 × 16 | 🔴 product must be 64 |
-| `MAX_SRC / MAX_TGT` | 2048 / **640** | 🔴 **The most important setting for this model.** At 689 tokens/answer, a cap tuned for another tokenizer silently truncates answers and the score then measures the cap, not the model. **Measure the real p95 target length in THIS tokenizer before training** — see the check below |
+| `BATCH × ACCUM` | 4 × 16 | product must be 64 |
+| `MAX_SRC / MAX_TGT` | 2048 / **640** | **The most important setting for this model.** At 689 tokens/answer, a cap tuned for another tokenizer silently truncates answers and the score then measures the cap, not the model. **Measure the real p95 target length in THIS tokenizer before training** — see the check below |
 | `GRAD_CKPT` | True | Keep on |
-| precision | bf16 on sm_80+ | 🔴 never fp16 |
+| precision | bf16 on sm_80+ | never fp16 |
 
-### 🔴 Run this length check before X2, it takes one minute
+### Run this length check before X2, it takes one minute
 
 ```python
 lens = sorted(len(tok(str(r), add_special_tokens=False)["input_ids"])
@@ -128,10 +128,10 @@ bar.**
 
 | Arm | Data | Expect | Watch for |
 |---|---|---|---|
-| **X0** | `plain` | 🥇 Should be the **best X0 of the three** — this is its main advantage | If X0 is *not* better than B's, its instruction-tuning is not helping and the case for this model largely collapses |
-| **X1** | `plain` | Better still | 🔴 If X1 ≫ X2, the fine-tune is broken — diagnose before trusting X2 |
-| **X2** 🥇 | `plain` | The primary result | Does fine-tuning *improve* on X0/X1, or overwrite the instruction-tuning and make it worse? Both are real outcomes |
-| **X3** | `rag` | vs X2 | 🔴 copy-margin. Also the longest inputs of any arm at 4.85× tokens — verify no prompt truncation |
+| **X0** | `plain` | Should be the **best X0 of the three** — this is its main advantage | If X0 is *not* better than B's, its instruction-tuning is not helping and the case for this model largely collapses |
+| **X1** | `plain` | Better still | If X1 ≫ X2, the fine-tune is broken — diagnose before trusting X2 |
+| **X2** | `plain` | The primary result | Does fine-tuning *improve* on X0/X1, or overwrite the instruction-tuning and make it worse? Both are real outcomes |
+| **X3** | `rag` | vs X2 | copy-margin. Also the longest inputs of any arm at 4.85× tokens — verify no prompt truncation |
 | **X4** | `plain_core_only` | vs X2 | If within 0.0044, prefer the smaller dataset |
 | **X5** | winner | 1e-5 / 2e-5 / 5e-5 | Try the low end first — see the LR note above |
 

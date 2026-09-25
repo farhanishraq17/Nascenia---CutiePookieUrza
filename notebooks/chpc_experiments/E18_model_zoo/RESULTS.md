@@ -4,7 +4,7 @@
 Decoder arms use `../code/03_train_causal.py`, written for this experiment because
 `02_train_t5.py` is seq2seq-only. See `../_slurm/README.md`.
 
-## 🥇 The most important number here is not a zoo result at all
+## The most important number here is not a zoo result at all
 
 **`banglat5` reproduces the incumbent.** Same recipe (draft only, 384/256, 8×8, lr 1e-3, seed 11),
 different hardware and precision (H100 bf16 vs Kaggle T4 fp32):
@@ -24,15 +24,15 @@ that fp16 silently destroys this model (trap #20).
 
 | Arm | Model | Params | Kind | Token F1 | ROUGE-L | pred LB | vs 0.7724 | peak step | Status |
 |---|---|---|---|---|---|---|---|---|---|
-| **banglat5** | csebuetnlp/banglat5 | 247.6 M | enc-dec | **0.7768** | 0.7389 | 0.8531 | +0.0044 | 3,750 | ✅ done |
-| **indicbart** | ai4bharat/IndicBART | 244 M | enc-dec | *(training)* ~0.43 @1,750 | | | ❌ far below | | 🔄 running |
+| **banglat5** | csebuetnlp/banglat5 | 247.6 M | enc-dec | **0.7768** | 0.7389 | 0.8531 | +0.0044 | 3,750 | done |
+| **indicbart** | ai4bharat/IndicBART | 244 M | enc-dec | *(training)* ~0.43 @1,750 | | | far below | | running |
 | qwen3_1p7b | Qwen/Qwen3-1.7B | 1.7 B | decoder | | | | | | ⏳ queued |
 | qwen25_1p5b | Qwen/Qwen2.5-1.5B-Instruct | 1.54 B | decoder | | | | | | ⏳ queued |
 | qwen3_0p6b | Qwen/Qwen3-0.6B | 0.60 B | decoder | | | | | | ⏳ queued |
-| **gemma_2_2b_it** | google/gemma-2-2b-it | 2.6 B | decoder | — | — | — | — | — | 🔴 **BLOCKED — HF 401** |
-| **llama32_1b** | meta-llama/Llama-3.2-1B-Instruct | 1.24 B | decoder | — | — | — | — | — | 🔴 **BLOCKED — HF 401** |
+| **gemma_2_2b_it** | google/gemma-2-2b-it | 2.6 B | decoder | — | — | — | — | — | **BLOCKED — HF 401** |
+| **llama32_1b** | meta-llama/Llama-3.2-1B-Instruct | 1.24 B | decoder | — | — | — | — | — | **BLOCKED — HF 401** |
 
-## 🔴 Two arms are blocked upstream, and one of them is the arm the literature points at
+## Two arms are blocked upstream, and one of them is the arm the literature points at
 
 `google/gemma-2-2b-it` and `meta-llama/Llama-3.2-1B-Instruct` are **gated repos**. Both return
 `401` on `config.json` anonymously *and* with this machine's `$HF_TOKEN` — the account has not
@@ -51,7 +51,7 @@ python ../_slurm/submit.py --arm E18_model_zoo/gemma_2_2b_it \
 ```
 
 Both arms are already specified in `../_slurm/registry.py` and marked `blocked=` — they are
-**deferred, not dropped**. ⚠️ Gemma-2-2B is 2.6 B: within the 3 B cap alone, but it leaves no
+**deferred, not dropped**. Gemma-2-2B is 2.6 B: within the 3 B cap alone, but it leaves no
 ensemble room at all, so a win there closes off E14/E19.
 
 ## Per-arm read-out
@@ -77,12 +77,12 @@ Still climbing at 4,000, like every other arm in this program.
 
 ## Notes
 
-⚠️ **Decoders need lr 1e-5–5e-5, not BanglaT5's 1e-3** — carried across, 1e-3 diverges and the run
+**Decoders need lr 1e-5–5e-5, not BanglaT5's 1e-3** — carried across, 1e-3 diverges and the run
 reads as a bad model. Registry uses 2e-5 (3e-5 for the 0.6 B).
-⚠️ **Decoder-only models must LEFT-pad for batched generation.** `03_train_causal.py` flips
+**Decoder-only models must LEFT-pad for batched generation.** `03_train_causal.py` flips
 `padding_side` inside its generation eval; right-padding produces fluent garbage that scores as a
 bad model. Qwen3 arms run with `enable_thinking=False`.
-⚠️ Decoder arms keep only `best/` (no rolling checkpoints), so a **preemption on the freecycle QOS
+Decoder arms keep only `best/` (no rolling checkpoints), so a **preemption on the freecycle QOS
 restarts them from zero** rather than from the last eval.
 
 ## Anything surprising

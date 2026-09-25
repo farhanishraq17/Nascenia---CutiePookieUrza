@@ -6,7 +6,7 @@
 checkpointing on, LR **2e-5** except X5. Arms were spread over whatever hardware was free, so the
 GPU column varies — that affects wall clock only, never the numbers.
 
-> ### 🔴 Read the `HELD-OUT` and `X7 VERIFY` columns, not `peak`
+> ### Read the `HELD-OUT` and `X7 VERIFY` columns, not `peak`
 > `peak` is measured on `dev[0:300]` — **the same 300 rows the checkpoint was selected on.**
 > `dev.parquet` in every data variant only *has* 300 rows (`build_data.py --dev-limit 300`), which
 > is also why X7's mandatory disjoint verification had never been runnable. We built
@@ -14,7 +14,7 @@ GPU column varies — that affects wall clock only, never the numbers.
 > pool rows, self-retrieval asserted) and re-scored every checkpoint on it.
 > **It changes the ranking.** Treat `peak` as an upper bound contaminated by selection.
 
-## 🥇 HEADLINE: the specialist works, and five arms are tied
+## HEADLINE: the specialist works, and five arms are tied
 
 Every trained arm clears the 0.1454 bar by **+0.10 to +0.12**. But the top five are separated by
 **0.0033 on 1,000 held-out rows** — inside noise. Token F1 cannot pick a winner here; **register
@@ -25,18 +25,18 @@ can, and it separates them by a factor of five.**
 | Arm | Data | peak | @step | final | **HELD-OUT** | **X7 VERIFY** | ckpt |
 |---|---|---|---|---|---|---|---|
 | X0 zero-shot | plain | — | — | 0.1575 | — | — | n/a |
-| X1 few-shot k=4 | plain | — | — | *0.1224* 🔴 | — | — | n/a |
-| **X2 finetune** | plain | 0.2641 | 3000 | 0.2435 | **0.2630** | **0.2582** | ☑ |
-| X3 finetune+RAG | rag | 0.2482 | 6000 | 0.2482 | 0.2495 | — | ☑ |
-| **X4 ablation** | core_only | 0.2629 | 3000 | **0.2619** | **0.2643** | 0.2537 | ☑ |
-| X5 LR 1e-5 | plain | 0.2594 | 3500 | 0.2535 | 0.2610 | 0.2537 | ☑ |
-| X5 LR 5e-5 | plain | 0.2578 | 2500 | 0.2488 | 0.2488 | — | ☑ |
+| X1 few-shot k=4 | plain | — | — | *0.1224* | — | — | n/a |
+| **X2 finetune** | plain | 0.2641 | 3000 | 0.2435 | **0.2630** | **0.2582** | done |
+| X3 finetune+RAG | rag | 0.2482 | 6000 | 0.2482 | 0.2495 | — | done |
+| **X4 ablation** | core_only | 0.2629 | 3000 | **0.2619** | **0.2643** | 0.2537 | done |
+| X5 LR 1e-5 | plain | 0.2594 | 3500 | 0.2535 | 0.2610 | 0.2537 | done |
+| X5 LR 5e-5 | plain | 0.2578 | 2500 | 0.2488 | 0.2488 | — | done |
 | X6 RAG-at-inference | rag | — | — | 0.2443 | 0.2413 | — | n/a |
 | X7 decode sweep | — | — | — | — | — | *see below* | n/a |
-| **D1 + iCliniq** | core+7,321 | **0.2646** | 2500 | 0.2561 | 0.2625 | **0.2575** | ☑ |
-| D2 + GenMedGPT | core+5,200 | 0.2594 | 2000 | 0.2484 | 0.2558 | — | ☑ |
-| D3 + doctor_qa | core+4,651 | 0.2639 | 3000 | *(partial)* | 0.2621 | 0.2535 | ☑ |
-| X2 @ MAX_SRC 1536 | plain | 0.2536 | 3000 | 0.2484 | 0.2588 | 0.2511 | ☑ |
+| **D1 + iCliniq** | core+7,321 | **0.2646** | 2500 | 0.2561 | 0.2625 | **0.2575** | done |
+| D2 + GenMedGPT | core+5,200 | 0.2594 | 2000 | 0.2484 | 0.2558 | — | done |
+| D3 + doctor_qa | core+4,651 | 0.2639 | 3000 | *(partial)* | 0.2621 | 0.2535 | done |
+| X2 @ MAX_SRC 1536 | plain | 0.2536 | 3000 | 0.2484 | 0.2588 | 0.2511 | done |
 
 **HELD-OUT** = `dev[300:1300]`, 1,000 rows, beams=4/lp=1.0. **X7 VERIFY** = each arm's own sweep
 winner re-scored on a *second* disjoint slice, `devext[300:600]`.
@@ -44,7 +44,7 @@ winner re-scored on a *second* disjoint slice, `devext[300:600]`.
 were already on disk and step 3500 had declined, so nothing was lost; `run.json` was rebuilt from
 `trainer_state.json` and is flagged `partial: true`.
 
-## 🔴 X0 and X1: few-shot *hurts* this model
+## X0 and X1: few-shot *hurts* this model
 
 | Arm | Token F1 | ROUGE-L | tok | হেলো | নাসেনিয়া | trunc |
 |---|---|---|---|---|---|---|
@@ -60,7 +60,7 @@ and 95% un-terminated, i.e. neither is a usable model — exactly what the fine-
 Untrained, this model still beats the 0.1454 bar (0.1575). **It also beats C's zero-shot (0.1524)**,
 which matters: C's entire case rested on owning the best X0.
 
-## 🔴 Data decomposition — and the A/B cross-check does NOT resolve
+## Data decomposition — and the A/B cross-check does NOT resolve
 
 | Arm | Data | extra rows | HELD-OUT | mean tokens | vs X4 | verdict |
 |---|---|---|---|---|---|---|
@@ -99,10 +99,10 @@ That matters procedurally: EXPERIMENTS.md makes a *disagreement* the trigger for
 
 | Arm | mean tokens | হেলো % | নাসেনিয়া % | **truncated %** | empty % |
 |---|---|---|---|---|---|
-| X2 | 112.5 | 81.2 | 85.3 | **60.0** 🔴 | 0.0 |
-| X3 | 151.2 | 80.3 | 86.6 | **93.0** 🔴 | 0.0 |
-| X4 | 110.4 | 84.1 | 84.9 | **70.8** 🔴 | 0.0 |
-| **X5 @1e-5** | 103.7 | 78.5 | 80.7 | **14.8** ✅ | 0.0 |
+| X2 | 112.5 | 81.2 | 85.3 | **60.0** | 0.0 |
+| X3 | 151.2 | 80.3 | 86.6 | **93.0** | 0.0 |
+| X4 | 110.4 | 84.1 | 84.9 | **70.8** | 0.0 |
+| **X5 @1e-5** | 103.7 | 78.5 | 80.7 | **14.8** | 0.0 |
 | X6 | 119.6 | 79.7 | 85.4 | 62.4 | 0.0 |
 | **D1** | 114.1 | 78.5 | 85.4 | **27.3** | 0.0 |
 | D2 | 114.8 | 81.2 | 84.9 | 32.0 | 0.0 |
@@ -118,12 +118,12 @@ clarity as a doctor's response"*, this is the axis that should decide the pick �
 Every arm over-uses the brand name (~80–86% vs the references' 50%). No language drift and no
 `<think>` leakage was observed on any arm (`enable_thinking=False` plus defensive stripping).
 
-## 🔴 RAG copy-check — RAG loses for this architecture, twice over
+## RAG copy-check — RAG loses for this architecture, twice over
 
 | Arm | Token F1 | overlap w/ TRUE target | overlap w/ SHOWN reference | **margin** |
 |---|---|---|---|---|
-| X3 (trained in) | 0.2495 | 0.2495 | 0.2221 | **+0.0274** ✅ answering |
-| X6 (bolted on) | 0.2413 | 0.2413 | 0.2701 | **−0.0288** 🔴 **copying** |
+| X3 (trained in) | 0.2495 | 0.2495 | 0.2221 | **+0.0274** answering |
+| X6 (bolted on) | 0.2413 | 0.2413 | 0.2701 | **−0.0288** **copying** |
 
 Two separate findings, and they point the same way:
 
@@ -157,7 +157,7 @@ Two results. **`beams=4` beats `beams=8` consistently by ~0.005–0.013 on every
 reliable decode finding. And **`length_penalty` does nothing**: winners differ by ≤0.0013, which
 is why the "best" lp varies arbitrarily between arms.
 
-🔴 **Every sweep winner collapsed 0.014–0.022 on the disjoint slice.** This is exactly the
+**Every sweep winner collapsed 0.014–0.022 on the disjoint slice.** This is exactly the
 spurious-winner effect EXPERIMENTS.md demands the re-verification for, measured here for the first
 time on this task. **Discard the 0.27x numbers.** It also contradicts GPU_BUDGET.md §3, which
 ranks X7 as *"historically the cheapest real gain on the board"* — on this task it gains nothing.
@@ -166,9 +166,9 @@ ranks X7 as *"historically the cheapest real gain on the board"* — on this tas
 
 | LR | peak | HELD-OUT | truncated % |
 |---|---|---|---|
-| **1e-5** | 0.2594 | 0.2610 | **14.8%** ✅ |
+| **1e-5** | 0.2594 | 0.2610 | **14.8%** |
 | 2e-5 *(default, = X2)* | **0.2641** | **0.2630** | 60.0% |
-| 5e-5 | 0.2578 | 0.2488 | **94.8%** 🔴 |
+| 5e-5 | 0.2578 | 0.2488 | **94.8%** |
 
 A clean inverted-U on F1 with the shipped default at the top — so the LR *class* in
 INSTRUCTIONS.md is confirmed, and 2e-5 is genuinely the right value within it.
@@ -182,7 +182,7 @@ GPU_BUDGET §2③ recommended dropping X5 on decoders as re-deriving a known LR 
 that was right — the sweep confirms the default. It would have missed the register finding
 entirely, which is the more useful of the two. Reported as a contradiction.
 
-## 🔴 MAX_SRC 1536 — a measured negative that overturns our own hypothesis
+## MAX_SRC 1536 — a measured negative that overturns our own hypothesis
 
 At `MAX_SRC=1024`, **26.1% of training rows lose prompt tokens**: `train_ddp.py` packs prompt *and*
 answer into one budget for a causal model, and p95 combined is 1,348 tokens (prompt+system p95
@@ -236,7 +236,7 @@ rather than caught at a bounce.
 | torch / transformers | 2.8.0+cu128 / 5.14.1 |
 | peak VRAM | ~22 GB/rank at BATCH=1 (A800 40G); ~30 GB at BATCH=4 (H200) |
 
-🔴 **Throughput note:** every B arm ran **~4× slower than model C on identical hardware** (33 s/it
+**Throughput note:** every B arm ran **~4× slower than model C on identical hardware** (33 s/it
 vs 7.6 s/it on 2×A100) because `flash-linear-attention`/`causal-conv1d` are not installed, so
 Qwen3.5's Gated DeltaNet falls back to a torch implementation. Installing them is the single
 largest speedup available for any future work on this model.

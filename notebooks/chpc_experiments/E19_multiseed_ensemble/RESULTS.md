@@ -6,7 +6,7 @@ Every number below was read from `*/run.json` and `*/dev*.json` on disk and re-d
 stored predictions against `../data/english_draft/dev.parquet` — all 25 recorded Token F1 values
 reproduce to 4 decimals.
 
-## 🔴 READ THIS BEFORE COMPARING ANY TWO NUMBERS IN THIS FILE
+## READ THIS BEFORE COMPARING ANY TWO NUMBERS IN THIS FILE
 
 E19's arms are **not all scored on the same decoder.**
 
@@ -21,10 +21,10 @@ decoder is worth **+0.0074 mean (range +0.0056 … +0.0095)** — *larger than a
 E19 measures, and larger than the 0.0044 noise floor.* **Never compare a `dev.json` number with a
 `dev_e15dec.json` number.** The champion's own pair is 0.8257 (old) → **0.8328 (E15)**.
 
-⚠️ `sched777` has **no E15-decoder record at all**. Its 0.8235 is an old-decoder number and cannot
+`sched777` has **no E15-decoder record at all**. Its 0.8235 is an old-decoder number and cannot
 be placed in the same column as `sched2468`/`sched31337`.
 
-## 🔴 THE STRUCTURAL FACT: E19 contains TWO POPULATIONS, not thirteen seeds
+## THE STRUCTURAL FACT: E19 contains TWO POPULATIONS, not thirteen seeds
 
 Verified in every `run.json`. Everything else is identical — `csebuetnlp/banglat5`,
 `../data/english_draft`, 768/512, lr 1e-3, adafactor, effective batch 64, 247,577,856 params.
@@ -42,30 +42,30 @@ patience 5 stopped **all ten** seeds before that — the latest peak in the popu
 four peaked before step 9,500. The ten seeds are therefore not "the champion, reseeded" — they are
 **the champion, stopped early, reseeded**. That single difference explains both results below.
 
-## Checkpoints — 🔴 keep every arm, including the losers
+## Checkpoints — keep every arm, including the losers
 
-🔴 **All 13 `best/` kept** (944 MB of weights each, verified on disk). None uploaded to Kaggle.
+**All 13 `best/` kept** (944 MB of weights each, verified on disk). None uploaded to Kaggle.
 
 | Arm | `best/` | Token F1 **E15 dec** | Token F1 *old dec* | ROUGE-L | peak step | hours | ckpt hash (`run.json`) | GPU |
 |---|---|---|---|---|---|---|---|---|
-| `sched31337` | ✅ | **0.8332** | — | 0.8046 | **12,000** | 9.38 | `dbabe4d5a375177a` | L40S |
-| `sched2468` | ✅ | **0.8331** | — | 0.8052 | **14,500** | 3.82 ⚠️ | `2e1e2172a36f30fd` | A800 |
-| `seed11` | ✅ | 0.8319 | 0.8234 | 0.8031 | 9,750 | 5.87 | `94336739d00b6dd3` | A800 |
-| `seed1337` | ✅ | 0.8317 | 0.8258 | 0.8032 | 11,500 | 6.39 | `08f777f9dddf196b` | A800 |
-| `seed23` | ✅ | 0.8306 | 0.8221 | 0.8006 | 10,500 | 6.24 | `423cef2dc3176317` | A800 |
-| `seed42` | ✅ | 0.8301 | 0.8245 | 0.8008 | 11,000 | 6.39 | `6f7b123614d8a759` | A800 |
-| `seed2024` | ✅ | 0.8293 | 0.8227 | 0.8016 | 11,000 | 6.47 | `c3798305054e4185` | A800 |
-| `seed21` | ✅ | 0.8286 | 0.8209 | 0.8002 | 8,250 | 5.14 | `0dec2fbb13196411` | A800 |
-| `seed99` | ✅ | 0.8280 | 0.8204 | 0.7992 | 9,000 | 5.22 | `4bea1c9c5a75a061` | A800 |
-| `seed314` | ✅ | 0.8272 | 0.8198 | 0.7987 | 9,500 | 5.57 | `1f885a5fd90c82f4` | A800 |
-| `seed7` | ✅ | 0.8269 | 0.8195 | 0.7974 | 8,250 | 4.46 | `11a995ff168000ee` | A800 |
-| `seed555` | ✅ | 0.8267 | 0.8200 | 0.7978 | 9,250 | 5.23 | `d1ba76607fccc0a6` | A800 |
-| `sched777` | ✅ | **no record** | 0.8235 | 0.7937 *(old)* | 11,750 | 7.14 | `3e996d8bd4d93c88` | A800 |
-| 🏆 *champion, for reference* | — | **0.8328** | 0.8257 | 0.8039 | 12,000 | 3.8 | `6f9d4d6756032397` | H100 NVL |
+| `sched31337` | yes | **0.8332** | — | 0.8046 | **12,000** | 9.38 | `dbabe4d5a375177a` | L40S |
+| `sched2468` | yes | **0.8331** | — | 0.8052 | **14,500** | 3.82 | `2e1e2172a36f30fd` | A800 |
+| `seed11` | yes | 0.8319 | 0.8234 | 0.8031 | 9,750 | 5.87 | `94336739d00b6dd3` | A800 |
+| `seed1337` | yes | 0.8317 | 0.8258 | 0.8032 | 11,500 | 6.39 | `08f777f9dddf196b` | A800 |
+| `seed23` | yes | 0.8306 | 0.8221 | 0.8006 | 10,500 | 6.24 | `423cef2dc3176317` | A800 |
+| `seed42` | yes | 0.8301 | 0.8245 | 0.8008 | 11,000 | 6.39 | `6f7b123614d8a759` | A800 |
+| `seed2024` | yes | 0.8293 | 0.8227 | 0.8016 | 11,000 | 6.47 | `c3798305054e4185` | A800 |
+| `seed21` | yes | 0.8286 | 0.8209 | 0.8002 | 8,250 | 5.14 | `0dec2fbb13196411` | A800 |
+| `seed99` | yes | 0.8280 | 0.8204 | 0.7992 | 9,000 | 5.22 | `4bea1c9c5a75a061` | A800 |
+| `seed314` | yes | 0.8272 | 0.8198 | 0.7987 | 9,500 | 5.57 | `1f885a5fd90c82f4` | A800 |
+| `seed7` | yes | 0.8269 | 0.8195 | 0.7974 | 8,250 | 4.46 | `11a995ff168000ee` | A800 |
+| `seed555` | yes | 0.8267 | 0.8200 | 0.7978 | 9,250 | 5.23 | `d1ba76607fccc0a6` | A800 |
+| `sched777` | yes | **no record** | 0.8235 | 0.7937 *(old)* | 11,750 | 7.14 | `3e996d8bd4d93c88` | A800 |
+| *champion, for reference* | — | **0.8328** | 0.8257 | 0.8039 | 12,000 | 3.8 | `6f9d4d6756032397` | H100 NVL |
 
 ROUGE-L is quoted on the same decoder as the Token F1 beside it. All arms: 300-row frozen dev
 subset, `--seed 42 --dev-size 5000`, normalizer on.
-⚠️ `sched2468`'s 3.82 h is **not a run time** — see *Anything surprising*.
+`sched2468`'s 3.82 h is **not a run time** — see *Anything surprising*.
 
 **Why the losers matter too:** measured here, and the answer for E19 is **they do not help** —
 see the pooling gate below. That is the finding, not a reason to delete them. All 13 stay.
@@ -133,7 +133,7 @@ here, with residual seed noise on top. Nothing about the seeds themselves is bei
 
 - **What it must beat:** `EXPERIMENT.md` — the pooling gate (mean pairwise Token F1 between members
   **< 0.90**, or ensembling is abandoned) and the champion's 0.8328.
-- **Result:** ❌ **the pooling gate FAILS**, and ➖ **no single arm beats the champion**.
+- **Result:** **the pooling gate FAILS**, and **no single arm beats the champion**.
 
 ### 1. The pooling gate fails — exactly as E14 predicted
 
@@ -153,7 +153,7 @@ show higher mutual similarity than 0.87, and if they do, E19's pooling gate will
 one passed."* **It is 0.9298. The prediction was correct and the gate is failed.**
 Adding `sched2468` and `sched31337` and the champion barely moves it (0.9239 over 13 members).
 
-⚠️ Note the tension worth carrying forward: agreement is *above* the abandon line while the oracle
+Note the tension worth carrying forward: agreement is *above* the abandon line while the oracle
 headroom (+0.0276) is *larger* than E14's (+0.0195). High agreement does not mean low headroom —
 it means the disagreements are concentrated in few rows, so a selector needs to be right on a
 small, hard subset rather than broadly right. Read the gate as "seed pooling is the wrong source
@@ -218,7 +218,7 @@ It cannot be submitted or fed to a test-split ensemble without a decode pass. Ev
 one. (Only `seed11` and `seed1337` have `submission_e15.csv`, i.e. test predictions on the shipped
 decoder.)
 
-**4. 🔴 The `checkpoint_hashes` field inside every `dev*.json` / `test*.json` is not a weight
+**4. The `checkpoint_hashes` field inside every `dev*.json` / `test*.json` is not a weight
 fingerprint and must not be used as one.** `code/04_decode.py:ckpt_hash()` hashes only *file names
 and sizes*; `code/02_train_t5.py:sha256_dir()` hashes *contents*. The fix was applied to the
 training script — its docstring even records the incident (*"three different sweep arms reported
