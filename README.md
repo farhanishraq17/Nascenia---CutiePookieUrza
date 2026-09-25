@@ -92,9 +92,9 @@ Kaggle community competition <a href="https://www.kaggle.com/competitions/nascen
 | Phase 1 metric | `0.5·BERTScore + 0.3·Token-F1 + 0.2·ROUGE-L` on the hidden test split |
 | Phase 2 | Top 10 only: the organizers re-run the inference notebook (reproduction + parameter check), then an LLM judge scores clinical accuracy, tone, completeness and clarity on **their own held-out data** |
 
-Full rules: [COMPETITION_RULES.md](COMPETITION_RULES.md) (the Kaggle pages take precedence over [Rulebook_Nascenia.pdf](Rulebook_Nascenia.pdf)).
+Full rules: the competition's [Rules tab](https://www.kaggle.com/competitions/nascenia-ai-hackathon/rules), which takes precedence over the organizers' [Rulebook_Nascenia.pdf](Rulebook_Nascenia.pdf).
 
-**Early measurements that shaped everything** ([PLAN.md](PLAN.md), [LOCAL_EXPERIMENTS.md](LOCAL_EXPERIMENTS.md)):
+**Early measurements that shaped everything** ([FINE_TUNING_LOG.md](FINE_TUNING_LOG.md), [PREDICTIONS.md](PREDICTIONS.md)):
 
 - `train.csv` is **Bengali-translated ChatDoctor / HealthCareMagic-100k** with the brand find-replaced to `নাসেনিয়া ডক` (incompletely — `01_prep.py` finishes the job).
 - 76% of reference answers start with `হেলো`; boilerplate is a large, free share of lexical overlap.
@@ -130,7 +130,7 @@ That turns the task from open-ended medical QA into **register transfer**: `Engl
 | **register-transfer model, day 1** | **0.7724** | **0.7324** | **0.85030** |
 | **final champion** | **0.8348** | **0.8061** | **0.89552** |
 
-A raw lookup is not model output (Rules §8) and cannot be reproduced as a model in Phase 2, so the legal form is a **model trained on the transfer**. The source is public, free and ungated (Rules §2.6.a), and the use was disclosed to the organizers. Details: **ALIGN-01** in [LOCAL_EXPERIMENTS.md](LOCAL_EXPERIMENTS.md) and the 2026-08-05 entry in [PROGRESS.md](PROGRESS.md).
+A raw lookup is not model output (Rules §8) and cannot be reproduced as a model in Phase 2, so the legal form is a **model trained on the transfer**. The source is public, free and ungated (Rules §2.6.a), and the use was disclosed to the organizers. Details: **ALIGN-01** in [FINE_TUNING_LOG.md](FINE_TUNING_LOG.md), with the corpus provenance and translation method in [datasets/README.md](datasets/README.md) §2.
 
 ## 3. The final system
 
@@ -173,7 +173,7 @@ Both routing gates use zero-parameter char-n-gram TF-IDF, and both fail safe tow
 
 Two `transformers` versions are required and isolated on purpose: 4.57 ties BanglaT5's `shared`/`lm_head` weights and 5.x does not, and Qwen3.5 does not exist in 4.57. The champion also runs in **fp32**, because bf16 decoded 280 of 1,000 rows differently under beam 8.
 
-Write-up submitted to the organizers: [PHASE2_WRITEUP.md](PHASE2_WRITEUP.md) (it describes the two-branch bundle; the retrieval branch and id verification were added afterwards and are documented in [PHASE2_EMAIL_DRAFT.md](PHASE2_EMAIL_DRAFT.md) and the final notebook).
+The Phase 2 deliverable handed to the organizers — the router notebook, its five input datasets and an offline repro pack — is documented in [notebooks/phase2_submissions/](notebooks/phase2_submissions/) and [scripts/phase2_bundle/README.md](scripts/phase2_bundle/README.md).
 
 ## 4. Leaderboard journey
 
@@ -197,14 +197,14 @@ Implied organizer BERTScore (solved from the deterministic lexical terms): 0.934
 
 | lever | gain | evidence |
 |---|---|---|
-| Register transfer instead of QA (ALIGN-01) | +0.27 LB | [LOCAL_EXPERIMENTS.md](LOCAL_EXPERIMENTS.md) ALIGN-01, XFER |
+| Register transfer instead of QA (ALIGN-01) | +0.27 LB | [FINE_TUNING_LOG.md](FINE_TUNING_LOG.md) XFER |
 | Train to convergence | peak at 12,000–15,250 steps, not 2,750 | [E05](notebooks/chpc_experiments/E05_train_to_convergence/RESULTS.md) |
 | Feed the English source | +0.0220 Token F1 (the Bengali draft adds only +0.0053 on top of English) | [E01/E04](notebooks/chpc_experiments/RESULTS.md), [REPORT.md](REPORT.md) §2.2 |
 | Fix the decoder (drop `min_new_tokens 80`, beam 8, lp 1.2) | +0.0134 LB, a third of it BERTScore | [E15](notebooks/chpc_experiments/E15_decode_sweep/RESULTS.md) |
 | Average the run's own checkpoints around the peak | +0.0020 LB for zero training | [E15](notebooks/chpc_experiments/E15_decode_sweep/RESULTS.md) |
-| fp32 + pinned `transformers` for the champion | 1000/1000 byte-identical reproduction | [PROGRESS.md](PROGRESS.md) 08-23 |
+| fp32 + pinned `transformers` for the champion | 1000/1000 byte-identical reproduction | [scripts/phase2_bundle/README.md](scripts/phase2_bundle/README.md) |
 | Fine-tuned specialist for unseen questions | 0.2625 vs 0.1235 Token F1 | [Phase 2 results](notebooks/phase2_specialist/B_Qwen35_2B/RESULTS.md) |
-| Retrieval branch into a broad consultation corpus | 0.6257 vs 0.2616 on unresolvable rows | [PROGRESS.md](PROGRESS.md) 08-23 (later) |
+| Retrieval branch into a broad consultation corpus | 0.6257 vs 0.2616 on unresolvable rows | [scripts/phase2/router/README.md](scripts/phase2/router/README.md) |
 
 **Closed by measurement** — each with its own record, so nobody walks the same dead end twice:
 
@@ -230,19 +230,13 @@ The seed-to-seed noise floor was measured at **0.0044 Token F1**; anything below
 ```
 .
 ├── README.md                     ← you are here
-├── PROGRESS.md                   chronological journal (newest first) — start here to catch up
-├── REPORT.md                     GPU experiment-program report (08-11 snapshot, updated header)
-├── PHASE2_WRITEUP.md             Phase 2 write-up submitted to the organizers
-├── PHASE2_EMAIL_DRAFT.md         Phase 2 handover: notebook, datasets, how to run, selection proof
-├── PLAN.md                       strategy as it evolved — including its retractions
-├── LOCAL_EXPERIMENTS.md          every run: config, all metric components, verdict
+├── REPORT.md                     GPU experiment-program report — start here to catch up
 ├── PREDICTIONS.md                dev ↔ leaderboard table and calibrated predictors
 ├── FINE_TUNING_LOG.md            Kaggle-era training log (Q→A sweep, first transfer runs)
-├── GPT_DATASET_FIND.md           external-data fitness audit
 ├── DATASETS.md                   short data / model / tool disclosure (Phase 2)
-├── COMPETITION_RULES.md          rules, transcribed from Kaggle
 ├── Rulebook_Nascenia.pdf         organizer rulebook (background; Kaggle governs)
 ├── MODEL_LIST.md                 day-1 candidate model list
+├── assets/                       the champion graphic used above
 │
 ├── notebooks/                    every Kaggle / cluster notebook — index: notebooks/README.md
 │   ├── phase1_kaggle_training/   T4 training: seed runs, Q→A sweep A–G, register transfer, mT5
@@ -272,12 +266,11 @@ The seed-to-seed noise floor was measured at **0.0044 Token F1**; anything below
 
 | question | read |
 |---|---|
-| What happened, in order? | [PROGRESS.md](PROGRESS.md) |
-| Why was a decision made, and what was retracted? | [PLAN.md](PLAN.md) |
-| What exactly did run *X* score? | [LOCAL_EXPERIMENTS.md](LOCAL_EXPERIMENTS.md) · [FINE_TUNING_LOG.md](FINE_TUNING_LOG.md) |
+| What was tried, and what did it score? | [REPORT.md](REPORT.md) · [FINE_TUNING_LOG.md](FINE_TUNING_LOG.md) |
+| What exactly did experiment *EXX* find? | [notebooks/chpc_experiments/](notebooks/chpc_experiments/README.md) — one `EXPERIMENT.md` + `RESULTS.md` per arm |
 | How does dev map to the leaderboard? | [PREDICTIONS.md](PREDICTIONS.md) |
 | What did the GPU program find? | [REPORT.md](REPORT.md) · [notebooks/chpc_experiments/](notebooks/chpc_experiments/README.md) |
-| How does the Phase 2 system work, and what data does it use? | [PHASE2_WRITEUP.md](PHASE2_WRITEUP.md) · [PHASE2_EMAIL_DRAFT.md](PHASE2_EMAIL_DRAFT.md) · [notebooks/phase2_specialist/](notebooks/phase2_specialist/README.md) |
+| How does the Phase 2 system work, and what data does it use? | [notebooks/phase2_specialist/](notebooks/phase2_specialist/README.md) · [scripts/phase2_bundle/README.md](scripts/phase2_bundle/README.md) · §9.1 above |
 | Which traps cost us time? | [REPORT.md](REPORT.md) §5 · §11 below |
 | Where did each dataset come from? | [datasets/README.md](datasets/README.md) |
 | Which notebook / script does what? | [notebooks/README.md](notebooks/README.md) · [scripts/README.md](scripts/README.md) |
@@ -386,7 +379,7 @@ discarded once it was found to contain the competition train split in full, and 
 | google/mt5-base · swapnillo/Bangla-AI-1.7B · Gemma-2-2B-IT · Qwen3 / Qwen2.5 / Qwen3.5-0.8B · IndicBART | — | — | evaluated, not shipped (E08, E18, Phase 2 arms A/C) |
 | intfloat/multilingual-e5-base | ~278M | MIT | RAG ablations only — not in the pipeline |
 
-**Use restrictions.** The competition data is non-commercial, BanglaT5 is CC BY-NC-SA, and ChatDoctor data is *"for academic research only; commercial and clinical use prohibited."* This work is a competition entry and research artifact, **not a medical device**; the pipeline must not be deployed commercially or clinically. The licence reasoning for the competition's winner-licensing rule is in [PHASE2_WRITEUP.md](PHASE2_WRITEUP.md) §5. No licence has been chosen for this repository's own code yet.
+**Use restrictions.** The competition data is non-commercial, BanglaT5 is CC BY-NC-SA, and ChatDoctor data is *"for academic research only; commercial and clinical use prohibited."* This work is a competition entry and research artifact, **not a medical device**; the pipeline must not be deployed commercially or clinically. The licence status of every corpus is recorded in [datasets/README.md](datasets/README.md). No licence has been chosen for this repository's own code yet.
 
 ## 10. Kaggle artifacts
 
@@ -412,7 +405,7 @@ The full list (checkpoints, code snapshots, probe data, per-account copies) is i
 
 ## 11. Hard-won lessons
 
-Each of these cost real GPU hours. The six silent bugs behind them are dissected in [REPORT.md](REPORT.md) §5, and every run that hit one is recorded in [LOCAL_EXPERIMENTS.md](LOCAL_EXPERIMENTS.md).
+Each of these cost real GPU hours. The six silent bugs behind them are dissected in [REPORT.md](REPORT.md) §5.
 
 1. **Pin `transformers==4.57.3` and assert it.** Kaggle's 5.0.0 produced loss ~163, untied embeddings and silent stalls — one root cause that looked like five bugs.
 2. **Never fp16 with T5.** It overflows to NaN *silently* and still writes a well-formed CSV of garbage. Every inference notebook asserts a known dev number before writing.
@@ -442,7 +435,7 @@ The journals quote paths from the original working tree. They map as follows:
 | `fine_tune_project/data/`, `DATA/` | not uploaded — documented in `datasets/` |
 | `fine_tune_project/E15_decode_sweep/ckptavg_peak5/` | weights: Kaggle `farhanishraqq/nascenia-peak5-checkpoint-average` |
 | `Phase2 Final architecture/` | `notebooks/phase2_specialist/` + `scripts/phase2/` |
-| `PHASE2_BUNDLE_latest/PHASE2_BUNDLE/` | `scripts/phase2_bundle/` (+ `PHASE2_WRITEUP.md` at the root) |
+| `PHASE2_BUNDLE_latest/PHASE2_BUNDLE/` | `scripts/phase2_bundle/` |
 | `FINAL SUBMISSION_DRAFT/` | `notebooks/phase1_submissions/08_peak5_inference_LB0.89552/` |
 | `RULEBOOK/`, `MODELS/` | repo root |
 | `PHASE_2_EXP/` (mentioned in older notes) | superseded by `notebooks/phase2_specialist/` |
@@ -452,12 +445,12 @@ The journals quote paths from the original working tree. They map as follows:
 
 ### Further reading
 
-[**Journal**](PROGRESS.md) &nbsp;·&nbsp;
-[**Strategy**](PLAN.md) &nbsp;·&nbsp;
-[**Experiments**](LOCAL_EXPERIMENTS.md) &nbsp;·&nbsp;
 [**GPU report**](REPORT.md) &nbsp;·&nbsp;
+[**Training log**](FINE_TUNING_LOG.md) &nbsp;·&nbsp;
 [**Predictions**](PREDICTIONS.md) &nbsp;·&nbsp;
-[**Phase 2 write-up**](PHASE2_WRITEUP.md) &nbsp;·&nbsp;
+[**Experiments**](notebooks/chpc_experiments/README.md) &nbsp;·&nbsp;
+[**Notebooks**](notebooks/README.md) &nbsp;·&nbsp;
+[**Scripts**](scripts/README.md) &nbsp;·&nbsp;
 [**Datasets**](datasets/README.md)
 
 ---

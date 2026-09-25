@@ -137,7 +137,7 @@ restriction, the translation method above, row counts, and the dedup/filter rule
   register-transfer runs; it carries the split labels and the leak removal that file lacked.
 - Register-transfer recipe + the 16-experiment follow-on program: `fine_tune_project/`.
 - The alignment finding itself: **ALIGN-01** in
-  [`LOCAL_EXPERIMENTS.md`](../../../LOCAL_EXPERIMENTS.md).
+  `LOCAL_EXPERIMENTS.md`.
 
 ## Rebuild
 

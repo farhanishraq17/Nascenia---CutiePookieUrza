@@ -6,7 +6,7 @@ Self-contained. **1.8 GB**: data, source corpora, code and **20 experiment specs
 this folder is required.
 
 > ### Current state
-> **This header is stale — see [PROGRESS.md](../../PROGRESS.md) for the real current state
+> **This header is stale — see `PROGRESS.md` for the real current state
 > (0.89552, #1, shipped model is `E15_decode_sweep/ckptavg_peak5`).** Kept as historical context
 > for the wave plan below, not as a live status line.
 >

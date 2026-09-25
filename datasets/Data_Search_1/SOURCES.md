@@ -5,7 +5,7 @@ loading them**, not by trusting dataset cards.
 
 Task we are matching: **Bengali patient prompt → Bengali doctor response**
 (Nascenia AI Hackathon). See
-[`../../QUESTIONS-FOR-ORGANIZERS.md`](../../QUESTIONS-FOR-ORGANIZERS.md) §B1 for
+`QUESTIONS-FOR-ORGANIZERS.md` §B1 for
 the unresolved question of whether external data is even permitted.
 
 > **Nothing here has been cleared for use yet.** Rulebook §2 is

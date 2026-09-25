@@ -96,7 +96,7 @@ The `train.ipynb` files are **specification templates** written before the run. 
 
 ## phase2_specialist
 
-The Phase 2 model study. The champion cannot answer without a draft (Token F1 0.1235), and the organizers' judging data never resolves to one, so this study trained a second model on real question → answer pairs. Read its [README](phase2_specialist/README.md) → [GPU_BUDGET.md](phase2_specialist/GPU_BUDGET.md) → [DATA_GUIDE.md](phase2_specialist/DATA_GUIDE.md) → [EXPERIMENTS.md](phase2_specialist/EXPERIMENTS.md) (arms X0–X7, D1–D3). [HANDOFF_PROMPT.md](phase2_specialist/HANDOFF_PROMPT.md) is the self-contained prompt handed to the teammate's assistant that ran the study on the cluster (the E-program's equivalent is [chpc_experiments/HANDOFF_PROMPTS.md](chpc_experiments/HANDOFF_PROMPTS.md)).
+The Phase 2 model study. The champion cannot answer without a draft (Token F1 0.1235), and the organizers' judging data never resolves to one, so this study trained a second model on real question → answer pairs. Read its [README](phase2_specialist/README.md) → [GPU_BUDGET.md](phase2_specialist/GPU_BUDGET.md) → [DATA_GUIDE.md](phase2_specialist/DATA_GUIDE.md) → [EXPERIMENTS.md](phase2_specialist/EXPERIMENTS.md) (arms X0–X7, D1–D3). [HANDOFF_PROMPT.md](phase2_specialist/HANDOFF_PROMPT.md) is the self-contained prompt handed to the teammate's assistant that ran the study on the cluster.
 
 | folder | model | params | best held-out Token F1 (n=1000) | verdict |
 |---|---|---|---|---|

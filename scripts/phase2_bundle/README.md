@@ -1,6 +1,6 @@
 # Phase 2 repro pack
 
-The standalone, off-Kaggle version of the Phase 2 pipeline, as delivered to the organizers in the Kaggle dataset `farhanishraqq/nascenia-phase2-repro-pack`. The organizer-facing description is [README_KAGGLE.md](README_KAGGLE.md); the write-up is [../../PHASE2_WRITEUP.md](../../PHASE2_WRITEUP.md).
+The standalone, off-Kaggle version of the Phase 2 pipeline, as delivered to the organizers in the Kaggle dataset `farhanishraqq/nascenia-phase2-repro-pack`. The organizer-facing description is [README_KAGGLE.md](README_KAGGLE.md); the write-up is `PHASE2_WRITEUP.md`.
 
 | path | what |
 |---|---|

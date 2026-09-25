@@ -1,4 +1,4 @@
-> **Repo note.** This is `Phase2 Final architecture/README.md`, written before the study ran. In this repo `shared/` and `router/` are in [`scripts/phase2/`](../../scripts/phase2/), `data/` is not uploaded (inventory: [`datasets/phase2_bundled/DATASETS.md`](../../datasets/phase2_bundled/DATASETS.md)), and each model's `RESULTS.md` is the final version from the Phase 2 bundle. **Outcome:** B_Qwen35_2B arm D1 shipped as the specialist (held-out Token F1 0.2625); mT5-base turned out the weakest of the three — see [`PHASE2_WRITEUP.md`](../../PHASE2_WRITEUP.md).
+> **Repo note.** This is `Phase2 Final architecture/README.md`, written before the study ran. In this repo `shared/` and `router/` are in [`scripts/phase2/`](../../scripts/phase2/), `data/` is not uploaded (inventory: [`datasets/phase2_bundled/DATASETS.md`](../../datasets/phase2_bundled/DATASETS.md)), and each model's `RESULTS.md` is the final version from the Phase 2 bundle. **Outcome:** B_Qwen35_2B arm D1 shipped as the specialist (held-out Token F1 0.2625); mT5-base turned out the weakest of the three — see `PHASE2_WRITEUP.md`.
 
 # Phase 2 Final Architecture — build the generalist specialist
 

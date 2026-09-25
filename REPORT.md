@@ -6,7 +6,7 @@
 > shipped model (`fine_tune_project/E15_decode_sweep/ckptavg_peak5/`). §7's "ship the champion" now
 > means that average, not `E05/english_draft/best`. §4's reproduction gap was addressed by
 > re-submitting from the notebook itself on 08-15.
-> Current state: [PROGRESS.md](PROGRESS.md) · [PREDICTIONS.md](PREDICTIONS.md) ·
+> Current state: `PROGRESS.md` · [PREDICTIONS.md](PREDICTIONS.md) ·
 > `fine_tune_project/E15_decode_sweep/RESULTS.md`.
 
 **2026-08-11** · CHPC granite + notchpeak · ~40 arms trained across 5 VRAM tiers
