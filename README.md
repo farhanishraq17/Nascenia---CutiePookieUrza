@@ -353,7 +353,7 @@ Full catalogue with links and processing notes: **[datasets/README.md](datasets/
 | google/mt5-base · swapnillo/Bangla-AI-1.7B · Gemma-2-2B-IT · Qwen3 / Qwen2.5 / Qwen3.5-0.8B · IndicBART | — | — | evaluated, not shipped (E08, E18, Phase 2 arms A/C) |
 | intfloat/multilingual-e5-base | ~278M | MIT | RAG ablations only — not in the pipeline |
 
-⚠️ **Use restrictions.** The competition data is non-commercial, BanglaT5 is CC BY-NC-SA, and ChatDoctor data is *"for academic research only; commercial and clinical use prohibited."* This work is a competition entry and research artifact, **not a medical device**; the pipeline must not be deployed commercially or clinically. The licence reasoning for the competition's winner-licensing rule is in [PHASE2_WRITEUP.md](PHASE2_WRITEUP.md) §5. No licence has been chosen for this repository's own code yet.
+**Use restrictions.** The competition data is non-commercial, BanglaT5 is CC BY-NC-SA, and ChatDoctor data is *"for academic research only; commercial and clinical use prohibited."* This work is a competition entry and research artifact, **not a medical device**; the pipeline must not be deployed commercially or clinically. The licence reasoning for the competition's winner-licensing rule is in [PHASE2_WRITEUP.md](PHASE2_WRITEUP.md) §5. No licence has been chosen for this repository's own code yet.
 
 ## 10. Kaggle artifacts
 
@@ -361,7 +361,7 @@ All are **private** to the team; the organizers were given access for Phase 2.
 
 | notebook | what |
 |---|---|
-| [`farhanishraqq/cpu-final-submission`](https://www.kaggle.com/code/farhanishraqq/cpu-final-submission) | 🏁 final Phase 2 notebook (router) — produced the selected 0.89552 submission |
+| [`farhanishraqq/cpu-final-submission`](https://www.kaggle.com/code/farhanishraqq/cpu-final-submission) | final Phase 2 notebook (router) — produced the selected 0.89552 submission |
 | [`farhanishraqq/nascenia-peak5-inference`](https://www.kaggle.com/code/farhanishraqq/nascenia-peak5-inference) | champion-only inference, 0.89552 |
 | [`farhanishraqq/nascenia-e05-inference`](https://www.kaggle.com/code/farhanishraqq/nascenia-e05-inference) | 0.89347 |
 | [`didhitinahid/nascenia-submit-xfer-s11`](https://www.kaggle.com/code/didhitinahid/nascenia-submit-xfer-s11) | first register-transfer submission, 0.85030 |
@@ -448,6 +448,6 @@ the ChatDoctor corpora are released for academic research only, with commercial
 and clinical use prohibited. The pipeline must not be deployed commercially or
 clinically, and nothing it generates is medical advice.</sub>
 
-<sub>Nascenia AI Hackathon on Kaggle · Team CutiePookieUrza · farhanishraq17@iut-dhaka.edu</sub>
+<sub>Nascenia AI Hackathon on Kaggle · Team CutiePookieUrza · farhanishraq777@gmail.com</sub>
 
 </div>
