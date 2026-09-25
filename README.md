@@ -238,8 +238,6 @@ The seed-to-seed noise floor was measured at **0.0044 Token F1**; anything below
 ├── LOCAL_EXPERIMENTS.md          every run: config, all metric components, verdict
 ├── PREDICTIONS.md                dev ↔ leaderboard table and calibrated predictors
 ├── FINE_TUNING_LOG.md            Kaggle-era training log (Q→A sweep, first transfer runs)
-├── CLAUDE.md                     project working memory: rules, traps, settled decisions
-├── GPT-INSTRUCTIONS.md           condensed briefing for other assistants (08-07)
 ├── GPT_DATASET_FIND.md           external-data fitness audit
 ├── DATASETS.md                   short data / model / tool disclosure (Phase 2)
 ├── COMPETITION_RULES.md          rules, transcribed from Kaggle
@@ -280,7 +278,7 @@ The seed-to-seed noise floor was measured at **0.0044 Token F1**; anything below
 | How does dev map to the leaderboard? | [PREDICTIONS.md](PREDICTIONS.md) |
 | What did the GPU program find? | [REPORT.md](REPORT.md) · [notebooks/chpc_experiments/](notebooks/chpc_experiments/README.md) |
 | How does the Phase 2 system work, and what data does it use? | [PHASE2_WRITEUP.md](PHASE2_WRITEUP.md) · [PHASE2_EMAIL_DRAFT.md](PHASE2_EMAIL_DRAFT.md) · [notebooks/phase2_specialist/](notebooks/phase2_specialist/README.md) |
-| Which traps cost us time? | [CLAUDE.md](CLAUDE.md) → "Traps already hit" |
+| Which traps cost us time? | [REPORT.md](REPORT.md) §5 · §11 below |
 | Where did each dataset come from? | [datasets/README.md](datasets/README.md) |
 | Which notebook / script does what? | [notebooks/README.md](notebooks/README.md) · [scripts/README.md](scripts/README.md) |
 
@@ -338,14 +336,47 @@ Build the data with [`scripts/phase2/shared/build_data.py`](scripts/phase2/share
 
 ## 9. Data, models and licences
 
-Full catalogue with links and processing notes: **[datasets/README.md](datasets/README.md)**. In short:
+### 9.1 Datasets in the pipeline
 
-| data | rows | role |
-|---|---|---|
-| Competition `train.csv` / `test.csv` (CC BY-NC 4.0) | 108,954 / 1,000 | targets; frozen split 101,740 train / 5,000 dev |
-| ChatDoctor HealthCareMagic-100k — English + **our** Bengali translation (research-only) | 112,154 → 107,737 aligned pairs | champion inputs (`english + draft`) |
-| ChatDoctor iCliniq — our Bengali translation (research-only) | 7,321 | specialist training (D1) |
-| ai-medical-chatbot — our Bengali translation | 166,193 | retrieval corpus for router branch 2 (not trained on) |
+Five datasets reach the shipped system. Every other corpus the project touched was
+surveyed, translated or ablated and then left out; all of them, with the verdict that
+closed each one, are catalogued in **[datasets/README.md](datasets/README.md)**.
+
+| # | Dataset | Role in the pipeline | Rows used | Licence |
+|:--:|---|---|---|---|
+| 1 | **Nascenia AI Hackathon** `train.csv` / `test.csv`<br><sub>[Kaggle data tab](https://www.kaggle.com/competitions/nascenia-ai-hackathon/data)</sub> | **Targets.** Brand normalisation finished, 2,214 degenerate rows dropped, frozen seed-42 split into **101,740 train / 5,000 dev**. Also trains the specialist. | 108,954 train<br>1,000 test | CC BY-NC 4.0 |
+| 2 | **ChatDoctor — HealthCareMagic-100k**, English originals<br><sub>[Kent0n-Li/ChatDoctor](https://github.com/Kent0n-Li/ChatDoctor) · [HF mirror](https://huggingface.co/datasets/lavita/ChatDoctor-HealthCareMagic-100k)</sub> | **Champion input field `english`.** Joined to competition ids by row index (ALIGN-01) — the stronger of the two inputs, worth **+0.0220** Token F1 on its own. | 112,165 → **107,737** aligned pairs | code Apache-2.0; data *academic research only* |
+| 3 | **Our Bengali translation of HealthCareMagic**<br><sub>derived by the team, Google Translate (`client=gtx`)</sub> | **Champion input field `draft`** — the text the model restyles into the organizers' register. Keyed `hcm_<row index>`; resolves for 1,000/1,000 test ids. Adds **+0.0053** on top of English. | 112,154 → **107,737** aligned pairs | ChatDoctor terms; translation ours |
+| 4 | **ChatDoctor — iCliniq**, our Bengali translation<br><sub>[same repo](https://github.com/Kent0n-Li/ChatDoctor) · [HF subset](https://huggingface.co/datasets/Malikeh1375/medical-question-answering-datasets)</sub> | **Specialist training**, added to the competition rows as arm **D1** (109,061 rows). Same translation pass, so the register fingerprint matches. | 7,321 | ChatDoctor terms |
+| 5 | **AI Medical Chatbot**, our Bengali translation<br><sub>[ruslanmv/ai-medical-chatbot](https://huggingface.co/datasets/ruslanmv/ai-medical-chatbot)</sub> | **Retrieval corpus for router branch 2, at inference only — never trained on** (it opens `হাই`/`হ্যালো` 70% of the time against the references' `হেলো` 76%). 10,390 duplicate pairs and 81,170 ChatDoctor-derived inputs removed first. | 256,916 → 166,427 → **166,193** | Apache-2.0 as declared |
+
+```mermaid
+flowchart LR
+    D1["1 · competition<br/>train + test"]
+    D2["2 · ChatDoctor EN"]
+    D3["3 · our BN draft"]
+    D4["4 · iCliniq BN"]
+    D5["5 · AI Medical<br/>Chatbot BN"]
+
+    D2 --> CH["BanglaT5 champion<br/>english + draft → target"]
+    D3 --> CH
+    D1 --> CH
+    D1 --> SP["Qwen3.5-2B specialist<br/>question → answer"]
+    D4 --> SP
+    D5 --> RT["TF-IDF retrieval<br/>(inference only)"]
+    RT --> CH
+
+    classDef data fill:#FDF0E4,stroke:#F47B20,stroke-width:2px,color:#7A3D06
+    classDef model fill:#E8F1EE,stroke:#1B4D3E,stroke-width:2px,color:#0F2F26
+    class D1,D2,D3,D4,D5 data
+    class CH,SP,RT model
+```
+
+Nothing else was trained on. In particular the 410,525-row Bengali master set was
+discarded once it was found to contain the competition train split in full, and the
+123,289-row `MASTER_C_BENGALI` warm-start corpus bought only +0.0028 and was dropped.
+
+### 9.2 Models and licences
 
 | model | params | licence | role |
 |---|---|---|---|
@@ -381,7 +412,7 @@ The full list (checkpoints, code snapshots, probe data, per-account copies) is i
 
 ## 11. Hard-won lessons
 
-Each of these cost real GPU hours. The full list, with root causes, is under "Traps already hit" in [CLAUDE.md](CLAUDE.md) and in [REPORT.md](REPORT.md) §5.
+Each of these cost real GPU hours. The six silent bugs behind them are dissected in [REPORT.md](REPORT.md) §5, and every run that hit one is recorded in [LOCAL_EXPERIMENTS.md](LOCAL_EXPERIMENTS.md).
 
 1. **Pin `transformers==4.57.3` and assert it.** Kaggle's 5.0.0 produced loss ~163, untied embeddings and silent stalls — one root cause that looked like five bugs.
 2. **Never fp16 with T5.** It overflows to NaN *silently* and still writes a well-formed CSV of garbage. Every inference notebook asserts a known dev number before writing.
