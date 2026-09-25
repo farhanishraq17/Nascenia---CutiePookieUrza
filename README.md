@@ -1,33 +1,80 @@
-# Nascenia AI Hackathon — Bengali Medical Dialogue Generation
+<div align="center">
 
-**Team CutiePookieUrza** · Kaggle community competition [`nascenia-ai-hackathon`](https://www.kaggle.com/competitions/nascenia-ai-hackathon) (private) · July–August 2026
+# নাসেনিয়া ডক · Nascenia Doc
 
-> Given a patient's message in **Bengali**, generate the doctor's reply — using **at most 3 B parameters** at inference, counting every model in the pipeline.
+### Register-transfer generation for Bengali medical dialogue under a 3-billion-parameter budget
+
+**নাসেনিয়া ডক** — *the clinician the corpus speaks as, and the voice the model had to learn*
+
+**Champion — Nascenia AI Hackathon on Kaggle, 2026**
+
+[![Leaderboard](https://img.shields.io/badge/public_LB-0.89552-1B4D3E?style=flat-square)](#4-leaderboard-journey)
+[![Private LB](https://img.shields.io/badge/private_LB-0.89418-1B4D3E?style=flat-square)](#4-leaderboard-journey)
+[![Parameters](https://img.shields.io/badge/parameters-2.13B_/_3B_cap-F47B20?style=flat-square)](#3-the-final-system)
+[![BanglaT5](https://img.shields.io/badge/BanglaT5-247.6M-8A7208?style=flat-square)](https://huggingface.co/csebuetnlp/banglat5)
+[![Qwen3.5](https://img.shields.io/badge/Qwen3.5-1.88B-8A7208?style=flat-square)](https://huggingface.co/Qwen/Qwen3.5-2B)
+[![Reproducible](https://img.shields.io/badge/reproduction-byte--identical-117A65?style=flat-square)](#8-reproducing-the-results)
+
+**Ishmam Tahmid**¹ · **Md. Farhan Ishraq**¹ · **Didhiti Nahid**¹ · **Tamim Muhammad Rayeed**²
+
+<sub>¹ Islamic University of Technology &nbsp;·&nbsp; ² University of Dhaka<br>
+Team **CutiePookieUrza** · Kaggle community competition <a href="https://www.kaggle.com/competitions/nascenia-ai-hackathon"><code>nascenia-ai-hackathon</code></a> · July–August 2026</sub>
+
+<br>
+
+<img src="assets/champion.jpg" alt="Nascenia AI Hackathon on Kaggle — Champion, Team CutiePookieUrza" width="560">
+
+</div>
+
+---
+
+> Given a patient's message in **Bengali**, generate the doctor's reply — with
+> **at most 3 billion parameters** at inference, counting every model in the pipeline.
+>
+> The competition was not decided by a better medical model. It was decided by
+> reading the metric and then reading the data: the reference answers are one
+> particular **translation** of a public English corpus, and the competition `id`
+> is that corpus's **row index**. That reframes open-ended medical QA as
+> **register transfer** — and moved the leaderboard by **+0.27**, more than every
+> hyperparameter lever in the project combined.
+
+<table>
+<tr>
+<td width="25%" align="center"><h3>0.89552</h3>public leaderboard — #1 for most of Phase 1, #3 at the close</td>
+<td width="25%" align="center"><h3>0.89418</h3>private leaderboard, selected submission <code>55715906</code></td>
+<td width="25%" align="center"><h3>2.13B</h3>total inference parameters — 871 M under the cap</td>
+<td width="25%" align="center"><h3>1000/1000</h3>rows reproduced byte for byte by the organizers' notebook</td>
+</tr>
+</table>
 
 | | |
 |---|---|
-| **Phase 1 — public leaderboard** | **0.89552** · #1 through mid-August, #3 in the final hours of Phase 1 |
-| **Phase 1 — private leaderboard** | **0.89418** (selected submission `55715906`) |
-| **Outcome** | Top-10 finalist → Phase 2 (organizers re-run our notebook and score it with an LLM judge on their own private data) |
-| **Final system** | 3-way router: **BanglaT5** register-transfer *champion* (247,577,856) + **Qwen3.5-2B** *specialist* (1,881,825,088) = **2,129,402,944 parameters** (871 M under the cap) |
-| **Reproducibility** | The final notebook regenerates the scored CSV **byte for byte** (sha256 `45a7ee592f7520bb…898aaa7e`) |
+| **Outcome** | Top-10 finalist → Phase 2, where the organizers re-run our notebook and an LLM judge scores it on their own private data |
+| **Final system** | 3-way router: **BanglaT5** register-transfer *champion* (247,577,856) + **Qwen3.5-2B** *specialist* (1,881,825,088) = **2,129,402,944** parameters |
+| **Reproducibility** | The final notebook regenerates the scored CSV byte for byte (sha256 `45a7ee592f7520bb…898aaa7e`) |
+| **Phase 1 metric** | `0.5·BERTScore + 0.3·Token-F1 + 0.2·ROUGE-L`; final score `0.8 × Phase 1 + 0.2 × Phase 2` |
 
 ---
 
 ## Contents
 
-1. [The task](#1-the-task)
-2. [The finding that decided the competition](#2-the-finding-that-decided-the-competition)
-3. [The final system](#3-the-final-system)
-4. [Leaderboard journey](#4-leaderboard-journey)
-5. [What worked, and what we closed by measurement](#5-what-worked-and-what-we-closed-by-measurement)
-6. [Repository layout](#6-repository-layout)
-7. [Where to read what](#7-where-to-read-what)
-8. [Reproducing the results](#8-reproducing-the-results)
-9. [Data, models and licences](#9-data-models-and-licences)
-10. [Kaggle artifacts](#10-kaggle-artifacts)
-11. [Hard-won lessons](#11-hard-won-lessons)
-12. [Old path → repo path](#12-old-path--repo-path)
+**The argument**
+&nbsp;&nbsp;[1. The task](#1-the-task) ·
+[2. The finding that decided the competition](#2-the-finding-that-decided-the-competition) ·
+[3. The final system](#3-the-final-system)
+
+**The evidence**
+&nbsp;&nbsp;[4. Leaderboard journey](#4-leaderboard-journey) ·
+[5. What worked, and what we closed by measurement](#5-what-worked-and-what-we-closed-by-measurement)
+
+**The code**
+&nbsp;&nbsp;[6. Repository layout](#6-repository-layout) ·
+[7. Where to read what](#7-where-to-read-what) ·
+[8. Reproducing the results](#8-reproducing-the-results) ·
+[9. Data, models and licences](#9-data-models-and-licences) ·
+[10. Kaggle artifacts](#10-kaggle-artifacts) ·
+[11. Hard-won lessons](#11-hard-won-lessons) ·
+[12. Old path → repo path](#12-old-path--repo-path)
 
 ---
 
@@ -64,6 +111,11 @@ flowchart LR
     EN --> M["BanglaT5<br/>register transfer"]
     D --> M
     M -->|"reproduces"| T
+
+    classDef src fill:#FDF0E4,stroke:#F47B20,stroke-width:2px,color:#7A3D06
+    classDef tgt fill:#E8F1EE,stroke:#1B4D3E,stroke-width:2px,color:#0F2F26
+    class EN,D src
+    class T,M tgt
 ```
 
 That turns the task from open-ended medical QA into **register transfer**: `English source + our Bengali draft → the organizers' Bengali wording`.
@@ -92,6 +144,13 @@ flowchart TD
     C1 --> O["submission.csv<br/>id, output"]
     C2 --> O
     S --> O
+
+    classDef gate fill:#FDF0E4,stroke:#F47B20,stroke-width:2px,color:#7A3D06
+    classDef champ fill:#E8F1EE,stroke:#1B4D3E,stroke-width:2px,color:#0F2F26
+    classDef spec fill:#F3EFE2,stroke:#8A7208,stroke-width:2px,color:#4A3D04
+    class G1,G2 gate
+    class C1,C2 champ
+    class S spec
 ```
 
 | | Champion | Specialist |
@@ -354,7 +413,41 @@ The journals quote paths from the original working tree. They map as follows:
 | `FINAL SUBMISSION_DRAFT/` | `notebooks/phase1_submissions/08_peak5_inference_LB0.89552/` |
 | `RULEBOOK/`, `MODELS/` | repo root |
 | `PHASE_2_EXP/` (mentioned in older notes) | superseded by `notebooks/phase2_specialist/` |
+---
+
+<div align="center">
+
+### Further reading
+
+[**Journal**](PROGRESS.md) &nbsp;·&nbsp;
+[**Strategy**](PLAN.md) &nbsp;·&nbsp;
+[**Experiments**](LOCAL_EXPERIMENTS.md) &nbsp;·&nbsp;
+[**GPU report**](REPORT.md) &nbsp;·&nbsp;
+[**Predictions**](PREDICTIONS.md) &nbsp;·&nbsp;
+[**Phase 2 write-up**](PHASE2_WRITEUP.md) &nbsp;·&nbsp;
+[**Datasets**](datasets/README.md)
 
 ---
 
-**Acknowledgements.** Nascenia for organizing the competition; csebuetnlp for BanglaT5 and the Bengali normalizer; the ChatDoctor authors for releasing their data; the Qwen team; and the CHPC clusters that ran the GPU program.
+*Every number in this repository was measured, and every dead end is written
+down next to the result that closed it. The negative results are the point: they
+are what stops the same ground being walked twice.*
+
+---
+
+**Acknowledgements.** Nascenia, for organising the competition and for keeping
+the leaderboard honest; csebuetnlp, for BanglaT5 and the Bengali normalizer; the
+ChatDoctor authors, for releasing their corpus; the Qwen team; and the CHPC
+clusters granite and notchpeak, which ran the ~60-arm experiment program.
+
+---
+
+<sub>This work is a competition entry and a research artifact — **not a medical
+device**. The competition data is CC BY-NC 4.0, BanglaT5 is CC BY-NC-SA 4.0, and
+the ChatDoctor corpora are released for academic research only, with commercial
+and clinical use prohibited. The pipeline must not be deployed commercially or
+clinically, and nothing it generates is medical advice.</sub>
+
+<sub>Nascenia AI Hackathon on Kaggle · Team CutiePookieUrza · farhanishraq17@iut-dhaka.edu</sub>
+
+</div>
