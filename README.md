@@ -15,7 +15,7 @@
 [![Qwen3.5](https://img.shields.io/badge/Qwen3.5-1.88B-8A7208?style=flat-square)](https://huggingface.co/Qwen/Qwen3.5-2B)
 [![Reproducible](https://img.shields.io/badge/reproduction-byte--identical-117A65?style=flat-square)](#8-reproducing-the-results)
 
-**Ishmam Tahmid**¹ · **Md. Farhan Ishraq**¹ · **Didhiti Nahid**¹ · **Tamim Muhammad Rayeed**²
+**Md. Farhan Ishraq**¹ · **Didhiti Nahid**¹ · **Tamim Muhammad Rayeed**² · **Ishmam Tahmid**¹
 
 <sub>¹ Islamic University of Technology &nbsp;·&nbsp; ² University of Dhaka<br>
 Team **CutiePookieUrza** · Kaggle community competition <a href="https://www.kaggle.com/competitions/nascenia-ai-hackathon"><code>nascenia-ai-hackathon</code></a> · July–August 2026</sub>
